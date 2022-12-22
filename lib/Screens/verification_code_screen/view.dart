@@ -1,3 +1,4 @@
+import 'package:e_commerce/Screens/navigator_screen/view/view.dart';
 import 'package:e_commerce/Screens/number_verification_screen/view.dart';
 import 'package:e_commerce/Screens/verification_code_screen/widget.dart';
 import 'package:e_commerce/core/size.dart';
@@ -140,7 +141,9 @@ class ScreenVerificationCode extends StatelessWidget {
                     ),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => ScreenNavigator());
+                },
                 child: const Text(
                   'Continue',
                   style: buttonStyle,

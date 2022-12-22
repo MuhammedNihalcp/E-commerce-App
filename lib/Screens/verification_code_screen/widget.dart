@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TextEditorForPhoneVerify extends StatelessWidget {
+  const TextEditorForPhoneVerify({super.key});
+
   //  final TextEditingController code;
 
   //  TextEditorForPhoneVerify(this.code);
