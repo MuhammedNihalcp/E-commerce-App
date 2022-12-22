@@ -1,3 +1,4 @@
+import 'package:e_commerce/Screens/number_verification_screen/view.dart';
 import 'package:e_commerce/Screens/sign_in/view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
@@ -17,15 +18,28 @@ class ScreenSignUp extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         bottom: PreferredSize(
-          child: SizedBox(),
           preferredSize: Size.fromHeight(height * 0.15),
+          child: Padding(
+            padding: EdgeInsets.only(right: width * 0.6),
+            child: Column(
+              children: [
+                const Text(
+                  'Sign In',
+                  maxLines: 2,
+                  style: TextStyle(
+                      fontSize: 30,
+                      color: colorWhite,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: height * 0.09,
+                )
+              ],
+            ),
+          ),
         ),
         elevation: 15,
         backgroundColor: colorVailet,
-        title: const Text(
-          'Sign Up',
-          style: TextStyle(fontSize: 30),
-        ),
         shape: const RoundedRectangleBorder(
             borderRadius:
                 BorderRadius.only(bottomRight: Radius.circular(2000))),
@@ -151,7 +165,7 @@ class ScreenSignUp extends StatelessWidget {
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(buttonColor),
                   fixedSize: MaterialStateProperty.all(
-                    Size(width * 0.8, height * 0.1),
+                    Size(width * 0.8, height * 0.08),
                   ),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
@@ -159,7 +173,9 @@ class ScreenSignUp extends StatelessWidget {
                     ),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => const ScreenVerification());
+                },
                 child: const Text(
                   'SIGH UP',
                   style: buttonStyle,

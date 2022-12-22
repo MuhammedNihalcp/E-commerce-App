@@ -2,7 +2,6 @@ import 'package:e_commerce/Screens/sign_up/view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 import 'package:get/get.dart';
 
 class ScreenLogin extends StatelessWidget {
@@ -19,15 +18,28 @@ class ScreenLogin extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         bottom: PreferredSize(
-          child: SizedBox(),
           preferredSize: Size.fromHeight(height * 0.15),
+          child: Padding(
+            padding: EdgeInsets.only(right: width * 0.6),
+            child: Column(
+              children: [
+                const Text(
+                  'Login',
+                  maxLines: 2,
+                  style: TextStyle(
+                      fontSize: 30,
+                      color: colorWhite,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: height * 0.09,
+                )
+              ],
+            ),
+          ),
         ),
         elevation: 15,
         backgroundColor: colorVailet,
-        title: const Text(
-          'Login',
-          style: TextStyle(fontSize: 30),
-        ),
         shape: const RoundedRectangleBorder(
             borderRadius:
                 BorderRadius.only(bottomRight: Radius.circular(2000))),
@@ -114,7 +126,7 @@ class ScreenLogin extends StatelessWidget {
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(buttonColor),
                       fixedSize: MaterialStateProperty.all(
-                        Size(width * 0.8, height * 0.1),
+                        Size(width * 0.8, height * 0.08),
                       ),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
@@ -146,22 +158,31 @@ class ScreenLogin extends StatelessWidget {
                         )),
                   ]),
                   const Text('or'),
-                  Container(
-                    width: width * 0.85,
-                    height: height * 0.1,
-                    decoration: BoxDecoration(
-                      color: colorWhite,
-                      border: Border.all(color: colorGrey),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Row(
-                      children: [
-                        
-                        Text(
-                          'Continue with Google',
+                  kHeight10,
+                  const Text(
+                    'Continue with',
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: () {},
+                        child: Image(
+                          width: width * 0.3,
+                          height: height * 0.1,
+                          image:
+                              const AssetImage('assets/images/google_logo.png'),
                         ),
-                      ],
-                    ),
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Image(
+                            width: width * 0.3,
+                            height: height * 0.08,
+                            image: const AssetImage(
+                                'assets/images/facebook_logo.png')),
+                      )
+                    ],
                   )
                 ],
               )),
