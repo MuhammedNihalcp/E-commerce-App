@@ -1,6 +1,8 @@
+import 'package:e_commerce/Screens/forgot_verification/forgot_verification_view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ScreenForgotPassword extends StatelessWidget {
   const ScreenForgotPassword({super.key});
@@ -90,7 +92,7 @@ class ScreenForgotPassword extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  // Get.to(() => ScreenSignUp());
+                  Get.to(() => const ScreenForgotVerification());
                 },
                 child: const Text(
                   'Reset',
