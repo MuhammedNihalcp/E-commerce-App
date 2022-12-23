@@ -66,11 +66,11 @@ class ScreenNavigator extends StatelessWidget {
                     icon: Container(
                       margin: const EdgeInsets.only(bottom: 7),
                       child: const Icon(
-                        Icons.search,
+                        Icons.grid_view_rounded,
                         size: 20.0,
                       ),
                     ),
-                    label: 'Explore',
+                    label: 'Category',
                     backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
                   ),
                   BottomNavigationBarItem(
