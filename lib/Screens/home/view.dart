@@ -1,7 +1,6 @@
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({super.key});
@@ -167,7 +166,7 @@ class ScreenHome extends StatelessWidget {
                     // height: 50,
                     color: Colors.blue,
                     child: Column(
-                      children: [
+                      children: const [
                         // Container(
                         //   width: height * 0.2,
                         //   height: height * 0.25,

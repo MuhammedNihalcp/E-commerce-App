@@ -1,10 +1,11 @@
-import 'package:e_commerce/Screens/number_verification_screen/view.dart';
 import 'package:e_commerce/Screens/sign_in/view.dart';
+import 'package:e_commerce/Screens/verification_code_screen/view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class ScreenSignUp extends StatelessWidget {
   ScreenSignUp({super.key});
 
@@ -174,7 +175,7 @@ class ScreenSignUp extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Get.to(() => const ScreenVerification());
+                  Get.to(() => const ScreenVerificationCode());
                 },
                 child: const Text(
                   'SIGH UP',
