@@ -63,7 +63,7 @@ class ScreenForgotVerification extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    '+91 6338961357',
+                    'nihalriju915@gmail.com',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                   TextButton(
@@ -71,7 +71,7 @@ class ScreenForgotVerification extends StatelessWidget {
                       Get.to(() => const ScreenForgotPassword());
                     },
                     child: const Text(
-                      'Change phone number',
+                      'Change email id',
                       style: TextStyle(color: colorBlack),
                     ),
                   ),
