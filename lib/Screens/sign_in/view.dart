@@ -1,3 +1,4 @@
+import 'package:e_commerce/Screens/forgot_password/view_forgot_password.dart';
 import 'package:e_commerce/Screens/sign_up/view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
@@ -112,7 +113,9 @@ class ScreenLogin extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(() => const ScreenForgotPassword());
+                          },
                           child: const Text(
                             'Forget Password?',
                             style: TextStyle(
