@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_cards/flutter_custom_cards.dart';
@@ -100,7 +101,91 @@ class ScreenHome extends StatelessWidget {
                       ))
                 ],
               ),
-              ListView(children: List.generate(5, (index) => CustomCard(child: Image(image: AssetImage('')),)),)
+              LimitedBox(
+                maxHeight: 100,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: List.generate(
+                    10,
+                    (index) => Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Stack(
+                        alignment: AlignmentDirectional.center,
+                        children: [
+                          Container(
+                            width: height * 0.13,
+                            height: height * 0.13,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: const DecorationImage(
+                                  image: AssetImage(
+                                      'assets/images/dress/dress5.jpg'),
+                                  fit: BoxFit.cover),
+                            ),
+                          ),
+                          const Center(
+                            child: Text(
+                              "Women's\nFasion",
+                              textAlign: TextAlign.center,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                              style: TextStyle(
+                                color: colorWhite,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              kHeight10,
+              Row(
+                children: const [
+                  Text(
+                    'Featured',
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              GridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 5,
+                ),
+                itemBuilder: (BuildContext ctx, int index) {
+                  return Container(
+                    width: width * 0.1,
+                    // height: 50,
+                    color: Colors.blue,
+                    child: Column(
+                      children: [
+                        // Container(
+                        //   width: height * 0.2,
+                        //   height: height * 0.25,
+                        //   decoration: const BoxDecoration(
+                        //     image: DecorationImage(
+                        //       image:
+                        //           AssetImage('assets/images/dress/dress3.jpg'),
+                        //       fit: BoxFit.cover,
+                        //     ),
+                        //   ),
+                        // ),
+                        // const Text('Saodimallsu womens')
+                      ],
+                    ),
+                  );
+                },
+                itemCount: 10,
+              )
             ],
           ),
         ),
