@@ -12,4 +12,4 @@ const buttonColor = Color.fromARGB(255, 247, 226, 39);
 const colorBlack = Colors.black;
 const colorWhite = Colors.white;
 const colorGrey = Colors.grey;
-const colorVailet = Color.fromARGB(255, 117, 105, 228);
+const colorVailet = Color.fromARGB(255, 112, 71, 158);

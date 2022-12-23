@@ -51,7 +51,7 @@ class ScreenVerificationCode extends StatelessWidget {
             children: [
               kHeight20,
               Row(
-                children: const [
+                children:  const[
                   Text(
                     'Please enter Code sent to',
                     style: TextStyle(fontSize: 17),
@@ -79,15 +79,14 @@ class ScreenVerificationCode extends StatelessWidget {
               kHeight20,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
+                children: const [
                   SizedBox(
                     height: 64.0,
                     width: 56.0,
                     child: Card(
-                      color: const Color.fromRGBO(173, 179, 191, 0.7),
+                      color: Color.fromRGBO(173, 179, 191, 0.7),
                       child: Padding(
-                          padding:
-                              const EdgeInsets.only(left: 10.0, right: 10.0),
+                          padding: EdgeInsets.only(left: 10.0, right: 10.0),
                           child: TextEditorForPhoneVerify()),
                     ),
                   ),
@@ -95,10 +94,9 @@ class ScreenVerificationCode extends StatelessWidget {
                     height: 64.0,
                     width: 56.0,
                     child: Card(
-                      color: const Color.fromRGBO(173, 179, 191, 0.7),
+                      color: Color.fromRGBO(173, 179, 191, 0.7),
                       child: Padding(
-                          padding:
-                              const EdgeInsets.only(left: 10.0, right: 10.0),
+                          padding: EdgeInsets.only(left: 10.0, right: 10.0),
                           child: TextEditorForPhoneVerify()),
                     ),
                   ),
@@ -106,10 +104,9 @@ class ScreenVerificationCode extends StatelessWidget {
                     height: 64.0,
                     width: 56.0,
                     child: Card(
-                      color: const Color.fromRGBO(173, 179, 191, 0.7),
+                      color: Color.fromRGBO(173, 179, 191, 0.7),
                       child: Padding(
-                          padding:
-                              const EdgeInsets.only(left: 10.0, right: 10.0),
+                          padding: EdgeInsets.only(left: 10.0, right: 10.0),
                           child: TextEditorForPhoneVerify()),
                     ),
                   ),
@@ -117,10 +114,9 @@ class ScreenVerificationCode extends StatelessWidget {
                     height: 64.0,
                     width: 56.0,
                     child: Card(
-                      color: const Color.fromRGBO(173, 179, 191, 0.7),
+                      color: Color.fromRGBO(173, 179, 191, 0.7),
                       child: Padding(
-                          padding:
-                              const EdgeInsets.only(left: 10.0, right: 10.0),
+                          padding: EdgeInsets.only(left: 10.0, right: 10.0),
                           child: TextEditorForPhoneVerify()),
                     ),
                   ),
