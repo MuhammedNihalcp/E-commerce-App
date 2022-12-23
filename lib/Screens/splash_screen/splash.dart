@@ -29,6 +29,6 @@ class _ScreenSplashState extends State<ScreenSplash> {
 
   Future<void>goToLogin()async{
      await Future.delayed(const Duration(seconds: 3));
-     Get.to(()=> ScreenLogin());
+     Get.off(()=> ScreenLogin());
   }
 }

@@ -24,7 +24,7 @@ class ScreenSignUp extends StatelessWidget {
             child: Column(
               children: [
                 const Text(
-                  'Sign In',
+                  'Sign Up',
                   maxLines: 2,
                   style: TextStyle(
                       fontSize: 30,
