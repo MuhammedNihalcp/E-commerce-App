@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({super.key});
@@ -59,27 +60,47 @@ class ScreenHome extends StatelessWidget {
                 height: height * 0.15,
               ),
               TextButton.icon(
-                  style: ButtonStyle(
-                    alignment: Alignment.centerLeft,
-                    backgroundColor: MaterialStateProperty.all(colorWhite),
-                    fixedSize:
-                        MaterialStateProperty.all(Size(width, height * 0.05)),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(100),
-                        side: const BorderSide(color: colorWhite),
-                      ),
+                style: ButtonStyle(
+                  alignment: Alignment.centerLeft,
+                  backgroundColor: MaterialStateProperty.all(colorWhite),
+                  fixedSize:
+                      MaterialStateProperty.all(Size(width, height * 0.05)),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100),
+                      side: const BorderSide(color: colorWhite),
                     ),
                   ),
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.search,
-                    color: colorBlack,
+                ),
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.search,
+                  color: colorBlack,
+                ),
+                label: const Text(
+                  'What are you looking for?',
+                  style: TextStyle(color: colorBlack),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Catalogue',
+                    style: TextStyle(
+                        color: colorBlack,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17),
                   ),
-                  label: const Text(
-                    'What are you looking for?',
-                    style: TextStyle(color: colorBlack),
-                  ))
+                  TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'See All >',
+                        style: TextStyle(color: colorBlack),
+                      ))
+                ],
+              ),
+              ListView(children: List.generate(5, (index) => CustomCard(child: Image(image: AssetImage('')),)),)
             ],
           ),
         ),

@@ -63,6 +63,11 @@ flutter:
     - assets/images/dammy2_icon.png
     - assets/images/google_logo.png
     - assets/images/facebook_logo.png
+    - assets/images/dress/dress1.jpg
+    - assets/images/dress/dress2.jpg
+    - assets/images/dress/dress3.jpg
+    - assets/images/dress/dress4.jpg
+    - assets/images/dress/dress5.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
