@@ -152,38 +152,42 @@ class ScreenHome extends StatelessWidget {
                   ),
                 ],
               ),
-              GridView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 5,
+              Text('hello'),
+              Container(
+                color: colorBlack,
+                child: GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 2,
+                      mainAxisSpacing: 0,
+                      childAspectRatio: 1 / 1.5),
+                  itemBuilder: (BuildContext ctx, int index) {
+                    return Container(
+                      width: width * 0.1,
+                      // height: 50,
+                      color: Colors.blue,
+                      child: Column(
+                        children: [
+                          Container(
+                            width: height * 0.3,
+                            height: height * 0.25,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image:
+                                    AssetImage('assets/images/dress/dress3.jpg'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          const Text('Saodimallsu womens')
+                        ],
+                      ),
+                    );
+                  },
+                  itemCount: 10,
                 ),
-                itemBuilder: (BuildContext ctx, int index) {
-                  return Container(
-                    width: width * 0.1,
-                    // height: 50,
-                    color: Colors.blue,
-                    child: Column(
-                      children: const [
-                        // Container(
-                        //   width: height * 0.2,
-                        //   height: height * 0.25,
-                        //   decoration: const BoxDecoration(
-                        //     image: DecorationImage(
-                        //       image:
-                        //           AssetImage('assets/images/dress/dress3.jpg'),
-                        //       fit: BoxFit.cover,
-                        //     ),
-                        //   ),
-                        // ),
-                        // const Text('Saodimallsu womens')
-                      ],
-                    ),
-                  );
-                },
-                itemCount: 10,
               )
             ],
           ),
