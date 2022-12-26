@@ -3,7 +3,7 @@ import 'package:e_commerce/Screens/sign_in/model/sign_in_model.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/service/sign_in_service/sign_in_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 
