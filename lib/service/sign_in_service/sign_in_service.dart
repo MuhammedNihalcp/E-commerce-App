@@ -1,14 +1,24 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:e_commerce/Screens/sign_in/model/sign_in_model.dart';
+import 'package:e_commerce/Screens/sign_in/model/sign_in_token.dart';
+import 'package:e_commerce/common/api/api_baseurl.dart';
+import 'package:e_commerce/common/api/api_endsurl.dart';
+import 'package:e_commerce/util/dio_exeption/exeptions.dart';
+import 'package:flutter/widgets.dart';
 
-class SignInService{
+class SignInService {
   Dio dio = Dio();
+  final apibaseUrl = ApiBaseUrl();
+  final apiendUrl = ApiEndsUrl();
   SignInModel? signinModel;
   Future<SigninTokenModel?> signinUser(
-      SigninModel model, BuildContext context) async {
+      SignInModel model, BuildContext context) async {
     try {
       Response response = await dio.post(
-        ApiBaseUrl().baseUrl + ApiEndpoints.signIn,
+        apibaseUrl.baseUrl + apiendUrl.signIn,
         data: jsonEncode(
           model.toJson(),
         ),
