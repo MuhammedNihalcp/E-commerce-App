@@ -6,6 +6,7 @@ import 'package:e_commerce/Screens/sign_up/model/model.dart';
 import 'package:e_commerce/Screens/sign_up/model/token_model.dart';
 import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/common/api/api_endsurl.dart';
+import 'package:e_commerce/util/dio_exeption/exeptions.dart';
 import 'package:flutter/widgets.dart';
 
 class SignUpService {
@@ -33,7 +34,10 @@ class SignUpService {
       } else {
         log(response.statusCode.toString());
       }
-    } catch (e) {}
+    }on DioError catch (e) {
+      log(e.message);
+      DioException().dioError(e, context);
+    }
     return null;
   }
 }
