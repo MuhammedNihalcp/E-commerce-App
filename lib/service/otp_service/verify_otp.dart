@@ -12,7 +12,7 @@ class VerifyOtpService {
   Future<String?> verifyOtp(email, otpCode, context) async {
     try {
       final Response response = await dio.post(
-        apibaseUrl.baseUrl + apiendUrl.sendOtp,
+        apibaseUrl.baseUrl + apiendUrl.verifyOtp,
         data: {
           'email': email,
           'otp': otpCode,

@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:e_commerce/Screens/sign_up/model/model.dart';
 import 'package:e_commerce/Screens/verification_code_screen/view.dart';
+import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/service/otp_service/otp_service.dart';
 import 'package:e_commerce/service/sign_up_service/sign_up_service.dart';
 import 'package:flutter/material.dart';
@@ -30,8 +31,6 @@ class SignUpController extends GetxController {
         email: emailController.text.trim(),
         phone: phoneController.text.trim(),
         password: passwordController.text.trim());
-
-    
 
     OtpServices().sendOtp(signupmodel.email, context).then((value) {
       if (value != null) {
@@ -115,6 +114,30 @@ class SignUpController extends GetxController {
       return 'Password does not match';
     } else {
       return null;
+    }
+  }
+
+  bool obscureText = true;
+  Icon icon = const Icon(
+    Icons.visibility_off,
+    color: colorBlack,
+  );
+
+  void visibility() {
+    if (obscureText == false) {
+      icon = const Icon(
+        Icons.visibility_off,
+        color: colorBlack,
+      );
+      obscureText = true;
+      update();
+    } else {
+      icon = const Icon(
+        Icons.visibility,
+        color: colorBlack,
+      );
+      obscureText = false;
+      update();
     }
   }
 }

@@ -142,16 +142,17 @@ class ScreenSignUp extends StatelessWidget {
                   ),
                   kHeight10,
                   TextFormField(
+                    obscureText: signupController.obscureText,
                     keyboardType: TextInputType.visiblePassword,
                     validator: ((value) =>
                         signupController.passwordValdation(value)),
                     controller: signupController.passwordController,
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
-                        onPressed: () {},
-                        icon: Icon(passwordVisible
-                            ? Icons.visibility
-                            : Icons.visibility_off),
+                        onPressed: () {
+                          signupController.visibility();
+                        },
+                        icon: signupController.icon,
                         color: colorBlack,
                       ),
                       label: const Text(
@@ -177,18 +178,19 @@ class ScreenSignUp extends StatelessWidget {
                   ),
                   kHeight10,
                   TextFormField(
+                    obscureText: signupController.obscureText,
                     keyboardType: TextInputType.visiblePassword,
                     validator: (value) =>
                         signupController.confirmpasswordValdation(value),
                     controller: signupController.conformpasswordController,
                     decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                        onPressed: () {},
-                        icon: Icon(passwordVisible
-                            ? Icons.visibility
-                            : Icons.visibility_off),
-                        color: colorBlack,
-                      ),
+                      // suffixIcon: IconButton(
+                      //   onPressed: () {},
+                      //   icon: Icon(passwordVisible
+                      //       ? Icons.visibility
+                      //       : Icons.visibility_off),
+                      //   color: colorBlack,
+                      // ),
                       label: const Text(
                         'Conform Password',
                         style: TextStyle(color: colorBlack),

@@ -13,7 +13,7 @@ class OtpServices {
     log('otp enabled');
     try {
       final Response response = await dio.get(
-        apibaseUrl.baseUrl + apiendUrl.sendOtp,
+        apibaseUrl.baseUrl + apiendUrl.verifyOtp,
         queryParameters: {"email": email},
       );
 
@@ -23,7 +23,7 @@ class OtpServices {
         return response.data['message'];
       }
     } on DioError catch (e) {
-      log(e.message,name: 'status code');
+      log(e.message, name: 'status code');
       log('otp failed');
       DioException().dioError(e, context);
     }
