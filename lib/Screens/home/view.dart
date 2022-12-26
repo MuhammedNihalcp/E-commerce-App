@@ -152,7 +152,7 @@ class ScreenHome extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('hello'),
+              const Text('hello'),
               Container(
                 color: colorBlack,
                 child: GridView.builder(
@@ -175,8 +175,8 @@ class ScreenHome extends StatelessWidget {
                             height: height * 0.25,
                             decoration: const BoxDecoration(
                               image: DecorationImage(
-                                image:
-                                    AssetImage('assets/images/dress/dress3.jpg'),
+                                image: AssetImage(
+                                    'assets/images/dress/dress3.jpg'),
                                 fit: BoxFit.cover,
                               ),
                             ),

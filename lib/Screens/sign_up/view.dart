@@ -1,5 +1,5 @@
 import 'package:e_commerce/Screens/sign_in/view.dart';
-import 'package:e_commerce/Screens/verification_code_screen/view.dart';
+import 'package:e_commerce/Screens/sign_up/controller.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +10,7 @@ class ScreenSignUp extends StatelessWidget {
   ScreenSignUp({super.key});
 
   bool passwordVisible = false;
+  final signupController = Get.put(SignUpController());
 
   @override
   Widget build(BuildContext context) {
@@ -49,156 +50,187 @@ class ScreenSignUp extends StatelessWidget {
           child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              kHeight10,
-              TextFormField(
-                decoration: InputDecoration(
-                  label: const Text(
-                    'Username',
-                    style: TextStyle(color: colorBlack),
+          child: GetBuilder<SignUpController>(
+            builder: (controller) => Column(
+              children: [
+                kHeight10,
+                TextFormField(
+                  controller: signupController.usernameController,
+                  decoration: InputDecoration(
+                    label: const Text(
+                      'Username',
+                      style: TextStyle(color: colorBlack),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(20)),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(20)),
+                    disabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(20)),
+                    focusedErrorBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.red),
+                        borderRadius: BorderRadius.circular(20)),
+                    errorBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.red),
+                        borderRadius: BorderRadius.circular(20)),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(20)),
-                  enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(20)),
-                  disabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(20)),
-                  focusedErrorBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.red),
-                      borderRadius: BorderRadius.circular(20)),
-                  errorBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.red),
-                      borderRadius: BorderRadius.circular(20)),
                 ),
-              ),
-              kHeight10,
-              TextFormField(
-                decoration: InputDecoration(
-                  label: const Text(
-                    'Email Id',
-                    style: TextStyle(color: colorBlack),
+                kHeight10,
+                TextFormField(
+                  controller: signupController.phoneController,
+                  decoration: InputDecoration(
+                    label: const Text(
+                      'Phone',
+                      style: TextStyle(color: colorBlack),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(20)),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(20)),
+                    disabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(20)),
+                    focusedErrorBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.red),
+                        borderRadius: BorderRadius.circular(20)),
+                    errorBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.red),
+                        borderRadius: BorderRadius.circular(20)),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(20)),
-                  enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(20)),
-                  disabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(20)),
-                  focusedErrorBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.red),
-                      borderRadius: BorderRadius.circular(20)),
-                  errorBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.red),
-                      borderRadius: BorderRadius.circular(20)),
                 ),
-              ),
-              kHeight10,
-              TextFormField(
-                decoration: InputDecoration(
-                  suffixIcon: IconButton(
-                    onPressed: () {},
-                    icon: Icon(passwordVisible
-                        ? Icons.visibility
-                        : Icons.visibility_off),
-                    color: colorBlack,
+                kHeight10,
+                TextFormField(
+                  controller: signupController.emailController,
+                  decoration: InputDecoration(
+                    label: const Text(
+                      'Email Id',
+                      style: TextStyle(color: colorBlack),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(20)),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(20)),
+                    disabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(20)),
+                    focusedErrorBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.red),
+                        borderRadius: BorderRadius.circular(20)),
+                    errorBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.red),
+                        borderRadius: BorderRadius.circular(20)),
                   ),
-                  label: const Text(
-                    'Password',
-                    style: TextStyle(color: colorBlack),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(20)),
-                  enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(20)),
-                  disabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(20)),
-                  focusedErrorBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.red),
-                      borderRadius: BorderRadius.circular(20)),
-                  errorBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.red),
-                      borderRadius: BorderRadius.circular(20)),
                 ),
-              ),
-              kHeight10,
-              TextFormField(
-                decoration: InputDecoration(
-                  suffixIcon: IconButton(
-                    onPressed: () {},
-                    icon: Icon(passwordVisible
-                        ? Icons.visibility
-                        : Icons.visibility_off),
-                    color: colorBlack,
+                kHeight10,
+                TextFormField(
+                  controller: signupController.passwordController,
+                  decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                      onPressed: () {},
+                      icon: Icon(passwordVisible
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                      color: colorBlack,
+                    ),
+                    label: const Text(
+                      'Password',
+                      style: TextStyle(color: colorBlack),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(20)),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(20)),
+                    disabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(20)),
+                    focusedErrorBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.red),
+                        borderRadius: BorderRadius.circular(20)),
+                    errorBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.red),
+                        borderRadius: BorderRadius.circular(20)),
                   ),
-                  label: const Text(
-                    'Conform Password',
-                    style: TextStyle(color: colorBlack),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(20)),
-                  enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(20)),
-                  disabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(20)),
-                  focusedErrorBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.red),
-                      borderRadius: BorderRadius.circular(20)),
-                  errorBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.red),
-                      borderRadius: BorderRadius.circular(20)),
                 ),
-              ),
-              kHeight10,
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(buttonColor),
-                  fixedSize: MaterialStateProperty.all(
-                    Size(width * 0.8, height * 0.08),
+                kHeight10,
+                TextFormField(
+                  decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                      onPressed: () {},
+                      icon: Icon(passwordVisible
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                      color: colorBlack,
+                    ),
+                    label: const Text(
+                      'Conform Password',
+                      style: TextStyle(color: colorBlack),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(20)),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(20)),
+                    disabledBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(20)),
+                    focusedErrorBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.red),
+                        borderRadius: BorderRadius.circular(20)),
+                    errorBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(color: Colors.red),
+                        borderRadius: BorderRadius.circular(20)),
                   ),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                ),
+                kHeight10,
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(buttonColor),
+                    fixedSize: MaterialStateProperty.all(
+                      Size(width * 0.8, height * 0.08),
+                    ),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                     ),
                   ),
-                ),
-                onPressed: () {
-                  Get.to(() => const ScreenVerificationCode());
-                },
-                child: const Text(
-                  'SIGH UP',
-                  style: buttonStyle,
-                ),
-              ),
-              kHeight10,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('Already have an account?'),
-                  TextButton(
-                    onPressed: () {
-                      Get.to(() => ScreenLogin());
-                    },
-                    child: const Text(
-                      'Login',
-                      style: textStyle,
-                    ),
+                  onPressed: () {
+                    signupController.addUser(context);
+                    // Get.to(() => const ScreenVerificationCode());
+                  },
+                  child: const Text(
+                    'SIGH UP',
+                    style: buttonStyle,
                   ),
-                ],
-              ),
-            ],
+                ),
+                kHeight10,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Already have an account?'),
+                    TextButton(
+                      onPressed: () {
+                        Get.to(() => ScreenLogin());
+                      },
+                      child: const Text(
+                        'Login',
+                        style: textStyle,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       )),
