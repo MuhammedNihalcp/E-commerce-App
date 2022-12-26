@@ -61,6 +61,7 @@ class ScreenSignUp extends StatelessWidget {
                     validator: ((value) =>
                         signupController.nameValidation(value)),
                     controller: signupController.usernameController,
+                    keyboardType: TextInputType.name,
                     decoration: InputDecoration(
                       label: const Text(
                         'Username',
@@ -85,6 +86,7 @@ class ScreenSignUp extends StatelessWidget {
                   ),
                   kHeight10,
                   TextFormField(
+                    keyboardType: TextInputType.number,
                     validator: (value) =>
                         signupController.mobileValdation(value),
                     controller: signupController.phoneController,
@@ -112,6 +114,7 @@ class ScreenSignUp extends StatelessWidget {
                   ),
                   kHeight10,
                   TextFormField(
+                    keyboardType: TextInputType.emailAddress,
                     validator: ((value) =>
                         signupController.emailValdation(value)),
                     controller: signupController.emailController,
@@ -139,6 +142,7 @@ class ScreenSignUp extends StatelessWidget {
                   ),
                   kHeight10,
                   TextFormField(
+                    keyboardType: TextInputType.visiblePassword,
                     validator: ((value) =>
                         signupController.passwordValdation(value)),
                     controller: signupController.passwordController,
@@ -173,6 +177,7 @@ class ScreenSignUp extends StatelessWidget {
                   ),
                   kHeight10,
                   TextFormField(
+                    keyboardType: TextInputType.visiblePassword,
                     validator: (value) =>
                         signupController.confirmpasswordValdation(value),
                     controller: signupController.conformpasswordController,

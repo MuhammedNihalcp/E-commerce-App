@@ -31,20 +31,11 @@ class SignUpController extends GetxController {
         phone: phoneController.text.trim(),
         password: passwordController.text.trim());
 
-    // signupS.signupUser(signupmodel, context);
-    // log('add succefull');
+    
 
     OtpServices().sendOtp(signupmodel.email, context).then((value) {
       if (value != null) {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) {
-              return ScreenVerificationCode(
-                model: signupmodel,
-              );
-            },
-          ),
-        );
+        Get.to(() => ScreenVerificationCode(model: signupmodel));
         disposeTextfield();
       } else {
         return;
