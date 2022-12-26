@@ -1,13 +1,23 @@
 import 'package:e_commerce/Screens/navigator_screen/view/view.dart';
+import 'package:e_commerce/Screens/number_verification_screen/controller.dart';
 import 'package:e_commerce/Screens/number_verification_screen/view.dart';
+import 'package:e_commerce/Screens/sign_up/model/model.dart';
 import 'package:e_commerce/Screens/verification_code_screen/widget.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
 class ScreenVerificationCode extends StatelessWidget {
-  const ScreenVerificationCode({super.key});
+  ScreenVerificationCode({
+    Key? key,
+    required this.model,
+  }) : super(key: key);
+
+  final SignUpModel model;
+
+  final verifyotpC = Get.put(VerifyOtpController());
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +61,7 @@ class ScreenVerificationCode extends StatelessWidget {
             children: [
               kHeight20,
               Row(
-                children:  const[
+                children: const [
                   Text(
                     'Please enter Code sent to',
                     style: TextStyle(fontSize: 17),
@@ -67,7 +77,7 @@ class ScreenVerificationCode extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Get.to(() => const ScreenVerification());
+                      // Get.to(() => const ScreenVerification());
                     },
                     child: const Text(
                       'Change phone number',
@@ -77,73 +87,48 @@ class ScreenVerificationCode extends StatelessWidget {
                 ],
               ),
               kHeight20,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
-                  SizedBox(
-                    height: 64.0,
-                    width: 56.0,
-                    child: Card(
-                      color: Color.fromRGBO(173, 179, 191, 0.7),
-                      child: Padding(
-                          padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                          child: TextEditorForPhoneVerify()),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 64.0,
-                    width: 56.0,
-                    child: Card(
-                      color: Color.fromRGBO(173, 179, 191, 0.7),
-                      child: Padding(
-                          padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                          child: TextEditorForPhoneVerify()),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 64.0,
-                    width: 56.0,
-                    child: Card(
-                      color: Color.fromRGBO(173, 179, 191, 0.7),
-                      child: Padding(
-                          padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                          child: TextEditorForPhoneVerify()),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 64.0,
-                    width: 56.0,
-                    child: Card(
-                      color: Color.fromRGBO(173, 179, 191, 0.7),
-                      child: Padding(
-                          padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                          child: TextEditorForPhoneVerify()),
-                    ),
-                  ),
-                ],
+              GetBuilder<VerifyOtpController>(
+                builder: (controller) {
+                  return OtpTextField(
+                    textStyle: const TextStyle(color: Colors.black),
+                    numberOfFields: 4,
+                    borderColor: colorBlack,
+                    enabledBorderColor: colorBlack,
+                    borderRadius: BorderRadius.circular(12),
+                    showFieldAsBox: true,
+                    onSubmit: (String verificationCode) {
+                      verifyotpC.onSubmitCode(verificationCode);
+                      // data.sumbitOtp(value.phoneNo.text, context);
+                    },
+                  );
+                },
               ),
               SizedBox(
                 height: height * 0.1,
               ),
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(buttonColor),
-                  fixedSize: MaterialStateProperty.all(
-                    Size(width * 0.8, height * 0.08),
-                  ),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+              GetBuilder<VerifyOtpController>(
+                builder: (controller) {
+                  return ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(buttonColor),
+                      fixedSize: MaterialStateProperty.all(
+                        Size(width * 0.8, height * 0.08),
+                      ),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                onPressed: () {
-                  Get.to(() => ScreenNavigator());
+                    onPressed: () {
+                      verifyotpC.sumbitOtp(model, verifyotpC.code, context);
+                    },
+                    child: const Text(
+                      'Continue',
+                      style: buttonStyle,
+                    ),
+                  );
                 },
-                child: const Text(
-                  'Continue',
-                  style: buttonStyle,
-                ),
               ),
               kHeight20,
               TextButton(

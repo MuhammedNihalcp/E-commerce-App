@@ -35,6 +35,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_custom_cards: 0.2.1
+  flutter_otp_text_field: 1.1.1
   flutter_secure_storage: 7.0.1
   get: 4.6.5
 

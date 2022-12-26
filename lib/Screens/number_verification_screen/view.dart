@@ -1,3 +1,4 @@
+import 'package:e_commerce/Screens/sign_up/model/model.dart';
 import 'package:e_commerce/Screens/verification_code_screen/view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
@@ -5,7 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ScreenVerification extends StatelessWidget {
-  const ScreenVerification({super.key});
+  const ScreenVerification({
+    Key? key,
+    // required this.model,
+  }) : super(key: key);
+
+  // final SignUpModel model;
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +100,7 @@ class ScreenVerification extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Get.to(() => const ScreenVerificationCode());
+                  // Get.to(() => const ScreenVerificationCode());
                 },
                 child: const Text(
                   'Send Verification Code',
