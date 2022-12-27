@@ -36,7 +36,7 @@ class VerifyOtpController extends GetxController {
               if (value != null) {
                 storage.write(key: 'token', value: value.accessToken);
                 storage.write(key: 'refreshToken', value: value.refreshToken);
-                Get.off(() => ScreenNavigator());
+                Get.offAll(() => ScreenNavigator());
                 isLoading = false;
                 update();
               }
