@@ -1,5 +1,5 @@
 import 'package:e_commerce/Screens/forgot_password/view_forgot_password.dart';
-import 'package:e_commerce/Screens/sign_in/controller.dart';
+import 'package:e_commerce/Screens/sign_in/controller/signin_controller.dart';
 import 'package:e_commerce/Screens/sign_up/view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';

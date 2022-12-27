@@ -72,7 +72,7 @@ class ScreenVerificationCode extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    '+91 6338961357',
+                    'Email id',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                   TextButton(
@@ -80,7 +80,7 @@ class ScreenVerificationCode extends StatelessWidget {
                       // Get.to(() => const ScreenVerification());
                     },
                     child: const Text(
-                      'Change phone number',
+                      'Change Email id',
                       style: TextStyle(color: colorBlack),
                     ),
                   ),
