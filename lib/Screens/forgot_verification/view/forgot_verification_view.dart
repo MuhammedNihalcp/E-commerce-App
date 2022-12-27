@@ -1,4 +1,4 @@
-import 'package:e_commerce/Screens/auth/forgot_password/view_forgot_password.dart';
+import 'package:e_commerce/Screens/auth/forgot_password/view/view_forgot_password.dart';
 import 'package:e_commerce/Screens/forgot_verification/view/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

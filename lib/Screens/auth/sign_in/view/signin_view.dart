@@ -1,4 +1,4 @@
-import 'package:e_commerce/Screens/auth/forgot_password/view_forgot_password.dart';
+import 'package:e_commerce/Screens/auth/forgot_password/view/view_forgot_password.dart';
 import 'package:e_commerce/Screens/auth/sign_in/controller/signin_controller.dart';
 import 'package:e_commerce/Screens/auth/sign_up/view/signup_view.dart';
 import 'package:e_commerce/core/size.dart';
