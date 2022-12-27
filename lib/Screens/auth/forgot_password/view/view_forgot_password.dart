@@ -1,11 +1,17 @@
-import 'package:e_commerce/Screens/forgot_verification/view/forgot_verification_view.dart';
+import 'dart:developer';
+
+import 'package:e_commerce/Screens/auth/forgot_password/controller/forgot_password_controller.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ScreenForgotPassword extends StatelessWidget {
-  const ScreenForgotPassword({super.key});
+  ScreenForgotPassword({super.key});
+
+  final formKey = GlobalKey<FormState>();
+
+  final forgotPasswordController = Get.put(ForgotPasswordController());
 
   @override
   Widget build(BuildContext context) {
@@ -45,61 +51,72 @@ class ScreenForgotPassword extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              kHeight20,
-              const Text(
-                'Please enter your email id to verify your email id',
-                style: TextStyle(color: colorBlack, fontSize: 17),
-              ),
-              SizedBox(
-                height: height * 0.1,
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                  label: const Text(
-                    'Email Id',
-                    style: TextStyle(color: colorBlack),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(20)),
-                  enabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(20)),
-                  disabledBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(20)),
-                  focusedErrorBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.red),
-                      borderRadius: BorderRadius.circular(20)),
-                  errorBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.red),
-                      borderRadius: BorderRadius.circular(20)),
+          child: GetBuilder<ForgotPasswordController>(
+            builder: (controller) => Column(
+              children: [
+                kHeight20,
+                const Text(
+                  'Please enter your email id to verify your email id',
+                  style: TextStyle(color: colorBlack, fontSize: 17),
                 ),
-              ),
-              kHeight20,
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(buttonColor),
-                  fixedSize: MaterialStateProperty.all(
-                    Size(width * 0.8, height * 0.08),
-                  ),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                SizedBox(
+                  height: height * 0.1,
+                ),
+                Form(
+                  key: formKey,
+                  child: TextFormField(
+                    controller: forgotPasswordController.emailController,
+                    validator: (value) =>
+                        forgotPasswordController.forgotemailValdation(value),
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      label: const Text(
+                        'Email Id',
+                        style: TextStyle(color: colorBlack),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(20)),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(20)),
+                      disabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(20)),
+                      focusedErrorBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.red),
+                          borderRadius: BorderRadius.circular(20)),
+                      errorBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.red),
+                          borderRadius: BorderRadius.circular(20)),
                     ),
                   ),
                 ),
-                onPressed: () {
-                  Get.to(() => const ScreenForgotVerification());
-                },
-                child: const Text(
-                  'Reset',
-                  style: buttonStyle,
+                kHeight20,
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(buttonColor),
+                    fixedSize: MaterialStateProperty.all(
+                      Size(width * 0.8, height * 0.08),
+                    ),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                  ),
+                  onPressed: () {
+                    log('forgot password',name: 'onpressed');
+                    forgotPasswordController.navigatorToOtp(formKey, context);
+                    // Get.to(() => const ScreenForgotVerification());
+                  },
+                  child: const Text(
+                    'Reset',
+                    style: buttonStyle,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

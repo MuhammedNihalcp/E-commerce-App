@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:e_commerce/Screens/auth/new_password/view/new_password_view.dart';
 import 'package:e_commerce/Screens/auth/verification_code_screen/service/otp_service/verify_otp.dart';
 import 'package:e_commerce/util/error_popup/snack_bar.dart';
 import 'package:flutter/material.dart';
@@ -23,10 +24,12 @@ class ForgotVerifyController extends GetxController {
     } else {
       isLoading = true;
       update();
-      verifyOtpSer.verifyOtp(email, code, context).then((value){
-        if(value != null){
-          log('otp success',name: 'forgot otp');
-          Get.off(()=>)
+      verifyOtpSer.verifyOtp(email, code, context).then((value) {
+        if (value != null) {
+          log('otp success', name: 'forgot otp');
+          Get.off(() => const ScreenNewPassword());
+          isLoading = false;
+          update();
         }
       });
     }

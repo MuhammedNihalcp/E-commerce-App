@@ -1,6 +1,9 @@
 import 'package:e_commerce/Screens/auth/forgot_password/view/view_forgot_password.dart';
+import 'package:e_commerce/Screens/auth/sign_up/controller/register_verification_otp/controller.dart';
+import 'package:e_commerce/Screens/forgot_verification/controller/forgot_verification_controller.dart';
 import 'package:e_commerce/Screens/forgot_verification/view/widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
 import '../../../core/size.dart';
@@ -8,7 +11,13 @@ import '../../../core/text_style.dart';
 import '../../navigator_screen/view/view.dart';
 
 class ScreenForgotVerification extends StatelessWidget {
-  const ScreenForgotVerification({super.key});
+  ScreenForgotVerification({
+    Key? key,
+    required this.email,
+  }) : super(key: key);
+
+  final String email;
+  final forgotverifyotpC = ForgotVerifyController();
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +77,7 @@ class ScreenForgotVerification extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Get.to(() => const ScreenForgotPassword());
+                      Get.to(() => ScreenForgotPassword());
                     },
                     child: const Text(
                       'Change email id',
@@ -78,50 +87,17 @@ class ScreenForgotVerification extends StatelessWidget {
                 ],
               ),
               kHeight20,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
-                  SizedBox(
-                    height: 64.0,
-                    width: 56.0,
-                    child: Card(
-                      color: Color.fromRGBO(173, 179, 191, 0.7),
-                      child: Padding(
-                          padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                          child: TextEditorForForgotEmailVerify()),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 64.0,
-                    width: 56.0,
-                    child: Card(
-                      color: Color.fromRGBO(173, 179, 191, 0.7),
-                      child: Padding(
-                          padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                          child: TextEditorForForgotEmailVerify()),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 64.0,
-                    width: 56.0,
-                    child: Card(
-                      color: Color.fromRGBO(173, 179, 191, 0.7),
-                      child: Padding(
-                          padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                          child: TextEditorForForgotEmailVerify()),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 64.0,
-                    width: 56.0,
-                    child: Card(
-                      color: Color.fromRGBO(173, 179, 191, 0.7),
-                      child: Padding(
-                          padding: EdgeInsets.only(left: 10.0, right: 10.0),
-                          child: TextEditorForForgotEmailVerify()),
-                    ),
-                  ),
-                ],
+              OtpTextField(
+                textStyle: const TextStyle(color: Colors.black),
+                numberOfFields: 4,
+                borderColor: colorBlack,
+                enabledBorderColor: colorBlack,
+                borderRadius: BorderRadius.circular(12),
+                showFieldAsBox: true,
+                onSubmit: (String verificationCode) {
+                  forgotverifyotpC.onSubmitCode(verificationCode);
+                  // data.sumbitOtp(value.phoneNo.text, context);
+                },
               ),
               SizedBox(
                 height: height * 0.1,
@@ -139,7 +115,9 @@ class ScreenForgotVerification extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Get.to(() => ScreenNavigator());
+                  forgotverifyotpC.submitForgotOtp(
+                      email, forgotverifyotpC.code, context);
+                  // Get.to(() => ScreenNavigator());
                 },
                 child: const Text(
                   'Continue',

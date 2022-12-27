@@ -130,7 +130,7 @@ class ScreenLogin extends StatelessWidget {
                         children: [
                           TextButton(
                               onPressed: () {
-                                Get.to(() => const ScreenForgotPassword());
+                                Get.to(() =>  ScreenForgotPassword());
                               },
                               child: const Text(
                                 'Forget Password?',

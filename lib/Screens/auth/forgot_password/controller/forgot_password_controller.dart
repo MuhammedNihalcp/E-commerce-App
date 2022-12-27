@@ -4,23 +4,25 @@ import 'package:e_commerce/Screens/auth/forgot_password/service/forgot_password_
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../forgot_verification/view/forgot_verification_view.dart';
+
 class ForgotPasswordController extends GetxController {
   TextEditingController emailController = TextEditingController();
   bool isLoading = false;
   void navigatorToOtp(
       GlobalKey<FormState> formKey, BuildContext context) async {
     if (formKey.currentState!.validate()) {
+      log('valid form', name: 'form valid');
       isLoading = true;
       update();
       await ForgotPasswordService.getOtp(emailController.text, context)
           .then((value) {
         if (value != null) {
-          // Get.to(
-          //   ScreenOtp(
-          //     otpEmail: emailController.text,
-          //     type: Actiontype.forgetPassword,
-          //   ),
-          // );
+          Get.to(
+            () => ScreenForgotVerification(
+              email: emailController.text,
+            ),
+          );
           isLoading = false;
           update();
         } else {
