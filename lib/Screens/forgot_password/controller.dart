@@ -7,11 +7,13 @@ import 'package:get/get.dart';
 class ForgotPasswordController extends GetxController {
   TextEditingController emailController = TextEditingController();
   bool isLoading = false;
-  void navigatorToOtp(GlobalKey<FormState> formKey,BuildContext context) async {
+  void navigatorToOtp(
+      GlobalKey<FormState> formKey, BuildContext context) async {
     if (formKey.currentState!.validate()) {
       isLoading = true;
       update();
-      await ForgetPasswordServices.getOtp(emailController.text,context).then((value) {
+      await ForgetPasswordServices.getOtp(emailController.text, context)
+          .then((value) {
         if (value != null) {
           // Get.to(
           //   ScreenOtp(
@@ -28,6 +30,18 @@ class ForgotPasswordController extends GetxController {
           return;
         }
       });
+    }
+  }
+
+  String? forgotemailValdation(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your email';
+    } else if (!RegExp(
+            r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+        .hasMatch(value)) {
+      return 'Invalid email , please enter correct email';
+    } else {
+      return null;
     }
   }
 }
