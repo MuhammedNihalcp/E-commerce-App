@@ -1,4 +1,4 @@
-import 'package:e_commerce/Screens/forgot_verification/forgot_verification_view.dart';
+import 'package:e_commerce/Screens/forgot_verification/view/forgot_verification_view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';

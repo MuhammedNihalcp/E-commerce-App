@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:e_commerce/Screens/navigator_screen/view/view.dart';
-import 'package:e_commerce/service/google_signin/google_sign_in.dart';
+import 'package:e_commerce/Screens/sign_in/service/google_signin/google_sign_in.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 

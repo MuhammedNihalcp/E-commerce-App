@@ -4,7 +4,7 @@ import 'package:e_commerce/Screens/sign_up/model/model.dart';
 import 'package:e_commerce/Screens/verification_code_screen/view.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/service/otp_service/otp_service.dart';
-import 'package:e_commerce/service/sign_up_service/sign_up_service.dart';
+import 'package:e_commerce/Screens/sign_up/service/sign_up_service/sign_up_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';

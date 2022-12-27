@@ -1,11 +1,11 @@
 import 'package:e_commerce/Screens/forgot_password/view_forgot_password.dart';
-import 'package:e_commerce/Screens/forgot_verification/widget.dart';
+import 'package:e_commerce/Screens/forgot_verification/view/widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/size.dart';
-import '../../core/text_style.dart';
-import '../navigator_screen/view/view.dart';
+import '../../../core/size.dart';
+import '../../../core/text_style.dart';
+import '../../navigator_screen/view/view.dart';
 
 class ScreenForgotVerification extends StatelessWidget {
   const ScreenForgotVerification({super.key});

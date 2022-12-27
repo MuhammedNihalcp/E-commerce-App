@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:e_commerce/service/forgot_password/forgot_password.dart';
+import 'package:e_commerce/Screens/forgot_verification/service/forgot_password/forgot_password.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
