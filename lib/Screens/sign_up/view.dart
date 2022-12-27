@@ -1,5 +1,5 @@
 import 'package:e_commerce/Screens/sign_in/view.dart';
-import 'package:e_commerce/Screens/sign_up/controller.dart';
+import 'package:e_commerce/Screens/sign_up/controller/controller.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
