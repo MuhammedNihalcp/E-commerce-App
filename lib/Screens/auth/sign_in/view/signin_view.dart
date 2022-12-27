@@ -1,6 +1,6 @@
-import 'package:e_commerce/Screens/forgot_password/view_forgot_password.dart';
-import 'package:e_commerce/Screens/sign_in/controller/signin_controller.dart';
-import 'package:e_commerce/Screens/sign_up/view/signup_view.dart';
+import 'package:e_commerce/Screens/auth/forgot_password/view_forgot_password.dart';
+import 'package:e_commerce/Screens/auth/sign_in/controller/signin_controller.dart';
+import 'package:e_commerce/Screens/auth/sign_up/view/signup_view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';

@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:e_commerce/Screens/sign_in/model/sign_in_model.dart';
-import 'package:e_commerce/Screens/sign_in/model/sign_in_token.dart';
+import 'package:e_commerce/Screens/auth/sign_in/model/sign_in_model.dart';
+import 'package:e_commerce/Screens/auth/sign_in/model/sign_in_token.dart';
 import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/common/api/api_endsurl.dart';
 import 'package:e_commerce/util/dio_exeption/exeptions.dart';
