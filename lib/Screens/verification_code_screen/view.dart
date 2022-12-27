@@ -1,6 +1,6 @@
 import 'package:e_commerce/Screens/navigator_screen/view/view.dart';
-import 'package:e_commerce/Screens/number_verification_screen/controller.dart';
-import 'package:e_commerce/Screens/number_verification_screen/view.dart';
+import 'package:e_commerce/Screens/register_verification_otp/controller.dart';
+import 'package:e_commerce/Screens/register_verification_otp/view.dart';
 import 'package:e_commerce/Screens/sign_up/model/model.dart';
 import 'package:e_commerce/Screens/verification_code_screen/widget.dart';
 import 'package:e_commerce/core/size.dart';
