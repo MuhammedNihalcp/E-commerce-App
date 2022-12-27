@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:e_commerce/Screens/forgot_verification/service/forgot_password/forgot_password.dart';
+import 'package:e_commerce/Screens/auth/forgot_password/service/forgot_password_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,7 +12,7 @@ class ForgotPasswordController extends GetxController {
     if (formKey.currentState!.validate()) {
       isLoading = true;
       update();
-      await ForgetPasswordServices.getOtp(emailController.text, context)
+      await ForgotPasswordService.getOtp(emailController.text, context)
           .then((value) {
         if (value != null) {
           // Get.to(
