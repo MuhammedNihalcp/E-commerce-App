@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:e_commerce/Screens/navigator_screen/view/view.dart';
 import 'package:e_commerce/Screens/auth/sign_up/model/model.dart';
-import 'package:e_commerce/service/otp_service/verify_otp.dart';
+import 'package:e_commerce/Screens/auth/verification_code_screen/service/otp_service/verify_otp.dart';
 import 'package:e_commerce/Screens/auth/sign_up/service/sign_up_service/sign_up_service.dart';
 import 'package:e_commerce/util/error_popup/snack_bar.dart';
 import 'package:flutter/material.dart';

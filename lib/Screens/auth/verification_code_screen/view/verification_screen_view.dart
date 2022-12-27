@@ -2,7 +2,7 @@ import 'package:e_commerce/Screens/navigator_screen/view/view.dart';
 import 'package:e_commerce/Screens/auth/sign_up/controller/register_verification_otp/controller.dart';
 
 import 'package:e_commerce/Screens/auth/sign_up/model/model.dart';
-import 'package:e_commerce/Screens/auth/verification_code_screen/widget.dart';
+import 'package:e_commerce/Screens/auth/verification_code_screen/view/widget.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
