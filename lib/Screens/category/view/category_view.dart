@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/text_style.dart';
+import 'package:e_commerce/util/search_bar/search_bar.dart';
 import 'package:flutter/material.dart';
 
 class ScreenSearch extends StatelessWidget {
@@ -9,6 +10,7 @@ class ScreenSearch extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
+        extendBodyBehindAppBar: true,
         appBar: AppBar(
           backgroundColor: colorVailet,
           centerTitle: true,
@@ -32,9 +34,17 @@ class ScreenSearch extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(8.0),
             child: Column(
-              children: [],
+              children: [
+                SizedBox(
+                  height: height * 0.15,
+                ),
+                SearchBar(
+                  width: width,
+                  height: height,
+                ),
+              ],
             ),
           ),
         ));
