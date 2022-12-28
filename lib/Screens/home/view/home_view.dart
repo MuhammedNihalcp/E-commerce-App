@@ -1,9 +1,20 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 
 class ScreenHome extends StatelessWidget {
-  const ScreenHome({super.key});
+  var options;
+
+  ScreenHome({super.key});
+
+  final itemsD = [
+    'https://www.shutterstock.com/image-vector/modern-kids-clothes-set-summer-600w-2021848727.jpg',
+    'https://www.shutterstock.com/image-photo/young-beautiful-smiling-hipster-woman-600w-2133734771.jpg',
+    'https://www.shutterstock.com/image-photo/fashionable-pale-brunette-long-green-600w-1875042193.jpg',
+    'https://www.shutterstock.com/image-photo/full-body-profile-photo-cheerful-600w-1898279326.jpg',
+    'https://www.shutterstock.com/image-photo/pretty-beautiful-woman-brunette-hair-600w-1695648628.jpg',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +93,35 @@ class ScreenHome extends StatelessWidget {
                   style: TextStyle(color: colorBlack),
                 ),
               ),
+              kHeight10,
+              CarouselSlider.builder(
+                options: CarouselOptions(
+                  height: height * 0.2,
+                  aspectRatio: 16 / 9,
+                  viewportFraction: 1,
+                  initialPage: 0,
+                  enableInfiniteScroll: true,
+                  reverse: false,
+                  autoPlay: true,
+                  autoPlayInterval: const Duration(seconds: 5),
+                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enlargeCenterPage: true,
+                  enlargeFactor: 0.3,
+                  onPageChanged: (index, reason) {
+                    itemsD[index];
+                  },
+                  scrollDirection: Axis.horizontal,
+                ),
+                itemBuilder: (BuildContext context, int index, int realIndex) {
+                  return Image(
+                    image: NetworkImage(itemsD[index]),
+                    fit: BoxFit.cover,
+                  );
+                },
+                itemCount: itemsD.length,
+              ),
+              kHeight10,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
