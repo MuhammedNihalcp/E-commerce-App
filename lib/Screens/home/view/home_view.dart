@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
+import 'package:e_commerce/util/search_bar/search_bar.dart';
 import 'package:flutter/material.dart';
 
 class ScreenHome extends StatelessWidget {
@@ -70,29 +71,7 @@ class ScreenHome extends StatelessWidget {
               SizedBox(
                 height: height * 0.15,
               ),
-              TextButton.icon(
-                style: ButtonStyle(
-                  alignment: Alignment.centerLeft,
-                  backgroundColor: MaterialStateProperty.all(colorWhite),
-                  fixedSize:
-                      MaterialStateProperty.all(Size(width, height * 0.05)),
-                  shape: MaterialStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(100),
-                      side: const BorderSide(color: colorWhite),
-                    ),
-                  ),
-                ),
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.search,
-                  color: colorBlack,
-                ),
-                label: const Text(
-                  'What are you looking for?',
-                  style: TextStyle(color: colorBlack),
-                ),
-              ),
+              SearchBar(width: width, height: height),
               kHeight10,
               CarouselSlider.builder(
                 options: CarouselOptions(
@@ -252,6 +231,8 @@ class ScreenHome extends StatelessWidget {
     );
   }
 }
+
+
 
 // class CustomSerchDelegate extends SearchDelegate {
 //   @override

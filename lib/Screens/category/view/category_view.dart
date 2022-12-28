@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 
 class ScreenSearch extends StatelessWidget {
@@ -5,10 +6,37 @@ class ScreenSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Search'),
-      ),
-    );
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: colorVailet,
+          centerTitle: true,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                'Category',
+                style: TextStyle(
+                  letterSpacing: 3,
+                  color: colorWhite,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(height * 0.09),
+            child: const SizedBox(),
+          ),
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children: [],
+            ),
+          ),
+        ));
   }
 }
