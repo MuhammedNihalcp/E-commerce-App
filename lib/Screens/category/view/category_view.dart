@@ -1,3 +1,5 @@
+import 'package:e_commerce/Screens/category/view/widget/filteration_bar.dart';
+import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/util/search_bar/search_bar.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +36,7 @@ class ScreenSearch extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
                 SizedBox(
@@ -44,6 +46,29 @@ class ScreenSearch extends StatelessWidget {
                   width: width,
                   height: height,
                 ),
+                kHeight10,
+                FilerationBar(width: width),
+                kHeight20,
+                Row(
+                  children: const [
+                    Expanded(
+                      child: Text(
+                        '166 Items',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Text('sort by:'),
+                    Text(
+                      'Featured ⌄',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  ],
+                )
               ],
             ),
           ),

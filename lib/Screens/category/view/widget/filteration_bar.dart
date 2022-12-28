@@ -39,7 +39,7 @@ class FilerationBar extends StatelessWidget {
                       },
                       child: Card(
                           color: filterationC.selFilterIndex == index
-                              ? const Color(0xFFF3f3f3)
+                              ? buttonColor
                               : Colors.white,
                           margin: const EdgeInsets.symmetric(horizontal: 10),
                           shape: RoundedRectangleBorder(
@@ -53,12 +53,10 @@ class FilerationBar extends StatelessWidget {
                               alignment: Alignment.center,
                               child: Text(
                                 categories[index],
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
-                                  color: filterationC.selFilterIndex == index
-                                      ? buttonColor
-                                      : colorWhite,
+                                  color: colorBlack,
                                 ),
                               ),
                             ),
