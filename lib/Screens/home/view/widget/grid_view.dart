@@ -19,47 +19,65 @@ class ProductGridView extends StatelessWidget {
       shrinkWrap: true,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: 1 / 1.5),
+          crossAxisSpacing: 15,
+          mainAxisSpacing: 15,
+          childAspectRatio: 1 / 1.6),
       itemBuilder: (BuildContext ctx, int index) {
-        return Container(
+        return SizedBox(
           width: width * 0.1,
-          color: Colors.blue,
-          child: Column(
-            children: [
-              Container(
-                width: width * 0.5,
-                height: height * 0.25,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/dress/dress3.jpg'),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              const Text(
-                'The midi dress, which falls between a maxi and a mini, is what everyone needs for situations',
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontWeight: FontWeight.w400),
-              ),
-              kHeight10,
-              Row(
-                children: const [
-                  Text(
-                    '₹ 299',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+          // color: Colors.blue,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Stack(
+                  children: [
+                    Container(
+                      width: width * 0.5,
+                      height: height * 0.22,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/dress/dress3.jpg'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
-                  ),
-                ],
-              )
-            ],
+                    Positioned(
+                      right: 0,
+                      bottom: 0,
+                      
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.favorite_border_outlined,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                const Text(
+                  'The midi dress, which falls between a maxi and a mini, is what everyone needs for situations',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontWeight: FontWeight.w400),
+                ),
+                kHeight10,
+                Row(
+                  children: const [
+                    Text(
+                      '₹ 299',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         );
       },

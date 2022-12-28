@@ -23,7 +23,7 @@ class ScreenHome extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 240, 234, 234),
+      backgroundColor: backgroundColor,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: colorVailet,

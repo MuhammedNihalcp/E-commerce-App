@@ -1,4 +1,5 @@
 import 'package:e_commerce/Screens/category/view/widget/filteration_bar.dart';
+import 'package:e_commerce/Screens/home/view/widget/grid_view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/util/search_bar/search_bar.dart';
@@ -12,6 +13,7 @@ class ScreenSearch extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: backgroundColor,
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           backgroundColor: colorVailet,
@@ -66,9 +68,14 @@ class ScreenSearch extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
-                    )
+                    ),
                   ],
-                )
+                ),
+                kHeight20,
+                ProductGridView(
+                  width: width,
+                  height: height,
+                ),
               ],
             ),
           ),
