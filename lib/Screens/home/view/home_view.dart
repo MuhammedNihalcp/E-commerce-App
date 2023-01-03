@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:e_commerce/Screens/home/view/widget/category_items.dart';
 import 'package:e_commerce/Screens/home/view/widget/grid_view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
@@ -120,46 +121,7 @@ class ScreenHome extends StatelessWidget {
                       ))
                 ],
               ),
-              LimitedBox(
-                maxHeight: 100,
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: List.generate(
-                    10,
-                    (index) => Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Stack(
-                        alignment: AlignmentDirectional.center,
-                        children: [
-                          Container(
-                            width: height * 0.13,
-                            height: height * 0.13,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: const DecorationImage(
-                                  image: AssetImage(
-                                      'assets/images/dress/dress5.jpg'),
-                                  fit: BoxFit.cover),
-                            ),
-                          ),
-                          const Center(
-                            child: Text(
-                              "Women's\nFasion",
-                              textAlign: TextAlign.center,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 2,
-                              style: TextStyle(
-                                color: colorWhite,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              HomePageCategoryItems(height: height),
               kHeight10,
               Row(
                 children: const [
@@ -184,6 +146,7 @@ class ScreenHome extends StatelessWidget {
     );
   }
 }
+
 
 
 

@@ -1,5 +1,5 @@
 import 'package:e_commerce/Screens/navigator_screen/view/view.dart';
-import 'package:e_commerce/Screens/splash_screen/splash.dart';
+import 'package:e_commerce/Screens/splash_screen/view/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
