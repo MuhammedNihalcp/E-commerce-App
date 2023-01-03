@@ -95,7 +95,7 @@ class ScreenLogin extends StatelessWidget {
                         keyboardType: TextInputType.visiblePassword,
                         validator: (value) =>
                             signinController.passwordValdation(value),
-                            obscureText: signinController.obscureText,
+                        obscureText: signinController.obscureText,
                         decoration: InputDecoration(
                           suffixIcon: IconButton(
                             onPressed: () {
@@ -130,7 +130,7 @@ class ScreenLogin extends StatelessWidget {
                         children: [
                           TextButton(
                               onPressed: () {
-                                Get.to(() =>  ScreenForgotPassword());
+                                Get.to(() => ScreenForgotPassword());
                               },
                               child: const Text(
                                 'Forget Password?',
@@ -156,7 +156,7 @@ class ScreenLogin extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          if(formGlobalKey.currentState!.validate()){
+                          if (formGlobalKey.currentState!.validate()) {
                             formGlobalKey.currentState!.save();
                             signinController.signIn(context);
                           }

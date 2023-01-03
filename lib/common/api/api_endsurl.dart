@@ -7,4 +7,7 @@ class ApiEndsUrl{
    String verifyOtp = '/api/v1/auth/otp';
    String google = '/api/v1/auth/google';
    String forgot = '/api/v1/auth/password';
+
+   //category
+   String category = '/api/v1/category';
 }
