@@ -10,4 +10,7 @@ class ApiEndsUrl{
 
    //category
    String category = '/api/v1/category';
+
+   //product
+   String product = '/api/v1/products';
 }
