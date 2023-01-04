@@ -1,22 +1,19 @@
 import 'package:e_commerce/Screens/auth/sign_in/view/signin_view.dart';
+import 'package:e_commerce/Screens/splash_screen/controller/splash_contorller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ScreenSplash extends StatefulWidget {
-  const ScreenSplash({super.key});
+class ScreenSplash extends StatelessWidget {
+   ScreenSplash({super.key});
 
-  @override
-  State<ScreenSplash> createState() => _ScreenSplashState();
-}
+  final splashC = Get.put(SplashContorller());
 
-class _ScreenSplashState extends State<ScreenSplash> {
-  @override
-  void initState() {
-    goToLogin();
-    super.initState();
-  }
+  // @override
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) { 
+      splashC.splashTimer(context);
+    });
     return const Scaffold(
       backgroundColor: Color.fromARGB(255, 49, 49, 49),
       body: Center(
@@ -27,8 +24,8 @@ class _ScreenSplashState extends State<ScreenSplash> {
     );
   }
 
-  Future<void>goToLogin()async{
-     await Future.delayed(const Duration(seconds: 3));
-     Get.off(()=> ScreenLogin());
-  }
+  // Future<void>goToLogin()async{
+  //    await Future.delayed(const Duration(seconds: 3));
+  //    Get.off(()=> ScreenLogin());
+  // }
 }
