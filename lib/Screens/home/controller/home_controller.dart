@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:e_commerce/Screens/category/model/category_model.dart';
 import 'package:e_commerce/Screens/category/service/category_service.dart';
 import 'package:e_commerce/Screens/product_view_screen/model/product_model.dart';
+import 'package:e_commerce/Screens/product_view_screen/service/product_service.dart';
 import 'package:get/get.dart';
 
 class HomeContorller extends GetxController {
@@ -11,11 +12,12 @@ class HomeContorller extends GetxController {
     log('homecontorller');
   }
   List<CategoryModel> categoryList = [];
-   List<ProductModel> productList = [];
+  List<ProductModel> productList = [];
 
   bool isLoding = false;
 
   CategoryService categoryS = CategoryService();
+  ProductService productS = ProductService();
   void getCategory(context) async {
     log('getcategory');
     isLoding = true;
@@ -23,9 +25,9 @@ class HomeContorller extends GetxController {
     await categoryS.getCategory(context).then((value) {
       log('came category');
       if (value != null) {
-        log('add category',name: 'category');
+        log('add category', name: 'category');
         categoryList = value;
-        log(categoryList.toString(),name: 'categorylist');
+        log(categoryList.toString(), name: 'categorylist');
         update();
         isLoding = false;
         update();
@@ -37,18 +39,19 @@ class HomeContorller extends GetxController {
       }
     });
   }
+
   void getProduct(context) async {
     isLoding = true;
     update();
-    await product.homeProducts(context).then((value) {
+    await productS.getProduct(context).then((value) {
       if (value != null) {
         productList = value;
-        notifyListeners();
-        isLoading = false;
-        notifyListeners();
+        update();
+        isLoding = false;
+        update();
       } else {
-        isLoading = false;
-        notifyListeners();
+        isLoding = false;
+        update();
         return null;
       }
     });
