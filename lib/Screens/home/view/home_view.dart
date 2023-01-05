@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:e_commerce/Screens/home/view/widget/carousel_view.dart';
 import 'package:e_commerce/Screens/home/view/widget/category_items.dart';
 import 'package:e_commerce/Screens/home/view/widget/grid_view.dart';
 import 'package:e_commerce/core/size.dart';
@@ -75,33 +76,7 @@ class ScreenHome extends StatelessWidget {
               ),
               SearchBar(width: width, height: height),
               kHeight10,
-              CarouselSlider.builder(
-                options: CarouselOptions(
-                  height: height * 0.2,
-                  aspectRatio: 16 / 9,
-                  viewportFraction: 1,
-                  initialPage: 0,
-                  enableInfiniteScroll: true,
-                  reverse: false,
-                  autoPlay: true,
-                  autoPlayInterval: const Duration(seconds: 5),
-                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enlargeCenterPage: true,
-                  enlargeFactor: 0.3,
-                  onPageChanged: (index, reason) {
-                    itemsD[index];
-                  },
-                  scrollDirection: Axis.horizontal,
-                ),
-                itemBuilder: (BuildContext context, int index, int realIndex) {
-                  return Image(
-                    image: NetworkImage(itemsD[index]),
-                    fit: BoxFit.cover,
-                  );
-                },
-                itemCount: itemsD.length,
-              ),
+              CarouselWidget(height: height, itemsD: itemsD),
               kHeight10,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -146,6 +121,8 @@ class ScreenHome extends StatelessWidget {
     );
   }
 }
+
+
 
 
 
