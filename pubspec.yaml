@@ -41,6 +41,7 @@ dependencies:
   flutter_svg: ^1.1.6
   get: 4.6.5
   google_sign_in: 5.4.2
+  smooth_page_indicator: 1.0.0+2
 
 dev_dependencies:
   flutter_lints: ^2.0.0
