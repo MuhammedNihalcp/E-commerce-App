@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:e_commerce/Screens/category/model/category_model.dart';
 import 'package:e_commerce/Screens/category/service/category_service.dart';
 import 'package:e_commerce/Screens/home/model/carosual_model.dart';
+import 'package:e_commerce/Screens/home/service/carousal_service.dart';
 import 'package:e_commerce/Screens/product_view_screen/model/product_model.dart';
 import 'package:e_commerce/Screens/product_view_screen/service/product_service.dart';
 import 'package:get/get.dart';
@@ -11,6 +12,7 @@ class HomeContorller extends GetxController {
   HomeContorller(context) {
     getCategory(context);
     getProduct(context);
+    getACarousal(context);
     log('homecontorller');
   }
   List<CategoryModel> categoryList = [];
@@ -23,6 +25,7 @@ class HomeContorller extends GetxController {
 
   CategoryService categoryS = CategoryService();
   ProductService productS = ProductService();
+  CarousalService carousalS = CarousalService();
   void getCategory(context) async {
     log('getcategory');
     isLoding = true;
@@ -62,7 +65,23 @@ class HomeContorller extends GetxController {
     });
   }
 
-   void smoothIndicator(index) {
+  void getACarousal(context) async {
+    isLoding = true;
+    update();
+    await carousalS.getCarousal(context).then((value) {
+      if (value != null) {
+        carousalList = value;
+        update();
+        isLoding = false;
+        update();
+      } else {
+        isLoding = false;
+        update();
+      }
+    });
+  }
+
+  void smoothIndicator(index) {
     activeIndex = index;
     update();
   }
