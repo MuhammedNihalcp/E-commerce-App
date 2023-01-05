@@ -18,7 +18,7 @@ class HomePageCategoryItems extends StatelessWidget {
     final homecategoryC = Get.put(HomeContorller(context));
     return GetBuilder<HomeContorller>(
       builder: (controller) => LimitedBox(
-        maxHeight: height * 0.17,
+        maxHeight: height * 0.19,
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: List.generate(
