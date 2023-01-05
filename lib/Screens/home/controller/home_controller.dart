@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:e_commerce/Screens/category/model/category_model.dart';
 import 'package:e_commerce/Screens/category/service/category_service.dart';
+import 'package:e_commerce/Screens/home/model/carosual_model.dart';
 import 'package:e_commerce/Screens/product_view_screen/model/product_model.dart';
 import 'package:e_commerce/Screens/product_view_screen/service/product_service.dart';
 import 'package:get/get.dart';
@@ -14,8 +15,11 @@ class HomeContorller extends GetxController {
   }
   List<CategoryModel> categoryList = [];
   List<ProductModel> productList = [];
+  List<CarousalModel> carousalList = [];
 
   bool isLoding = false;
+
+  int activeIndex = 0;
 
   CategoryService categoryS = CategoryService();
   ProductService productS = ProductService();
@@ -56,5 +60,10 @@ class HomeContorller extends GetxController {
         return null;
       }
     });
+  }
+
+   void smoothIndicator(index) {
+    activeIndex = index;
+    update();
   }
 }

@@ -13,4 +13,7 @@ class ApiEndsUrl{
 
    //product
    String product = '/api/v1/products';
+
+   //carousal
+   String carousal = '/api/v1/carousal';
 }
