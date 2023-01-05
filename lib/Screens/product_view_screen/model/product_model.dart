@@ -5,7 +5,7 @@ class ProductModel {
   final dynamic discountPrice;
   final int offer;
   final List<String> size;
-  final List<String> image;
+   List<String> image;
   final String category;
   final String rating;
   final String description;
@@ -30,7 +30,7 @@ class ProductModel {
       discountPrice: json['discountPrice'],
       offer: json['offer'],
       size: List<String>.from(json["size"].map((x) => x)),
-      image: List<String>.from(json["image"].map((x) => x)),
+      image:List<String>.from(json["image"].map((x) => x)),
       category: json['category'],
       rating: json['rating'],
       description: json["description"],

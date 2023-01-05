@@ -43,10 +43,11 @@ class ScreenProductView extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
               ),
               itemBuilder: (BuildContext context, int index, int realIndex) {
-                return Image(
-                  image: NetworkImage(itemsD[index]),
-                  fit: BoxFit.cover,
-                );
+                return SizedBox();
+                // return Image(
+                //   image: NetworkImage(itemsD[index]),
+                //   fit: BoxFit.cover,
+                // );
               },
               itemCount: itemsD.length,
             ),

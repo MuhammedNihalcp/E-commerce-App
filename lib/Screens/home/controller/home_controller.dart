@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 class HomeContorller extends GetxController {
   HomeContorller(context) {
     getCategory(context);
+    getProduct(context);
     log('homecontorller');
   }
   List<CategoryModel> categoryList = [];

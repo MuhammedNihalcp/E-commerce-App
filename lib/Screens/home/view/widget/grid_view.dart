@@ -1,5 +1,6 @@
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 import 'package:e_commerce/core/size.dart';
+import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -39,10 +40,12 @@ class ProductGridView extends StatelessWidget {
                       Container(
                         width: width * 0.5,
                         height: height * 0.22,
-                        decoration:  BoxDecoration(
+                        decoration: BoxDecoration(
+                          color: colorWhite,
                           image: DecorationImage(
-                            image: NetworkImage('http://172.16.7.123:5000/product/${productC.productList[index].image[0]}'),
-                            fit: BoxFit.cover,
+                            image: NetworkImage(
+                                'http://172.16.7.123:5000/products/${productC.productList[index].image[0]}'),
+                            // fit: BoxFit.cover,
                           ),
                         ),
                       ),
@@ -61,18 +64,18 @@ class ProductGridView extends StatelessWidget {
                   const SizedBox(
                     height: 5,
                   ),
-                   Text(
+                  Text(
                     productC.productList[index].description,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.w400),
+                    style: const TextStyle(fontWeight: FontWeight.w400),
                   ),
                   kHeight10,
                   Row(
-                    children: const [
+                    children: [
                       Text(
-                        '₹ 299',
-                        style: TextStyle(
+                        "₹ ${productC.productList[index].price.toString()}",
+                        style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
@@ -84,7 +87,7 @@ class ProductGridView extends StatelessWidget {
             ),
           );
         },
-        itemCount: 10,
+        itemCount: productC.productList.length,
       ),
     );
   }
