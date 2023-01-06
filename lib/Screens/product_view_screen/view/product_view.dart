@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 
-
 class ScreenProductView extends StatelessWidget {
   ScreenProductView({super.key});
   final itemsD = [
@@ -25,8 +24,8 @@ class ScreenProductView extends StatelessWidget {
           children: [
             CarouselSlider.builder(
               options: CarouselOptions(
-                height: height * 0.2,
-                aspectRatio: 16 / 9,
+                height: height * 0.5,
+                aspectRatio: 1 / 4,
                 viewportFraction: 1,
                 initialPage: 0,
                 enableInfiniteScroll: true,
@@ -43,11 +42,12 @@ class ScreenProductView extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
               ),
               itemBuilder: (BuildContext context, int index, int realIndex) {
-                return const SizedBox();
-                // return Image(
-                //   image: NetworkImage(itemsD[index]),
-                //   fit: BoxFit.cover,
-                // );
+                return Image(
+                  width: width,
+                 
+                  image: NetworkImage(itemsD[index]),
+                  fit: BoxFit.cover,
+                );
               },
               itemCount: itemsD.length,
             ),

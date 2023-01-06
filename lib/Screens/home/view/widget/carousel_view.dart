@@ -46,6 +46,7 @@ class CarouselWidget extends StatelessWidget {
               ),
               itemBuilder: (BuildContext context, int index, int realIndex) {
                 return Image(
+                  // width: double.infinity,
                   image: NetworkImage(
                       'http://172.16.7.123:5000/carousals/${carousalC.carousalList[index].image}'),
                   fit: BoxFit.cover,
