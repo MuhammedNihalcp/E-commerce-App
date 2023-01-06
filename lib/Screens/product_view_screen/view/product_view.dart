@@ -12,6 +12,7 @@ class ScreenProductView extends StatelessWidget {
     'https://www.shutterstock.com/image-photo/full-body-profile-photo-cheerful-600w-1898279326.jpg',
     'https://www.shutterstock.com/image-photo/pretty-beautiful-woman-brunette-hair-600w-1695648628.jpg',
   ];
+  static String routeName = '/product_view.dart';
 
   @override
   Widget build(BuildContext context) {

@@ -37,15 +37,20 @@ class ProductGridView extends StatelessWidget {
                 children: [
                   Stack(
                     children: [
-                      Container(
-                        width: width * 0.5,
-                        height: height * 0.22,
-                        decoration: BoxDecoration(
-                          color: colorWhite,
-                          image: DecorationImage(
-                            image: NetworkImage(
-                                'http://172.16.7.123:5000/products/${productC.productList[index].image[0]}'),
-                            // fit: BoxFit.cover,
+                      InkWell(
+                        onTap: () {
+                          productC.toProdutScreen(index);
+                        },
+                        child: Container(
+                          width: width * 0.5,
+                          height: height * 0.22,
+                          decoration: BoxDecoration(
+                            color: colorWhite,
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                  'http://172.16.7.123:5000/products/${productC.productList[index].image[0]}'),
+                              // fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),

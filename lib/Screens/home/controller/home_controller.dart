@@ -6,6 +6,7 @@ import 'package:e_commerce/Screens/home/model/carosual_model.dart';
 import 'package:e_commerce/Screens/home/service/carousal_service.dart';
 import 'package:e_commerce/Screens/product_view_screen/model/product_model.dart';
 import 'package:e_commerce/Screens/product_view_screen/service/product_service.dart';
+import 'package:e_commerce/Screens/product_view_screen/view/product_view.dart';
 import 'package:get/get.dart';
 
 class HomeContorller extends GetxController {
@@ -84,5 +85,9 @@ class HomeContorller extends GetxController {
   void smoothIndicator(index) {
     activeIndex = index;
     update();
+  }
+
+  void toProdutScreen(index) {
+    Get.toNamed(ScreenProductView.routeName, arguments: productList[index].id);
   }
 }
