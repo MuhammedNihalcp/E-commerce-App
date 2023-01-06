@@ -56,7 +56,7 @@ class CarouselWidget extends StatelessWidget {
           ),
           kHeight20,
           Positioned(
-            top: 128,
+            top: 128, 
             left: 150,
             child: AnimatedSmoothIndicator(
               activeIndex: carousalC.activeIndex,
