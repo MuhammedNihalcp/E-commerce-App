@@ -18,7 +18,7 @@ class ForgotPasswordService {
       Dio dio = Dio();
       log('dio');
       Response response = await dio.post(
-        ApiBaseUrl().baseUrl + ApiEndsUrl().forgot,
+        apibaseUrl.baseUrl + apiendUrl.forgot,
         data: {
           "email": email,
         },
