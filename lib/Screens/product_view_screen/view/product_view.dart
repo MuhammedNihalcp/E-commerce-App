@@ -1,8 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 
 class ScreenProductView extends StatelessWidget {
   ScreenProductView({super.key});
@@ -43,7 +42,7 @@ class ScreenProductView extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
               ),
               itemBuilder: (BuildContext context, int index, int realIndex) {
-                return SizedBox();
+                return const SizedBox();
                 // return Image(
                 //   image: NetworkImage(itemsD[index]),
                 //   fit: BoxFit.cover,

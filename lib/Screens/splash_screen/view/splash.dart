@@ -1,4 +1,4 @@
-import 'package:e_commerce/Screens/auth/sign_in/view/signin_view.dart';
+
 import 'package:e_commerce/Screens/splash_screen/controller/splash_contorller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

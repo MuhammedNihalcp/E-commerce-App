@@ -3,7 +3,7 @@ import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -56,7 +56,7 @@ class CarouselWidget extends StatelessWidget {
           ),
           kHeight20,
           Positioned(
-            top: 128, 
+            top: 128,
             left: 150,
             child: AnimatedSmoothIndicator(
               activeIndex: carousalC.activeIndex,

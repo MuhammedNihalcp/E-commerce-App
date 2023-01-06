@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:dio/dio.dart';
 import 'package:e_commerce/Screens/auth/new_password/view/new_password_view.dart';
 import 'package:e_commerce/Screens/auth/verification_code_screen/service/otp_service/verify_otp.dart';
 import 'package:e_commerce/util/error_popup/snack_bar.dart';

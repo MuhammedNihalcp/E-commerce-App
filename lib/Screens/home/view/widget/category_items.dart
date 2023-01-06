@@ -1,12 +1,11 @@
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:get/get.dart';
 
 class HomePageCategoryItems extends StatelessWidget {
-  HomePageCategoryItems({
+ const HomePageCategoryItems({
     Key? key,
     required this.height,
   }) : super(key: key);

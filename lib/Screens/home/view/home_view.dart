@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:e_commerce/Screens/home/view/widget/carousel_view.dart';
 import 'package:e_commerce/Screens/home/view/widget/category_items.dart';
 import 'package:e_commerce/Screens/home/view/widget/grid_view.dart';
@@ -7,7 +7,9 @@ import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/util/search_bar/search_bar.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ScreenHome extends StatelessWidget {
+  // ignore: prefer_typing_uninitialized_variables
   var options;
 
   ScreenHome({super.key});

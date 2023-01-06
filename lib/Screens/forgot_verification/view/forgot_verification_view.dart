@@ -1,14 +1,13 @@
 import 'package:e_commerce/Screens/auth/forgot_password/view/view_forgot_password.dart';
-import 'package:e_commerce/Screens/auth/sign_up/controller/register_verification_otp/controller.dart';
+
 import 'package:e_commerce/Screens/forgot_verification/controller/forgot_verification_controller.dart';
-import 'package:e_commerce/Screens/forgot_verification/view/widget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
 import '../../../core/size.dart';
 import '../../../core/text_style.dart';
-import '../../navigator_screen/view/view.dart';
 
 class ScreenForgotVerification extends StatelessWidget {
   ScreenForgotVerification({
