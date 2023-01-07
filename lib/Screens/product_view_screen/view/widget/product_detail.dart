@@ -3,6 +3,7 @@ import 'package:e_commerce/Screens/product_view_screen/model/product_model.dart'
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:readmore/readmore.dart';
 
 class ProductDetail extends StatelessWidget {
   const ProductDetail(
@@ -18,20 +19,26 @@ class ProductDetail extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text(
+            ReadMoreText(
               controlle.description,
-              style: const TextStyle(
-                color: colorBlack,
-              ),
-              overflow: TextOverflow.ellipsis,
-            ),
+              trimLines: 2,
+              colorClickableText: Colors.pink,
+              trimMode: TrimMode.Line,
+              trimCollapsedText: 'Show more',
+              trimExpandedText: 'Show less',
+              moreStyle:const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+            )
           ],
         ),
+        kHeight10,
         Row(
           children: [
             Text(
-              controlle.price.toString(),
-              style: const TextStyle(color: colorBlack),
+              '₹ ${controlle.price.toString()}',
+              style: const TextStyle(
+                color: colorBlack,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
         ),

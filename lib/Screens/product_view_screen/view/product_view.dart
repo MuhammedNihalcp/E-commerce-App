@@ -1,7 +1,7 @@
-import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 import 'package:e_commerce/Screens/product_view_screen/controller/product_controller.dart';
-import 'package:e_commerce/Screens/product_view_screen/model/product_model.dart';
+
 import 'package:e_commerce/Screens/product_view_screen/view/widget/bottom_navigator.dart';
 import 'package:e_commerce/Screens/product_view_screen/view/widget/product_detail.dart';
 import 'package:e_commerce/Screens/product_view_screen/view/widget/product_view_carousal.dart';
