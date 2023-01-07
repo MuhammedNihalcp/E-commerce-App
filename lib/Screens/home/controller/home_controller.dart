@@ -87,6 +87,10 @@ class HomeContorller extends GetxController {
     update();
   }
 
+  ProductModel findById(String id) {
+    return productList.firstWhere((element) => element.id == id);
+  }
+
   void toProdutScreen(index) {
     Get.toNamed(ScreenProductView.routeName, arguments: productList[index].id);
   }
