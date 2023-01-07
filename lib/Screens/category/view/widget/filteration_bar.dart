@@ -1,4 +1,5 @@
 import 'package:e_commerce/Screens/category/controller/filteration_bar_controller.dart';
+import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,6 +23,7 @@ class FilerationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categoryItems = Get.put(HomeContorller(context));
     return GetBuilder<FilterationBarController>(
       builder: (controller) => SizedBox(
         height: 40,
@@ -52,7 +54,7 @@ class FilerationBar extends StatelessWidget {
                             child: Align(
                               alignment: Alignment.center,
                               child: Text(
-                                categories[index],
+                                categoryItems.categoryList[index].name,
                                 style: const TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,

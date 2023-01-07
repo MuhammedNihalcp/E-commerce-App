@@ -26,7 +26,7 @@ class ProductGridView extends StatelessWidget {
             crossAxisCount: 2,
             crossAxisSpacing: 5,
             mainAxisSpacing:5,
-            childAspectRatio: 1 / 1.6),
+            childAspectRatio: 1 / 1.7),
         itemBuilder: (BuildContext ctx, int index) {
           return SizedBox(
             // width: width * 0.1,

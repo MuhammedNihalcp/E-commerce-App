@@ -32,7 +32,7 @@ class ScreenCategory extends StatelessWidget {
             ],
           ),
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(height * 0.09),
+            preferredSize: Size.fromHeight(height * 0.04),
             child: const SizedBox(),
           ),
         ),
@@ -42,7 +42,7 @@ class ScreenCategory extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: height * 0.15,
+                  height: height * 0.12,
                 ),
                 SearchBar(
                   width: width,

@@ -3,7 +3,7 @@ import 'package:e_commerce/Screens/product_view_screen/controller/product_contro
 import 'package:e_commerce/Screens/product_view_screen/model/product_model.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -45,18 +45,25 @@ class ProductViewCarousal extends StatelessWidget {
             scrollDirection: Axis.horizontal,
           ),
           itemBuilder: (BuildContext context, int index, int realIndex) {
-            return Image(
-              width: width,
-              image: NetworkImage(
-                  'http://172.16.7.123:5000/products/${controlle.image[index]}'),
-              // fit: BoxFit.cover,
+            return Container(
+              width: width * 0.95,
+              height: height * 0.28,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: colorWhite,
+                image: DecorationImage(
+                  image: NetworkImage(
+                      'http://172.16.7.123:5000/products/${controlle.image[index]}'),
+                  // fit: BoxFit.cover,
+                ),
+              ),
             );
           },
           itemCount: controlle.image.length,
         ),
         IconButton(
           onPressed: () => Get.back(),
-          icon:const Icon(Icons.arrow_back_rounded),
+          icon: const Icon(Icons.arrow_back_rounded),
         ),
         Positioned(
           top: height * 0.45,

@@ -47,11 +47,18 @@ class CarouselWidget extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
               ),
               itemBuilder: (BuildContext context, int index, int realIndex) {
-                return Image(
-                  // width: double.infinity,
-                  image: NetworkImage(
-                      'http://172.16.7.123/carousals/${carousalC.carousalList[index].image}'),
-                  fit: BoxFit.cover,
+                return Container(
+                  width: width ,
+                  height: height * 0.28,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: colorWhite,
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          'http://172.16.7.123:5000/carousals/${carousalC.carousalList[index].image}'),
+                      // fit: BoxFit.cover,
+                    ),
+                  ),
                 );
               },
               itemCount: carousalC.carousalList.length,
