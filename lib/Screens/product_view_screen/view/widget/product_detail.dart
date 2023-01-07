@@ -19,6 +19,17 @@ class ProductDetail extends StatelessWidget {
         Row(
           children: [
             Text(
+              controlle.description,
+              style: const TextStyle(
+                color: colorBlack,
+              ),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            Text(
               controlle.price.toString(),
               style: const TextStyle(color: colorBlack),
             ),

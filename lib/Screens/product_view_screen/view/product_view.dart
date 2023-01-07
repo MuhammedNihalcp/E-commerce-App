@@ -9,7 +9,7 @@ import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 
 class ScreenProductView extends StatelessWidget {
   ScreenProductView({super.key});
@@ -45,17 +45,7 @@ class ScreenProductView extends StatelessWidget {
                     width: width,
                     controlle: controlle),
                 kHeight20,
-                Row(
-                  children: [
-                    Text(
-                      controlle.description,
-                      style: const TextStyle(
-                        color: colorBlack,
-                      ),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ],
-                ),
+                
                 kHeight20,
                 ProductDetail(
                   controlle: controlle,
