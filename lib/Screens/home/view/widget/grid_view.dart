@@ -24,12 +24,12 @@ class ProductGridView extends StatelessWidget {
         shrinkWrap: true,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            crossAxisSpacing: 15,
-            mainAxisSpacing: 15,
+            crossAxisSpacing: 5,
+            mainAxisSpacing:5,
             childAspectRatio: 1 / 1.6),
         itemBuilder: (BuildContext ctx, int index) {
           return SizedBox(
-            width: width * 0.1,
+            // width: width * 0.1,
             // color: Colors.blue,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -43,8 +43,9 @@ class ProductGridView extends StatelessWidget {
                         },
                         child: Container(
                           width: width * 0.5,
-                          height: height * 0.22,
+                          height: height * 0.28,
                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
                             color: colorWhite,
                             image: DecorationImage(
                               image: NetworkImage(

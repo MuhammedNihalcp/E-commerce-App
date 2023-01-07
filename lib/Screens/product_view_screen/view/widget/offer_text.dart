@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class OfferTextWidget {
   Widget offerText(String text) {
     return RichText(
+      maxLines: 2,
       text: TextSpan(
         children: [
           const WidgetSpan(
@@ -15,7 +16,9 @@ class OfferTextWidget {
           ),
           TextSpan(
             text: text,
+            
             style: const TextStyle(color: colorBlack),
+            
           ),
         ],
       ),

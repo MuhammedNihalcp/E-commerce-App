@@ -140,14 +140,28 @@ class ProductDetail extends StatelessWidget {
               ),
             ),
           ),
-          const Text(
-            'Available Offers',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+          kHeight10,
+          Row(
+            children: const [
+              Text(
+                'Available Offers',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+              ),
+            ],
           ),
-          OfferTextWidget().offerText(' Bank offer starts at 5% cashback'),
-          OfferTextWidget()
-              .offerText(' Cash On Delivery Free up to all products on Evo'),
-          OfferTextWidget().offerText(' No cost EMI/coupons up to 10% Off'),
+          kHeight10,
+          Row(
+            children: [
+              OfferTextWidget().offerText(' Bank offer starts at 5% cashback'),
+            ],
+          ),
+          OfferTextWidget().offerText(
+              ' Cash On Delivery Free up to all products on My Shop'),
+          Row(
+            children: [
+              OfferTextWidget().offerText(' No cost EMI/coupons up to 10% Off'),
+            ],
+          ),
         ],
       ),
     );

@@ -5,8 +5,8 @@ import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/util/search_bar/search_bar.dart';
 import 'package:flutter/material.dart';
 
-class ScreenSearch extends StatelessWidget {
-  const ScreenSearch({super.key});
+class ScreenCategory extends StatelessWidget {
+  const ScreenCategory({super.key});
 
   @override
   Widget build(BuildContext context) {
