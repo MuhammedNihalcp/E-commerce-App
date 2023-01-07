@@ -13,9 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      home: ScreenSplash(),
+
       unknownRoute: GetPage(
-          name: ScreenProductView.routeName, page: () => ScreenProductView()),
-      initialRoute: ScreenProductView.routeName,
+          name: ScreenProductView.routeName, page: () => ScreenSplash()),
+      // initialRoute: ScreenProductView.routeName,
       getPages: [
         GetPage(
             name: ScreenProductView.routeName, page: () => ScreenProductView())
@@ -24,7 +26,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ScreenSplash(),
     );
   }
 }

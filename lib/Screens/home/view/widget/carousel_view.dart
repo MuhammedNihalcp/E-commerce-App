@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
-import 'package:e_commerce/core/size.dart';
+
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 
@@ -11,10 +11,12 @@ class CarouselWidget extends StatelessWidget {
   const CarouselWidget({
     Key? key,
     required this.height,
+    required this.width,
     required this.itemsD,
   }) : super(key: key);
 
   final double height;
+  final double width;
   final List<String> itemsD;
 
   @override
@@ -55,10 +57,9 @@ class CarouselWidget extends StatelessWidget {
               itemCount: carousalC.carousalList.length,
             ),
           ),
-          kHeight20,
           Positioned(
-            top: 128,
-            left: 150,
+            top: height * 0.18,
+            left: width * 0.39,
             child: AnimatedSmoothIndicator(
               activeIndex: carousalC.activeIndex,
               count: carousalC.carousalList.length,

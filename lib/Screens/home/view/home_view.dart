@@ -1,4 +1,3 @@
-
 import 'package:e_commerce/Screens/home/view/widget/carousel_view.dart';
 import 'package:e_commerce/Screens/home/view/widget/category_items.dart';
 import 'package:e_commerce/Screens/home/view/widget/grid_view.dart';
@@ -78,7 +77,11 @@ class ScreenHome extends StatelessWidget {
               ),
               SearchBar(width: width, height: height),
               kHeight10,
-              CarouselWidget(height: height, itemsD: itemsD),
+              CarouselWidget(
+                height: height,
+                itemsD: itemsD,
+                width: width,
+              ),
               kHeight10,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
