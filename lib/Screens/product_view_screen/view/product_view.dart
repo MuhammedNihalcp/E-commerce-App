@@ -1,5 +1,6 @@
 
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
+
 import 'package:e_commerce/Screens/product_view_screen/controller/product_controller.dart';
 
 import 'package:e_commerce/Screens/product_view_screen/view/widget/bottom_navigator.dart';
@@ -9,7 +10,6 @@ import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 
 class ScreenProductView extends StatelessWidget {
   ScreenProductView({super.key});
@@ -33,25 +33,26 @@ class ScreenProductView extends StatelessWidget {
     final controlle = homeC.findById(productId);
     return Scaffold(
       backgroundColor: backgroundColor,
-      body: SingleChildScrollView(
-        child: GetBuilder<ProductController>(
-          builder: (controller) => Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                ProductViewCarousal(
-                    height: height,
-                    productC: productC,
-                    width: width,
-                    controlle: controlle),
-                kHeight20,
-                
-                kHeight20,
-                ProductDetail(
-                  controlle: controlle,
-                  controller: productC,
-                ),
-              ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: GetBuilder<ProductController>(
+            builder: (controller) => Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  ProductViewCarousal(
+                      height: height,
+                      productC: productC,
+                      width: width,
+                      controlle: controlle),
+                  kHeight20,
+                  kHeight20,
+                  ProductDetail(
+                    controlle: controlle,
+                    controller: productC,
+                  ),
+                ],
+              ),
             ),
           ),
         ),

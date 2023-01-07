@@ -14,3 +14,4 @@ const colorWhite = Colors.white;
 const colorGrey = Colors.grey;
 const colorVailet = Color.fromARGB(255, 112, 71, 158);
 const backgroundColor = Color.fromARGB(255, 240, 234, 234);
+const readmoreColor = Colors.blue;

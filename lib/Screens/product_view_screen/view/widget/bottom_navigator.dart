@@ -1,7 +1,7 @@
 import 'package:e_commerce/Screens/product_view_screen/controller/product_controller.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+
 import 'package:get/get.dart';
 
 class ProductBottomNavigator extends StatelessWidget {
@@ -27,11 +27,12 @@ class ProductBottomNavigator extends StatelessWidget {
         children: [
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
-              minimumSize: Size(width * 0.3, height * 0.08),
+              minimumSize: Size(width * 0.4, height * 0.08),
               maximumSize: Size.fromHeight(height * 0.1),
               backgroundColor: Colors.yellow,
               elevation: 0,
-              shape: RoundedRectangleBorder(),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
             ),
             onPressed: () {},
             icon: const Icon(
@@ -52,10 +53,11 @@ class ProductBottomNavigator extends StatelessWidget {
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-                minimumSize: Size(width * 0.3, height * 0.08),
+                minimumSize: Size(width * 0.4, height * 0.08),
                 backgroundColor: Colors.yellow,
                 elevation: 0,
-                shape: RoundedRectangleBorder()),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20))),
             onPressed: () {},
             child: const Text(
               'Buy now',

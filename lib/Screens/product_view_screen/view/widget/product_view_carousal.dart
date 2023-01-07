@@ -4,6 +4,7 @@ import 'package:e_commerce/Screens/product_view_screen/model/product_model.dart'
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ProductViewCarousal extends StatelessWidget {
@@ -32,7 +33,7 @@ class ProductViewCarousal extends StatelessWidget {
             initialPage: 0,
             enableInfiniteScroll: true,
             reverse: false,
-            autoPlay: true,
+            autoPlay: false,
             autoPlayInterval: const Duration(seconds: 5),
             autoPlayAnimationDuration: const Duration(milliseconds: 800),
             autoPlayCurve: Curves.fastOutSlowIn,
@@ -52,6 +53,10 @@ class ProductViewCarousal extends StatelessWidget {
             );
           },
           itemCount: controlle.image.length,
+        ),
+        IconButton(
+          onPressed: () => Get.back(),
+          icon:const Icon(Icons.arrow_back_rounded),
         ),
         Positioned(
           top: height * 0.45,
