@@ -97,7 +97,7 @@ class ScreenHome extends StatelessWidget {
                   ),
                   TextButton(
                       onPressed: () {
-                        Get.to(() => ScreenCategory());
+                        Get.to(() => const ScreenCategory());
                       },
                       child: const Text(
                         'See All >',

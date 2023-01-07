@@ -33,7 +33,7 @@ class ScreenNavigator extends StatelessWidget {
             index: landingPageController.tapIndex.value,
             children:  [
               ScreenHome(),
-              const ScreenSearch(),
+              const ScreenCategory(),
               const ScreenOrder(),
               const ScreenAccount(),
             ],
