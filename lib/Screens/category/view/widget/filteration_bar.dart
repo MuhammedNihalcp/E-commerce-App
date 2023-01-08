@@ -11,15 +11,15 @@ class FilerationBar extends StatelessWidget {
 
   final filterationC = Get.put(FilterationBarController());
 
-  final List<String> categories = [
-    'All',
-    'Dresses',
-    'Tops',
-    'Jeans',
-    'Sweaters',
-    'Cotton pands',
-    'Shirt',
-  ];
+  // final List<String> categories = [
+  //   'All',
+  //   'Dresses',
+  //   'Tops',
+  //   'Jeans',
+  //   'Sweaters',
+  //   'Cotton pands',
+  //   'Shirt',
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class FilerationBar extends StatelessWidget {
             Expanded(
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: categories.length,
+                  itemCount: categoryItems.categoryList.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
