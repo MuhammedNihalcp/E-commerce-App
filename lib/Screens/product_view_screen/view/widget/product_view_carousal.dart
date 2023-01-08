@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce/Screens/product_view_screen/controller/product_controller.dart';
 import 'package:e_commerce/Screens/product_view_screen/model/product_model.dart';
+import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +9,7 @@ import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ProductViewCarousal extends StatelessWidget {
-  const ProductViewCarousal({
+   ProductViewCarousal({
     Key? key,
     required this.height,
     required this.productC,
@@ -20,7 +21,7 @@ class ProductViewCarousal extends StatelessWidget {
   final ProductController productC;
   final double width;
   final ProductModel controlle;
-
+ final apibaseUrl = ApiBaseUrl();
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -53,7 +54,7 @@ class ProductViewCarousal extends StatelessWidget {
                 color: colorWhite,
                 image: DecorationImage(
                   image: NetworkImage(
-                      'http://172.16.7.123:5000/products/${controlle.image[index]}'),
+                      '${apibaseUrl.baseUrl}/products/${controlle.image[index]}'),
                   // fit: BoxFit.cover,
                 ),
               ),

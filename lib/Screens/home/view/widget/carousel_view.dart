@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
+import 'package:e_commerce/common/api/api_baseurl.dart';
 
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,7 @@ import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class CarouselWidget extends StatelessWidget {
-  const CarouselWidget({
+   CarouselWidget({
     Key? key,
     required this.height,
     required this.width,
@@ -18,6 +19,7 @@ class CarouselWidget extends StatelessWidget {
   final double height;
   final double width;
   final List<String> itemsD;
+  final apibaseUrl = ApiBaseUrl();
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +57,7 @@ class CarouselWidget extends StatelessWidget {
                     color: colorWhite,
                     image: DecorationImage(
                       image: NetworkImage(
-                          'http://172.16.7.123:5000/carousals/${carousalC.carousalList[index].image}'),
+                          '${apibaseUrl.baseUrl}/carousals/${carousalC.carousalList[index].image}'),
                       // fit: BoxFit.cover,
                     ),
                   ),

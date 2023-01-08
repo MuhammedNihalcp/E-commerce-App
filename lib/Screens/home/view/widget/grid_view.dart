@@ -1,11 +1,12 @@
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
+import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProductGridView extends StatelessWidget {
-  const ProductGridView({
+  ProductGridView({
     Key? key,
     required this.width,
     required this.height,
@@ -13,6 +14,7 @@ class ProductGridView extends StatelessWidget {
 
   final double width;
   final double height;
+  final apibaseUrl = ApiBaseUrl();
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class ProductGridView extends StatelessWidget {
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 5,
-            mainAxisSpacing:5,
+            mainAxisSpacing: 5,
             childAspectRatio: 1 / 1.7),
         itemBuilder: (BuildContext ctx, int index) {
           return SizedBox(
@@ -49,7 +51,7 @@ class ProductGridView extends StatelessWidget {
                             color: colorWhite,
                             image: DecorationImage(
                               image: NetworkImage(
-                                  'http://172.16.7.123:5000/products/${productC.productList[index].image[0]}'),
+                                  '${apibaseUrl.baseUrl}/products/${productC.productList[index].image[0]}'),
                               // fit: BoxFit.cover,
                             ),
                           ),

@@ -1,16 +1,18 @@
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
+import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
 class HomePageCategoryItems extends StatelessWidget {
- const HomePageCategoryItems({
+  HomePageCategoryItems({
     Key? key,
     required this.height,
   }) : super(key: key);
 
   final double height;
+  final apibaseUrl = ApiBaseUrl();
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,7 @@ class HomePageCategoryItems extends StatelessWidget {
                   // ),
                   CircleAvatar(
                     backgroundImage: NetworkImage(
-                        'http://172.16.7.123:5000/category/${homecategoryC.categoryList[index].image}'),
+                        '${apibaseUrl.baseUrl}/category/${homecategoryC.categoryList[index].image}'),
                     radius: 30,
                   ),
                   const SizedBox(
