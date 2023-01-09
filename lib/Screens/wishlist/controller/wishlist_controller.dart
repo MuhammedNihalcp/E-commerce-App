@@ -53,7 +53,7 @@ class WishListController extends GetxController {
         });
         if (value == 201) {
           Get.snackbar(
-            "success",
+            "Added",
             "Item added to Wishlist",
             colorText: Colors.green,
             icon: const Icon(Icons.add_alert_rounded),

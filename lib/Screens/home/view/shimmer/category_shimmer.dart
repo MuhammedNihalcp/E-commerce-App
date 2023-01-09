@@ -3,7 +3,7 @@
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/util/shimmer/shimmer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 
 class CategoryShimmer extends StatelessWidget {
   const CategoryShimmer({super.key});

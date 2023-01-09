@@ -9,7 +9,7 @@ class WishListShimmer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final wishlistC = Get.put(WishListController(context));
+    // final wishlistC = Get.put(WishListController(context));
     return GetBuilder<WishListController>(builder: (controller) {
       return ListView.separated(
         physics: const ScrollPhysics(),
@@ -46,7 +46,7 @@ class WishListShimmer extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(width: 20,),
+                  const SizedBox(width: 20,),
                   const ShimmerWidget.circle(height: 30, width: 30),
                 ],
               ),

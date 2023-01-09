@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:e_commerce/Screens/wishlist/controller/wishlist_controller.dart';
-import 'package:e_commerce/Screens/wishlist/service/wishlist_service.dart';
+
 import 'package:e_commerce/Screens/wishlist/view/shimmer/wishlist_shimmer.dart';
 import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/core/text_style.dart';
@@ -17,7 +17,7 @@ class WishlistScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final wishlistC = Get.put(WishListController(context));
-    double width = MediaQuery.of(context).size.width;
+    // double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
@@ -47,7 +47,7 @@ class WishlistScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.notifications),
+            icon: const Icon(Icons.shopping_cart),
           ),
         ],
         bottom: PreferredSize(
@@ -61,7 +61,7 @@ class WishlistScreen extends StatelessWidget {
             ? const WishListShimmer()
             : wishlistC.wmodel == null || wishlistC.wmodel!.products.isEmpty
                 ? SizedBox(
-                    height: MediaQuery.of(context).size.height / 2,
+                    height: MediaQuery.of(context).size.height / 1,
                     child: const Center(
                       child: Text('Wishlist is Empty'),
                     ),
