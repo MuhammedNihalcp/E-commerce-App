@@ -80,6 +80,8 @@ class HomeContorller extends GetxController {
         update();
       }
     });
+    isLoding = false;
+    update();
   }
 
   void smoothIndicator(index) {

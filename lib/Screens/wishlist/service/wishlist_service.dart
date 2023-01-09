@@ -18,9 +18,11 @@ class WishlistService {
         'product': productId,
       });
       if (response.statusCode == 200 || response.statusCode == 201) {
+        log(response.statusCode.toString(), name: 'wishlist 201');
         return response.statusCode;
       } else if (response.statusCode == 204) {
-        response.statusCode;
+        log(response.statusCode.toString(), name: 'wishlist 204');
+        return response.statusCode;
       }
     } on DioError catch (e) {
       log(e.message);

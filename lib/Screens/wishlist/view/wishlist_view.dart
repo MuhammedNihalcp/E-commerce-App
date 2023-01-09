@@ -56,62 +56,62 @@ class WishlistScreen extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-          child: SingleChildScrollView(
-        child: GetBuilder<WishListController>(
-          builder: (controller) => wishlistC.isLoading == true
-              ? const WishListShimmer()
-              : wishlistC.wmodel == null || wishlistC.wmodel!.products.isEmpty
-                  ? SizedBox(
-                      height: MediaQuery.of(context).size.height / 2,
-                      child: const Center(
-                        child: Text('Wishlist is Empty'),
-                      ),
-                    )
-                  : ListView.separated(
-                      itemBuilder: ((context, index) => ListTile(
-                            leading: CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                  '${apibaseUrl.baseUrl}/products/${wishlistC.wmodel!.products[index].product.image[0]}'),
-                            ),
-                            title: Column(
-                              children: [
-                                Text(wishlistC
-                                    .wmodel!.products[index].product.name),
-                                RatingBar.builder(
-                                  initialRating: double.parse(wishlistC
-                                      .wmodel!.products[index].product.rating),
-                                  itemSize: 15,
-                                  minRating: 1,
-                                  direction: Axis.horizontal,
-                                  allowHalfRating: true,
-                                  ignoreGestures: true,
-                                  itemBuilder: (context, _) => const Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
-                                  ),
-                                  onRatingUpdate: (startRating) {
-                                    log(startRating.toString());
-                                  },
-                                ),
-                              ],
-                            ),
-                            trailing: IconButton(
-                                onPressed: () {
-                                  wishlistC.addOrRemoveFromWishlist(
-                                    context,
-                                    wishlistC
-                                        .wmodel!.products[index].product.id,
-                                  );
-                                },
-                                icon: const Icon(
-                                  Icons.favorite_sharp,
-                                  color: Colors.red,
-                                )),
-                          )),
-                      separatorBuilder: ((context, index) => const Divider()),
-                      itemCount: wishlistC.wmodel!.products.length,
+          child: GetBuilder<WishListController>(
+        builder: (controller) => wishlistC.isLoading == true
+            ? const WishListShimmer()
+            : wishlistC.wmodel == null || wishlistC.wmodel!.products.isEmpty
+                ? SizedBox(
+                    height: MediaQuery.of(context).size.height / 2,
+                    child: const Center(
+                      child: Text('Wishlist is Empty'),
                     ),
-        ),
+                  )
+                : ListView.separated(
+                    itemBuilder: ((context, index) => ListTile(
+                          onTap: (() =>
+                              wishlistC.toProductScreen(context, index)),
+                          leading: CircleAvatar(
+                            backgroundImage: NetworkImage(
+                                '${apibaseUrl.baseUrl}/products/${wishlistC.wmodel!.products[index].product.image[0]}'),
+                          ),
+                          title: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(wishlistC
+                                  .wmodel!.products[index].product.name),
+                              RatingBar.builder(
+                                initialRating: double.parse(wishlistC
+                                    .wmodel!.products[index].product.rating),
+                                itemSize: 15,
+                                minRating: 1,
+                                direction: Axis.horizontal,
+                                allowHalfRating: true,
+                                ignoreGestures: true,
+                                itemBuilder: (context, _) => const Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
+                                onRatingUpdate: (startRating) {
+                                  log(startRating.toString());
+                                },
+                              ),
+                            ],
+                          ),
+                          trailing: IconButton(
+                              onPressed: () {
+                                wishlistC.addOrRemoveFromWishlist(
+                                  context,
+                                  wishlistC.wmodel!.products[index].product.id,
+                                );
+                              },
+                              icon: const Icon(
+                                Icons.favorite_sharp,
+                                color: Colors.red,
+                              )),
+                        )),
+                    separatorBuilder: ((context, index) => const Divider()),
+                    itemCount: wishlistC.wmodel!.products.length,
+                  ),
       )),
     );
   }

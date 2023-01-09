@@ -13,12 +13,12 @@ class CarouselWidget extends StatelessWidget {
     Key? key,
     required this.height,
     required this.width,
-    required this.itemsD,
+    // required this.itemsD,
   }) : super(key: key);
 
   final double height;
   final double width;
-  final List<String> itemsD;
+  // final List<String> itemsD;
   final apibaseUrl = ApiBaseUrl();
 
   @override

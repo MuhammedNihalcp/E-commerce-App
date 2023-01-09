@@ -82,8 +82,8 @@ class ProductViewCarousal extends StatelessWidget {
           ),
         ),
         Positioned(
-          right: 0,
-          bottom: 0,
+          right: 5,
+          top: 0,
           child: GetBuilder<WishListController>(
             builder: (controller) => IconButton(
               onPressed: () {

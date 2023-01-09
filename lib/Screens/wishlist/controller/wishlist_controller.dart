@@ -1,5 +1,4 @@
-import 'dart:developer';
-
+import 'package:e_commerce/Screens/product_view_screen/view/product_view.dart';
 import 'package:e_commerce/Screens/wishlist/model/wishlist_mode.dart';
 import 'package:e_commerce/Screens/wishlist/service/wishlist_service.dart';
 import 'package:flutter/material.dart';
@@ -59,8 +58,7 @@ class WishListController extends GetxController {
             colorText: Colors.green,
             icon: const Icon(Icons.add_alert_rounded),
           );
-        }
-        if (value == 204) {
+        } else if (value == 204) {
           Get.snackbar(
             "Remove",
             "Item removed from Wishlist",
@@ -73,5 +71,10 @@ class WishListController extends GetxController {
         update();
       }
     });
+  }
+
+  void toProductScreen(context, index) {
+    Navigator.of(context)
+        .pushNamed(ScreenProductView.routeName, arguments: wishList[index]);
   }
 }
