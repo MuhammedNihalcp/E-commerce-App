@@ -36,15 +36,14 @@ class CustomSerchDelegate extends SearchDelegate {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.only(top: 10),
-        child: SingleChildScrollView(
-          child: CustomCard(
-              elevation: 0,
-              color: const Color.fromARGB(255, 216, 212, 212),
-              width: width * 0.98,
-              height: height * 0.96,
-              borderRadius: 20,
-              child: ProductGridView(width: width, height: height)),
-        ),
+        child: CustomCard(
+            elevation: 0,
+            color: const Color.fromARGB(255, 216, 212, 212),
+            width: width * 0.98,
+            height: height * 0.96,
+            borderRadius: 20,
+            child: SingleChildScrollView(
+                child: ProductGridView(width: width, height: height))),
       ),
     );
   }

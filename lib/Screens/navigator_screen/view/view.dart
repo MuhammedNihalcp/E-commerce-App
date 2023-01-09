@@ -77,11 +77,11 @@ class ScreenNavigator extends StatelessWidget {
                     icon: Container(
                       margin: const EdgeInsets.only(bottom: 7),
                       child: const Icon(
-                        Icons.shopping_cart,
+                        Icons.favorite_border_sharp,
                         size: 20.0,
                       ),
                     ),
-                    label: 'Orders',
+                    label: 'Wishlist',
                     backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
                   ),
                   BottomNavigationBarItem(

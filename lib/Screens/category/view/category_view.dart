@@ -13,9 +13,18 @@ class ScreenCategory extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: backgroundColor,
+        backgroundColor: backgroundColor,
         extendBodyBehindAppBar: true,
         appBar: AppBar(
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.shopping_cart,
+                color: colorWhite,
+              ),
+            ),
+          ],
           backgroundColor: colorVailet,
           centerTitle: true,
           title: Row(

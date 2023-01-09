@@ -1,5 +1,8 @@
 import 'package:e_commerce/core/text_style.dart';
+import 'package:e_commerce/util/search_widget/search_widget.dart';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar({
@@ -17,8 +20,7 @@ class SearchBar extends StatelessWidget {
       style: ButtonStyle(
         alignment: Alignment.centerLeft,
         backgroundColor: MaterialStateProperty.all(colorWhite),
-        fixedSize:
-            MaterialStateProperty.all(Size(width, height * 0.05)),
+        fixedSize: MaterialStateProperty.all(Size(width, height * 0.05)),
         shape: MaterialStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100),
@@ -26,7 +28,9 @@ class SearchBar extends StatelessWidget {
           ),
         ),
       ),
-      onPressed: () {},
+      onPressed: () {
+        showSearch(context: context, delegate: CustomSerchDelegate());
+      },
       icon: const Icon(
         Icons.search,
         color: colorBlack,
