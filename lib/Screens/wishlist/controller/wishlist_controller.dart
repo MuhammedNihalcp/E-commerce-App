@@ -9,6 +9,10 @@ class WishListController extends GetxController {
   List<dynamic> wishList = [];
   WishlistService wishlistService = WishlistService();
 
+  WishListController(context) {
+    getWishlist(context);
+  }
+
   void getWishlist(context) async {
     isLoading = true;
     update();
