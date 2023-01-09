@@ -4,6 +4,7 @@ import 'package:e_commerce/Screens/navigator_screen/controller.dart';
 import 'package:e_commerce/Screens/navigator_screen/view/widget.dart';
 import 'package:e_commerce/Screens/order/view.dart';
 import 'package:e_commerce/Screens/category/view/category_view.dart';
+import 'package:e_commerce/Screens/wishlist/view/wishlist_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -31,10 +32,10 @@ class ScreenNavigator extends StatelessWidget {
         body: Obx(
           () => IndexedStack(
             index: landingPageController.tapIndex.value,
-            children:  [
+            children: [
               ScreenHome(),
               const ScreenCategory(),
-              const ScreenOrder(),
+              WishlistScreen(),
               const ScreenAccount(),
             ],
           ),

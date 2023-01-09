@@ -1,4 +1,5 @@
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
+import 'package:e_commerce/Screens/wishlist/controller/wishlist_controller.dart';
 import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
@@ -6,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProductGridView extends StatelessWidget {
-  
   ProductGridView({
     Key? key,
     required this.width,
@@ -20,6 +20,7 @@ class ProductGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final productC = Get.put(HomeContorller(context));
+    final wishlistC = Get.put(WishListController(context));
     return GetBuilder<HomeContorller>(
       builder: (controller) => GridView.builder(
         padding: EdgeInsets.zero,
@@ -58,16 +59,28 @@ class ProductGridView extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Positioned(
-                        right: 0,
-                        bottom: 0,
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.favorite_border_outlined,
-                          ),
-                        ),
-                      )
+                      // Positioned(
+                      //   right: 0,
+                      //   bottom: 0,
+                      //   child: GetBuilder<WishListController>(
+                      //     builder: (controller) => IconButton(
+                      //       onPressed: () {
+                      //         wishlistC.addOrRemoveFromWishlist(context,
+                      //             wishlistC.wmodel!.products[index].product.id);
+                      //       },
+                      //       icon: Icon(
+                      //         wishlistC.wishList.contains(wishlistC
+                      //                 .wmodel!.products[index].product.id)
+                      //             ? Icons.favorite_border_outlined
+                      //             : Icons.favorite,
+                      //         color: wishlistC.wishList.contains(wishlistC
+                      //                 .wmodel!.products[index].product.id)
+                      //             ? colorWhite
+                      //             : Colors.red,
+                      //       ),
+                      //     ),
+                      //   ),
+                      // )
                     ],
                   ),
                   const SizedBox(

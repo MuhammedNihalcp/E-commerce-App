@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce/Screens/product_view_screen/controller/product_controller.dart';
 import 'package:e_commerce/Screens/product_view_screen/model/product_model.dart';
+import 'package:e_commerce/Screens/wishlist/controller/wishlist_controller.dart';
 import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ProductViewCarousal extends StatelessWidget {
-   ProductViewCarousal({
+  ProductViewCarousal({
     Key? key,
     required this.height,
     required this.productC,
@@ -21,9 +22,10 @@ class ProductViewCarousal extends StatelessWidget {
   final ProductController productC;
   final double width;
   final ProductModel controlle;
- final apibaseUrl = ApiBaseUrl();
+  final apibaseUrl = ApiBaseUrl();
   @override
   Widget build(BuildContext context) {
+    final wishlistC = Get.put(WishListController(context));
     return Stack(
       children: [
         CarouselSlider.builder(
@@ -79,6 +81,25 @@ class ProductViewCarousal extends StatelessWidget {
                 activeDotColor: Colors.orange),
           ),
         ),
+        Positioned(
+          right: 0,
+          bottom: 0,
+          child: GetBuilder<WishListController>(
+            builder: (controller) => IconButton(
+              onPressed: () {
+                wishlistC.addOrRemoveFromWishlist(context, controlle.id);
+              },
+              icon: Icon(
+                wishlistC.wishList.contains(controlle.id)
+                    ? Icons.favorite
+                    : Icons.favorite_border_outlined,
+                color: wishlistC.wishList.contains(controlle.id)
+                    ? Colors.red
+                    : Colors.black,
+              ),
+            ),
+          ),
+        )
       ],
     );
   }

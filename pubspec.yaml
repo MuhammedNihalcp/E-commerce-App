@@ -42,6 +42,7 @@ dependencies:
   get: 4.6.5
   google_sign_in: 5.4.2
   readmore: 2.2.0
+  shimmer: 2.0.0
   smooth_page_indicator: 1.0.0+2
 
 dev_dependencies:
