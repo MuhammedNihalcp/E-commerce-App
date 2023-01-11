@@ -1,11 +1,14 @@
 import 'dart:developer';
+import 'dart:ui';
 
 import 'package:e_commerce/Screens/wishlist/controller/wishlist_controller.dart';
 
 import 'package:e_commerce/Screens/wishlist/view/shimmer/wishlist_shimmer.dart';
 import 'package:e_commerce/common/api/api_baseurl.dart';
+import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 
@@ -20,6 +23,7 @@ class WishlistScreen extends StatelessWidget {
     // double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         backgroundColor: colorVailet,
         centerTitle: true,
@@ -67,49 +71,72 @@ class WishlistScreen extends StatelessWidget {
                     ),
                   )
                 : ListView.separated(
-                    itemBuilder: ((context, index) => ListTile(
-                          onTap: (() =>
-                              wishlistC.toProductScreen(context, index)),
-                          leading: CircleAvatar(
-                            backgroundImage: NetworkImage(
-                                '${apibaseUrl.baseUrl}/products/${wishlistC.wmodel!.products[index].product.image[0]}'),
-                          ),
-                          title: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(wishlistC
-                                  .wmodel!.products[index].product.name),
-                              RatingBar.builder(
-                                initialRating: double.parse(wishlistC
-                                    .wmodel!.products[index].product.rating),
-                                itemSize: 15,
-                                minRating: 1,
-                                direction: Axis.horizontal,
-                                allowHalfRating: true,
-                                ignoreGestures: true,
-                                itemBuilder: (context, _) => const Icon(
-                                  Icons.star,
-                                  color: Colors.amber,
-                                ),
-                                onRatingUpdate: (startRating) {
-                                  log(startRating.toString());
-                                },
+                    itemBuilder: ((context, index) => Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CustomCard(
+                            borderRadius: 20,
+                            child: ListTile(
+                              onTap: (() =>
+                                  wishlistC.toProductScreen(context, index)),
+                              leading: CircleAvatar(
+                                backgroundImage: NetworkImage(
+                                    '${apibaseUrl.baseUrl}/products/${wishlistC.wmodel!.products[index].product.image[0]}'),
                               ),
-                            ],
+                              title: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(wishlistC
+                                      .wmodel!.products[index].product.name),
+                                  RatingBar.builder(
+                                    initialRating: double.parse(wishlistC
+                                        .wmodel!
+                                        .products[index]
+                                        .product
+                                        .rating),
+                                    itemSize: 15,
+                                    minRating: 1,
+                                    direction: Axis.horizontal,
+                                    allowHalfRating: true,
+                                    ignoreGestures: true,
+                                    itemBuilder: (context, _) => const Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                    ),
+                                    onRatingUpdate: (startRating) {
+                                      log(startRating.toString());
+                                    },
+                                  ),
+                                ],
+                              ),
+                              subtitle: Row(
+                                children: [
+                                  Text(
+                                    '-${wishlistC.wmodel!.products[index].product.offer.toString()}%',
+                                    style: const TextStyle(color: Colors.red),
+                                  ),
+                                  kWidth10,
+                                  Text(
+                                    '₹${wishlistC.wmodel!.products[index].product.price.toString()}',
+                                    style: const TextStyle(color: colorBlack),
+                                  ),
+                                ],
+                              ),
+                              trailing: IconButton(
+                                  onPressed: () {
+                                    wishlistC.addOrRemoveFromWishlist(
+                                      context,
+                                      wishlistC
+                                          .wmodel!.products[index].product.id,
+                                    );
+                                  },
+                                  icon: const Icon(
+                                    Icons.favorite_sharp,
+                                    color: Colors.red,
+                                  )),
+                            ),
                           ),
-                          trailing: IconButton(
-                              onPressed: () {
-                                wishlistC.addOrRemoveFromWishlist(
-                                  context,
-                                  wishlistC.wmodel!.products[index].product.id,
-                                );
-                              },
-                              icon: const Icon(
-                                Icons.favorite_sharp,
-                                color: Colors.red,
-                              )),
                         )),
-                    separatorBuilder: ((context, index) => const Divider()),
+                    separatorBuilder: ((context, index) => const SizedBox()),
                     itemCount: wishlistC.wmodel!.products.length,
                   ),
       )),

@@ -1,4 +1,3 @@
-
 import 'package:e_commerce/Screens/account/view/account_view.dart';
 import 'package:e_commerce/Screens/home/view/home_view.dart';
 import 'package:e_commerce/Screens/navigator_screen/controller.dart';
@@ -6,6 +5,7 @@ import 'package:e_commerce/Screens/navigator_screen/view/widget.dart';
 
 import 'package:e_commerce/Screens/category/view/category_view.dart';
 import 'package:e_commerce/Screens/wishlist/view/wishlist_view.dart';
+import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -37,7 +37,7 @@ class ScreenNavigator extends StatelessWidget {
               ScreenHome(),
               const ScreenCategory(),
               WishlistScreen(),
-              const ScreenAccount(),
+              ScreenAccount(),
             ],
           ),
         ),
@@ -47,7 +47,7 @@ class ScreenNavigator extends StatelessWidget {
                 showSelectedLabels: true,
                 onTap: ((index) => landingPageController.changeTabIndex(index)),
                 currentIndex: landingPageController.tapIndex.value,
-                backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
+                backgroundColor: colorVailet,
                 unselectedItemColor: Colors.white.withOpacity(0.5),
                 selectedItemColor: Colors.white,
                 unselectedLabelStyle: bnm.unselectedLabelStyle,
@@ -62,7 +62,7 @@ class ScreenNavigator extends StatelessWidget {
                       ),
                     ),
                     label: 'Home',
-                    backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
+                    backgroundColor: colorVailet,
                   ),
                   BottomNavigationBarItem(
                     icon: Container(
