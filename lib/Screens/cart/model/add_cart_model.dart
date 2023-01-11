@@ -1,6 +1,6 @@
 class AddCartModel {
   final String size;
-  final String quantity;
+  final int quantity;
   final String productId;
 
   AddCartModel({

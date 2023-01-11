@@ -1,6 +1,7 @@
 import 'package:e_commerce/Screens/product_view_screen/view/product_view.dart';
 import 'package:e_commerce/Screens/wishlist/model/wishlist_mode.dart';
 import 'package:e_commerce/Screens/wishlist/service/wishlist_service.dart';
+import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -55,14 +56,14 @@ class WishListController extends GetxController {
           Get.snackbar(
             "Added",
             "Item added to Wishlist",
-            colorText: Colors.green,
+            colorText: coloraddSnack,
             icon: const Icon(Icons.add_alert_rounded),
           );
         } else if (value == 204) {
           Get.snackbar(
             "Remove",
             "Item removed from Wishlist",
-            colorText: Colors.red,
+            colorText: colorremoveSnack,
             icon: const Icon(Icons.remove_circle_outline_rounded),
           );
         }
