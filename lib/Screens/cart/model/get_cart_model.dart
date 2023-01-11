@@ -13,6 +13,15 @@ class GetCartModel {
   List<ProductElement> products;
   int totalPrice;
   dynamic totalDiscount;
+
+  factory GetCartModel.fromJson(Map<String, dynamic> json) => GetCartModel(
+        id: json["_id"],
+        userId: json["userid"],
+        products: List<ProductElement>.from(
+            json["products"].map((x) => ProductElement.fromJson(x))),
+        totalPrice: json["totalPrice"],
+        totalDiscount: json["totalDiscount"],
+      );
 }
 
 class ProductElement {

@@ -19,4 +19,7 @@ class ApiEndsUrl {
 
   //wishlist
   String wishlist = '/api/v1/wishlist';
+
+  //cart
+  String cart = '/api/v1/cart';
 }
