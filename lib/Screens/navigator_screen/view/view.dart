@@ -49,7 +49,7 @@ class ScreenNavigator extends StatelessWidget {
                 currentIndex: landingPageController.tapIndex.value,
                 backgroundColor: colorVailet,
                 unselectedItemColor: Colors.white.withOpacity(0.5),
-                selectedItemColor: Colors.white,
+                selectedItemColor: colorWhite,
                 unselectedLabelStyle: bnm.unselectedLabelStyle,
                 selectedLabelStyle: bnm.selectedLabelStyle,
                 items: [
@@ -73,7 +73,7 @@ class ScreenNavigator extends StatelessWidget {
                       ),
                     ),
                     label: 'Category',
-                    backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
+                    backgroundColor: colorVailet,
                   ),
                   BottomNavigationBarItem(
                     icon: Container(
@@ -84,7 +84,7 @@ class ScreenNavigator extends StatelessWidget {
                       ),
                     ),
                     label: 'Wishlist',
-                    backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
+                    backgroundColor: colorVailet,
                   ),
                   BottomNavigationBarItem(
                     icon: Container(
@@ -95,7 +95,7 @@ class ScreenNavigator extends StatelessWidget {
                       ),
                     ),
                     label: 'Account',
-                    backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
+                    backgroundColor: colorVailet,
                   ),
                 ],
               )),
