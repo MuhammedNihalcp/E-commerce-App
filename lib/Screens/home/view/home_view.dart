@@ -1,3 +1,4 @@
+import 'package:e_commerce/Screens/cart/view/cart_view.dart';
 import 'package:e_commerce/Screens/category/view/category_view.dart';
 import 'package:e_commerce/Screens/home/view/widget/carousel_view.dart';
 import 'package:e_commerce/Screens/home/view/widget/category_items.dart';
@@ -52,7 +53,9 @@ class ScreenHome extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.to(() => ScreenOrder());
+            },
             icon: const Icon(Icons.shopping_cart),
           ),
         ],
