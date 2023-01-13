@@ -81,7 +81,12 @@ class ScreenOrder extends StatelessWidget {
                           Row(
                             children: [
                               CartBottomButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  cartC.removeCart(
+                                      context,
+                                      cartC.cartList!.products[index].product
+                                          .id);
+                                },
                                 text: 'Save for later',
                               ),
                               kWidth10,

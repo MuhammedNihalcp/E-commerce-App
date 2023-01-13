@@ -96,7 +96,10 @@ class AddAndRemoveButton extends StatelessWidget {
                 width: 1,
                 color: colorLightGrey,
               )),
-          onPressed: () {},
+          onPressed: () {
+            controller.removeCart(
+                context, controller.cartList!.products[index].product.id);
+          },
           child: const Text(
             'Delete',
             style: TextStyle(color: colorBlack),
