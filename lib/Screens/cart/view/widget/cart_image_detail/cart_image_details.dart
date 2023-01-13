@@ -1,17 +1,23 @@
+import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
+import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 
-
 class CartImageAndDetails extends StatelessWidget {
-  const CartImageAndDetails({
+  CartImageAndDetails({
     Key? key,
     required this.width,
     required this.height,
+    required this.controller,
+    required this.index,
   }) : super(key: key);
 
   final double width;
   final double height;
+  final CartController controller;
+  final int index;
+  final apibaseUrl = ApiBaseUrl();
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +27,10 @@ class CartImageAndDetails extends StatelessWidget {
         Container(
           width: width * 0.4,
           height: height * 0.18,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
               image: NetworkImage(
-                  'https://thumbs.dreamstime.com/b/gold-watch-13362757.jpg'),
+                  '${apibaseUrl.baseUrl}/products/${controller.cartList!.products[index].product.image[0]}'),
               fit: BoxFit.cover,
             ),
           ),
@@ -34,19 +40,19 @@ class CartImageAndDetails extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Mens Watches BY BENYAR Chronograph Analog Quartz Movement Stylish Sports Designer Wrist Watch 30M Waterproof Elegant Gift Watch for Men',
+              Text(
+                controller.cartList!.products[index].product.description,
                 textWidthBasis: TextWidthBasis.longestLine,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
-                style: TextStyle(
+                style: const TextStyle(
                   color: colorBlack,
                 ),
               ),
               kHeight10,
-              const Text(
-                '₹ 4999',
-                style: TextStyle(
+              Text(
+                controller.cartList!.products[index].product.price.toString(),
+                style: const TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.bold,
                 ),
@@ -61,11 +67,13 @@ class CartImageAndDetails extends StatelessWidget {
                 text: TextSpan(
                   text: '',
                   style: DefaultTextStyle.of(context).style,
-                  children: const <TextSpan>[
-                    TextSpan(
+                  children: <TextSpan>[
+                    const TextSpan(
                         text: 'Size:',
                         style: TextStyle(fontWeight: FontWeight.bold)),
-                    TextSpan(text: '44MM'),
+                    TextSpan(
+                        text: controller
+                            .cartList!.products[index].product.size[0]),
                   ],
                 ),
               )
