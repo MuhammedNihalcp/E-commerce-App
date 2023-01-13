@@ -75,6 +75,8 @@ class ScreenOrder extends StatelessWidget {
                           AddAndRemoveButton(
                             height: height,
                             width: width,
+                            controller: cartC,
+                            index: index,
                           ),
                           Row(
                             children: [
