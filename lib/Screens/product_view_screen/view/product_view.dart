@@ -1,4 +1,3 @@
-
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 
 import 'package:e_commerce/Screens/product_view_screen/controller/product_controller.dart';
@@ -24,12 +23,11 @@ class ScreenProductView extends StatelessWidget {
     '41',
     '44',
   ];
-
+  final homeC = Get.put(HomeContorller());
   @override
   Widget build(BuildContext context) {
-    final homeC = Get.put(HomeContorller(context));
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    double width = Get.size.width;
+    double height = Get.size.height;
     final productId = ModalRoute.of(context)?.settings.arguments as String;
     final controlle = homeC.findById(productId);
     return Scaffold(

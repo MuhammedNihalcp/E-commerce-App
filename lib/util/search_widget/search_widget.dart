@@ -1,6 +1,7 @@
 import 'package:e_commerce/Screens/home/view/widget/grid_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_cards/flutter_custom_cards.dart';
+import 'package:get/get.dart';
 
 class CustomSerchDelegate extends SearchDelegate {
   @override
@@ -31,8 +32,8 @@ class CustomSerchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    double width = Get.size.width;
+    double height = Get.size.height;
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.only(top: 10),
@@ -50,8 +51,8 @@ class CustomSerchDelegate extends SearchDelegate {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    double width = Get.size.width;
+    double height = Get.size.height;
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.only(top: 10),

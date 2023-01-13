@@ -9,7 +9,7 @@ class OtpServices {
   Dio dio = Dio();
   final apibaseUrl = ApiBaseUrl();
   final apiendUrl = ApiEndsUrl();
-  Future<String?> sendOtp(email, context) async {
+  Future<String?> sendOtp(email) async {
     log('otp enabled');
     try {
       final Response response = await dio.get(
@@ -25,7 +25,7 @@ class OtpServices {
     } on DioError catch (e) {
       log(e.message, name: 'status code');
       log('otp failed');
-      DioException().dioError(e, context);
+      DioException().dioError(e);
     }
     return null;
   }

@@ -10,12 +10,12 @@ class ForgotPasswordController extends GetxController {
   TextEditingController emailController = TextEditingController();
   bool isLoading = false;
   void navigatorToOtp(
-      GlobalKey<FormState> formKey, BuildContext context) async {
+      GlobalKey<FormState> formKey) async {
     if (formKey.currentState!.validate()) {
       log('valid form', name: 'form valid');
       isLoading = true;
       update();
-      await ForgotPasswordService.getOtp(emailController.text, context)
+      await ForgotPasswordService.getOtp(emailController.text)
           .then((value) {
         if (value != null) {
           Get.to(

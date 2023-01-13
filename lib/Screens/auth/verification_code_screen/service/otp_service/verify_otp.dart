@@ -9,7 +9,7 @@ class VerifyOtpService {
   Dio dio = Dio();
   final apibaseUrl = ApiBaseUrl();
   final apiendUrl = ApiEndsUrl();
-  Future<String?> verifyOtp(email, otpCode, context) async {
+  Future<String?> verifyOtp(email, otpCode) async {
     try {
       final Response response = await dio.post(
         apibaseUrl.baseUrl + apiendUrl.verifyOtp,
@@ -26,7 +26,7 @@ class VerifyOtpService {
     } on DioError catch (e) {
       log(e.message);
       log('verification faliled');
-      DioException().dioError(e, context);
+      DioException().dioError(e);
     }
     return null;
   }

@@ -13,9 +13,9 @@ class CategoryService {
   final apibaseUrl = ApiBaseUrl();
   final apiendUrl = ApiEndsUrl();
 
-  Future<List<CategoryModel>?> getCategory(context) async {
+  Future<List<CategoryModel>?> getCategory() async {
     log('came service');
-    Dio dio = await ApiInterceptor().getApiUser(context);
+    Dio dio = await ApiInterceptor().getApiUser();
     try {
       Response response =
           await dio.get(apibaseUrl.baseUrl + apiendUrl.category);
@@ -32,7 +32,7 @@ class CategoryService {
       }
     } on DioError catch (e) {
       // log(e.message);
-      DioException().dioError(e, context);
+      DioException().dioError(e);
     }
     return null;
   }

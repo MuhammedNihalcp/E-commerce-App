@@ -15,7 +15,7 @@ class SignUpService {
   final aendUrl = ApiEndsUrl();
 
   Future<SignUpTokenModel?> signupUser(
-      SignUpModel signupmodel, BuildContext context) async {
+      SignUpModel signupmodel) async {
     log('response request');
     try {
       Response response = await dio.post(
@@ -36,7 +36,7 @@ class SignUpService {
       }
     }on DioError catch (e) {
       log(e.message);
-      DioException().dioError(e, context);
+      DioException().dioError(e);
     }
     return null;
   }

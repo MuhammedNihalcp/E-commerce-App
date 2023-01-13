@@ -15,14 +15,14 @@ class SignInController extends GetxController {
   SignInService signinS = SignInService();
   bool isLoading = false;
 
-  void signIn(BuildContext context) {
+  void signIn() {
     isLoading = true;
     update();
     final signinModel = SignInModel(
       email: emailController.text.trim(),
       password: passwordController.text.trim(),
     );
-    signinS.signinUser(signinModel, context).then(
+    signinS.signinUser(signinModel).then(
       (value) {
         if (value != null) {
           storage.write(key: 'token', value: value.accessToken);

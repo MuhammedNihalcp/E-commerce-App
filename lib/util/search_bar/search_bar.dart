@@ -29,7 +29,7 @@ class SearchBar extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        showSearch(context: context, delegate: CustomSerchDelegate());
+        // showSearch(context: context, delegate: CustomSerchDelegate());
       },
       icon: const Icon(
         Icons.search,

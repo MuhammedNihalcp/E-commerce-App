@@ -14,12 +14,15 @@ class ScreenHome extends StatelessWidget {
   // ignore: prefer_typing_uninitialized_variables
   var options;
 
-  ScreenHome({super.key});
+  ScreenHome({Key? key, required this.width, required this.height})
+      : super(key: key);
+
+  final double width;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    
     return Scaffold(
       backgroundColor: backgroundColor,
       extendBodyBehindAppBar: true,
@@ -91,7 +94,7 @@ class ScreenHome extends StatelessWidget {
                   ),
                   TextButton(
                       onPressed: () {
-                        Get.to(() => const ScreenCategory());
+                        Get.to(() =>  ScreenCategory(width: width,height: height,));
                       },
                       child: const Text(
                         'See All >',

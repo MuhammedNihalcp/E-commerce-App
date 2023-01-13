@@ -21,10 +21,11 @@ class ProductGridView extends StatelessWidget {
   final double height;
 
   final apibaseUrl = ApiBaseUrl();
+   final productC = Get.put(HomeContorller());
 
   @override
   Widget build(BuildContext context) {
-    final productC = Get.put(HomeContorller(context));
+   
     // final wishlistC = Get.put(WishListController(context));
     return GetBuilder<HomeContorller>(
       builder: (controller) => productC.isLoding == true

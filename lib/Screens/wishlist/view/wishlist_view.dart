@@ -13,15 +13,19 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 
 class WishlistScreen extends StatelessWidget {
-  WishlistScreen({super.key});
+  WishlistScreen({Key? key, required this.width, required this.height})
+      : super(key: key);
 
   final apibaseUrl = ApiBaseUrl();
+  final wishlistC = Get.put(WishListController());
+
+  final double width;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
-    final wishlistC = Get.put(WishListController(context));
     // double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    double height = Get.size.height;
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
@@ -65,7 +69,7 @@ class WishlistScreen extends StatelessWidget {
             ? const WishListShimmer()
             : wishlistC.wmodel == null || wishlistC.wmodel!.products.isEmpty
                 ? SizedBox(
-                    height: MediaQuery.of(context).size.height / 1,
+                    height: Get.size.height / 1,
                     child: const Center(
                       child: Text('Wishlist is Empty'),
                     ),
@@ -76,8 +80,7 @@ class WishlistScreen extends StatelessWidget {
                           child: CustomCard(
                             borderRadius: 20,
                             child: ListTile(
-                              onTap: (() =>
-                                  wishlistC.toProductScreen(context, index)),
+                              onTap: (() => wishlistC.toProductScreen(index)),
                               leading: CircleAvatar(
                                 backgroundImage: NetworkImage(
                                     '${apibaseUrl.baseUrl}/products/${wishlistC.wmodel!.products[index].product.image[0]}'),
@@ -124,7 +127,6 @@ class WishlistScreen extends StatelessWidget {
                               trailing: IconButton(
                                   onPressed: () {
                                     wishlistC.addOrRemoveFromWishlist(
-                                      context,
                                       wishlistC
                                           .wmodel!.products[index].product.id,
                                     );

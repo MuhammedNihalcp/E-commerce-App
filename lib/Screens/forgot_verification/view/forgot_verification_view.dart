@@ -20,8 +20,8 @@ class ScreenForgotVerification extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    double width = Get.size.width;
+    double height = Get.size.height;
     return Scaffold(
       backgroundColor: colorWhite,
       appBar: AppBar(
@@ -115,7 +115,7 @@ class ScreenForgotVerification extends StatelessWidget {
                 ),
                 onPressed: () {
                   forgotverifyotpC.submitForgotOtp(
-                      email, forgotverifyotpC.code, context);
+                      email, forgotverifyotpC.code);
                   // Get.to(() => ScreenNavigator());
                 },
                 child: const Text(

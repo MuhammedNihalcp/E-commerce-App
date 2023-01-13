@@ -19,7 +19,7 @@ class ProductController extends GetxController {
     update();
   }
 
-  void goBackHome(context) {
+  void goBackHome() {
     Get.back();
     activeCarousal = 0;
     update();

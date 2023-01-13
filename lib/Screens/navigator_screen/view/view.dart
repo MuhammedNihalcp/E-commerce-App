@@ -26,6 +26,8 @@ class ScreenNavigator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = Get.size.height;
+    double width = Get.size.width;
     final LandingPageController landingPageController =
         Get.put(LandingPageController());
     return SafeArea(
@@ -34,10 +36,22 @@ class ScreenNavigator extends StatelessWidget {
           () => IndexedStack(
             index: landingPageController.tapIndex.value,
             children: [
-              ScreenHome(),
-              const ScreenCategory(),
-              WishlistScreen(),
-              ScreenAccount(),
+              ScreenHome(
+                width: width,
+                height: height,
+              ),
+              ScreenCategory(
+                width: width,
+                height: height,
+              ),
+              WishlistScreen(
+                width: width,
+                height: height,
+              ),
+              ScreenAccount(
+                width: width,
+                height: height,
+              ),
             ],
           ),
         ),

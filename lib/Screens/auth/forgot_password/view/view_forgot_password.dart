@@ -15,8 +15,8 @@ class ScreenForgotPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    double width = Get.size.width;
+    double height = Get.size.height;
     return Scaffold(
       backgroundColor: colorWhite,
       appBar: AppBar(
@@ -107,7 +107,7 @@ class ScreenForgotPassword extends StatelessWidget {
                   ),
                   onPressed: () {
                     log('forgot password',name: 'onpressed');
-                    forgotPasswordController.navigatorToOtp(formKey, context);
+                    forgotPasswordController.navigatorToOtp(formKey);
                     // Get.to(() => const ScreenForgotVerification());
                   },
                   child: const Text(

@@ -10,8 +10,8 @@ import 'package:e_commerce/util/dio_interceptor/dio_interceptor.dart';
 class ProductService {
   final apibaseUrl = ApiBaseUrl();
   final apiendUrl = ApiEndsUrl();
-  Future<List<ProductModel>?> getProduct(context) async {
-    Dio dio = await ApiInterceptor().getApiUser(context);
+  Future<List<ProductModel>?> getProduct() async {
+    Dio dio = await ApiInterceptor().getApiUser();
     try {
       Response response = await dio.get(apibaseUrl.baseUrl + apiendUrl.product);
       if (response.statusCode == 200 || response.statusCode == 201) {
@@ -27,7 +27,7 @@ class ProductService {
       }
     } on DioError catch (e) {
       log(e.message);
-      DioException().dioError(e, context);
+      DioException().dioError(e);
     }
     return null;
   }

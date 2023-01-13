@@ -2,50 +2,52 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:e_commerce/util/error_popup/snack_bar.dart';
-import 'package:flutter/material.dart';
+import 'package:e_commerce/core/text_style.dart';
+
+import 'package:get/get.dart';
 
 class DioException {
-  void dioError(Object e, BuildContext context) {
+  void dioError(Object e) {
     if (e is DioError) {
       if (e.response?.statusCode == 401) {
-        SnackBarPop.popUp(
-          context,
-          'Invalid username or password',
-          Colors.red,
-        );
+        Get.snackbar('Incorrect', "Invalid username or password",
+            colorText: colorremoveSnack);
       } else if (e.response?.statusCode == 400) {
-        SnackBarPop.popUp(
-          context,
-          'All fields required',
-          Colors.red,
-        );
+        Get.snackbar('Error', "All field required",
+            colorText: colorremoveSnack);
       } else if (e.response?.statusCode == 403) {
-        SnackBarPop.popUp(
-          context,
-          'Forbidden',
-          Colors.red,
+        Get.snackbar(
+          'Error',
+          "Forbidden",
+          colorText: colorremoveSnack,
         );
       } else if (e.response?.statusCode == 500) {
-        SnackBarPop.popUp(
-          context,
-          'Something went wrong',
-          Colors.red,
+        Get.snackbar(
+          'Error',
+          "Something went wrong",
+          colorText: colorremoveSnack,
         );
       } else if (e.toString() ==
           "[Error]: (006) Request Throttled. Over Rate limit: up to 2 per sec. See geocode.xyz/pricing") {
-        SnackBarPop.popUp(
-          context,
-          'Failed, Please try again',
-          Colors.red,
+        Get.snackbar(
+          'Error',
+          "Failed, Please try again",
+          colorText: colorremoveSnack,
         );
       }
     }
     if (e is SocketException) {
-      SnackBarPop.popUp(context, 'No Internet Connection', Colors.red);
+      Get.snackbar(
+        'Network',
+        "No Internet Connection",
+        colorText: colorremoveSnack,
+      );
     } else if (e is TimeoutException) {
-      SnackBarPop.popUp(context, 'Connection Timedout', Colors.red);
+      Get.snackbar(
+        'Connection',
+        "Connection Timedout",
+        colorText: colorremoveSnack,
+      );
     }
   }
 }
-

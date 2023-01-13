@@ -40,7 +40,6 @@ class AddAndRemoveButton extends StatelessWidget {
                     1,
                     controller.cartList!.products[index].product.id,
                     controller.cartList!.products[index].qty,
-                    context,
                     controller.cartList!.products[index].product.size
                         .toString(),
                   );
@@ -73,7 +72,6 @@ class AddAndRemoveButton extends StatelessWidget {
                       1,
                       controller.cartList!.products[index].product.id,
                       controller.cartList!.products[index].qty,
-                      context,
                       controller.cartList!.products[index].product.size
                           .toString(),
                     );
@@ -97,8 +95,8 @@ class AddAndRemoveButton extends StatelessWidget {
                 color: colorLightGrey,
               )),
           onPressed: () {
-            controller.removeCart(
-                context, controller.cartList!.products[index].product.id);
+            controller
+                .removeCart(controller.cartList!.products[index].product.id);
           },
           child: const Text(
             'Delete',

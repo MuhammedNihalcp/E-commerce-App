@@ -14,10 +14,11 @@ class HomePageCategoryItems extends StatelessWidget {
 
   final double height;
   final apibaseUrl = ApiBaseUrl();
+   final homecategoryC = Get.put(HomeContorller());
 
   @override
   Widget build(BuildContext context) {
-    final homecategoryC = Get.put(HomeContorller(context));
+   
     return GetBuilder<HomeContorller>(
       builder: (controller) => homecategoryC.isLoding == true
           ? const CategoryShimmer()

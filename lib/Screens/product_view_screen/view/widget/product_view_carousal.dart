@@ -23,9 +23,9 @@ class ProductViewCarousal extends StatelessWidget {
   final double width;
   final ProductModel controlle;
   final apibaseUrl = ApiBaseUrl();
+  final wishlistC = Get.put(WishListController());
   @override
   Widget build(BuildContext context) {
-    final wishlistC = Get.put(WishListController(context));
     return Stack(
       children: [
         CarouselSlider.builder(
@@ -87,7 +87,7 @@ class ProductViewCarousal extends StatelessWidget {
           child: GetBuilder<WishListController>(
             builder: (controller) => IconButton(
               onPressed: () {
-                wishlistC.addOrRemoveFromWishlist(context, controlle.id);
+                wishlistC.addOrRemoveFromWishlist(controlle.id);
               },
               icon: Icon(
                 wishlistC.wishList.contains(controlle.id)

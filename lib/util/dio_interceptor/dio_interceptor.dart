@@ -11,7 +11,7 @@ class ApiInterceptor {
   Dio dio = Dio();
   final apiEndUrl = ApiEndsUrl();
 
-  Future<Dio> getApiUser(context) async {
+  Future<Dio> getApiUser() async {
     dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
@@ -48,7 +48,7 @@ class ApiInterceptor {
                   storage.write(key: 'refreshToken', value: refreshToken);
                 }
               } catch (e) {
-                DioException().dioError(e, context);
+                DioException().dioError(e);
               }
               try {
                 final token = await storage.read(key: 'token');
@@ -64,7 +64,7 @@ class ApiInterceptor {
                 );
                 return handler.resolve(response);
               } catch (e) {
-                DioException().dioError(e, context);
+                DioException().dioError(e);
               }
             }
           } else {

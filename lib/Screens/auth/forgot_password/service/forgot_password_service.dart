@@ -4,13 +4,13 @@ import 'package:dio/dio.dart';
 import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/common/api/api_endsurl.dart';
 import 'package:e_commerce/util/dio_exeption/exeptions.dart';
-import 'package:flutter/widgets.dart';
+
 
 class ForgotPasswordService {
   final apibaseUrl = ApiBaseUrl();
   final apiendUrl = ApiEndsUrl();
 
-  static Future<String?> getOtp(String email, BuildContext context) async {
+  static Future<String?> getOtp(String email) async {
     final apibaseUrl = ApiBaseUrl();
     final apiendUrl = ApiEndsUrl();
     try {
@@ -31,7 +31,7 @@ class ForgotPasswordService {
       }
     } on DioError catch (e) {
       log('catch');
-      DioException().dioError(e, context);
+      DioException().dioError(e);
     }
     return null;
   }

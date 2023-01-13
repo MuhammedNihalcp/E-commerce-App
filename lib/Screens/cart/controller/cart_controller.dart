@@ -22,10 +22,10 @@ class CartController extends GetxController {
   CartService service = CartService();
   final bottomC = Get.put(LandingPageController());
 
-  void getCart(context) async {
+  void getCart() async {
     isLoading = true;
     update();
-    await service.getCart(context).then((value) {
+    await service.getCart().then((value) {
       if (value != null) {
         cartList = value;
         update();
@@ -43,7 +43,7 @@ class CartController extends GetxController {
     });
   }
 
-  void addToCart(String productId, context, String size) async {
+  void addToCart(String productId, String size) async {
     log('here');
     isLoading = true;
     update();
@@ -52,9 +52,9 @@ class CartController extends GetxController {
       quantity: quantity,
       productId: productId,
     );
-    await service.addToCart(model, context).then((value) {
+    await service.addToCart(model).then((value) {
       if (value != null) {
-        getCart(context);
+        getCart();
         if (value == "product added to cart successfully") {
           Get.snackbar(
             "Added",
@@ -72,12 +72,12 @@ class CartController extends GetxController {
     });
   }
 
-  void removeCart(context, productId) {
+  void removeCart(productId) {
     log('get in to remove controller');
-    service.removeFromCart(context, productId).then(
+    service.removeFromCart(productId).then(
       (value) {
         if (value != null) {
-          getCart(context);
+          getCart();
           log(totalSave.toString());
           Get.back();
           Get.snackbar(
@@ -106,18 +106,18 @@ class CartController extends GetxController {
     update();
   }
 
-  Future<void> incrementDecrementQty(int qty, String productId,
-      int productQuantity, context, String size) async {
+  Future<void> incrementDecrementQty(
+      int qty, String productId, int productQuantity, String size) async {
     final AddCartModel model = AddCartModel(
       size: size.toString(),
       quantity: quantity,
       productId: productId,
     );
     if (qty == 1 && productQuantity >= 1) {
-      await CartService().addToCart(model, context).then(
+      await CartService().addToCart(model).then(
         (value) async {
           if (value != null) {
-            await CartService().getCart(context).then(
+            await CartService().getCart().then(
               (value) {
                 if (value != null) {
                   cartList = value;

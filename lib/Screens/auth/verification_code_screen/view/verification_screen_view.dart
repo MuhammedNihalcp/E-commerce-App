@@ -21,8 +21,8 @@ class ScreenVerificationCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    double width = Get.size.width;
+    double height = Get.size.width;
     return Scaffold(
       backgroundColor: colorWhite,
       appBar: AppBar(
@@ -121,7 +121,7 @@ class ScreenVerificationCode extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      verifyotpC.sumbitOtp(model, verifyotpC.code, context);
+                      verifyotpC.sumbitOtp(model, verifyotpC.code);
                     },
                     child: const Text(
                       'Continue',

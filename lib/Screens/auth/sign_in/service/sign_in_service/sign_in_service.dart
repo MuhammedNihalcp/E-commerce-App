@@ -14,8 +14,7 @@ class SignInService {
   final apibaseUrl = ApiBaseUrl();
   final apiendUrl = ApiEndsUrl();
   SignInModel? signinModel;
-  Future<SigninTokenModel?> signinUser(
-      SignInModel model, BuildContext context) async {
+  Future<SigninTokenModel?> signinUser(SignInModel model) async {
     try {
       Response response = await dio.post(
         apibaseUrl.baseUrl + apiendUrl.signIn,
@@ -31,7 +30,7 @@ class SignInService {
       }
     } on DioError catch (e) {
       log(e.message);
-      DioException().dioError(e, context);
+      DioException().dioError(e);
     }
     return null;
   }

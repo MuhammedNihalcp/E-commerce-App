@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:e_commerce/Screens/auth/new_password/view/new_password_view.dart';
 import 'package:e_commerce/Screens/auth/verification_code_screen/service/otp_service/verify_otp.dart';
+import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/util/error_popup/snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,13 +18,14 @@ class ForgotVerifyController extends GetxController {
     update();
   }
 
-  void submitForgotOtp(String email, code, context) {
+  void submitForgotOtp(String email, code) {
     if (code.length != 4) {
-      SnackBarPop.popUp(context, 'Please enter the OTP', Colors.red);
+      Get.snackbar('OTP', 'Please enter the OTP', colorText: colorremoveSnack);
+     
     } else {
       isLoading = true;
       update();
-      verifyOtpSer.verifyOtp(email, code, context).then((value) {
+      verifyOtpSer.verifyOtp(email, code).then((value) {
         if (value != null) {
           log('otp success', name: 'forgot otp');
           Get.off(() => const ScreenNewPassword());

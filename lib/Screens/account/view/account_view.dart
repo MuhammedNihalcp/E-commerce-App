@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ScreenAccount extends StatelessWidget {
-  ScreenAccount({super.key});
+  ScreenAccount({Key? key, required this.width, required this.height})
+      : super(key: key);
 
   final accoutC = Get.put(AcountController());
+  final double width;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,7 @@ class ScreenAccount extends StatelessWidget {
           children: [
             TextButton(
                 onPressed: () {
-                  accoutC.logout(context);
+                  accoutC.logout();
                 },
                 child: const Text(
                   'Logout',

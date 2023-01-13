@@ -7,7 +7,7 @@ class AcountController extends GetxController {
   bool isLoading = false;
   FlutterSecureStorage storage = const FlutterSecureStorage();
   final bottom = Get.put(LandingPageController());
-  void logout(context) async {
+  void logout() async {
     isLoading = true;
     update();
     await storage.delete(key: 'token');

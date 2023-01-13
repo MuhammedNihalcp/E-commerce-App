@@ -10,8 +10,8 @@ import 'package:e_commerce/util/dio_interceptor/dio_interceptor.dart';
 class CarousalService {
   final apibaseUrl = ApiBaseUrl();
   final apiendUrl = ApiEndsUrl();
-  Future<List<CarousalModel>?> getCarousal(context) async {
-    Dio dio = await ApiInterceptor().getApiUser(context);
+  Future<List<CarousalModel>?> getCarousal() async {
+    Dio dio = await ApiInterceptor().getApiUser();
     try {
       Response response =
           await dio.get(apibaseUrl.baseUrl + apiendUrl.carousal);
@@ -26,7 +26,7 @@ class CarousalService {
       }
     } on DioError catch (e) {
       log(e.message);
-      DioException().dioError(e, context);
+      DioException().dioError(e);
     }
     return null;
   }

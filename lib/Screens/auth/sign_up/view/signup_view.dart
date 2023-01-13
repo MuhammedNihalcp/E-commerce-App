@@ -15,8 +15,8 @@ class ScreenSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    double width = Get.size.width;
+    double height = Get.size.height;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -228,7 +228,7 @@ class ScreenSignUp extends StatelessWidget {
                     onPressed: () {
                       if (formGlobalKey.currentState!.validate()) {
                         formGlobalKey.currentState!.save();
-                        signupController.addUser(context);
+                        signupController.addUser();
                       }
                     },
                     child: const Text(

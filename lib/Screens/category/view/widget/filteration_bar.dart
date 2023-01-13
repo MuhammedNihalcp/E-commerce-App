@@ -21,9 +21,11 @@ class FilerationBar extends StatelessWidget {
   //   'Shirt',
   // ];
 
+  final categoryItems = Get.put(HomeContorller());
+
   @override
   Widget build(BuildContext context) {
-    final categoryItems = Get.put(HomeContorller(context));
+    
     return GetBuilder<FilterationBarController>(
       builder: (controller) => SizedBox(
         height: 40,

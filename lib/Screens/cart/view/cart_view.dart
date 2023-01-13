@@ -15,8 +15,8 @@ class ScreenOrder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    double width = Get.size.width;
+    double height = Get.size.height;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: colorVailet,
@@ -82,10 +82,8 @@ class ScreenOrder extends StatelessWidget {
                             children: [
                               CartBottomButton(
                                 onPressed: () {
-                                  cartC.removeCart(
-                                      context,
-                                      cartC.cartList!.products[index].product
-                                          .id);
+                                  cartC.removeCart(cartC
+                                      .cartList!.products[index].product.id);
                                 },
                                 text: 'Save for later',
                               ),
@@ -103,7 +101,7 @@ class ScreenOrder extends StatelessWidget {
                 );
               },
               separatorBuilder: (context, index) => const SizedBox(),
-              itemCount: 5),
+              itemCount: cartC.cartList?.products.length ?? 0),
         ),
       )),
     );

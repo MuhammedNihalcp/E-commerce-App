@@ -22,7 +22,7 @@ class SignUpController extends GetxController {
 
   FlutterSecureStorage storage = const FlutterSecureStorage();
 
-  Future<void> addUser(BuildContext context) async {
+  Future<void> addUser() async {
     isLoging = true;
     update();
 
@@ -32,7 +32,7 @@ class SignUpController extends GetxController {
         phone: phoneController.text.trim(),
         password: passwordController.text.trim());
 
-    OtpServices().sendOtp(signupmodel.email, context).then((value) {
+    OtpServices().sendOtp(signupmodel.email).then((value) {
       if (value != null) {
         Get.to(() => ScreenVerificationCode(model: signupmodel));
         disposeTextfield();

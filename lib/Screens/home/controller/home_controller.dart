@@ -10,10 +10,10 @@ import 'package:e_commerce/Screens/product_view_screen/view/product_view.dart';
 import 'package:get/get.dart';
 
 class HomeContorller extends GetxController {
-  HomeContorller(context) {
-    getCategory(context);
-    getProduct(context);
-    getACarousal(context);
+  HomeContorller() {
+    getCategory();
+    getProduct();
+    getACarousal();
     log('homecontorller');
   }
   List<CategoryModel> categoryList = [];
@@ -27,11 +27,11 @@ class HomeContorller extends GetxController {
   CategoryService categoryS = CategoryService();
   ProductService productS = ProductService();
   CarousalService carousalS = CarousalService();
-  void getCategory(context) async {
+  void getCategory() async {
     log('getcategory');
     isLoding = true;
     update();
-    await categoryS.getCategory(context).then((value) {
+    await categoryS.getCategory().then((value) {
       log('came category');
       if (value != null) {
         log('add category', name: 'category');
@@ -49,10 +49,10 @@ class HomeContorller extends GetxController {
     });
   }
 
-  void getProduct(context) async {
+  void getProduct() async {
     isLoding = true;
     update();
-    await productS.getProduct(context).then((value) {
+    await productS.getProduct().then((value) {
       if (value != null) {
         productList = value;
         update();
@@ -66,10 +66,10 @@ class HomeContorller extends GetxController {
     });
   }
 
-  void getACarousal(context) async {
+  void getACarousal() async {
     isLoding = true;
     update();
-    await carousalS.getCarousal(context).then((value) {
+    await carousalS.getCarousal().then((value) {
       if (value != null) {
         carousalList = value;
         update();

@@ -10,7 +10,7 @@ class SplashContorller extends GetxController {
   FlutterSecureStorage storage = const FlutterSecureStorage();
   String? onboardValue;
   String? signinCheck;
-  void splashTimer(context) {
+  void splashTimer() {
     Timer(
       const Duration(seconds: 3),
       () async {

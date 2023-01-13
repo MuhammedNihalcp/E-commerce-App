@@ -16,8 +16,8 @@ class ScreenLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    double width = Get.size.width;
+    double height = Get.size.height;
     return Scaffold(
       backgroundColor: colorWhite,
       appBar: AppBar(
@@ -158,7 +158,7 @@ class ScreenLogin extends StatelessWidget {
                         onPressed: () {
                           if (formGlobalKey.currentState!.validate()) {
                             formGlobalKey.currentState!.save();
-                            signinController.signIn(context);
+                            signinController.signIn();
                           }
                         },
                         child: const Text(

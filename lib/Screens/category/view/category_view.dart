@@ -4,14 +4,19 @@ import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/util/search_bar/search_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ScreenCategory extends StatelessWidget {
-  const ScreenCategory({super.key});
+  const ScreenCategory({Key? key, required this.width, required this.height})
+      : super(key: key);
+
+  final double width;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    double width = Get.size.width;
+    double height = Get.size.height;
     return Scaffold(
         backgroundColor: backgroundColor,
         extendBodyBehindAppBar: true,

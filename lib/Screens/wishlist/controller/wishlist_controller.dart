@@ -11,14 +11,14 @@ class WishListController extends GetxController {
   List<dynamic> wishList = [];
   WishlistService wishlistService = WishlistService();
 
-  WishListController(context) {
-    getWishlist(context);
+  WishListController() {
+    getWishlist();
   }
 
-  void getWishlist(context) async {
+  void getWishlist() async {
     isLoading = true;
     update();
-    await wishlistService.getWishlist(context).then(
+    await wishlistService.getWishlist().then(
       (value) {
         if (value != null) {
           wmodel = value;
@@ -35,16 +35,16 @@ class WishListController extends GetxController {
     );
   }
 
-  void addOrRemoveFromWishlist(context, String productId) async {
+  void addOrRemoveFromWishlist( String productId) async {
     isLoading = true;
     update();
-    await wishlistService.addOrRemoveWishlist(context, productId).then((value) {
+    await wishlistService.addOrRemoveWishlist( productId).then((value) {
       if (value != null) {
-        wishlistService.getWishlist(context).then((value) {
+        wishlistService.getWishlist().then((value) {
           if (value != null) {
             wmodel = value;
             update();
-            getWishlist(context);
+            getWishlist();
             isLoading = false;
             update();
           } else {
@@ -74,8 +74,8 @@ class WishListController extends GetxController {
     });
   }
 
-  void toProductScreen(context, index) {
-    Navigator.of(context)
-        .pushNamed(ScreenProductView.routeName, arguments: wishList[index]);
+  void toProductScreen(index) {
+    Get.toNamed(ScreenProductView.routeName,arguments: wishList[index]);
+   
   }
 }

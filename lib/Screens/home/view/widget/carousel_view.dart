@@ -21,10 +21,11 @@ class CarouselWidget extends StatelessWidget {
   final double width;
   // final List<String> itemsD;
   final apibaseUrl = ApiBaseUrl();
+  final carousalC = Get.put(HomeContorller());
 
   @override
   Widget build(BuildContext context) {
-    final carousalC = Get.put(HomeContorller(context));
+    
     return GetBuilder<HomeContorller>(
       builder: (controller) => carousalC.isLoding == true
           ? const CarouselShimmer()

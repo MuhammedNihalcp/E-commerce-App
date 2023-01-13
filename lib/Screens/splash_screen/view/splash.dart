@@ -12,7 +12,7 @@ class ScreenSplash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) { 
-      splashC.splashTimer(context);
+      splashC.splashTimer();
     });
     return const Scaffold(
       backgroundColor: Color.fromARGB(255, 49, 49, 49),
