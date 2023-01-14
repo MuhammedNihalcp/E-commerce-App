@@ -53,19 +53,21 @@ class ScreenOrderSummery extends StatelessWidget {
         child: GetBuilder<OrderSummeryController>(
           builder: (controller) => Column(
             children: [
-              Stepper(
-                steps: orderSC.steps,
-                currentStep: orderSC.currentStep,
-                type: StepperType.horizontal,
-                onStepTapped: (step) {
-                  orderSC.onStepTap(step);
-                },
-                onStepContinue: () {
-                  orderSC.onStepContinue();
-                },
-                onStepCancel: () {
-                  orderSC.onStepCancel();
-                },
+              SizedBox(
+                child: Stepper(
+                  steps: orderSC.steps,
+                  currentStep: orderSC.currentStep,
+                  type: StepperType.horizontal,
+                  onStepTapped: (step) {
+                    orderSC.onStepTap(step);
+                  },
+                  onStepContinue: () {
+                    orderSC.onStepContinue();
+                  },
+                  onStepCancel: () {
+                    orderSC.onStepCancel();
+                  },
+                ),
               ),
             ],
           ),

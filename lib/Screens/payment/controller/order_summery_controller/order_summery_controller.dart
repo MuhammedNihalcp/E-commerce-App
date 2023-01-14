@@ -14,6 +14,7 @@ class OrderSummeryController extends GetxController {
         'Address',
         style: TextStyle(color: Colors.blue),
       ),
+      isActive: true,
     ),
     const Step(
       title: Text(
@@ -24,6 +25,7 @@ class OrderSummeryController extends GetxController {
         'Address',
         style: TextStyle(color: Colors.blue),
       ),
+      isActive: true,
     ),
     const Step(
       title: Text(
@@ -34,6 +36,7 @@ class OrderSummeryController extends GetxController {
         'Address',
         style: TextStyle(color: Colors.blue),
       ),
+      isActive: true,
     )
   ];
   void onStepTap(step) {

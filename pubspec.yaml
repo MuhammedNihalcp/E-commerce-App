@@ -44,6 +44,7 @@ dependencies:
   readmore: 2.2.0
   shimmer: 2.0.0
   smooth_page_indicator: 1.0.0+2
+  timeline_tile: 2.0.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
