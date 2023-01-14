@@ -44,6 +44,12 @@ class ScreenOrderSummery extends StatelessWidget {
           child: const SizedBox(),
         ),
       ),
+      body: SafeArea(
+          child: SingleChildScrollView(
+        child: Column(
+          children: [],
+        ),
+      )),
     );
   }
 }
