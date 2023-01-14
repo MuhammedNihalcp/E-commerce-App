@@ -59,6 +59,7 @@ class ScreenProductView extends StatelessWidget {
       bottomNavigationBar: ProductBottomNavigator(
         width: width,
         height: height,
+        contorlle: controlle,
       ),
     );
   }

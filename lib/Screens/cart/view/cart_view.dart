@@ -57,6 +57,9 @@ class ScreenOrder extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: CustomCard(
+                    onTap: () {
+                      cartC.toProductScreen(index);
+                    },
                     width: double.infinity,
                     height: height * 0.39,
                     color: colorWhite,

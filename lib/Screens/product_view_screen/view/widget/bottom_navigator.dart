@@ -1,4 +1,7 @@
+import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
+import 'package:e_commerce/Screens/cart/view/cart_view.dart';
 import 'package:e_commerce/Screens/product_view_screen/controller/product_controller.dart';
+import 'package:e_commerce/Screens/product_view_screen/model/product_model.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 
@@ -9,12 +12,15 @@ class ProductBottomNavigator extends StatelessWidget {
     Key? key,
     required this.width,
     required this.height,
+    required this.contorlle,
   }) : super(key: key);
 
   final double width;
   final double height;
+  final ProductModel contorlle;
 
   final productC = Get.put(ProductController());
+  final cartC = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +40,10 @@ class ProductBottomNavigator extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
             ),
-            onPressed: () {},
+            onPressed: () {
+              cartC.addToCart(contorlle.id, contorlle.size.toString());
+              Get.to(() => ScreenOrder());
+            },
             icon: const Icon(
               Icons.shopping_cart,
               color: colorBlack,

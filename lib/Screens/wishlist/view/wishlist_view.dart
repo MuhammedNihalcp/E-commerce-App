@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:ui';
 
+import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/wishlist/controller/wishlist_controller.dart';
 
 import 'package:e_commerce/Screens/wishlist/view/shimmer/wishlist_shimmer.dart';
@@ -21,6 +22,8 @@ class WishlistScreen extends StatelessWidget {
 
   final double width;
   final double height;
+
+  final cartC = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +57,9 @@ class WishlistScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              cartC.goToCartFromProduct();
+            },
             icon: const Icon(Icons.shopping_cart),
           ),
         ],

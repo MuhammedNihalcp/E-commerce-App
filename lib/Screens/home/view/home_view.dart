@@ -1,3 +1,4 @@
+import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/cart/view/cart_view.dart';
 import 'package:e_commerce/Screens/category/view/category_view.dart';
 import 'package:e_commerce/Screens/home/view/widget/carousel_view.dart';
@@ -20,9 +21,10 @@ class ScreenHome extends StatelessWidget {
   final double width;
   final double height;
 
+  final cartC = Get.put(CartController());
+
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       backgroundColor: backgroundColor,
       extendBodyBehindAppBar: true,
@@ -57,7 +59,7 @@ class ScreenHome extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Get.to(() => ScreenOrder());
+              cartC.goToCartFromProduct();
             },
             icon: const Icon(Icons.shopping_cart),
           ),
@@ -94,7 +96,10 @@ class ScreenHome extends StatelessWidget {
                   ),
                   TextButton(
                       onPressed: () {
-                        Get.to(() =>  ScreenCategory(width: width,height: height,));
+                        Get.to(() => ScreenCategory(
+                              width: width,
+                              height: height,
+                            ));
                       },
                       child: const Text(
                         'See All >',

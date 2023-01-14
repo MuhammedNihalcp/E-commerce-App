@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:e_commerce/Screens/cart/model/add_cart_model.dart';
 import 'package:e_commerce/Screens/cart/model/get_cart_model.dart';
 import 'package:e_commerce/Screens/cart/service/cart_service.dart';
+import 'package:e_commerce/Screens/cart/view/cart_view.dart';
 import 'package:e_commerce/Screens/navigator_screen/controller.dart';
 import 'package:e_commerce/Screens/navigator_screen/view/view.dart';
 import 'package:e_commerce/Screens/product_view_screen/controller/product_controller.dart';
@@ -143,9 +144,8 @@ class CartController extends GetxController {
   }
 
   void goToCartFromProduct() {
-    Get.offAll(() => ScreenNavigator());
-    bottomC.tapIndex = 2.obs;
-    update();
+    getCart();
+    Get.to(() => ScreenOrder());
   }
 
   void toProductScreen(index) {

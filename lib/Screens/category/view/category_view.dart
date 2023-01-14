@@ -1,3 +1,4 @@
+import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/category/view/widget/filteration_bar.dart';
 import 'package:e_commerce/Screens/home/view/widget/grid_view.dart';
 import 'package:e_commerce/core/size.dart';
@@ -7,11 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ScreenCategory extends StatelessWidget {
-  const ScreenCategory({Key? key, required this.width, required this.height})
+  ScreenCategory({Key? key, required this.width, required this.height})
       : super(key: key);
 
   final double width;
   final double height;
+
+  final cartC = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,9 @@ class ScreenCategory extends StatelessWidget {
         appBar: AppBar(
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                cartC.goToCartFromProduct();
+              },
               icon: const Icon(
                 Icons.shopping_cart,
                 color: colorWhite,
