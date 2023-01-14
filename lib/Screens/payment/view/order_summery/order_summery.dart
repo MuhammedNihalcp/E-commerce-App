@@ -2,6 +2,7 @@ import 'package:e_commerce/Screens/payment/controller/order_summery_controller/o
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:timeline_tile/timeline_tile.dart';
 
 class ScreenOrderSummery extends StatelessWidget {
   ScreenOrderSummery({
@@ -49,30 +50,23 @@ class ScreenOrderSummery extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-          child: SingleChildScrollView(
-        child: GetBuilder<OrderSummeryController>(
-          builder: (controller) => Column(
-            children: [
-              SizedBox(
-                child: Stepper(
-                  steps: orderSC.steps,
-                  currentStep: orderSC.currentStep,
-                  type: StepperType.horizontal,
-                  onStepTapped: (step) {
-                    orderSC.onStepTap(step);
-                  },
-                  onStepContinue: () {
-                    orderSC.onStepContinue();
-                  },
-                  onStepCancel: () {
-                    orderSC.onStepCancel();
-                  },
-                ),
+          child: GetBuilder<OrderSummeryController>(
+            builder: (controller) => Container(
+             
+              child: Stepper(
+                steps: orderSC.steps,
+                currentStep: orderSC.currentStep,
+                type: StepperType.vertical,
+                onStepTapped: (step) {
+                  orderSC.onStepTap(step);
+                },
+                onStepContinue: () {
+                  orderSC.onStepContinue();
+                },
+                onStepCancel: (() => orderSC.onStepCancel()),
               ),
-            ],
-          ),
-        ),
-      )),
+            ),
+          )),
     );
   }
 }

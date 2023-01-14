@@ -6,38 +6,40 @@ class OrderSummeryController extends GetxController {
 
   List<Step> steps = [
     const Step(
+      // state: StepState.complete,
       title: Text(
         'Address',
         style: TextStyle(color: Colors.black),
       ),
       content: Text(
-        'Address',
+        '',
         style: TextStyle(color: Colors.blue),
       ),
       isActive: true,
     ),
     const Step(
-      title: Text(
-        'Address',
-        style: TextStyle(color: Colors.black),
-      ),
-      content: Text(
-        'Address',
-        style: TextStyle(color: Colors.blue),
-      ),
-      isActive: true,
-    ),
+        title: Text(
+          'Order summery',
+          style: TextStyle(color: Colors.black),
+        ),
+        content: Text(
+          '',
+          style: TextStyle(color: Colors.blue),
+        ),
+        isActive: true,
+       ),
     const Step(
-      title: Text(
-        'Address',
-        style: TextStyle(color: Colors.black),
-      ),
-      content: Text(
-        'Address',
-        style: TextStyle(color: Colors.blue),
-      ),
-      isActive: true,
-    )
+        title: Text(
+          'Payment',
+          style: TextStyle(color: Colors.black),
+        ),
+        content: Text(
+          '',
+          style: TextStyle(color: Colors.blue),
+        ),
+        isActive: true,
+        // state: StepState.complete,
+        )
   ];
   void onStepTap(step) {
     currentStep = step;
