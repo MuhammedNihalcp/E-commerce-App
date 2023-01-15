@@ -97,7 +97,7 @@ class ProductViewCarousal extends StatelessWidget {
                     ? Colors.red
                     : Colors.black,
               ),
-            ),
+            ),  
           ),
         )
       ],
