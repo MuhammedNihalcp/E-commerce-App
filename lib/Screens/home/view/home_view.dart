@@ -151,7 +151,6 @@ class ScreenHome extends StatelessWidget {
                       ProductGridView(
                         width: width,
                         height: height,
-                        controller: homeC,
                       ),
                     ],
                   ),
