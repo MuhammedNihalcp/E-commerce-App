@@ -19,7 +19,7 @@ class ScreenPayment extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             Text(
-              'Order',
+              'Payment',
               style: TextStyle(
                 letterSpacing: 3,
                 color: Colors.yellow,
@@ -39,6 +39,11 @@ class ScreenPayment extends StatelessWidget {
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(height * 0.04),
           child: const SizedBox(),
+        ),
+      ),
+      body: SafeArea(
+        child: Column(
+          children: [],
         ),
       ),
     );
