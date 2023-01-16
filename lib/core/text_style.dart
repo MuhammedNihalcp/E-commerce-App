@@ -19,3 +19,10 @@ const coloraddSnack = Colors.green;
 const colorremoveSnack = Colors.red;
 const colorLightGrey = Color.fromARGB(255, 185, 184, 184);
 const colorGreen = Colors.green;
+
+//textstyle
+
+const boldtextblackcolor = TextStyle(
+  fontWeight: FontWeight.bold,
+  color: colorBlack,
+);
