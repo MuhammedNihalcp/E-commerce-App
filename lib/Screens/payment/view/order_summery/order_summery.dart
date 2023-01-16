@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:e_commerce/Screens/cart/view/widget/add_remove_button/add_remove_button.dart';
 import 'package:e_commerce/Screens/payment/controller/order_summery_controller/order_summery_controller.dart';
+import 'package:e_commerce/Screens/payment/view/order_summery/widget/bottom_widget/bottom_widget.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_details/order_details.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_productDetails/order_product_details.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/price_details/price_details.dart';
@@ -73,6 +74,10 @@ class ScreenOrderSummery extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomWidget(
+        width: width,
+        height: height,
       ),
     );
   }
