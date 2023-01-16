@@ -10,53 +10,51 @@ class HomePageCategoryItems extends StatelessWidget {
   HomePageCategoryItems({
     Key? key,
     required this.height,
+    required this.controller,
   }) : super(key: key);
 
   final double height;
+  final HomeContorller controller;
   final apibaseUrl = ApiBaseUrl();
-   final homecategoryC = Get.put(HomeContorller());
 
   @override
   Widget build(BuildContext context) {
-   
-    return GetBuilder<HomeContorller>(
-      builder: (controller) => homecategoryC.isLoding == true
-          ? const CategoryShimmer()
-          : LimitedBox(
-              maxHeight: height * 0.19,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: List.generate(
-                  homecategoryC.categoryList.length,
-                  (index) => Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      // alignment: AlignmentDirectional.center,
-                      children: [
-                        CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              '${apibaseUrl.baseUrl}/category/${homecategoryC.categoryList[index].image}'),
-                          radius: 30,
+    return controller.isLoding == true
+        ? const CategoryShimmer()
+        : LimitedBox(
+            maxHeight: height * 0.19,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: List.generate(
+                controller.categoryList.length,
+                (index) => Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    // alignment: AlignmentDirectional.center,
+                    children: [
+                      CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            '${apibaseUrl.baseUrl}/category/${controller.categoryList[index].image}'),
+                        radius: 30,
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        controller.categoryList[index].name,
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        style: const TextStyle(
+                          color: colorBlack,
+                          fontWeight: FontWeight.bold,
                         ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          homecategoryC.categoryList[index].name,
-                          textAlign: TextAlign.center,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 2,
-                          style: const TextStyle(
-                            color: colorBlack,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )
-                      ],
-                    ),
+                      )
+                    ],
                   ),
                 ),
               ),
             ),
-    );
+          );
   }
 }

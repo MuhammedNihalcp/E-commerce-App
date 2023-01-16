@@ -80,73 +80,80 @@ class ScreenHome extends StatelessWidget {
           child: const SizedBox(),
         ),
       ),
-      body: homeC.isLoding == true
-          ? const Center(
-              child: CircularProgressIndicator(
-                color: colorWhite,
-                backgroundColor: colorVailet,
-              ),
-            )
-          : SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: height * 0.12,
-                    ),
-                    SearchBar(width: width, height: height),
-                    kHeight10,
-                    CarouselWidget(
-                      height: height,
-                      width: width,
-                    ),
-                    kHeight10,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          'Category',
-                          style: TextStyle(
-                              color: colorBlack,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 17),
-                        ),
-                        TextButton(
-                            onPressed: () {
-                              Get.to(() => ScreenCategory(
-                                    width: width,
-                                    height: height,
-                                  ));
-                            },
-                            child: const Text(
-                              'See All >',
-                              style: TextStyle(color: colorBlack),
-                            ))
-                      ],
-                    ),
-                    HomePageCategoryItems(height: height),
-                    kHeight10,
-                    Row(
-                      children: const [
-                        Text(
-                          'Featured',
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
+      body: GetBuilder<HomeContorller>(
+        builder: (controller) => homeC.isLoding == true
+            ? const Center(
+                child: CircularProgressIndicator(
+                  color: colorWhite,
+                  backgroundColor: colorVailet,
+                ),
+              )
+            : SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: height * 0.12,
+                      ),
+                      SearchBar(width: width, height: height),
+                      kHeight10,
+                      CarouselWidget(
+                        height: height,
+                        width: width,
+                        controller: homeC,
+                      ),
+                      kHeight10,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                            'Category',
+                            style: TextStyle(
+                                color: colorBlack,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17),
                           ),
-                        ),
-                      ],
-                    ),
-                    kHeight10,
-                    ProductGridView(
-                      width: width,
-                      height: height,
-                    ),
-                  ],
+                          TextButton(
+                              onPressed: () {
+                                Get.to(() => ScreenCategory(
+                                      width: width,
+                                      height: height,
+                                    ));
+                              },
+                              child: const Text(
+                                'See All >',
+                                style: TextStyle(color: colorBlack),
+                              ))
+                        ],
+                      ),
+                      HomePageCategoryItems(
+                        height: height,
+                        controller: homeC,
+                      ),
+                      kHeight10,
+                      Row(
+                        children: const [
+                          Text(
+                            'Featured',
+                            style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      kHeight10,
+                      ProductGridView(
+                        width: width,
+                        height: height,
+                        controller: homeC,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
+      ),
     );
   }
 }
