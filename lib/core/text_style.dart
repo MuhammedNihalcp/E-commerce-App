@@ -18,3 +18,4 @@ const readmoreColor = Colors.blue;
 const coloraddSnack = Colors.green;
 const colorremoveSnack = Colors.red;
 const colorLightGrey = Color.fromARGB(255, 185, 184, 184);
+const colorGreen = Colors.green;
