@@ -110,21 +110,25 @@ class ScreenHome extends StatelessWidget {
                           const Text(
                             'Category',
                             style: TextStyle(
-                                color: colorBlack,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17),
+                              color: colorBlack,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                            ),
                           ),
                           TextButton(
-                              onPressed: () {
-                                Get.to(() => ScreenCategory(
-                                      width: width,
-                                      height: height,
-                                    ));
-                              },
-                              child: const Text(
-                                'See All >',
-                                style: TextStyle(color: colorBlack),
-                              ))
+                            onPressed: () {
+                              Get.to(
+                                () => ScreenCategory(
+                                  width: width,
+                                  height: height,
+                                ),
+                              );
+                            },
+                            child: const Text(
+                              'See All >',
+                              style: TextStyle(color: colorBlack),
+                            ),
+                          )
                         ],
                       ),
                       HomePageCategoryItems(
