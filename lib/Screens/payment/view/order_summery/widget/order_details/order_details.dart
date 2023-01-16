@@ -16,7 +16,7 @@ class OrderDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomCard(
       width: double.infinity,
-      height: height * 0.22,
+      height: 180,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
