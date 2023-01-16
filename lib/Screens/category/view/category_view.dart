@@ -1,5 +1,6 @@
 import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/category/view/widget/filteration_bar.dart';
+import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 import 'package:e_commerce/Screens/home/view/widget/grid_view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
@@ -15,6 +16,7 @@ class ScreenCategory extends StatelessWidget {
   final double height;
 
   final cartC = Get.put(CartController());
+  final homeC = Get.put(HomeContorller());
 
   @override
   Widget build(BuildContext context) {
@@ -55,49 +57,56 @@ class ScreenCategory extends StatelessWidget {
             child: const SizedBox(),
           ),
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: height * 0.12,
+        body: homeC.isLoding == true
+            ? const Center(
+                child: CircularProgressIndicator(
+                  color: colorWhite,
+                  backgroundColor: colorVailet,
                 ),
-                SearchBar(
-                  width: width,
-                  height: height,
-                ),
-                kHeight10,
-                FilerationBar(width: width),
-                kHeight20,
-                Row(
-                  children: const [
-                    Expanded(
-                      child: Text(
-                        '166 Items',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
+              )
+            : SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: height * 0.12,
                       ),
-                    ),
-                    Text('sort by:'),
-                    Text(
-                      'Featured ⌄',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                      SearchBar(
+                        width: width,
+                        height: height,
                       ),
-                    ),
-                  ],
+                      kHeight10,
+                      FilerationBar(width: width),
+                      kHeight20,
+                      Row(
+                        children: const [
+                          Expanded(
+                            child: Text(
+                              '166 Items',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Text('sort by:'),
+                          Text(
+                            'Featured ⌄',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      kHeight20,
+                      ProductGridView(
+                        width: width,
+                        height: height,
+                      ),
+                    ],
+                  ),
                 ),
-                kHeight20,
-                ProductGridView(
-                  width: width,
-                  height: height,
-                ),
-              ],
-            ),
-          ),
-        ));
+              ));
   }
 }
