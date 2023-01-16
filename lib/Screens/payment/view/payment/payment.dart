@@ -1,5 +1,8 @@
+import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
+import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 
 class ScreenPayment extends StatelessWidget {
   const ScreenPayment({Key? key, required this.width, required this.height})
@@ -43,7 +46,32 @@ class ScreenPayment extends StatelessWidget {
       ),
       body: SafeArea(
         child: Column(
-          children: [],
+          children: [
+            CustomCard(
+              width: double.infinity,
+              height: 500,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'All other options',
+                      style: TextStyle(
+                        fontSize: 17,
+                      ),
+                    ),
+                    kHeight10,
+                    Row(
+                      children: [
+                        
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
