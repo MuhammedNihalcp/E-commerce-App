@@ -1,5 +1,7 @@
+import 'package:e_commerce/Screens/payment/view/payment/payment.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class BottomWidget extends StatelessWidget {
   const BottomWidget({
@@ -45,7 +47,12 @@ class BottomWidget extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                   backgroundColor: buttonColor,
                   minimumSize: Size(width * 0.5, height * 0.08)),
-              onPressed: () {},
+              onPressed: () {
+                Get.to(() => ScreenPayment(
+                      width: width,
+                      height: height,
+                    ));
+              },
               child: const Text(
                 'CONTINUE',
                 style: TextStyle(

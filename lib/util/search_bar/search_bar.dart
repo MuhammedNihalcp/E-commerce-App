@@ -15,7 +15,7 @@ class SearchBar extends StatelessWidget {
   final double height;
 
   @override
-  Widget build(BuildContext context) {
+   Widget build(BuildContext context) {
     return TextButton.icon(
       style: ButtonStyle(
         alignment: Alignment.centerLeft,
