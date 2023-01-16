@@ -23,90 +23,95 @@ class ScreenCategory extends StatelessWidget {
     double width = Get.size.width;
     double height = Get.size.height;
     return Scaffold(
-        backgroundColor: backgroundColor,
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          actions: [
-            IconButton(
-              onPressed: () {
-                cartC.goToCartFromProduct();
-              },
-              icon: const Icon(
-                Icons.shopping_cart,
+      backgroundColor: backgroundColor,
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              cartC.goToCartFromProduct();
+            },
+            icon: const Icon(
+              Icons.shopping_cart,
+              color: colorWhite,
+            ),
+          ),
+        ],
+        backgroundColor: colorVailet,
+        centerTitle: true,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text(
+              'Category',
+              style: TextStyle(
+                letterSpacing: 3,
                 color: colorWhite,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],
-          backgroundColor: colorVailet,
-          centerTitle: true,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
-                'Category',
-                style: TextStyle(
-                  letterSpacing: 3,
-                  color: colorWhite,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-          bottom: PreferredSize(
-            preferredSize: Size.fromHeight(height * 0.04),
-            child: const SizedBox(),
-          ),
         ),
-        body: homeC.isLoding == true
-            ? const Center(
-                child: CircularProgressIndicator(
-                  color: colorWhite,
-                  backgroundColor: colorVailet,
-                ),
-              )
-            : SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: height * 0.12,
-                      ),
-                      SearchBar(
-                        width: width,
-                        height: height,
-                      ),
-                      kHeight10,
-                      FilerationBar(width: width),
-                      kHeight20,
-                      Row(
-                        children: const [
-                          Expanded(
-                            child: Text(
-                              '166 Items',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          Text('sort by:'),
-                          Text(
-                            'Featured ⌄',
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(height * 0.04),
+          child: const SizedBox(),
+        ),
+      ),
+      body: homeC.isLoding == true
+          ? const Center(
+              child: CircularProgressIndicator(
+                color: colorWhite,
+                backgroundColor: colorVailet,
+              ),
+            )
+          : SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: height * 0.12,
+                    ),
+                    SearchBar(
+                      width: width,
+                      height: height,
+                    ),
+                    kHeight10,
+                    FilerationBar(
+                      width: width,
+                    ),
+                    kHeight20,
+                    Row(
+                      children: const [
+                        Expanded(
+                          child: Text(
+                            '166 Items',
                             style: TextStyle(
+                              fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ],
-                      ),
-                      kHeight20,
-                      ProductGridView(
-                        width: width,
-                        height: height,
-                      ),
-                    ],
-                  ),
+                        ),
+                        Text(
+                          'sort by:',
+                        ),
+                        Text(
+                          'Featured ⌄',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    kHeight20,
+                    ProductGridView(
+                      width: width,
+                      height: height,
+                    ),
+                  ],
                 ),
-              ));
+              ),
+            ),
+    );
   }
 }
