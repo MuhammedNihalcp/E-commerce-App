@@ -133,7 +133,7 @@ class ProductGridView extends StatelessWidget {
                         )
                       ],
                     ),
-                  ),
+                  ),  
                 );
               },
               itemCount: productC.productList.length,
