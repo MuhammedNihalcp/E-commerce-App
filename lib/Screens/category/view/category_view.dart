@@ -18,7 +18,7 @@ class ScreenCategory extends StatelessWidget {
 
   final cartC = Get.put(CartController());
   final homeC = Get.put(HomeContorller());
-  static const categoryRoute = '/category_view.dart';
+
 
   @override
   Widget build(BuildContext context) {
