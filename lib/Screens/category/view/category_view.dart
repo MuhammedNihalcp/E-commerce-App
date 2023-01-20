@@ -1,4 +1,5 @@
 import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
+import 'package:e_commerce/Screens/category/view/widget/category_product_view.dart';
 import 'package:e_commerce/Screens/category/view/widget/filteration_bar.dart';
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 import 'package:e_commerce/Screens/home/view/widget/grid_view.dart';
@@ -21,8 +22,6 @@ class ScreenCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final productId = ModalRoute.of(context)!.settings.arguments as String;
-    final controllers = homeC.findByCategoryId(productId);
     double width = Get.size.width;
     double height = Get.size.height;
     return Scaffold(
@@ -107,7 +106,8 @@ class ScreenCategory extends StatelessWidget {
                       ],
                     ),
                     kHeight20,
-                    ProductGridView(
+                    CategoryProductView(
+                      controllers: homeC,
                       width: width,
                       height: height,
                     ),
