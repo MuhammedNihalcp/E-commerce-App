@@ -17,9 +17,12 @@ class ScreenCategory extends StatelessWidget {
 
   final cartC = Get.put(CartController());
   final homeC = Get.put(HomeContorller());
+  static const categoryRoute = '/category_view.dart';
 
   @override
   Widget build(BuildContext context) {
+    final productId = ModalRoute.of(context)!.settings.arguments as String;
+    final controllers = homeC.findByCategoryId(productId);
     double width = Get.size.width;
     double height = Get.size.height;
     return Scaffold(

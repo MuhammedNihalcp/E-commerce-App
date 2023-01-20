@@ -93,6 +93,12 @@ class HomeContorller extends GetxController {
     return productList.firstWhere((element) => element.id == id);
   }
 
+  List<ProductModel> findByCategoryId(String categoryId) {
+    return productList
+        .where((element) => element.category.contains(categoryId))
+        .toList();
+  }
+
   void toProdutScreen(index) {
     Get.toNamed(ScreenProductView.routeName, arguments: productList[index].id);
   }
