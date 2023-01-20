@@ -4,7 +4,7 @@ import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 
-import 'package:get/get.dart';
+
 
 class HomePageCategoryItems extends StatelessWidget {
   HomePageCategoryItems({
