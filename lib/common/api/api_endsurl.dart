@@ -22,4 +22,7 @@ class ApiEndsUrl {
 
   //cart
   String cart = '/api/v1/cart';
+
+  //address
+  String address = '/api/v1/address';
 }
