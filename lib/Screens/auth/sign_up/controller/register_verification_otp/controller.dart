@@ -6,8 +6,7 @@ import 'package:e_commerce/Screens/auth/sign_up/model/model.dart';
 import 'package:e_commerce/Screens/auth/verification_code_screen/service/otp_service/verify_otp.dart';
 import 'package:e_commerce/Screens/auth/sign_up/service/sign_up_service/sign_up_service.dart';
 import 'package:e_commerce/core/text_style.dart';
-import 'package:e_commerce/util/error_popup/snack_bar.dart';
-import 'package:flutter/material.dart';
+
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 

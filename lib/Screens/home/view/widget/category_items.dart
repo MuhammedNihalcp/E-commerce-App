@@ -1,4 +1,4 @@
-import 'package:e_commerce/Screens/category/view/category_view.dart';
+
 import 'package:e_commerce/Screens/category/view/widget/category_product_view.dart';
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 import 'package:e_commerce/Screens/home/view/shimmer/category_shimmer.dart';

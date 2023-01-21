@@ -3,8 +3,7 @@ import 'dart:developer';
 import 'package:e_commerce/Screens/auth/new_password/view/new_password_view.dart';
 import 'package:e_commerce/Screens/auth/verification_code_screen/service/otp_service/verify_otp.dart';
 import 'package:e_commerce/core/text_style.dart';
-import 'package:e_commerce/util/error_popup/snack_bar.dart';
-import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 
 class ForgotVerifyController extends GetxController {

@@ -5,12 +5,11 @@ import 'package:e_commerce/Screens/cart/model/get_cart_model.dart';
 import 'package:e_commerce/Screens/cart/service/cart_service.dart';
 import 'package:e_commerce/Screens/cart/view/cart_view.dart';
 import 'package:e_commerce/Screens/navigator_screen/controller.dart';
-import 'package:e_commerce/Screens/navigator_screen/view/view.dart';
-import 'package:e_commerce/Screens/product_view_screen/controller/product_controller.dart';
+
 import 'package:e_commerce/Screens/product_view_screen/view/product_view.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
 
 class CartController extends GetxController {

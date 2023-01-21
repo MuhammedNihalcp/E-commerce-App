@@ -2,7 +2,7 @@ import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/category/view/widget/category_product_view.dart';
 import 'package:e_commerce/Screens/category/view/widget/filteration_bar.dart';
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
-import 'package:e_commerce/Screens/home/view/widget/grid_view.dart';
+
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/util/search_bar/search_bar.dart';

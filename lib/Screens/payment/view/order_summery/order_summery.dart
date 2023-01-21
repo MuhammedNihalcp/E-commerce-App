@@ -1,18 +1,16 @@
-import 'dart:developer';
 
-import 'package:e_commerce/Screens/cart/view/widget/add_remove_button/add_remove_button.dart';
+
 import 'package:e_commerce/Screens/payment/controller/order_summery_controller/order_summery_controller.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/bottom_widget/bottom_widget.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_details/order_details.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_productDetails/order_product_details.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/price_details/price_details.dart';
-import 'package:e_commerce/core/size.dart';
+
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_cards/flutter_custom_cards.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
 import 'package:get/get.dart';
-import 'package:timeline_tile/timeline_tile.dart';
+
 
 class ScreenOrderSummery extends StatelessWidget {
   ScreenOrderSummery({

@@ -1,15 +1,14 @@
-import 'dart:developer';
+
 
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_productDetails/widget/add_remove/add_remove.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_productDetails/widget/bestselletWidget/best_sellar.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_productDetails/widget/delivary_details/delivary_detail.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_productDetails/widget/payment_product_details/payment_product_details.dart';
 import 'package:e_commerce/core/size.dart';
-import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_custom_cards/flutter_custom_cards.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
 
 class OrderProductDetails extends StatelessWidget {
   const OrderProductDetails({
