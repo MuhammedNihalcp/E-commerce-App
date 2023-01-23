@@ -1,17 +1,17 @@
 import 'dart:developer';
 
 import 'package:e_commerce/Screens/account/model/add_account_model.dart';
+import 'package:e_commerce/Screens/account/model/get_account_model.dart';
 import 'package:e_commerce/Screens/account/service/add_account_service.dart';
 import 'package:e_commerce/Screens/auth/sign_in/view/signin_view.dart';
 import 'package:e_commerce/Screens/navigator_screen/controller.dart';
+import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 
 class AcountController extends GetxController {
-
   final addressService = AddressService();
-
 
   final TextEditingController tittleC = TextEditingController();
   final TextEditingController fullNameC = TextEditingController();
@@ -24,6 +24,8 @@ class AcountController extends GetxController {
 
   bool isLoading = false;
   bool isLoading2 = false;
+
+  List<GetAddressModel> addressList = [];
 
   FlutterSecureStorage storage = const FlutterSecureStorage();
   final bottom = Get.put(LandingPageController());
@@ -44,14 +46,93 @@ class AcountController extends GetxController {
     );
 
     await addressService.addAddress(model).then((value) {
-      if(value!=null){
+      if (value != null) {
         log('hai');
         clearAllControllers();
         Get.back();
         isLoading2 = false;
         update();
+      } else {
+        isLoading2 = false;
+        update();
       }
     });
+    return null;
+  }
+
+  void saveAddress() {
+    addAccount();
+    update();
+  }
+
+  Future<String?> getAllAddress(context) async {
+    isLoading = true;
+    update();
+    await AddressService().getAddress().then((value) {
+      if (value != null) {
+        log(value.toString());
+        addressList = value;
+        update();
+        isLoading = false;
+        update();
+        return 'Done';
+      } else {
+        isLoading = false;
+        update();
+        return null;
+      }
+    });
+    return null;
+  }
+
+  void updateAddress(String addressId) async {
+    isLoading2 = true;
+    update();
+    final CreateAddressModel model = CreateAddressModel(
+      title: tittleC.text,
+      fullName: fullNameC.text,
+      phone: phoneC.text,
+      pin: pinC.text,
+      state: stateC.text,
+      place: placeC.text,
+      address: addressC.text,
+      landMark: landmarkC.text,
+    );
+    await addressService.updateAddress(model, addressId).then((value) {
+      if (value != null) {
+        clearAllControllers();
+        Get.back();
+        isLoading2 = false;
+        update();
+      } else {
+        isLoading2 = false;
+        update();
+      }
+    });
+    return null;
+  }
+
+  void deleteAddress(String addressId) async {
+    log('delete function entered');
+    isLoading2 = true;
+    update();
+    await AddressService().deleteAddress(addressId).then((value) {
+      if (value != null) {
+        addAccount();
+        Get.back();
+        Get.snackbar(
+          "Delete",
+          "Address removed successfully",
+          colorText: colorremoveSnack,
+        );
+
+        update();
+      } else {
+        return null;
+      }
+    });
+    isLoading = false;
+    update();
   }
 
   void logout() async {
@@ -66,7 +147,7 @@ class AcountController extends GetxController {
     update();
   }
 
-  void clearAllControllers(){
+  void clearAllControllers() {
     tittleC.clear();
     fullNameC.clear();
     phoneC.clear();

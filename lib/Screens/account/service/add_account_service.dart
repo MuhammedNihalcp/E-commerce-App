@@ -63,7 +63,7 @@ class AddressService {
   }
 
   Future<String?> updateAddress(
-      CreateAddressModel model, String addressId, context) async {
+      CreateAddressModel model, String addressId) async {
     Dio dios = await ApiInterceptor().getApiUser();
     try {
       log('try');
@@ -89,7 +89,7 @@ class AddressService {
     return null;
   }
 
-  Future<String?> deleteAddress(String addressId, context) async {
+  Future<String?> deleteAddress(String addressId) async {
     Dio dios = await ApiInterceptor().getApiUser();
     try {
       log('try');
