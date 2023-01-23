@@ -65,7 +65,7 @@ class AcountController extends GetxController {
     update();
   }
 
-  Future<String?> getAllAddress(context) async {
+  Future<String?> getAllAddress() async {
     isLoading = true;
     update();
     await AddressService().getAddress().then((value) {
@@ -118,7 +118,7 @@ class AcountController extends GetxController {
     update();
     await AddressService().deleteAddress(addressId).then((value) {
       if (value != null) {
-        addAccount();
+       getAllAddress();
         Get.back();
         Get.snackbar(
           "Delete",
