@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:e_commerce/Screens/account/model/add_account_model.dart';
 import 'package:e_commerce/Screens/account/service/add_account_service.dart';
 import 'package:e_commerce/Screens/auth/sign_in/view/signin_view.dart';
@@ -43,7 +45,11 @@ class AcountController extends GetxController {
 
     await addressService.addAddress(model).then((value) {
       if(value!=null){
-        
+        log('hai');
+        clearAllControllers();
+        Get.back();
+        isLoading2 = false;
+        update();
       }
     });
   }
@@ -58,5 +64,16 @@ class AcountController extends GetxController {
     bottom.tapIndex = 0.obs;
     isLoading = false;
     update();
+  }
+
+  void clearAllControllers(){
+    tittleC.clear();
+    fullNameC.clear();
+    phoneC.clear();
+    pinC.clear();
+    stateC.clear();
+    placeC.clear();
+    addressC.clear();
+    landmarkC.clear();
   }
 }
