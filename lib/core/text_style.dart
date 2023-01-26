@@ -19,10 +19,25 @@ const coloraddSnack = Colors.green;
 const colorremoveSnack = Colors.red;
 const colorLightGrey = Color.fromARGB(255, 185, 184, 184);
 const colorGreen = Colors.green;
+const seeall = Color.fromARGB(255, 43, 108, 113);
+
+const borderColor = Color.fromARGB(255, 199, 198, 198);
+const lightgrey = Color.fromARGB(255, 128, 125, 125);
 
 //textstyle
 
 const boldtextblackcolor = TextStyle(
   fontWeight: FontWeight.bold,
   color: colorBlack,
+);
+
+const accountTextStyle = TextStyle(
+  color: colorBlack,
+  fontSize: 18,
+  fontWeight: FontWeight.bold,
+);
+
+const accountSeeall = TextStyle(
+  color: seeall,
+  fontSize: 14,
 );
