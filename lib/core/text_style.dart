@@ -8,7 +8,7 @@ const textStyle = TextStyle(
 const buttonStyle = TextStyle(
   fontSize: 19,
 );
-const buttonColor = Color.fromARGB(255, 247, 226, 39);
+const buttonColor = Color.fromARGB(213, 228, 197, 40);
 const colorBlack = Colors.black;
 const colorWhite = Colors.white;
 const colorGrey = Colors.grey;
