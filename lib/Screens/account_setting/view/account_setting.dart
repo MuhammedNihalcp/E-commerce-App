@@ -1,6 +1,9 @@
+import 'package:e_commerce/Screens/account/controller/account_controller.dart';
+import 'package:e_commerce/Screens/account/view/account_add.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ScreenAccountSetting extends StatelessWidget {
   ScreenAccountSetting({
@@ -12,14 +15,9 @@ class ScreenAccountSetting extends StatelessWidget {
   final double width;
   final double height;
 
-  final List<String> accountNames = [
-    'Your Addresses',
-    'Logout',
-    'Teams and contition',
-    'Manage Your Profile',
-    'Privacy Policy',
-    'About',
-  ];
+  final accountC = Get.put(AcountController());
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -64,10 +62,10 @@ class ScreenAccountSetting extends StatelessWidget {
       ),
       body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SingleChildScrollView(
-              child: Column(
-                    children: [
+        padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
               kHeight10,
               const Text(
                 'Account Settings',
@@ -87,10 +85,7 @@ class ScreenAccountSetting extends StatelessWidget {
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(accountNames[index]),
-                        ),
+                        
                         const Icon(Icons.arrow_forward_ios_rounded)
                       ],
                     );
@@ -100,13 +95,15 @@ class ScreenAccountSetting extends StatelessWidget {
                       thickness: 2,
                     );
                   },
-                  itemCount: accountNames.length,
+                  itemCount:  10,
                 ),
               )
-                    ],
-                  ),
-            ),
-          )),
+            ],
+          ),
+        ),
+      )),
     );
   }
 }
+
+

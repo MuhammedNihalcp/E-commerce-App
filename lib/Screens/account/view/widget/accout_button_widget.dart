@@ -4,6 +4,8 @@ import 'package:e_commerce/Screens/account/controller/account_controller.dart';
 import 'package:e_commerce/Screens/account/view/widget/text_button_widget.dart';
 import 'package:e_commerce/Screens/account_setting/view/account_setting.dart';
 import 'package:e_commerce/Screens/cart/view/cart_view.dart';
+import 'package:e_commerce/core/text_style.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -24,10 +26,20 @@ class AccountButtonWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        TextButtonWidget(
-          width: width,
-          height: height,
-          text: 'Your Account',
+        TextButton(
+          style: TextButton.styleFrom(
+            side: const BorderSide(
+              width: 1,
+              color: colorGrey,
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(100),
+            ),
+            minimumSize: Size(
+              width * 0.4,
+              height * 0.08,
+            ),
+          ),
           onPressed: () {
             Get.to(
               () => ScreenAccountSetting(
@@ -36,14 +48,32 @@ class AccountButtonWidget extends StatelessWidget {
               ),
             );
           },
+          child: const Text(
+            'Your Account',
+            style: TextStyle(color: colorBlack),
+          ),
         ),
-        TextButtonWidget(
-          width: width,
-          height: height,
-          text: 'Your Cart',
+        TextButton(
+          style: TextButton.styleFrom(
+            side: const BorderSide(
+              width: 1,
+              color: colorGrey,
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(100),
+            ),
+            minimumSize: Size(
+              width * 0.4,
+              height * 0.08,
+            ),
+          ),
           onPressed: () {
             Get.to(() => ScreenOrder());
           },
+          child: const Text(
+            'Your Cart',
+            style: TextStyle(color: colorBlack),
+          ),
         ),
       ],
     );
