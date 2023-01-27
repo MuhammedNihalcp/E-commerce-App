@@ -1,5 +1,6 @@
 import 'package:e_commerce/Screens/account/controller/account_controller.dart';
 import 'package:e_commerce/Screens/account/view/account_add.dart';
+import 'package:e_commerce/Screens/account_setting/view/widget/account_setting_widget.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
@@ -73,134 +74,7 @@ class ScreenAccountSetting extends StatelessWidget {
                   style: accountTextStyle,
                 ),
                 kHeight20,
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: lightgrey,
-                    ),
-                  ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            TextButton(
-                              onPressed: () {
-                                Get.to(() => AddAccountPage());
-                              },
-                              child: const Text(
-                                'Your Address',
-                                style: accountsettingTextstyle,
-                              ),
-                            ),
-                            arrowIcon
-                          ],
-                        ),
-                      ),
-                      const Divider(
-                        thickness: 2,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            TextButton(
-                              onPressed: () {
-                                accountC.logout();
-                              },
-                              child: const Text(
-                                'Logout',
-                                style: accountsettingTextstyle,
-                              ),
-                            ),
-                            arrowIcon
-                          ],
-                        ),
-                      ),
-                      const Divider(
-                        thickness: 2,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            TextButton(
-                              onPressed: () {},
-                              child: const Text(
-                                'Manage Your Profile',
-                                style: accountsettingTextstyle,
-                              ),
-                            ),
-                            arrowIcon
-                          ],
-                        ),
-                      ),
-                      const Divider(
-                        thickness: 2,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            TextButton(
-                              onPressed: () {},
-                              child: const Text(
-                                'Terms & Contition',
-                                style: accountsettingTextstyle,
-                              ),
-                            ),
-                            arrowIcon
-                          ],
-                        ),
-                      ),
-                      const Divider(
-                        thickness: 2,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            TextButton(
-                              onPressed: () {},
-                              child: const Text(
-                                'Privacy Notice',
-                                style: accountsettingTextstyle,
-                              ),
-                            ),
-                            arrowIcon
-                          ],
-                        ),
-                      ),
-                      const Divider(
-                        thickness: 2,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            TextButton(
-                              onPressed: () {},
-                              child: const Text(
-                                'About',
-                                style: accountsettingTextstyle,
-                              ),
-                            ),
-                            arrowIcon
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                )
+                AccountSettingWidget(accountC: accountC)
               ],
             ),
           ),
@@ -209,3 +83,5 @@ class ScreenAccountSetting extends StatelessWidget {
     );
   }
 }
+
+
