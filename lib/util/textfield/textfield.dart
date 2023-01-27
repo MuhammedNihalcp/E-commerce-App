@@ -1,6 +1,6 @@
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 
 class TextFromFieldWidget extends StatelessWidget {
   const TextFromFieldWidget({

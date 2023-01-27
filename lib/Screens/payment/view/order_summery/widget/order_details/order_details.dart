@@ -1,16 +1,20 @@
+import 'package:e_commerce/Screens/account_setting/view/account_setting.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_custom_cards/flutter_custom_cards.dart';
+import 'package:get/get.dart';
 
 class OrderDetails extends StatelessWidget {
   const OrderDetails({
     Key? key,
     required this.height,
+    required this.width,
   }) : super(key: key);
 
   final double height;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +41,9 @@ class OrderDetails extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                       backgroundColor: colorWhite,
                       side: const BorderSide(color: colorGrey)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(()=>ScreenAccountSetting(width: width, height: height));
+                  },
                   child: const Text(
                     'Change',
                     style: TextStyle(color: colorVailet),

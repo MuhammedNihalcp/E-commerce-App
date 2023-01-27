@@ -68,12 +68,12 @@ class ScreenAccount extends StatelessWidget {
           child: const SizedBox(),
         ),
       ),
-      body: GetBuilder<AcountController>(
-        builder: (controller) => SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SingleChildScrollView(
-              child: Column(
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            child: GetBuilder<AcountController>(
+              builder: (controller) => Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   kHeight20,
@@ -87,6 +87,7 @@ class ScreenAccount extends StatelessWidget {
                   AccountButtonWidget(
                     width: width,
                     height: height,
+                    controller: accoutC,
                   ),
                   const YourAccountDetails(),
                   kHeight10,

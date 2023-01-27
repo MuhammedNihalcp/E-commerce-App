@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 
 class TextButtonWidget extends StatelessWidget {
-  const TextButtonWidget({
+   TextButtonWidget({
     Key? key,
     required this.width,
     required this.height,
@@ -17,7 +17,7 @@ class TextButtonWidget extends StatelessWidget {
   final double height;
 
   final String text;
-  final Function onPressed;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +36,9 @@ class TextButtonWidget extends StatelessWidget {
         ),
       ),
       onPressed: () {
-        log('on press', name: '1');
         onPressed;
-        log('2');
+        log(onPressed.toString());
+        
       },
       child: Text(
         text,

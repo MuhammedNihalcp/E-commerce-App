@@ -63,6 +63,7 @@ class ScreenOrderSummery extends StatelessWidget {
             children: [
               OrderDetails(
                 height: height,
+                width: width,
               ),
               OrderProductDetails(
                 width: width,

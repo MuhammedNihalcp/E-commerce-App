@@ -17,8 +17,8 @@ class DioException {
             colorText: colorremoveSnack);
       } else if (e.response?.statusCode == 403) {
         Get.snackbar(
-          'Error',
-          "Forbidden",
+          'Forbidden',
+          "Please logout",
           colorText: colorremoveSnack,
         );
       } else if (e.response?.statusCode == 500) {
