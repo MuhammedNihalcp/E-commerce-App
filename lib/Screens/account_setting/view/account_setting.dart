@@ -17,8 +17,6 @@ class ScreenAccountSetting extends StatelessWidget {
 
   final accountC = Get.put(AcountController());
 
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +48,7 @@ class ScreenAccountSetting extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              // cartC.goToCartFromProduct();
+              Get.back();
             },
             icon: const Icon(Icons.cancel),
           ),
@@ -64,46 +62,150 @@ class ScreenAccountSetting extends StatelessWidget {
           child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              kHeight10,
-              const Text(
-                'Account Settings',
-                style: accountTextStyle,
-              ),
-              Container(
-                width: double.infinity,
-                height: height,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                    color: lightgrey,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                kHeight10,
+                const Text(
+                  'Account Settings',
+                  style: accountTextStyle,
+                ),
+                kHeight20,
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      color: lightgrey,
+                    ),
                   ),
-                ),
-                child: ListView.separated(
-                  itemBuilder: (context, index) {
-                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        
-                        const Icon(Icons.arrow_forward_ios_rounded)
-                      ],
-                    );
-                  },
-                  separatorBuilder: (context, index) {
-                    return const Divider(
-                      thickness: 2,
-                    );
-                  },
-                  itemCount:  10,
-                ),
-              )
-            ],
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TextButton(
+                              onPressed: () {
+                                Get.to(() => AddAccountPage());
+                              },
+                              child: const Text(
+                                'Your Address',
+                                style: accountsettingTextstyle,
+                              ),
+                            ),
+                            arrowIcon
+                          ],
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 2,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TextButton(
+                              onPressed: () {
+                                accountC.logout();
+                              },
+                              child: const Text(
+                                'Logout',
+                                style: accountsettingTextstyle,
+                              ),
+                            ),
+                            arrowIcon
+                          ],
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 2,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                'Manage Your Profile',
+                                style: accountsettingTextstyle,
+                              ),
+                            ),
+                            arrowIcon
+                          ],
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 2,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                'Terms & Contition',
+                                style: accountsettingTextstyle,
+                              ),
+                            ),
+                            arrowIcon
+                          ],
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 2,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                'Privacy Notice',
+                                style: accountsettingTextstyle,
+                              ),
+                            ),
+                            arrowIcon
+                          ],
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 2,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                'About',
+                                style: accountsettingTextstyle,
+                              ),
+                            ),
+                            arrowIcon
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       )),
     );
   }
 }
-
-

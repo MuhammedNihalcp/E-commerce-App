@@ -41,3 +41,11 @@ const accountSeeall = TextStyle(
   color: seeall,
   fontSize: 14,
 );
+
+const accountsettingTextstyle = TextStyle(
+  color: colorBlack,
+);
+
+const arrowIcon = Icon(
+  Icons.arrow_forward_ios_rounded,
+);
