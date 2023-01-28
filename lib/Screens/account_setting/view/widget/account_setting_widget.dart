@@ -8,9 +8,14 @@ class AccountSettingWidget extends StatelessWidget {
   const AccountSettingWidget({
     super.key,
     required this.accountC,
+    required this.width,
+    required this.height,
   });
 
   final AcountController accountC;
+
+  final double width;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +36,7 @@ class AccountSettingWidget extends StatelessWidget {
               children: [
                 TextButton(
                   onPressed: () {
-                    Get.to(() => AddAccountPage());
+                    Get.to(() => AddAccountPage(width: width,height: height,));
                   },
                   child: const Text(
                     'Your Address',

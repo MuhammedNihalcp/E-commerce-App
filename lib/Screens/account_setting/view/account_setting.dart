@@ -74,7 +74,11 @@ class ScreenAccountSetting extends StatelessWidget {
                   style: accountTextStyle,
                 ),
                 kHeight20,
-                AccountSettingWidget(accountC: accountC)
+                AccountSettingWidget(
+                  accountC: accountC,
+                  width: width,
+                  height: height,
+                )
               ],
             ),
           ),
@@ -83,5 +87,3 @@ class ScreenAccountSetting extends StatelessWidget {
     );
   }
 }
-
-
