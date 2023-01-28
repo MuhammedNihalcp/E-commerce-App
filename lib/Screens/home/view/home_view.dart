@@ -8,6 +8,7 @@ import 'package:e_commerce/Screens/home/view/widget/grid_view.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/order_summery.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
+import 'package:e_commerce/util/cricularProgressWidget/circular_progress_widget.dart';
 import 'package:e_commerce/util/search_bar/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -82,12 +83,7 @@ class ScreenHome extends StatelessWidget {
       ),
       body: GetBuilder<HomeContorller>(
         builder: (controller) => homeC.isLoding == true
-            ? const Center(
-                child: CircularProgressIndicator(
-                  color: colorWhite,
-                  backgroundColor: colorVailet,
-                ),
-              )
+            ? const CircularProgressWidget()
             : SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -160,3 +156,5 @@ class ScreenHome extends StatelessWidget {
     );
   }
 }
+
+

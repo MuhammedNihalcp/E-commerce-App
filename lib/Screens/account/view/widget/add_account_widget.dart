@@ -1,8 +1,10 @@
 import 'package:e_commerce/Screens/account/controller/account_controller.dart';
+import 'package:e_commerce/Screens/account/view/all_accounts_view/all_account_view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/util/textfield/textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class FormWidgets extends StatelessWidget {
@@ -111,6 +113,12 @@ class FormWidgets extends StatelessWidget {
           onPressed: () {
             if (formKey.currentState!.validate()) {
               accountC.addAccount();
+              Get.off(
+                () => AllAccountView(
+                  width: width,
+                  height: height,
+                ),
+              );
             }
           },
           child: const Text(

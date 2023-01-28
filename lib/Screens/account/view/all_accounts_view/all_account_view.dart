@@ -1,3 +1,4 @@
+import 'package:e_commerce/Screens/account/controller/account_controller.dart';
 import 'package:e_commerce/Screens/account/view/account_add.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
@@ -5,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AllAccountView extends StatelessWidget {
-  const AllAccountView({
+  AllAccountView({
     super.key,
     required this.width,
     required this.height,
@@ -14,8 +15,13 @@ class AllAccountView extends StatelessWidget {
   final double width;
   final double height;
 
+  final accountC = Get.put(AcountController());
+
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      accountC.getAllAddress();
+    });
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -61,89 +67,126 @@ class AllAccountView extends StatelessWidget {
       ),
       backgroundColor: backgroundColor,
       body: SafeArea(
-        child: ListView.separated(
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Container(
-                  width: double.infinity,
-                  height: height * 0.3,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: lightgrey)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        kHeight5,
-                        Text(
-                          'Muhammed Nihal',
-                          style: TextStyle(
-                              color: colorBlack, fontWeight: FontWeight.bold),
-                        ),
-                        kHeight5,
-                        Text('Kerala'),
-                        kHeight5,
-                        Text('Edavannapara,irrupantodi,673645'),
-                        kHeight5,
-                        Text('Phone number: 623861357'),
-                        kHeight5,
-                        Text('Delivary location: irrupnatodi'),
-                        kHeight10,
-                        Row(
-                          children: [
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
+        child: GetBuilder<AcountController>(
+          builder: (controller) {
+            return accountC.isLoading == true
+                ? CircularProgressIndicator()
+                : ListView.separated(
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Container(
+                          width: double.infinity,
+                          height: height * 0.35,
+                          decoration: BoxDecoration(
+                              color: colorWhite,
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: lightgrey)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                RichText(
+                                  text: const TextSpan(
+                                    text: ' ',
+                                    children: <TextSpan>[
+                                      TextSpan(
+                                          text: '  My',
+                                          style: TextStyle(
+                                              backgroundColor: colorVailet,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.yellow)),
+                                      TextSpan(
+                                          text: ' Shop    ',
+                                          style: TextStyle(
+                                              backgroundColor: colorVailet,
+                                              fontWeight: FontWeight.bold,
+                                              color: colorBlack)),
+                                    ],
+                                  ),
                                 ),
-                                side: const BorderSide(
-                                  color: lightgrey,
+                                kHeight5,
+                                const Divider(
+                                  thickness: 2,
                                 ),
-                                minimumSize: Size(
-                                  width * 0.2,
-                                  height * 0.06,
+                                kHeight5,
+                                Text(
+                                  accountC.addressList[index].fullName,
+                                  style: const TextStyle(
+                                      color: colorBlack,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                              ),
-                              onPressed: () {},
-                              child: const Text(
-                                'Edit',
-                                style: accountButtonStyle,
-                              ),
+                                kHeight5,
+                                Text(accountC.addressList[index].state),
+                                kHeight5,
+                                Text(
+                                    '${accountC.addressList[index].place},${accountC.addressList[index].pin}'),
+                                kHeight5,
+                                Text(
+                                    'Phone number: ${accountC.addressList[index].phone}'),
+                                kHeight5,
+                                Text(
+                                    'Delivary location: ${accountC.addressList[index].landMark}'),
+                                kHeight10,
+                                Row(
+                                  children: [
+                                    TextButton(
+                                      style: TextButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        side: const BorderSide(
+                                          color: lightgrey,
+                                        ),
+                                        minimumSize: Size(
+                                          width * 0.2,
+                                          height * 0.06,
+                                        ),
+                                      ),
+                                      onPressed: () {},
+                                      child: const Text(
+                                        'Edit',
+                                        style: accountButtonStyle,
+                                      ),
+                                    ),
+                                    kWidth20,
+                                    TextButton(
+                                      style: TextButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        side: const BorderSide(
+                                          color: lightgrey,
+                                        ),
+                                        minimumSize: Size(
+                                          width * 0.2,
+                                          height * 0.06,
+                                        ),
+                                      ),
+                                      onPressed: () {},
+                                      child: const Text(
+                                        'Remove',
+                                        style: accountButtonStyle,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ],
                             ),
-                            kWidth20,
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                side: const BorderSide(
-                                  color: lightgrey,
-                                ),
-                                minimumSize: Size(
-                                  width * 0.2,
-                                  height * 0.06,
-                                ),
-                              ),
-                              onPressed: () {},
-                              child: const Text(
-                                'Remove',
-                                style: accountButtonStyle,
-                              ),
-                            )
-                          ],
+                          ),
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-              );
-            },
-            separatorBuilder: (context, index) {
-              return const SizedBox();
-            },
-            itemCount: 10),
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return const SizedBox();
+                    },
+                    itemCount: accountC.addressList.length,
+                  );
+          },
+        ),
       ),
     );
   }
