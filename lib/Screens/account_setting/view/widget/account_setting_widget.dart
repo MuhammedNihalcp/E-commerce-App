@@ -1,5 +1,6 @@
 import 'package:e_commerce/Screens/account/controller/account_controller.dart';
 import 'package:e_commerce/Screens/account/view/account_add.dart';
+import 'package:e_commerce/Screens/account/view/all_accounts_view/all_account_view.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -36,7 +37,12 @@ class AccountSettingWidget extends StatelessWidget {
               children: [
                 TextButton(
                   onPressed: () {
-                    Get.to(() => AddAccountPage(width: width,height: height,));
+                    Get.to(
+                      () => AllAccountView(
+                        width: width,
+                        height: height,
+                      ),
+                    );
                   },
                   child: const Text(
                     'Your Address',

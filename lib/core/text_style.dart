@@ -49,3 +49,5 @@ const accountsettingTextstyle = TextStyle(
 const arrowIcon = Icon(
   Icons.arrow_forward_ios_rounded,
 );
+
+const accountButtonStyle = TextStyle(color: colorBlack);
