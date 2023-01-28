@@ -5,6 +5,7 @@ import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/util/cricularProgressWidget/circular_progress_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AllAccountView extends StatelessWidget {
   AllAccountView({
@@ -73,7 +74,7 @@ class AllAccountView extends StatelessWidget {
             return accountC.isLoading == true || accountC.isLoading2 == true
                 ? const CircularProgressWidget()
                 : accountC.addressList.isEmpty
-                    ? Text('No Address')
+                    ? Text('No Address',style: GoogleFonts.aboreto(textStyle: accountTextStyle))
                     : ListView.separated(
                         itemBuilder: (context, index) {
                           return Padding(
