@@ -10,6 +10,7 @@ class TextFromFieldWidget extends StatelessWidget {
     required this.obscureText,
     required this.icon,
     required this.text,
+    required this.textInputType,
   }) : super(key: key);
 
   final TextEditingController textController;
@@ -17,12 +18,13 @@ class TextFromFieldWidget extends StatelessWidget {
   final bool obscureText;
   final Widget icon;
   final String text;
+  final TextInputType textInputType;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: textController,
-      keyboardType: TextInputType.visiblePassword,
+      keyboardType: textInputType,
       validator: (value) {
         if (value == null || value.isEmpty) {
           return nullText;

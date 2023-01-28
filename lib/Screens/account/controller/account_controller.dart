@@ -48,7 +48,7 @@ class AcountController extends GetxController {
 
     await addressService.addAddress(model).then((value) {
       if (value != null) {
-        log('hai');
+        log('add account', name: 'add accoutn');
         clearAllControllers();
         Get.back();
         isLoading2 = false;
@@ -158,6 +158,4 @@ class AcountController extends GetxController {
     addressC.clear();
     landmarkC.clear();
   }
-
-  
 }

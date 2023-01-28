@@ -15,6 +15,7 @@ class AddAccountPage extends StatelessWidget {
   final double width;
   final double height;
   final accountC = Get.put(AcountController());
+  final fromKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -55,10 +56,12 @@ class AddAccountPage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(15.0),
             child: Form(
+              key: fromKey,
               child: FormWidgets(
                 accountC: accountC,
                 width: width,
                 height: height,
+                formKey: fromKey,
               ),
             ),
           ),

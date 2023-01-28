@@ -26,7 +26,7 @@ class AddressService {
           return null;
         } else {
           final String result = response.data['message'];
-          log(result.toString());
+          log(result.toString(),name: 'add');
           return result;
         }
       }
