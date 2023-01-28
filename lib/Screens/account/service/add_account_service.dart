@@ -98,7 +98,7 @@ class AddressService {
       );
       log('response');
 
-      if (response.statusCode == 200 || response.statusCode == 201) {
+      if (response.statusCode == 200 || response.statusCode == 201 || response.statusCode == 202) {
         if (response.data == null) {
           return null;
         } else {

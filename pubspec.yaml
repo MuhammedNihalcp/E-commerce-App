@@ -40,6 +40,7 @@ dependencies:
   flutter_rating_bar: 4.0.1
   flutter_secure_storage: 7.0.1
   get: 4.6.5
+  google_fonts: 4.0.1
   google_sign_in: 5.4.2
   readmore: 2.2.0
   shimmer: 2.0.0

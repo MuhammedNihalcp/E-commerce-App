@@ -126,9 +126,12 @@ class AcountController extends GetxController {
           "Address removed successfully",
           colorText: colorremoveSnack,
         );
-
+         isLoading2 =false;
         update();
+        log('false');
       } else {
+        isLoading2 = false;
+        update();
         return null;
       }
     });
