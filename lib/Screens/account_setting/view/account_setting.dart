@@ -78,7 +78,7 @@ class ScreenAccountSetting extends StatelessWidget {
                   accountC: accountC,
                   width: width,
                   height: height,
-                )
+                ),
               ],
             ),
           ),
