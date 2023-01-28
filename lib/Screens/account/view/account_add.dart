@@ -19,6 +19,37 @@ class AddAccountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        // automaticallyImplyLeading: false,
+        backgroundColor: colorVailet,
+        centerTitle: true,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text(
+              'Add',
+              style: TextStyle(
+                letterSpacing: 3,
+                color: Colors.yellow,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              'Account',
+              style: TextStyle(
+                letterSpacing: 3,
+                fontWeight: FontWeight.bold,
+                color: colorBlack,
+              ),
+            )
+          ],
+        ),
+
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(height * 0.04),
+          child: const SizedBox(),
+        ),
+      ),
       backgroundColor: backgroundColor,
       body: SafeArea(
           child: GetBuilder<AcountController>(
