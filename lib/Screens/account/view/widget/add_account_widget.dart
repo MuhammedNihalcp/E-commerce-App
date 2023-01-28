@@ -98,7 +98,10 @@ class FormWidgets extends StatelessWidget {
             ),
           ),
           onPressed: () {},
-          child: Text('Submit'),
+          child: const Text(
+            'S U B M I T',
+            style: buttonStyle,
+          ),
         )
       ],
     );
