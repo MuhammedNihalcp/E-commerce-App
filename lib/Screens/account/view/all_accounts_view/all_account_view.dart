@@ -1,6 +1,8 @@
+import 'package:e_commerce/Screens/account/view/account_add.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AllAccountView extends StatelessWidget {
   const AllAccountView({
@@ -16,6 +18,19 @@ class AllAccountView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              Get.to(
+                () => AddAccountPage(
+                  width: width,
+                  height: height,
+                ),
+              );
+            },
+            icon: const Icon(Icons.add),
+          ),
+        ],
         backgroundColor: colorVailet,
         centerTitle: true,
         title: Row(
@@ -49,27 +64,33 @@ class AllAccountView extends StatelessWidget {
         child: ListView.separated(
             itemBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Container(
                   width: double.infinity,
-                  height: height * 0.25,
+                  height: height * 0.3,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(color: lightgrey)),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        kHeight5,
                         Text(
                           'Muhammed Nihal',
                           style: TextStyle(
                               color: colorBlack, fontWeight: FontWeight.bold),
                         ),
+                        kHeight5,
                         Text('Kerala'),
+                        kHeight5,
                         Text('Edavannapara,irrupantodi,673645'),
+                        kHeight5,
                         Text('Phone number: 623861357'),
+                        kHeight5,
                         Text('Delivary location: irrupnatodi'),
+                        kHeight10,
                         Row(
                           children: [
                             TextButton(
