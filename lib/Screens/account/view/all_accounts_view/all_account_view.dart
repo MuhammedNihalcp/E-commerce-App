@@ -109,6 +109,7 @@ class AllAccountView extends StatelessWidget {
                               onPressed: () {},
                               child: const Text(
                                 'Edit',
+                                style: accountButtonStyle,
                               ),
                             ),
                             kWidth20,
