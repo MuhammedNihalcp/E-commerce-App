@@ -74,7 +74,13 @@ class AllAccountView extends StatelessWidget {
             return accountC.isLoading == true || accountC.isLoading2 == true
                 ? const CircularProgressWidget()
                 : accountC.addressList.isEmpty
-                    ? Text('No Address',style: GoogleFonts.aboreto(textStyle: accountTextStyle))
+                    ? Center(
+                        child: Text(
+                          'No Address',
+                          style:
+                              GoogleFonts.aboreto(textStyle: accountTextStyle),
+                        ),
+                      )
                     : ListView.separated(
                         itemBuilder: (context, index) {
                           return Padding(
