@@ -8,7 +8,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 class GoogleSignInContorller extends GetxController {
   final GoogleSignIn googleSignIn = GoogleSignIn();
   bool isLoading = false;
-  void googleSignin() async {
+  void googleSignins() async {
     isLoading = true;
     update();
     await GoogleSignInService.googleSignIn(googleSignIn).then((value) {

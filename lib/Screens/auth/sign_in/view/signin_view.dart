@@ -1,4 +1,5 @@
 import 'package:e_commerce/Screens/auth/forgot_password/view/view_forgot_password.dart';
+import 'package:e_commerce/Screens/auth/sign_in/controller/google_signin_controller.dart';
 import 'package:e_commerce/Screens/auth/sign_in/controller/signin_controller.dart';
 import 'package:e_commerce/Screens/auth/sign_up/view/signup_view.dart';
 import 'package:e_commerce/core/size.dart';
@@ -13,6 +14,7 @@ class ScreenLogin extends StatelessWidget {
   bool passwordVisible = false;
   final signinController = Get.put(SignInController());
   final formGlobalKey = GlobalKey<FormState>();
+  final google = Get.put(GoogleSignInContorller());
 
   @override
   Widget build(BuildContext context) {
@@ -191,13 +193,17 @@ class ScreenLogin extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          GestureDetector(
-                            onTap: () {},
-                            child: Image(
-                              width: width * 0.3,
-                              height: height * 0.1,
-                              image: const AssetImage(
-                                  'assets/images/google_logo.png'),
+                          GetBuilder<GoogleSignInContorller>(
+                            builder: (controller) => GestureDetector(
+                              onTap: () {
+                                google.googleSignins();
+                              },
+                              child: Image(
+                                width: width * 0.3,
+                                height: height * 0.1,
+                                image: const AssetImage(
+                                    'assets/images/google_logo.png'),
+                              ),
                             ),
                           ),
                           GestureDetector(
