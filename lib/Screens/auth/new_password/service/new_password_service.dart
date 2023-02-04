@@ -13,11 +13,14 @@ class NewPasswordService {
   final apiendUrl = ApiEndsUrl();
   Future<String?> addNewPassword(NewPasswordModel passwordModel) async {
     try {
+      log('try');
       Response response = await dio.post(
         apibaseUrl.baseUrl + apiendUrl.forgot,
         data: jsonEncode(passwordModel.toJson()),
       );
-      if (response.statusCode == 200 || response.statusCode == 201) {
+      log('new responce');
+      log(response.statusCode.toString());
+      if (response.statusCode! >= 200 || response.statusCode! <= 299) {
         log('newpassword responce');
         final result = response.data['message'];
         return result;

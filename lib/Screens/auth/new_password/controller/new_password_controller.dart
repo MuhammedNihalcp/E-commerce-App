@@ -1,3 +1,7 @@
+
+
+import 'dart:developer';
+
 import 'package:e_commerce/Screens/auth/new_password/model/new_password.dart';
 import 'package:e_commerce/Screens/auth/new_password/service/new_password_service.dart';
 import 'package:e_commerce/Screens/navigator_screen/view/view.dart';
@@ -15,6 +19,7 @@ class NewPasswordController extends GetxController {
   final newpasswordS = NewPasswordService();
 
   void addPassword(String email) async {
+    log('newPassword');
     isLoading = true;
     update();
 
@@ -23,7 +28,9 @@ class NewPasswordController extends GetxController {
       password: newpasswordController.text.trim(),
     );
     newpasswordS.addNewPassword(newpasswordModel).then((value) {
+      log('enter add new password');
       if (value != null) {
+        log('enter value');
         Get.offAll(ScreenNavigator());
         isLoading = false;
         update();
