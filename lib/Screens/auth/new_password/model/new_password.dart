@@ -13,4 +13,11 @@ class NewPasswordModel {
       "password": password,
     };
   }
+
+  factory NewPasswordModel.fromJson(Map<String, dynamic> json) {
+    return NewPasswordModel(
+      email: json["email"],
+      password: json["password"],
+    );
+  }
 }
