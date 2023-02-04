@@ -5,7 +5,6 @@ import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/common/api/api_endsurl.dart';
 import 'package:e_commerce/util/dio_exeption/exeptions.dart';
 
-
 class ForgotPasswordService {
   final apibaseUrl = ApiBaseUrl();
   final apiendUrl = ApiEndsUrl();
@@ -17,11 +16,9 @@ class ForgotPasswordService {
       log('responce');
       Dio dio = Dio();
       log('dio');
-      Response response = await dio.post(
-        apibaseUrl.baseUrl + apiendUrl.forgot,
-        data: {
-          "email": email,
-        },
+      Response response = await dio.get(
+        apibaseUrl.baseUrl + apiendUrl.verifyOtp,
+        queryParameters: {"email": email},
         // options: Options(headers: AppConfig.getApiHeader(token: null)),
       );
       log('respose1');

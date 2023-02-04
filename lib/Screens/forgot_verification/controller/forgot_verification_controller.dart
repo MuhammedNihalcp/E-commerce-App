@@ -20,14 +20,15 @@ class ForgotVerifyController extends GetxController {
   void submitForgotOtp(String email, code) {
     if (code.length != 4) {
       Get.snackbar('OTP', 'Please enter the OTP', colorText: colorremoveSnack);
-     
     } else {
       isLoading = true;
       update();
       verifyOtpSer.verifyOtp(email, code).then((value) {
         if (value != null) {
           log('otp success', name: 'forgot otp');
-          Get.off(() => const ScreenNewPassword());
+          Get.off(() => ScreenNewPassword(
+                email: email,
+              ));
           isLoading = false;
           update();
         }
