@@ -21,7 +21,7 @@ class UserNameImage extends StatelessWidget {
             style: const TextStyle(color: colorBlack, fontSize: 20),
             children: <TextSpan>[
               TextSpan(
-                  text: user.userModel.fullname,
+                  text: user.userModel?.fullname,
                   style: const TextStyle(fontWeight: FontWeight.bold)),
             ],
           ),

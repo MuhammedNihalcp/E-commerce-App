@@ -16,7 +16,7 @@ class VerifyOtpController extends GetxController {
   Dio dio = Dio();
   bool isLoading = false;
   String code = '';
-  late SignUpModel userModel;
+   SignUpModel? userModel;
 
   void onSubmitCode(String submitCode) {
     log(submitCode, name: 'submitcode');
