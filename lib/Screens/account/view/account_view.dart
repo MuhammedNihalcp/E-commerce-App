@@ -77,7 +77,7 @@ class ScreenAccount extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   kHeight20,
-                  const UserNameImage(),
+                   UserNameImage(),
                   kHeight10,
                   AccountButton(
                     width: width,

@@ -16,6 +16,7 @@ class VerifyOtpController extends GetxController {
   Dio dio = Dio();
   bool isLoading = false;
   String code = '';
+  late SignUpModel userModel;
 
   void onSubmitCode(String submitCode) {
     log(submitCode, name: 'submitcode');
@@ -32,6 +33,8 @@ class VerifyOtpController extends GetxController {
       verifyOtpS.verifyOtp(model.email, code).then(
         (value) {
           if (value != null) {
+            userModel = model;
+            update();
             SignUpService().signupUser(model).then((value) {
               if (value != null) {
                 storage.write(key: 'token', value: value.accessToken);
