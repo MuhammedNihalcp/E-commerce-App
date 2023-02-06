@@ -1,9 +1,8 @@
-
-
 import 'dart:developer';
 
 import 'package:e_commerce/Screens/auth/new_password/model/new_password.dart';
 import 'package:e_commerce/Screens/auth/new_password/service/new_password_service.dart';
+import 'package:e_commerce/Screens/auth/sign_in/view/signin_view.dart';
 import 'package:e_commerce/Screens/navigator_screen/view/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -31,7 +30,7 @@ class NewPasswordController extends GetxController {
       log('enter add new password');
       if (value != null) {
         log('enter value');
-        Get.offAll(ScreenNavigator());
+        Get.offAll(() => ScreenLogin());
         isLoading = false;
         update();
       }
