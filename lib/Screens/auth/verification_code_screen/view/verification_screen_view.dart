@@ -1,7 +1,7 @@
-
 import 'package:e_commerce/Screens/auth/sign_up/controller/register_verification_otp/controller.dart';
 
 import 'package:e_commerce/Screens/auth/sign_up/model/model.dart';
+import 'package:e_commerce/Screens/auth/sign_up/view/signup_view.dart';
 
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
@@ -77,7 +77,7 @@ class ScreenVerificationCode extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      // Get.to(() => const ScreenVerification());
+                      Get.to(() => ScreenSignUp());
                     },
                     child: const Text(
                       'Change Email id',
@@ -132,7 +132,9 @@ class ScreenVerificationCode extends StatelessWidget {
               ),
               kHeight20,
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => ScreenSignUp());
+                  },
                   child: const Text(
                     'Resend Code',
                     style: textStyle,

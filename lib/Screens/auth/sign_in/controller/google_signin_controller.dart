@@ -11,7 +11,7 @@ class GoogleSignInContorller extends GetxController {
   void googleSignins() async {
     isLoading = true;
     update();
-    await GoogleSignInService.googleSignIn(googleSignIn).then((value) {
+    await GoogleSignInService().googleSignIn(googleSignIn).then((value) {
       if (value != null) {
         log(value.toString());
         Get.offAll(() => ScreenNavigator());

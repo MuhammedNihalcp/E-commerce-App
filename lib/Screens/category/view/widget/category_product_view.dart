@@ -21,11 +21,11 @@ class CategoryProductView extends StatelessWidget {
   final double height;
   final apibaseUrl = ApiBaseUrl();
 
-  static const cproductView = '/category_product_view.dart';
+  static const cproductView = '/category_view.dart';
 
   @override
   Widget build(BuildContext context) {
-    final productId = ModalRoute.of(context)!.settings.arguments as String;
+    final productId = ModalRoute.of(context)?.settings.arguments as String;
     final controlle = controllers.findByCategoryId(productId);
     return GetBuilder<HomeContorller>(
       builder: (controller) => controllers.isLoding == true

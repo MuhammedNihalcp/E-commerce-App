@@ -206,14 +206,7 @@ class ScreenLogin extends StatelessWidget {
                               ),
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Image(
-                                width: width * 0.3,
-                                height: height * 0.08,
-                                image: const AssetImage(
-                                    'assets/images/facebook_logo.png')),
-                          )
+                          
                         ],
                       )
                     ],
