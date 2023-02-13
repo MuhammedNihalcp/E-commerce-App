@@ -86,7 +86,7 @@ class ScreenOrder extends StatelessWidget {
                                 CartBottomButton(
                                   onPressed: () {
                                     cartC.removeCart(cartC
-                                        .cartList!.products[index].product.id);
+                                        .model!.products[index].product.id);
                                   },
                                   text: 'Save for later',
                                 ),
@@ -104,7 +104,7 @@ class ScreenOrder extends StatelessWidget {
                   );
                 },
                 separatorBuilder: (context, index) => const SizedBox(),
-                itemCount: cartC.cartList?.products.length ?? 0),
+                itemCount: cartC.model?.products.length ?? 0),
           ),
         ),
       ),

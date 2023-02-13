@@ -38,9 +38,9 @@ class AddAndRemoveButton extends StatelessWidget {
                 onPressed: () {
                   controller.incrementDecrementQty(
                     1,
-                    controller.cartList!.products[index].product.id,
-                    controller.cartList!.products[index].qty,
-                    controller.cartList!.products[index].product.size
+                    controller.model!.products[index].product.id,
+                    controller.model!.products[index].qty,
+                    controller.model!.products[index].product.size
                         .toString(),
                   );
                 },
@@ -55,7 +55,7 @@ class AddAndRemoveButton extends StatelessWidget {
                 color: const Color.fromARGB(255, 223, 220, 220),
                 child: Center(
                     child: Text(
-                  controller.cartList!.products[index].qty.toString(),
+                  controller.model!.products[index].qty.toString(),
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
@@ -70,9 +70,9 @@ class AddAndRemoveButton extends StatelessWidget {
                   onPressed: () {
                     controller.incrementDecrementQty(
                       1,
-                      controller.cartList!.products[index].product.id,
-                      controller.cartList!.products[index].qty,
-                      controller.cartList!.products[index].product.size
+                      controller.model!.products[index].product.id,
+                      controller.model!.products[index].qty,
+                      controller.model!.products[index].product.size
                           .toString(),
                     );
                   },
@@ -96,7 +96,7 @@ class AddAndRemoveButton extends StatelessWidget {
               )),
           onPressed: () {
             controller
-                .removeCart(controller.cartList!.products[index].product.id);
+                .removeCart(controller.model!.products[index].product.id);
           },
           child: const Text(
             'Delete',
