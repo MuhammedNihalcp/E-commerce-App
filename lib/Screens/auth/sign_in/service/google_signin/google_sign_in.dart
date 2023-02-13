@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:e_commerce/Screens/auth/sign_in/model/google_model/google_model.dart';
 import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/common/api/api_endsurl.dart';
 import 'package:e_commerce/util/dio_exeption/exeptions.dart';
@@ -12,16 +13,16 @@ class GoogleSignInService {
   Dio dio = Dio();
   final apibaseUrl = ApiBaseUrl();
   final apiendUrl = ApiEndsUrl();
-  Future<String?> googleSignIn(GoogleSignIn googleSignIn) async {
-    GoogleSignIn googleSignIn = GoogleSignIn();
+  Future<String?> googleSignIn(GoogleModel model) async {
+    // GoogleSignIn googleSignIn = GoogleSignIn();
     try {
       log('google try');
       /*  call Signin Fuction   */
-      final result = await googleSignIn.signIn();
+      
 
       Response response = await dio.post(
         apibaseUrl.baseUrl + apiendUrl.google,
-        data: jsonEncode(result),
+        data: jsonEncode(model),
       );
 
       if (response.statusCode == 200 || response.statusCode == 201) {
@@ -30,7 +31,7 @@ class GoogleSignInService {
         return resultGoogle;
       }
 
-      log(result.toString());
+      log('google login ayi');
     }
     /*  Catch error   */
 

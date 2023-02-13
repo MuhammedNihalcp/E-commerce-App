@@ -1,3 +1,4 @@
+import 'package:e_commerce/Screens/category/view/category_view.dart';
 import 'package:e_commerce/Screens/category/view/widget/category_product_view.dart';
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 import 'package:e_commerce/Screens/home/view/shimmer/category_shimmer.dart';
@@ -10,30 +11,30 @@ class HomePageCategoryItems extends StatelessWidget {
   HomePageCategoryItems({
     Key? key,
     required this.height,
-    required this.controller,
+    required this.controllers,
   }) : super(key: key);
 
   final double height;
-  final HomeContorller controller;
+  final HomeContorller controllers;
   final apibaseUrl = ApiBaseUrl();
 
   @override
   Widget build(BuildContext context) {
-    return controller.isLoding == true
+    return controllers.isLoding == true
         ? const CategoryShimmer()
         : LimitedBox(
             maxHeight: height * 0.19,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: List.generate(
-                controller.categoryList.length,
+                controllers.categoryList.length,
                 (index) => Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(
                     onTap: () {
                       Get.toNamed(
-                        CategoryProductView.cproductView,
-                        arguments: controller.carousalList[index].id,
+                        ScreenCategory.routename,
+                        arguments: controllers.categoryList[index].id,
                       );
                     },
                     child: Column(
@@ -41,14 +42,14 @@ class HomePageCategoryItems extends StatelessWidget {
                       children: [
                         CircleAvatar(
                           backgroundImage: NetworkImage(
-                              '${apibaseUrl.baseUrl}/category/${controller.categoryList[index].image}'),
+                              '${apibaseUrl.baseUrl}/category/${controllers.categoryList[index].image}'),
                           radius: 30,
                         ),
                         const SizedBox(
                           height: 5,
                         ),
                         Text(
-                          controller.categoryList[index].name,
+                          controllers.categoryList[index].name,
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,

@@ -129,7 +129,7 @@ class ScreenHome extends StatelessWidget {
                       ),
                       HomePageCategoryItems(
                         height: height,
-                        controller: homeC,
+                        controllers: homeC,
                       ),
                       kHeight10,
                       Row(
