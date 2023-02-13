@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/text_style.dart';
+
 class NewPasswordController extends GetxController {
   TextEditingController confrompasswordController = TextEditingController();
   TextEditingController newpasswordController = TextEditingController();
@@ -37,5 +39,57 @@ class NewPasswordController extends GetxController {
       isLoading = false;
       update();
     });
+  }
+
+  String? passwordValdation(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your password';
+    } else if (value.length < 8) {
+      return 'Password must have atleast 8 character';
+    } else if (value.length > 8) {
+      return 'Password exceeds 8 character';
+    }
+    return null;
+  }
+
+  String? confirmpasswordValdation(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please confirm your password';
+    } else if (value.length < 8) {
+      return 'Password must have atleast 8 character';
+    } else if (value != newpasswordController.text) {
+      return 'Password does not match';
+    } else {
+      return null;
+    }
+  }
+
+  void disposeTextfield() {
+    newpasswordController.clear();
+    confrompasswordController.clear();
+  }
+
+  bool obscureText = true;
+  Icon icon = const Icon(
+    Icons.visibility_off,
+    color: colorBlack,
+  );
+
+  void visibility() {
+    if (obscureText == false) {
+      icon = const Icon(
+        Icons.visibility_off,
+        color: colorBlack,
+      );
+      obscureText = true;
+      update();
+    } else {
+      icon = const Icon(
+        Icons.visibility,
+        color: colorBlack,
+      );
+      obscureText = false;
+      update();
+    }
   }
 }
