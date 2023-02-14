@@ -22,86 +22,12 @@ class AddAndRemoveButton extends StatelessWidget {
   final String totalConut;
   final void Function() minusPressed;
   final void Function() plusPressed;
- final int index;
+  final int index;
   final CartController cartControllers;
 
   @override
   Widget build(BuildContext context) {
-    return 
-    // Row(
-    //   children: [
-    //     Container(
-    //       height: height * 0.05,
-    //       decoration: BoxDecoration(
-    //           color: const Color.fromARGB(255, 238, 237, 237),
-    //           border: Border.all(color: colorLightGrey),
-    //           borderRadius: const BorderRadius.all(Radius.circular(10))),
-    //       child: Row(
-    //         children: [
-    //           ElevatedButton(
-    //             style: ElevatedButton.styleFrom(
-    //                 shape: RoundedRectangleBorder(
-    //                     borderRadius: BorderRadius.circular(10)),
-    //                 backgroundColor: const Color.fromARGB(255, 238, 237, 237),
-    //                 minimumSize: Size(width * 0.05, height * 0.05)),
-    //             onPressed: () {
-    //               minusPressed;
-    //             },
-    //             child: const Icon(
-    //               Icons.delete_outline,
-    //               color: colorBlack,
-    //             ),
-    //           ),
-    //           Container(
-    //             width: width * 0.13,
-    //             // height: height * 0.05,
-    //             color: const Color.fromARGB(255, 223, 220, 220),
-    //             child: Center(
-    //                 child: Text(
-    //               totalConut,
-    //               style: const TextStyle(
-    //                 fontWeight: FontWeight.bold,
-    //               ),
-    //             )),
-    //           ),
-    //           ElevatedButton(
-    //               style: ElevatedButton.styleFrom(
-    //                   shape: RoundedRectangleBorder(
-    //                       borderRadius: BorderRadius.circular(10)),
-    //                   backgroundColor: const Color.fromARGB(255, 238, 237, 237),
-    //                   minimumSize: Size(width * 0.05, height * 0.05)),
-    //               onPressed: () {
-    //                 plusPressed;
-    //               },
-    //               child: const Icon(
-    //                 Icons.add,
-    //                 color: colorBlack,
-    //               ))
-    //         ],
-    //       ),
-    //     ),
-    //     kWidth10,
-    //     ElevatedButton(
-    //       style: ElevatedButton.styleFrom(
-    //           shape: RoundedRectangleBorder(
-    //               borderRadius: BorderRadius.circular(10)),
-    //           backgroundColor: colorWhite,
-    //           minimumSize: Size(width * 0.2, height * 0.05),
-    //           side: const BorderSide(
-    //             width: 1,
-    //             color: colorLightGrey,
-    //           )),
-    //       onPressed: () {
-    //       cartControllers.removeCart(cartControllers.getmodel!.products[index].product.id);
-    //       },
-    //       child: const Text(
-    //         'Delete',
-    //         style: TextStyle(color: colorBlack),
-    //       ),
-    //     )
-    //   ],
-    // );
-       Row(
+    return Row(
       children: [
         InkWell(
           onTap: minusPressed,
@@ -111,6 +37,10 @@ class AddAndRemoveButton extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: colorWhite,
+              border: Border.all(
+                width: 1,
+                color: colorLightGrey,
+              ),
             ),
             child: const Icon(
               Icons.remove,
@@ -119,14 +49,14 @@ class AddAndRemoveButton extends StatelessWidget {
             ),
           ),
         ),
-        kWidth10,
+        kWidth20,
         Text(
           totalConut,
           style: const TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),
-        kWidth10,
+        kWidth20,
         InkWell(
           onTap: plusPressed,
           child: Container(
@@ -135,6 +65,10 @@ class AddAndRemoveButton extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: colorWhite,
+              border: Border.all(
+                width: 1,
+                color: colorLightGrey,
+              ),
             ),
             child: const Icon(
               Icons.add,
@@ -143,6 +77,28 @@ class AddAndRemoveButton extends StatelessWidget {
             ),
           ),
         ),
+        SizedBox(
+          width: width * 0.15,
+        ),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              backgroundColor: colorWhite,
+              minimumSize: Size(width * 0.2, height * 0.05),
+              side: const BorderSide(
+                width: 1,
+                color: colorLightGrey,
+              )),
+          onPressed: () {
+            cartControllers.removeCart(
+                cartControllers.getmodel!.products[index].product.id);
+          },
+          child: const Text(
+            'Delete',
+            style: TextStyle(color: colorBlack),
+          ),
+        )
       ],
     );
   }
