@@ -1,3 +1,4 @@
+import 'package:e_commerce/Screens/account/view/all_accounts_view/all_account_view.dart';
 import 'package:e_commerce/Screens/account_setting/view/account_setting.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
@@ -42,7 +43,7 @@ class OrderDetails extends StatelessWidget {
                       backgroundColor: colorWhite,
                       side: const BorderSide(color: colorGrey)),
                   onPressed: () {
-                    Get.to(()=>ScreenAccountSetting(width: width, height: height));
+                    Get.to(() => AllAccountView(width: width, height: height));
                   },
                   child: const Text(
                     'Change',
