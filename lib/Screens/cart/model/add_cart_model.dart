@@ -8,7 +8,7 @@ class AddCartModel {
     required this.quantity,
     required this.productId,
   });
-  Map<String, dynamic>toJson(){
+  Map<String, dynamic> toJson() {
     return {
       'product': productId,
       'size': size,

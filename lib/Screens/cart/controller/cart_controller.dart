@@ -40,6 +40,8 @@ class CartController extends GetxController {
         cartList = getmodel!.products.map((e) => e.product.id).toList();
         totalSave = (getmodel!.totalPrice - getmodel!.totalDiscount).toInt();
         log(totalSave.toString(),name: 'total save');
+        log(getmodel!.totalPrice.toString());
+        log(getmodel!.totalDiscount.toString());
         totalProductCount();
         update();
         isLoading = false;
@@ -122,16 +124,17 @@ class CartController extends GetxController {
       quantity: quantity,
       productId: productId,
     );
-    if (qty == 1 && productQuantity >= 1 || qty == -1 && productQuantity > 1) {
-      await CartService().addToCart(addCartModel).then(
+    if (qty == 1 && productQuantity >= 1 || qty == -1 && productQuantity == 1) {
+      await service.addToCart(addCartModel).then(
         (value) async {
           if (value != null) {
-            await CartService().getCart().then(
+            await service.getCart().then(
               (value) {
                 if (value != null) {
                   getmodel = value;
                   update();
                   totalProductCount();
+                  update();
                   cartItemsId =
                       getmodel!.products.map((e) => e.product.id).toList();
                   update();

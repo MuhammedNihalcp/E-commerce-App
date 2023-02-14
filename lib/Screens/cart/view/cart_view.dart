@@ -13,12 +13,17 @@ import 'package:get/get.dart';
 class ScreenOrder extends StatelessWidget {
   ScreenOrder({super.key});
 
-  final cartC = Get.put(CartController());
+  // final cartC = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
+    CartController cartC = Get.put(CartController());
     double width = Get.size.width;
     double height = Get.size.height;
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      cartC.getCart();
+    });
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: colorVailet,
@@ -129,72 +134,76 @@ class ScreenOrder extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: GetBuilder<CartController>(
+      bottomNavigationBar: GetBuilder(
         init: cartC,
-        builder: (controller) => Container(
-          width: double.infinity,
-          height: height * 0.1,
-          color: colorWhite,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    kHeight5,
-                    const Text(
-                      'Total Price',
-                      style: TextStyle(
-                        color: colorBlack,
-                        fontSize: 20,
-                        fontFamily: "Manrope",
-                        fontWeight: FontWeight.bold,
+        builder: (controller) => cartC.totalSave == 0 || cartC.totalSave == null
+            ? const SizedBox()
+            : Container(
+                width: double.infinity,
+                height: height * 0.1,
+                color: colorWhite,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          kHeight5,
+                          const Text(
+                            'Total Price',
+                            style: TextStyle(
+                              color: colorBlack,
+                              fontSize: 20,
+                              fontFamily: "Manrope",
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          kHeight5,
+                          Text(
+                            "₹${cartC.totalSave}",
+                            style: const TextStyle(
+                              color: colorremoveSnack,
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          )
+                        ],
                       ),
-                    ),
-                    kHeight5,
-                    Text(
-                      "₹${cartC.totalSave}",
-                      style: const TextStyle(
-                        color: colorremoveSnack,
-                        fontFamily: 'Manrope',
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(buttonColor),
+                          fixedSize: MaterialStateProperty.all(
+                            Size(width * 0.5, height * 0.05),
+                          ),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                        ),
+                        onPressed: () {
+                          // const OrderScreen(
+                          //               cartId: "",
+                          //               productId: "",
+                          //               screenCheck:
+                          //                   OrderScreenEnum.normalOrderScreen,
+                          //             ),
+                          //           );
+                          //           ordersController.isLoading = false;
+                        },
+                        child: const Text(
+                          'Place Order',
+                          style: buttonStyle,
+                        ),
                       ),
-                    )
-                  ],
-                ),
-                ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(buttonColor),
-                    fixedSize: MaterialStateProperty.all(
-                      Size(width * 0.5, height * 0.05),
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
+                    ],
                   ),
-                  onPressed: () {
-                    // const OrderScreen(
-                    //               cartId: "",
-                    //               productId: "",
-                    //               screenCheck:
-                    //                   OrderScreenEnum.normalOrderScreen,
-                    //             ),
-                    //           );
-                    //           ordersController.isLoading = false;
-                  },
-                  child: const Text(
-                    'Place Order',
-                    style: buttonStyle,
-                  ),
                 ),
-              ],
-            ),
-          ),
-        ),
+              ),
       ),
       // bottomNavigationBar: GetBuilder(
       //   // init: ordersController,

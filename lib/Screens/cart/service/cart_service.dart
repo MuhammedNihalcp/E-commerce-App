@@ -45,7 +45,7 @@ class CartService {
           return null;
         } else {
           final GetCartModel model = GetCartModel.fromJson(response.data);
-          log(response.data.toString());
+          log(response.data.toString(),name: 'get cart');
           return model;
         }
       }
