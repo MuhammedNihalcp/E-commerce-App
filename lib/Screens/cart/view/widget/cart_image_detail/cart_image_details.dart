@@ -30,7 +30,7 @@ class CartImageAndDetails extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: NetworkImage(
-                  '${apibaseUrl.baseUrl}/products/${controller.model!.products[index].product.image[0]}'),
+                  '${apibaseUrl.baseUrl}/products/${controller.getmodel!.products[index].product.image[0]}'),
               fit: BoxFit.cover,
             ),
           ),
@@ -41,7 +41,7 @@ class CartImageAndDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                controller.model!.products[index].product.description,
+                controller.getmodel!.products[index].product.description,
                 textWidthBasis: TextWidthBasis.longestLine,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
@@ -51,7 +51,7 @@ class CartImageAndDetails extends StatelessWidget {
               ),
               kHeight10,
               Text(
-                controller.model!.products[index].product.price.toString(),
+                controller.getmodel!.products[index].product.price.toString(),
                 style: const TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.bold,
@@ -73,7 +73,7 @@ class CartImageAndDetails extends StatelessWidget {
                         style: TextStyle(fontWeight: FontWeight.bold)),
                     TextSpan(
                         text: controller
-                            .model!.products[index].product.size[0]),
+                            .getmodel!.products[index].product.size[0]),
                   ],
                 ),
               )

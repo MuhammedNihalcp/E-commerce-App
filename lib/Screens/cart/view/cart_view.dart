@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/cart/view/widget/add_remove_button/add_remove_button.dart';
 import 'package:e_commerce/Screens/cart/view/widget/cart_bottom_button/cart_bottom_button.dart';
@@ -78,15 +80,34 @@ class ScreenOrder extends StatelessWidget {
                             AddAndRemoveButton(
                               height: height,
                               width: width,
-                              controller: cartC,
+                              totalConut: cartC.getmodel!.products[index].qty
+                                  .toString(),
+                              cartControllers: cartC,
                               index: index,
+                              minusPressed: () {
+                                cartC.incrementDecrementQty(
+                                  -1,
+                                  cartC.getmodel!.products[index].product.id,
+                                  cartC.getmodel!.products[index].qty,
+                                  cartC.getmodel!.products[index].size,
+                                );
+                              },
+                              plusPressed: () {
+                                cartC.incrementDecrementQty(
+                                  1,
+                                  cartC.getmodel!.products[index].product.id,
+                                  cartC.getmodel!.products[index].qty,
+                                  cartC.getmodel!.products[index].size,
+                                );
+                                log('plue');
+                              },
                             ),
                             Row(
                               children: [
                                 CartBottomButton(
                                   onPressed: () {
                                     cartC.removeCart(cartC
-                                        .model!.products[index].product.id);
+                                        .getmodel!.products[index].product.id);
                                   },
                                   text: 'Save for later',
                                 ),
@@ -104,11 +125,12 @@ class ScreenOrder extends StatelessWidget {
                   );
                 },
                 separatorBuilder: (context, index) => const SizedBox(),
-                itemCount: cartC.model?.products.length ?? 0),
+                itemCount: cartC.getmodel?.products.length ?? 0),
           ),
         ),
       ),
       bottomNavigationBar: GetBuilder<CartController>(
+        init: cartC,
         builder: (controller) => Container(
           width: double.infinity,
           height: height * 0.1,
@@ -132,7 +154,7 @@ class ScreenOrder extends StatelessWidget {
                     ),
                     kHeight5,
                     Text(
-                      "₹${cartC.totalSave.toString()}",
+                      "₹${cartC.totalSave}",
                       style: const TextStyle(
                         color: colorremoveSnack,
                         fontFamily: 'Manrope',

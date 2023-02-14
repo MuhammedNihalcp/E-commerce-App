@@ -19,22 +19,27 @@ class CartController extends GetxController {
   List<String> cartitemsPayId = [];
   int quantity = 1;
   int totalproductCount = 1;
-  GetCartModel? model;
+  GetCartModel? getmodel;
   int? totalSave;
   CartService service = CartService();
   final bottomC = Get.put(LandingPageController());
+
+  CartController() {
+    getCart();
+  }
 
   void getCart() async {
     isLoading = true;
     update();
     await service.getCart().then((value) {
       if (value != null) {
-        model = value;
+        getmodel = value;
         update();
-         cartItemsId = model!.products.map((e) => e.product.id).toList();
-          cartitemsPayId = model!.products.map((e) => e.id).toList();
-          cartList = model!.products.map((e) => e.product.id).toList();
-        totalSave = (model!.totalPrice - model!.totalDiscount).toInt();
+        cartItemsId = getmodel!.products.map((e) => e.product.id).toList();
+        cartitemsPayId = getmodel!.products.map((e) => e.id).toList();
+        cartList = getmodel!.products.map((e) => e.product.id).toList();
+        totalSave = (getmodel!.totalPrice - getmodel!.totalDiscount).toInt();
+        log(totalSave.toString(),name: 'total save');
         totalProductCount();
         update();
         isLoading = false;
@@ -103,8 +108,8 @@ class CartController extends GetxController {
 
   void totalProductCount() {
     int count = 0;
-    for (var i = 0; i < model!.products.length; i++) {
-      count = count + model!.products[i].qty;
+    for (var i = 0; i < getmodel!.products.length; i++) {
+      count = count + getmodel!.products[i].qty;
     }
     totalproductCount = count;
     update();
@@ -117,21 +122,21 @@ class CartController extends GetxController {
       quantity: quantity,
       productId: productId,
     );
-    if (qty == 1 && productQuantity >= 1) {
+    if (qty == 1 && productQuantity >= 1 || qty == -1 && productQuantity > 1) {
       await CartService().addToCart(addCartModel).then(
         (value) async {
           if (value != null) {
             await CartService().getCart().then(
               (value) {
                 if (value != null) {
-                  model = value;
+                  getmodel = value;
                   update();
                   totalProductCount();
                   cartItemsId =
-                      model!.products.map((e) => e.product.id).toList();
+                      getmodel!.products.map((e) => e.product.id).toList();
                   update();
-                  totalSave = model!.totalDiscount.toInt() -
-                      model!.totalPrice.toInt();
+                  totalSave =
+                      (getmodel!.totalPrice - getmodel!.totalDiscount).toInt();
                   update();
                 } else {
                   null;
