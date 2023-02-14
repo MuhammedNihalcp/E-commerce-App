@@ -39,7 +39,7 @@ class CartController extends GetxController {
         cartitemsPayId = getmodel!.products.map((e) => e.id).toList();
         cartList = getmodel!.products.map((e) => e.product.id).toList();
         totalSave = (getmodel!.totalPrice - getmodel!.totalDiscount).toInt();
-        log(totalSave.toString(),name: 'total save');
+        log(totalSave.toString(), name: 'total save');
         log(getmodel!.totalPrice.toString());
         log(getmodel!.totalDiscount.toString());
         totalProductCount();
@@ -90,7 +90,7 @@ class CartController extends GetxController {
         if (value != null) {
           getCart();
           log(totalSave.toString());
-          Get.back();
+          // Get.back();
           Get.snackbar(
             "Remove",
             "Product removed from cart successfully",
@@ -121,10 +121,11 @@ class CartController extends GetxController {
       int qty, String productId, int productQuantity, String size) async {
     final AddCartModel addCartModel = AddCartModel(
       size: size.toString(),
-      quantity: quantity,
+      quantity: qty,
       productId: productId,
     );
-    if (qty == 1 && productQuantity >= 1 || qty == -1 && productQuantity == 1) {
+    if (qty == 1 && productQuantity >= 1 || qty == -1 && productQuantity > 1) {
+      log(qty.toString(), name: 'qty');
       await service.addToCart(addCartModel).then(
         (value) async {
           if (value != null) {
@@ -151,6 +152,9 @@ class CartController extends GetxController {
           }
         },
       );
+    } else if (qty == -1 && productQuantity == 1) {
+      log(qty.toString(), name: '-1 qty');
+      removeCart(productId);
     }
   }
 
