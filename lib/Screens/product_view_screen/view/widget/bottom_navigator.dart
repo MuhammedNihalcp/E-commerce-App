@@ -69,12 +69,12 @@ class ProductBottomNavigator extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20))),
             onPressed: () {
-              Get.to(
-                () => ScreenOrderSummery(
-                  height: height,
-                  width: width,
-                ),
-              );
+              // Get.to(
+              //   () => ScreenOrderSummery(
+              //     height: height,
+              //     width: width,
+              //   ),
+              // );
             },
             child: const Text(
               'Buy now',

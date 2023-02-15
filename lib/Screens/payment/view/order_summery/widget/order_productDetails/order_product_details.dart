@@ -1,5 +1,6 @@
-
-
+import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
+import 'package:e_commerce/Screens/payment/controller/order_summery_controller/order_summery_controller.dart';
+import 'package:e_commerce/Screens/payment/model/order_enum.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_productDetails/widget/add_remove/add_remove.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_productDetails/widget/bestselletWidget/best_sellar.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_productDetails/widget/delivary_details/delivary_detail.dart';
@@ -9,16 +10,22 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 
-
 class OrderProductDetails extends StatelessWidget {
   const OrderProductDetails({
     Key? key,
     required this.width,
     required this.height,
+    required this.screenCheck,
+    required this.cartcontroller,
+    required this.ordercontroller,
   }) : super(key: key);
 
   final double width;
   final double height;
+  final OrderScreenEnum screenCheck;
+  final CartController cartcontroller;
+
+  final OrderSummeryController ordercontroller;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +40,9 @@ class OrderProductDetails extends StatelessWidget {
             const BestSellerWidget(),
             kHeight10,
             PaymentProductDetails(
+              cartcontroller: cartcontroller,
+              ordercontroller: ordercontroller,
+              screenCheck: screenCheck,
               width: width,
               height: height,
             ),

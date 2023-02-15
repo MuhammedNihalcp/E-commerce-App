@@ -1,5 +1,9 @@
 import 'dart:developer';
 
+import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
+import 'package:e_commerce/Screens/payment/controller/order_summery_controller/order_summery_controller.dart';
+import 'package:e_commerce/Screens/payment/model/order_enum.dart';
+import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
@@ -7,14 +11,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class PaymentProductDetails extends StatelessWidget {
-  const PaymentProductDetails({
+  PaymentProductDetails({
     Key? key,
     required this.width,
     required this.height,
+    required this.screenCheck,
+    required this.cartcontroller,
+    required this.ordercontroller,
   }) : super(key: key);
 
   final double width;
   final double height;
+  final OrderScreenEnum screenCheck;
+  ApiBaseUrl apibaseurl = ApiBaseUrl();
+  final CartController cartcontroller;
+
+  final OrderSummeryController ordercontroller;
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +35,15 @@ class PaymentProductDetails extends StatelessWidget {
         Container(
           width: width * 0.2,
           height: height * 0.1,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
-              image: NetworkImage(
-                  'https://m.media-amazon.com/images/I/71tRdGijWjL._AC_UL1500_.jpg'),
-              // fit: BoxFit.cover,
-            ),
+                image: NetworkImage(screenCheck ==
+                        OrderScreenEnum.normalOrderScreen
+                    ? '${apibaseurl.baseUrl}/products/${cartcontroller.getmodel!.products[2].product.image[4]}'
+                    : '${apibaseurl.baseUrl}/products/${ordercontroller.cartModel[0].product.image[4]}')
+
+                // fit: BoxFit.cover,
+                ),
           ),
         ),
         kWidth10,

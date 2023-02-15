@@ -2,6 +2,7 @@ import 'package:e_commerce/Screens/account/controller/account_controller.dart';
 import 'package:e_commerce/Screens/account/view/all_accounts_view/all_account_view.dart';
 import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/payment/controller/order_summery_controller/order_summery_controller.dart';
+import 'package:e_commerce/Screens/payment/model/order_enum.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/bottom_widget/bottom_widget.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_details/order_details.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_productDetails/order_product_details.dart';
@@ -18,10 +19,16 @@ class ScreenOrderSummery extends StatelessWidget {
     Key? key,
     required this.height,
     required this.width,
+    required this.cartId,
+    required this.productId,
+    required this.screenCheck,
   }) : super(key: key);
 
   final double height;
   final double width;
+  final String cartId;
+  final String productId;
+  final OrderScreenEnum screenCheck;
 
   OrderSummeryController orderSC = Get.put(OrderSummeryController());
   AcountController accountcontroller = Get.put(AcountController());
@@ -96,8 +103,11 @@ class ScreenOrderSummery extends StatelessWidget {
                                 width: width,
                               ),
                         OrderProductDetails(
+                          ordercontroller: orderSC,
+                          cartcontroller: cartcontroller,
                           width: width,
                           height: height,
+                          screenCheck: screenCheck,
                         ),
                         const PriceDetails(),
                       ],
