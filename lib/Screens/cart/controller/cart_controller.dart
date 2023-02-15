@@ -89,6 +89,7 @@ class CartController extends GetxController {
       (value) {
         if (value != null) {
           getCart();
+          
           log(totalSave.toString());
           // Get.back();
           Get.snackbar(

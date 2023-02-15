@@ -136,7 +136,7 @@ class ScreenOrder extends StatelessWidget {
       ),
       bottomNavigationBar: GetBuilder(
         init: cartC,
-        builder: (controller) => cartC.totalSave == 0 || cartC.totalSave == null
+        builder: (controller) => cartC.totalSave == 0 || cartC.totalSave == null||cartC.cartList.isEmpty
             ? const SizedBox()
             : Container(
                 width: double.infinity,
