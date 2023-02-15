@@ -35,7 +35,7 @@ class FormWidgets extends StatelessWidget {
           textController: accountC.fullNameC,
           textInputType: TextInputType.name,
           validator: (name) {
-            accountC.fullNameValidation(name);
+            return accountC.fullNameValidation(name);
           },
           obscureText: false,
           icon: const Icon(Icons.person),
@@ -46,7 +46,7 @@ class FormWidgets extends StatelessWidget {
           textController: accountC.phoneC,
           textInputType: TextInputType.number,
           validator: (phone) {
-            accountC.mobileValdation(phone);
+            return accountC.mobileValdation(phone);
           },
           obscureText: false,
           icon: const Icon(Icons.phone),
@@ -57,7 +57,7 @@ class FormWidgets extends StatelessWidget {
           textController: accountC.pinC,
           textInputType: TextInputType.number,
           validator: (pin) {
-            accountC.pincodeValdation(pin);
+            return accountC.pincodeValdation(pin);
           },
           obscureText: false,
           icon: const Icon(Icons.pin),
@@ -68,7 +68,7 @@ class FormWidgets extends StatelessWidget {
           textController: accountC.stateC,
           textInputType: TextInputType.name,
           validator: (state) {
-            accountC.stateValidation(state);
+            return accountC.stateValidation(state);
           },
           obscureText: false,
           icon: const Icon(Icons.public),
@@ -79,7 +79,7 @@ class FormWidgets extends StatelessWidget {
           textController: accountC.placeC,
           textInputType: TextInputType.name,
           validator: (place) {
-            accountC.placeValidation(place);
+            return accountC.placeValidation(place);
           },
           obscureText: false,
           icon: const Icon(Icons.location_on),
@@ -90,7 +90,7 @@ class FormWidgets extends StatelessWidget {
           textController: accountC.addressC,
           textInputType: TextInputType.streetAddress,
           validator: (address) {
-            accountC.addressValidation(address);
+            return accountC.addressValidation(address);
           },
           obscureText: false,
           icon: const Icon(Icons.contact_mail),
@@ -101,7 +101,7 @@ class FormWidgets extends StatelessWidget {
           textController: accountC.landmarkC,
           textInputType: TextInputType.name,
           validator: (landmark) {
-            accountC.landmarkValidation(landmark);
+            return accountC.landmarkValidation(landmark);
           },
           obscureText: false,
           icon: const Icon(Icons.emoji_flags),
