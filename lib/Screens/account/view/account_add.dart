@@ -1,4 +1,5 @@
 import 'package:e_commerce/Screens/account/controller/account_controller.dart';
+import 'package:e_commerce/Screens/account/model/enum_account.dart';
 
 import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/Screens/account/view/widget/add_account_widget.dart';
@@ -10,12 +11,16 @@ class AddAccountPage extends StatelessWidget {
     super.key,
     required this.width,
     required this.height,
+    this.addressId = '',
+    required this.addressScreenCheck,
   });
 
   final double width;
   final double height;
   final accountC = Get.put(AcountController());
   final fromKey = GlobalKey<FormState>();
+  final EnumAddress addressScreenCheck;
+  final String addressId;
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +67,8 @@ class AddAccountPage extends StatelessWidget {
                 width: width,
                 height: height,
                 formKey: fromKey,
+                addressId: addressId,
+                addressScreenCheck: addressScreenCheck,
               ),
             ),
           ),

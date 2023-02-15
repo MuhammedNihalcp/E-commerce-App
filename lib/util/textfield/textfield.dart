@@ -1,37 +1,30 @@
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 
-
 class TextFromFieldWidget extends StatelessWidget {
   const TextFromFieldWidget({
     Key? key,
     required this.textController,
-    required this.nullText,
     required this.obscureText,
     required this.icon,
     required this.text,
     required this.textInputType,
+    required this.validator,
   }) : super(key: key);
 
   final TextEditingController textController;
-  final String nullText;
   final bool obscureText;
   final Widget icon;
   final String text;
   final TextInputType textInputType;
+  final String? Function(String?) validator;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: textController,
       keyboardType: textInputType,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return nullText;
-        } else {
-          return null;
-        }
-      },
+      validator: validator,
       obscureText: obscureText,
       decoration: InputDecoration(
         suffixIcon: IconButton(

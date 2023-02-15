@@ -1,4 +1,5 @@
 import 'package:e_commerce/Screens/account/controller/account_controller.dart';
+import 'package:e_commerce/Screens/account/model/enum_account.dart';
 import 'package:e_commerce/Screens/account/view/all_accounts_view/all_account_view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
@@ -14,12 +15,16 @@ class FormWidgets extends StatelessWidget {
     required this.width,
     required this.height,
     required this.formKey,
+    this.addressId = '',
+    required this.addressScreenCheck,
   });
 
   final AcountController accountC;
   final double width;
   final double height;
   final GlobalKey<FormState> formKey;
+  final EnumAddress addressScreenCheck;
+  final String addressId;
 
   @override
   Widget build(BuildContext context) {
@@ -27,18 +32,11 @@ class FormWidgets extends StatelessWidget {
       children: [
         kHeight10,
         TextFromFieldWidget(
-          textController: accountC.tittleC,
-          textInputType: TextInputType.name,
-          nullText: 'Tittle is Empty',
-          obscureText: false,
-          icon: const Icon(Icons.person),
-          text: 'Tittle',
-        ),
-        kHeight10,
-        TextFromFieldWidget(
           textController: accountC.fullNameC,
           textInputType: TextInputType.name,
-          nullText: 'Fullname is Empty',
+          validator: (name) {
+            accountC.fullNameValidation(name);
+          },
           obscureText: false,
           icon: const Icon(Icons.person),
           text: 'Full Name',
@@ -47,7 +45,9 @@ class FormWidgets extends StatelessWidget {
         TextFromFieldWidget(
           textController: accountC.phoneC,
           textInputType: TextInputType.number,
-          nullText: 'Phone number is Empty',
+          validator: (phone) {
+            accountC.mobileValdation(phone);
+          },
           obscureText: false,
           icon: const Icon(Icons.phone),
           text: 'Phone Number',
@@ -56,7 +56,9 @@ class FormWidgets extends StatelessWidget {
         TextFromFieldWidget(
           textController: accountC.pinC,
           textInputType: TextInputType.number,
-          nullText: 'PinCode is Empty',
+          validator: (pin) {
+            accountC.pincodeValdation(pin);
+          },
           obscureText: false,
           icon: const Icon(Icons.pin),
           text: 'PinCode',
@@ -65,7 +67,9 @@ class FormWidgets extends StatelessWidget {
         TextFromFieldWidget(
           textController: accountC.stateC,
           textInputType: TextInputType.name,
-          nullText: 'State is Empty',
+          validator: (state) {
+            accountC.stateValidation(state);
+          },
           obscureText: false,
           icon: const Icon(Icons.public),
           text: 'State',
@@ -74,7 +78,9 @@ class FormWidgets extends StatelessWidget {
         TextFromFieldWidget(
           textController: accountC.placeC,
           textInputType: TextInputType.name,
-          nullText: 'Place is Empty',
+          validator: (place) {
+            accountC.placeValidation(place);
+          },
           obscureText: false,
           icon: const Icon(Icons.location_on),
           text: 'Place',
@@ -83,7 +89,9 @@ class FormWidgets extends StatelessWidget {
         TextFromFieldWidget(
           textController: accountC.addressC,
           textInputType: TextInputType.streetAddress,
-          nullText: 'Address is Empty',
+          validator: (address) {
+            accountC.addressValidation(address);
+          },
           obscureText: false,
           icon: const Icon(Icons.contact_mail),
           text: 'Address',
@@ -92,7 +100,9 @@ class FormWidgets extends StatelessWidget {
         TextFromFieldWidget(
           textController: accountC.landmarkC,
           textInputType: TextInputType.name,
-          nullText: 'LandMark is Empty',
+          validator: (landmark) {
+            accountC.landmarkValidation(landmark);
+          },
           obscureText: false,
           icon: const Icon(Icons.emoji_flags),
           text: 'Delivary Location',
@@ -112,7 +122,8 @@ class FormWidgets extends StatelessWidget {
           ),
           onPressed: () {
             if (formKey.currentState!.validate()) {
-              accountC.addAccount();
+              formKey.currentState!.save();
+              accountC.saveAddress(addressScreenCheck, addressId);
               Get.off(
                 () => AllAccountView(
                   width: width,

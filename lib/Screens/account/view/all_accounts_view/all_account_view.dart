@@ -1,4 +1,5 @@
 import 'package:e_commerce/Screens/account/controller/account_controller.dart';
+import 'package:e_commerce/Screens/account/model/enum_account.dart';
 import 'package:e_commerce/Screens/account/view/account_add.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
@@ -33,6 +34,8 @@ class AllAccountView extends StatelessWidget {
                 () => AddAccountPage(
                   width: width,
                   height: height,
+                  addressId: '',
+                  addressScreenCheck: EnumAddress.addAddressScreen,
                 ),
               );
             },

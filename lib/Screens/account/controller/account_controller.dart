@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:e_commerce/Screens/account/model/add_account_model.dart';
+import 'package:e_commerce/Screens/account/model/enum_account.dart';
 import 'package:e_commerce/Screens/account/model/get_account_model.dart';
 import 'package:e_commerce/Screens/account/service/add_account_service.dart';
 import 'package:e_commerce/Screens/account_setting/view/account_setting.dart';
@@ -14,7 +15,6 @@ import 'package:get/get.dart';
 class AcountController extends GetxController {
   final addressService = AddressService();
 
-  final TextEditingController tittleC = TextEditingController();
   final TextEditingController fullNameC = TextEditingController();
   final TextEditingController phoneC = TextEditingController();
   final TextEditingController pinC = TextEditingController();
@@ -25,8 +25,11 @@ class AcountController extends GetxController {
 
   bool isLoading = false;
   bool isLoading2 = false;
+  bool isSelected = true;
+  bool isOfficeSelected = false;
 
   List<GetAddressModel> addressList = [];
+  String addressType = 'Home';
 
   FlutterSecureStorage storage = const FlutterSecureStorage();
   final bottom = Get.put(LandingPageController());
@@ -36,7 +39,7 @@ class AcountController extends GetxController {
     update();
 
     final CreateAddressModel model = CreateAddressModel(
-      title: tittleC.text.trim(),
+      title: addressType,
       fullName: fullNameC.text.trim(),
       phone: phoneC.text.trim(),
       pin: pinC.text.trim(),
@@ -61,9 +64,40 @@ class AcountController extends GetxController {
     return null;
   }
 
-  void saveAddress() {
-    addAccount();
-    update();
+  void saveAddress(EnumAddress addressScreenCheck, String id) {
+    if (addressScreenCheck == EnumAddress.addAddressScreen) {
+      addAccount();
+      update();
+    } else {
+      updateAddress(id);
+      Get.back();
+      getAllAddress();
+      update();
+    }
+  }
+
+  void setAddressScreen(
+    EnumAddress addressScreenCheck,
+    String? addressId,
+  ) async {
+    if (addressScreenCheck == EnumAddress.addAddressScreen) {
+      clearAllControllers();
+    } else {
+      await AddressService().getSingleAddress(addressId!).then((value) {
+        if (value != null) {
+          fullNameC.text = value.fullName;
+          phoneC.text = value.phone;
+          pinC.text = value.pin;
+          stateC.text = value.state;
+          placeC.text = value.place;
+          addressC.text = value.address;
+          landmarkC.text = value.landMark;
+          update();
+          value.title == "Home" ? isSelected = true : isSelected = false;
+          update();
+        }
+      });
+    }
   }
 
   Future<String?> getAllAddress() async {
@@ -90,7 +124,7 @@ class AcountController extends GetxController {
     isLoading2 = true;
     update();
     final CreateAddressModel model = CreateAddressModel(
-      title: tittleC.text,
+      title: addressType,
       fullName: fullNameC.text,
       phone: phoneC.text,
       pin: pinC.text,
@@ -126,7 +160,7 @@ class AcountController extends GetxController {
           "Address removed successfully",
           colorText: colorremoveSnack,
         );
-         isLoading2 =false;
+        isLoading2 = false;
         update();
         log('false');
       } else {
@@ -152,7 +186,6 @@ class AcountController extends GetxController {
   }
 
   void clearAllControllers() {
-    tittleC.clear();
     fullNameC.clear();
     phoneC.clear();
     pinC.clear();
@@ -160,5 +193,78 @@ class AcountController extends GetxController {
     placeC.clear();
     addressC.clear();
     landmarkC.clear();
+  }
+
+  void buttonSelection() {
+    isSelected = !isSelected;
+    update();
+    isSelected == true ? addressType = 'Home' : addressType = 'Office';
+    update();
+  }
+
+  String? fullNameValidation(String? value) {
+    if (value!.isEmpty) {
+      return 'Please enter the username';
+    } else if (value.length < 2) {
+      return 'Too short username';
+    } else {
+      return null;
+    }
+  }
+
+  String? mobileValdation(String? value) {
+    if (value!.isEmpty) {
+      return 'Please enter your mobile number';
+    } else if (value.length < 10) {
+      return 'Invalid mobile number,make sure your entered 10 digits';
+    } else {
+      return null;
+    }
+  }
+
+  String? pincodeValdation(String? value) {
+    if (value!.isEmpty) {
+      return 'Please enter your PIN number';
+    } else if (value.length < 6) {
+      return 'Invalid Pin No';
+    } else {
+      return null;
+    }
+  }
+
+  String? stateValidation(String? value) {
+    if (value!.isEmpty) {
+      return 'Please enter the state';
+    } else {
+      return null;
+    }
+  }
+
+  String? placeValidation(String? value) {
+    if (value!.isEmpty) {
+      return 'Please enter the state';
+    } else {
+      return null;
+    }
+  }
+
+  String? addressValidation(String? value) {
+    if (value!.isEmpty) {
+      return 'Please enter the state';
+    } else {
+      return null;
+    }
+  }
+
+  String? landmarkValidation(String? value) {
+    if (value!.isEmpty) {
+      return 'Please enter the state';
+    } else {
+      return null;
+    }
+  }
+
+  GetAddressModel findById(String id) {
+    return addressList.firstWhere((element) => element.id == id);
   }
 }
