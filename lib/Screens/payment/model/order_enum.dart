@@ -1,0 +1,4 @@
+enum OrderScreenEnum {
+  normalOrderScreen,
+  buyOneProductOrderScreen,
+}
