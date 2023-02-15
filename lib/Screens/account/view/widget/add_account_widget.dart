@@ -1,5 +1,6 @@
 import 'package:e_commerce/Screens/account/controller/account_controller.dart';
 import 'package:e_commerce/Screens/account/model/enum_account.dart';
+import 'package:e_commerce/Screens/account/model/get_account_model.dart';
 import 'package:e_commerce/Screens/account/view/all_accounts_view/all_account_view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
@@ -17,6 +18,7 @@ class FormWidgets extends StatelessWidget {
     required this.formKey,
     this.addressId = '',
     required this.addressScreenCheck,
+   
   });
 
   final AcountController accountC;
@@ -25,6 +27,7 @@ class FormWidgets extends StatelessWidget {
   final GlobalKey<FormState> formKey;
   final EnumAddress addressScreenCheck;
   final String addressId;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -132,8 +135,10 @@ class FormWidgets extends StatelessWidget {
               );
             }
           },
-          child: const Text(
-            'S U B M I T',
+          child: Text(
+            addressScreenCheck == EnumAddress.addAddressScreen
+                ? 'S U B M I T'
+                : 'S A V E',
             style: buttonStyle,
           ),
         )
