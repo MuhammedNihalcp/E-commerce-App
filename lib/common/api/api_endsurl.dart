@@ -25,4 +25,7 @@ class ApiEndsUrl {
 
   //address
   String address = '/api/v1/address';
+
+  //order
+  String orders = 'api/v1/orders';
 }
