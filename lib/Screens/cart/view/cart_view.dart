@@ -176,7 +176,7 @@ class ScreenOrder extends StatelessWidget {
                           backgroundColor:
                               MaterialStateProperty.all(buttonColor),
                           fixedSize: MaterialStateProperty.all(
-                            Size(width * 0.5, height * 0.05),
+                            Size(width * 0.5, height * 0.07),
                           ),
                           shape:
                               MaterialStateProperty.all<RoundedRectangleBorder>(
