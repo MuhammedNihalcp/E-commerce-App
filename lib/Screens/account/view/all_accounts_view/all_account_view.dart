@@ -165,7 +165,19 @@ class AllAccountView extends StatelessWidget {
                                                 height * 0.06,
                                               ),
                                             ),
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              Get.to(
+                                                AddAccountPage(
+                                                  width: width,
+                                                  height: height,
+                                                  addressScreenCheck:
+                                                      EnumAddress
+                                                          .editAddressScreen,
+                                                  addressId: accountC
+                                                      .addressList[index].id,
+                                                ),
+                                              );
+                                            },
                                             child: const Text(
                                               'Edit',
                                               style: accountButtonStyle,

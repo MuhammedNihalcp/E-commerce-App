@@ -61,9 +61,9 @@ class OrderDetails extends StatelessWidget {
             kHeight5,
             Row(
               children: [
-                const Text(
-                  'Muhammed Nihal',
-                  style: TextStyle(
+                Text(
+                  value.addressList[index].fullName.toUpperCase(),
+                  style: const TextStyle(
                       color: colorBlack,
                       fontWeight: FontWeight.bold,
                       fontSize: 15),
@@ -74,24 +74,32 @@ class OrderDetails extends StatelessWidget {
                   height: 25,
                   borderRadius: 5,
                   color: const Color.fromARGB(255, 236, 235, 235),
-                  child: const Text(
-                    'Home',
-                    style: TextStyle(
+                  child: Text(
+                    value.addressList[index].title,
+                    style: const TextStyle(
                         color: colorGrey, fontWeight: FontWeight.bold),
                   ),
                 )
               ],
             ),
             kHeight10,
-            const Text(
-              '445,Kondotty,Edavannapara,678542',
-              style: TextStyle(
+            Text(
+              '${value.addressList[index].state}, ${value.addressList[index].place}, ${value.addressList[index].pin}',
+              style: const TextStyle(
                 color: colorBlack,
                 fontSize: 15,
+                fontWeight: FontWeight.w500,
               ),
             ),
             kHeight10,
-            const Text('6238961357'),
+            Text(
+              value.addressList[index].phone,
+              style:const TextStyle(
+                color: colorBlack,
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ],
         ),
       ),
