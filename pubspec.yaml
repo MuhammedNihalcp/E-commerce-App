@@ -43,6 +43,7 @@ dependencies:
   google_fonts: 4.0.1
   google_sign_in: 5.4.2
   readmore: 2.2.0
+  share_plus: 6.3.1
   shimmer: 2.0.0
   smooth_page_indicator: 1.0.0+2
   timeline_tile: 2.0.0
