@@ -26,7 +26,7 @@ class AddressService {
           return null;
         } else {
           final String result = response.data['message'];
-          log(result.toString(),name: 'add');
+          log(result.toString(), name: 'add');
           return result;
         }
       }
@@ -58,6 +58,31 @@ class AddressService {
     } on DioError catch (e) {
       log(e.message);
       DioException().dioError(e);
+    }
+    return null;
+  }
+
+  Future<GetAddressModel?> getSingleAddress(String addressId) async {
+    Dio dio = await ApiInterceptor().getApiUser();
+    try {
+      final Response response = await dio.get(
+        "${apibaseUrl.baseUrl + apiendUrl.address}/$addressId",
+      );
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        if (response.data == null) {
+          return null;
+        } else {
+          final GetAddressModel model = GetAddressModel.fromJson(response.data);
+
+          log(response.data.toString());
+          return model;
+        }
+      }
+    } on DioError catch (e) {
+      log(e.message);
+      DioException().dioError(
+        e,
+      );
     }
     return null;
   }
@@ -98,7 +123,9 @@ class AddressService {
       );
       log('response');
 
-      if (response.statusCode == 200 || response.statusCode == 201 || response.statusCode == 202) {
+      if (response.statusCode == 200 ||
+          response.statusCode == 201 ||
+          response.statusCode == 202) {
         if (response.data == null) {
           return null;
         } else {
