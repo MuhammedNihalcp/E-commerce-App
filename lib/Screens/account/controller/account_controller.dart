@@ -34,6 +34,13 @@ class AcountController extends GetxController {
   FlutterSecureStorage storage = const FlutterSecureStorage();
   final bottom = Get.put(LandingPageController());
 
+  int selectIndex = 0;
+
+  void addressSelect(int index) {
+    selectIndex = index;
+    update();
+  }
+
   void addAccount() async {
     isLoading2 = true;
     update();

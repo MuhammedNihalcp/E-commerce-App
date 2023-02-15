@@ -90,6 +90,8 @@ class ScreenOrderSummery extends StatelessWidget {
                                 ),
                               )
                             : OrderDetails(
+                                value: accountcontroller,
+                                index: accountcontroller.selectIndex,
                                 height: height,
                                 width: width,
                               ),

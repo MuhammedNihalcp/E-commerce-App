@@ -24,6 +24,11 @@ class AddAccountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback(
+      (timeStamp) {
+        accountC.setAddressScreen(addressScreenCheck, addressId);
+      },
+    );
     return Scaffold(
       appBar: AppBar(
         backgroundColor: colorVailet,
@@ -77,5 +82,3 @@ class AddAccountPage extends StatelessWidget {
     );
   }
 }
-
-
