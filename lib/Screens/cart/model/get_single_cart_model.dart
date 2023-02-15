@@ -8,7 +8,7 @@ class GetSingelCartProductModel {
     required this.id,
   });
 
-  Product product;
+  Products product;
   String size;
   int qty;
   int price;
@@ -17,7 +17,7 @@ class GetSingelCartProductModel {
 
   factory GetSingelCartProductModel.fromJson(Map<String, dynamic> json) =>
       GetSingelCartProductModel(
-        product: Product.fromJson(json["product"]),
+        product: Products.fromJson(json["product"]),
         size: json["size"],
         qty: json["qty"],
         price: json["price"],
@@ -26,8 +26,8 @@ class GetSingelCartProductModel {
       );
 }
 
-class Product {
-  Product({
+class Products {
+  Products({
     required this.id,
     required this.name,
     required this.price,
@@ -47,7 +47,7 @@ class Product {
   List<String> size;
   List<String> image;
 
-  factory Product.fromJson(Map<String, dynamic> json) => Product(
+  factory Products.fromJson(Map<String, dynamic> json) => Products(
         id: json["_id"],
         name: json["name"],
         price: json["price"],
