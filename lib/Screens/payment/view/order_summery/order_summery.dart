@@ -1,5 +1,6 @@
-
-
+import 'package:e_commerce/Screens/account/controller/account_controller.dart';
+import 'package:e_commerce/Screens/account/view/all_accounts_view/all_account_view.dart';
+import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/payment/controller/order_summery_controller/order_summery_controller.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/bottom_widget/bottom_widget.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_details/order_details.dart';
@@ -7,10 +8,10 @@ import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_produ
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/price_details/price_details.dart';
 
 import 'package:e_commerce/core/text_style.dart';
+import 'package:e_commerce/util/cricularProgressWidget/circular_progress_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-
 
 class ScreenOrderSummery extends StatelessWidget {
   ScreenOrderSummery({
@@ -22,7 +23,9 @@ class ScreenOrderSummery extends StatelessWidget {
   final double height;
   final double width;
 
-  final orderSC = Get.put(OrderSummeryController());
+  OrderSummeryController orderSC = Get.put(OrderSummeryController());
+  AcountController accountcontroller = Get.put(AcountController());
+  CartController cartcontroller = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
@@ -58,19 +61,46 @@ class ScreenOrderSummery extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: GetBuilder<OrderSummeryController>(
-          builder: (controller) => ListView(
-            children: [
-              OrderDetails(
-                height: height,
-                width: width,
-              ),
-              OrderProductDetails(
-                width: width,
-                height: height,
-              ),
-              const PriceDetails(),
-            ],
+        child: GetBuilder<AcountController>(
+          builder: (controller) => GetBuilder<OrderSummeryController>(
+            builder: (controller) => GetBuilder<CartController>(
+              builder: (controller) => orderSC.isLoading == true
+                  ? const CircularProgressWidget()
+                  : ListView(
+                      children: [
+                        accountcontroller.addressList.isEmpty
+                            ? InkWell(
+                                onTap: () {
+                                  Get.to(
+                                    AllAccountView(
+                                      width: width,
+                                      height: height,
+                                    ),
+                                  );
+                                },
+                                child: SizedBox(
+                                  width: double.infinity,
+                                  height: 100,
+                                  child: Center(
+                                    child: Text(
+                                      'Add Address',
+                                      style: gooleaborto,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            : OrderDetails(
+                                height: height,
+                                width: width,
+                              ),
+                        OrderProductDetails(
+                          width: width,
+                          height: height,
+                        ),
+                        const PriceDetails(),
+                      ],
+                    ),
+            ),
           ),
         ),
       ),

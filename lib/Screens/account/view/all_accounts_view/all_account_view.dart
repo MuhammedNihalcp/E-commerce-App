@@ -78,7 +78,7 @@ class AllAccountView extends StatelessWidget {
                         child: Text(
                           'No Address',
                           style:
-                              GoogleFonts.aboreto(textStyle: accountTextStyle),
+                              gooleaborto,
                         ),
                       )
                     : ListView.separated(

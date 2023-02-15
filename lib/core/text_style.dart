@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 const textStyle = TextStyle(
   fontSize: 16,
@@ -51,3 +52,6 @@ const arrowIcon = Icon(
 );
 
 const accountButtonStyle = TextStyle(color: colorBlack);
+
+//Google aborto style
+final gooleaborto = GoogleFonts.aboreto(textStyle: accountTextStyle);
