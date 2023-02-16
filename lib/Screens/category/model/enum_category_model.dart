@@ -1,0 +1,4 @@
+enum CategoryScreenEnum{
+  normalCategoryScreen,
+  productSelectCategoryScreen,
+}
