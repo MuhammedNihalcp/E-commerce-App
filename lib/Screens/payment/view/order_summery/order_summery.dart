@@ -2,6 +2,7 @@ import 'package:e_commerce/Screens/account/controller/account_controller.dart';
 import 'package:e_commerce/Screens/account/view/all_accounts_view/all_account_view.dart';
 import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/payment/controller/order_summery_controller/order_summery_controller.dart';
+import 'package:e_commerce/Screens/payment/controller/payment_controller/payment_controller.dart';
 import 'package:e_commerce/Screens/payment/model/order_enum.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/bottom_widget/bottom_widget.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_details/order_details.dart';
@@ -33,9 +34,20 @@ class ScreenOrderSummery extends StatelessWidget {
   OrderSummeryController orderSC = Get.put(OrderSummeryController());
   AcountController accountcontroller = Get.put(AcountController());
   CartController cartcontroller = Get.put(CartController());
+  PaymentController paymentController = Get.put(PaymentController());
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      orderSC.getSingleCart(productId, cartId);
+
+      paymentController.setAddressId(
+          accountcontroller.addressList[accountcontroller.selectIndex].id);
+      orderSC.productIds.insert(
+          0,
+          cartcontroller
+              .cartitemsPayId[cartcontroller.cartitemsPayId.length - 1]);
+    });
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(

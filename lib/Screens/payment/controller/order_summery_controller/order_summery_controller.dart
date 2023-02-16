@@ -4,82 +4,36 @@ import 'package:e_commerce/Screens/account/model/get_account_model.dart';
 import 'package:e_commerce/Screens/account/service/add_account_service.dart';
 import 'package:e_commerce/Screens/cart/model/get_single_cart_model.dart';
 import 'package:e_commerce/Screens/cart/service/cart_service.dart';
+import 'package:e_commerce/Screens/payment/controller/payment_controller/payment_controller.dart';
 import 'package:e_commerce/Screens/payment/model/get_order_model.dart';
 import 'package:e_commerce/Screens/payment/service/order_service.dart';
+import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class OrderSummeryController extends GetxController {
-  // int currentStep = 0;
-
-  // void onStepTap(step) {
-  //   currentStep = step;
-  //   update();
-  // }
-
-  // List<Step> steps = [
-  //   const Step(
-  //     state: StepState.indexed,
-  //     title: Text(
-  //       'Address',
-  //       style: TextStyle(color: Colors.black),
-  //     ),
-  //     content: Text(
-  //       '',
-  //       style: TextStyle(color: Colors.blue),
-  //     ),
-  //     isActive: true,
-  //   ),
-  //   const Step(
-  //     title: Text(
-  //       'Order summery',
-  //       style: TextStyle(color: Colors.black),
-  //     ),
-  //     // state: StepState.editing,
-  //     content: Text(
-  //       '',
-  //       style: TextStyle(color: Colors.blue),
-  //     ),
-  //     // isActive: currentStep == 1,
-  //   ),
-  //   const Step(
-  //     title: Text(
-  //       'Payment',
-  //       style: TextStyle(color: Colors.black),
-  //     ),
-  //     content: Text(
-  //       '',
-  //       style: TextStyle(color: Colors.blue),
-  //     ),
-  //     // isActive: currentStep == 2,
-  //     // state: StepState.editing
-  //   )
-  // ];
-
-  // void onStepContinue() {
-  //   if (currentStep < steps.length - 1) {
-  //     currentStep = currentStep + 1;
-  //     update();
-  //   } else {
-  //     currentStep = 0;
-  //     update();
-  //   }
-  // }
-
-  // onStepCancel() {
-  //   if (currentStep > 0) {
-  //     currentStep = currentStep - 1;
-  //     update();
-  //   } else {
-  //     currentStep = 0;
-  //     update();
-  //   }
-  // }
-
+  PaymentController paymentcontroller = PaymentController();
   OrderSummeryController() {
     startLoading();
     getAllOrders();
+  }
+  @override
+  void onInit() {
+    final razorpay = paymentcontroller.razorpay;
+    razorpay.on(
+        Razorpay.EVENT_PAYMENT_SUCCESS, paymentcontroller.handlePaymentSuccess);
+    razorpay.on(
+        Razorpay.EVENT_PAYMENT_ERROR, paymentcontroller.handlePaymentError);
+    razorpay.on(
+        Razorpay.EVENT_EXTERNAL_WALLET, paymentcontroller.handleExternalWallet);
+    super.onInit();
+  }
+
+  @override
+  void onClose() {
+    paymentcontroller.razorpay.clear();
+    super.onClose();
   }
 
   OrderService orderservice = OrderService();
