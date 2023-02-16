@@ -24,7 +24,7 @@ class ScreenCategory extends StatelessWidget {
 
   final cartC = Get.put(CartController());
   final homeC = Get.put(HomeContorller());
-  static const routename = "/category_view.dart";
+  
   final String categoryId;
   final CategoryScreenEnum selectCategoryScreen;
 
@@ -99,8 +99,8 @@ class ScreenCategory extends StatelessWidget {
                           child: Text(
                             selectCategoryScreen ==
                                     CategoryScreenEnum.normalCategoryScreen
-                                ? '${homeC.categoryList.length.toString()} Items'
-                                : '${controllefind.length.toString()} Items',
+                                ? '${homeC.categoryList.length+1} Items'
+                                : '${controllefind.length} Items',
                             style: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
