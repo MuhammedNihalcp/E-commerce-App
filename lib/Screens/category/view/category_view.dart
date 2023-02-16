@@ -1,4 +1,5 @@
 import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
+import 'package:e_commerce/Screens/category/model/enum_category_model.dart';
 import 'package:e_commerce/Screens/category/view/widget/category_product_view.dart';
 import 'package:e_commerce/Screens/category/view/widget/filteration_bar.dart';
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
@@ -10,23 +11,29 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ScreenCategory extends StatelessWidget {
-  ScreenCategory({Key? key, required this.width, required this.height})
-      : super(key: key);
+  ScreenCategory({
+    Key? key,
+    required this.width,
+    required this.height,
+    required this.selectCategoryScreen,
+    this.categoryId = '',
+  }) : super(key: key);
 
   final double width;
   final double height;
 
   final cartC = Get.put(CartController());
   final homeC = Get.put(HomeContorller());
-   static const routename = "/category_view.dart";
-
+  static const routename = "/category_view.dart";
+  final String categoryId;
+  final CategoryScreenEnum selectCategoryScreen;
 
   @override
   Widget build(BuildContext context) {
     double width = Get.size.width;
     double height = Get.size.height;
-    final productId = ModalRoute.of(context)!.settings.arguments as String;
-    final controllefind = homeC.findByCategoryId(productId);
+    // final productId = ModalRoute.of(context)!.settings.arguments as String;
+    final controllefind = homeC.findByCategoryId(categoryId);
     return Scaffold(
       backgroundColor: backgroundColor,
       extendBodyBehindAppBar: true,
@@ -87,25 +94,28 @@ class ScreenCategory extends StatelessWidget {
                     ),
                     kHeight20,
                     Row(
-                      children: const [
+                      children: [
                         Expanded(
                           child: Text(
-                            '166 Items',
-                            style: TextStyle(
+                            selectCategoryScreen ==
+                                    CategoryScreenEnum.normalCategoryScreen
+                                ? '${homeC.categoryList.length.toString()} Items'
+                                : '${controllefind.length.toString()} Items',
+                            style: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-                        Text(
-                          'sort by:',
-                        ),
-                        Text(
-                          'Featured ⌄',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        // Text(
+                        //   'sort by:',
+                        // ),
+                        // Text(
+                        //   'Featured ⌄',
+                        //   style: TextStyle(
+                        //     fontWeight: FontWeight.bold,
+                        //   ),
+                        // ),
                       ],
                     ),
                     kHeight20,
@@ -114,6 +124,7 @@ class ScreenCategory extends StatelessWidget {
                       homeCont: homeC,
                       width: width,
                       height: height,
+                      selectedCategoryScreen: selectCategoryScreen,
                     ),
                   ],
                 ),

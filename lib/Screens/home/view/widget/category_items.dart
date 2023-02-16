@@ -6,6 +6,7 @@ import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:e_commerce/Screens/category/model/enum_category_model.dart';
 
 class HomePageCategoryItems extends StatelessWidget {
   HomePageCategoryItems({
@@ -17,6 +18,7 @@ class HomePageCategoryItems extends StatelessWidget {
   final double height;
   final HomeContorller controllers;
   final apibaseUrl = ApiBaseUrl();
+  double width = Get.size.width;
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +34,13 @@ class HomePageCategoryItems extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(
                     onTap: () {
-                      Get.toNamed(
-                        ScreenCategory.routename,
-                        arguments: controllers.categoryList[index].id,
-                      );
+                      Get.to(ScreenCategory(
+                        width: width,
+                        height: height,
+                        selectCategoryScreen:
+                            CategoryScreenEnum.productSelectCategoryScreen,
+                        categoryId: controllers.categoryList[index].id,
+                      ));
                     },
                     child: Column(
                       // alignment: AlignmentDirectional.center,

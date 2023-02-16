@@ -1,3 +1,4 @@
+import 'package:e_commerce/Screens/category/model/enum_category_model.dart';
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 import 'package:e_commerce/Screens/home/view/shimmer/product_shimmer.dart';
 import 'package:e_commerce/Screens/product_view_screen/model/product_model.dart';
@@ -15,18 +16,19 @@ class CategoryProductView extends StatelessWidget {
     required this.controllers,
     required this.width,
     required this.height,
-    required this.homeCont
+    required this.homeCont,
+    required this.selectedCategoryScreen,
   }) : super(key: key);
 
-   List <ProductModel> controllers;
+  List<ProductModel> controllers;
   final double width;
   final double height;
   final HomeContorller homeCont;
   final apibaseUrl = ApiBaseUrl();
+  final CategoryScreenEnum selectedCategoryScreen;
 
   @override
   Widget build(BuildContext context) {
-    
     return GridView.builder(
       padding: EdgeInsets.zero,
       physics: const NeverScrollableScrollPhysics(),
@@ -57,8 +59,10 @@ class CategoryProductView extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                           color: colorWhite,
                           image: DecorationImage(
-                            image: NetworkImage(
-                                '${apibaseUrl.baseUrl}/products/${controllers[index].image[0]}'),
+                            image: NetworkImage(selectedCategoryScreen ==
+                                    CategoryScreenEnum.normalCategoryScreen
+                                ? '${apibaseUrl.baseUrl}/products/${homeCont.productList[index].image[0]}'
+                                : '${apibaseUrl.baseUrl}/products/${controllers[index].image[0]}'),
                             // fit: BoxFit.cover,
                           ),
                         ),
@@ -110,7 +114,10 @@ class CategoryProductView extends StatelessWidget {
                 //   },
                 // ),
                 Text(
-                  controllers[index].description,
+                  selectedCategoryScreen ==
+                          CategoryScreenEnum.normalCategoryScreen
+                      ? homeCont.productList[index].description
+                      : controllers[index].description,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(fontWeight: FontWeight.w400),
@@ -119,7 +126,10 @@ class CategoryProductView extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      "₹ ${controllers[index].price.toString()}",
+                      selectedCategoryScreen ==
+                              CategoryScreenEnum.normalCategoryScreen
+                          ? "₹ ${homeCont.productList[index].price}"
+                          : "₹ ${controllers[index].price}",
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -132,7 +142,10 @@ class CategoryProductView extends StatelessWidget {
           ),
         );
       },
-      itemCount: controllers.length,
+      itemCount:
+          selectedCategoryScreen == CategoryScreenEnum.normalCategoryScreen
+              ? homeCont.productList.length
+              : controllers.length,
     );
   }
 }
