@@ -6,7 +6,9 @@ import 'package:e_commerce/Screens/cart/model/get_single_cart_model.dart';
 import 'package:e_commerce/Screens/cart/service/cart_service.dart';
 import 'package:e_commerce/Screens/payment/controller/payment_controller/payment_controller.dart';
 import 'package:e_commerce/Screens/payment/model/get_order_model.dart';
+import 'package:e_commerce/Screens/payment/model/order_enum.dart';
 import 'package:e_commerce/Screens/payment/service/order_service.dart';
+import 'package:e_commerce/Screens/payment/view/order_summery/order_summery.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:flutter/material.dart';
@@ -134,19 +136,21 @@ class OrderSummeryController extends GetxController {
     });
   }
 
-  void toOrderScreen(productId, cartId) {
+  void toOrderScreen(productId, cartId, double width, double height) {
     getSingleCart(
       productId,
       cartId,
     );
     update();
-    // Get.to(
-    //   OrderScreen(
-    //     cartId: cartId,
-    //     productId: productId,
-    //     screenCheck: OrderScreenEnum.buyOneProductOrderScreen,
-    //   ),
-    // );
+    Get.to(
+      ScreenOrderSummery(
+        height: height,
+        width: width,
+        cartId: cartId,
+        productId: productId,
+        screenCheck: OrderScreenEnum.buyOneProductOrderScreen,
+      ),
+    );
   }
 
   void sendOrderDetials() {
