@@ -109,7 +109,11 @@ class ScreenOrderSummery extends StatelessWidget {
                           height: height,
                           screenCheck: screenCheck,
                         ),
-                        const PriceDetails(),
+                         PriceDetails(
+                          ordercontroller: orderSC,
+                          cartcontroller: cartcontroller,
+                          screenCheck: screenCheck,
+                         ),
                       ],
                     ),
             ),

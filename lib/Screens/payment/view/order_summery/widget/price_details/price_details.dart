@@ -1,3 +1,6 @@
+import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
+import 'package:e_commerce/Screens/payment/controller/order_summery_controller/order_summery_controller.dart';
+import 'package:e_commerce/Screens/payment/model/order_enum.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
@@ -5,9 +8,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 
 class PriceDetails extends StatelessWidget {
-  const PriceDetails({
+  PriceDetails({
     Key? key,
+    required this.cartcontroller,
+    required this.ordercontroller,
+    required this.screenCheck,
   }) : super(key: key);
+
+  CartController cartcontroller = CartController();
+  OrderSummeryController ordercontroller = OrderSummeryController();
+  final OrderScreenEnum screenCheck;
 
   @override
   Widget build(BuildContext context) {
@@ -31,26 +41,34 @@ class PriceDetails extends StatelessWidget {
             kHeight5,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 Text(
-                  'Price  (1 item)',
-                  style: TextStyle(fontSize: 16),
+                  screenCheck == OrderScreenEnum.normalOrderScreen
+                      ? 'Price (${cartcontroller.getmodel!.products.length})'
+                      : 'Price  (1 item)',
+                  style: const TextStyle(fontSize: 16),
                 ),
-                Text('₹ 2,999'),
+                Text(
+                  screenCheck == OrderScreenEnum.normalOrderScreen
+                      ? '₹ ${cartcontroller.getmodel!.totalPrice}'
+                      : '₹ ${ordercontroller.cartModel[0].product.price}',
+                ),
               ],
             ),
             kHeight10,
             kHeight5,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
+              children: [
+                const Text(
                   'Discount',
                   style: TextStyle(fontSize: 16),
                 ),
                 Text(
-                  '-₹ 2,999',
-                  style: TextStyle(color: colorGreen),
+                  screenCheck == OrderScreenEnum.normalOrderScreen
+                      ? '-₹ ${cartcontroller.getmodel!.totalDiscount}'
+                      : '-₹ ${ordercontroller.cartModel[0].product.discountPrice}',
+                  style: const TextStyle(color: colorGreen),
                 ),
               ],
             ),
@@ -78,13 +96,15 @@ class PriceDetails extends StatelessWidget {
             kHeight5,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
+              children: [
+                const Text(
                   'Total Amount',
                   style: boldtextblackcolor,
                 ),
                 Text(
-                  '₹ 999',
+                  screenCheck == OrderScreenEnum.normalOrderScreen
+                      ? '₹ ${cartcontroller.getmodel!.totalPrice - cartcontroller.getmodel!.totalDiscount}'
+                      : '₹ ${ordercontroller.cartModel[0].product.price - ordercontroller.cartModel[0].product.discountPrice}',
                   style: boldtextblackcolor,
                 )
               ],
