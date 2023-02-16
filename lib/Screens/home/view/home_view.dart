@@ -58,14 +58,7 @@ class ScreenHome extends StatelessWidget {
           ],
         ),
         leading: IconButton(
-          onPressed: () {
-            Get.to(
-              () => ScreenOrderSummery(
-                height: height,
-                width: width,
-              ),
-            );
-          },
+          onPressed: () {},
           icon: const Icon(Icons.menu),
         ),
         actions: [
@@ -156,5 +149,3 @@ class ScreenHome extends StatelessWidget {
     );
   }
 }
-
-
