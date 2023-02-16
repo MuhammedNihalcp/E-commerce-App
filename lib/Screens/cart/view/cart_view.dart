@@ -107,19 +107,44 @@ class ScreenOrder extends StatelessWidget {
                                 log('plue');
                               },
                             ),
+                            kHeight10,
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                CartBottomButton(
-                                  onPressed: () {
-                                    cartC.removeCart(cartC
-                                        .getmodel!.products[index].product.id);
-                                  },
-                                  text: 'Save for later',
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: buttonColor,
+                                      fixedSize: Size(width * 0.4, height *0.03),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      side: const BorderSide(
+                                        width: 1,
+                                        color: colorLightGrey,
+                                      )),
+                                  onPressed: () {},
+                                  child: const Text(
+                                    'Add WishList',
+                                    style: TextStyle(color: colorBlack),
+                                  ),
                                 ),
                                 kWidth10,
-                                CartBottomButton(
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: buttonColor,
+                                      fixedSize: Size( width*0.4 , height* 0.03),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      side: const BorderSide(
+                                        width: 1,
+                                        color: colorLightGrey,
+                                      )),
                                   onPressed: () {},
-                                  text: 'See more like this',
+                                  child: const Text(
+                                    'Buy Now',
+                                    style: TextStyle(color: colorBlack),
+                                  ),
                                 )
                               ],
                             )
@@ -136,7 +161,9 @@ class ScreenOrder extends StatelessWidget {
       ),
       bottomNavigationBar: GetBuilder(
         init: cartC,
-        builder: (controller) => cartC.totalSave == 0 || cartC.totalSave == null||cartC.cartList.isEmpty
+        builder: (controller) => cartC.totalSave == 0 ||
+                cartC.totalSave == null ||
+                cartC.cartList.isEmpty
             ? const SizedBox()
             : Container(
                 width: double.infinity,
