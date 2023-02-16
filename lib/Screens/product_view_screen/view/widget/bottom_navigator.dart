@@ -1,5 +1,6 @@
 import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/cart/view/cart_view.dart';
+import 'package:e_commerce/Screens/payment/model/order_enum.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/order_summery.dart';
 import 'package:e_commerce/Screens/product_view_screen/controller/product_controller.dart';
 import 'package:e_commerce/Screens/product_view_screen/model/product_model.dart';
@@ -69,12 +70,14 @@ class ProductBottomNavigator extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20))),
             onPressed: () {
-              // Get.to(
-              //   () => ScreenOrderSummery(
-              //     height: height,
-              //     width: width,
-              //   ),
-              // );
+              Get.to(
+                () => ScreenOrderSummery(
+                  height: height,
+                  width: width,
+                  productId: contorlle.id,
+                  screenCheck: OrderScreenEnum.buyOneProductOrderScreen,
+                ),
+              );
             },
             child: const Text(
               'Buy now',
