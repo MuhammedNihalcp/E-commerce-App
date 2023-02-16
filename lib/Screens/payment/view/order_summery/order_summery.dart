@@ -19,7 +19,7 @@ class ScreenOrderSummery extends StatelessWidget {
     Key? key,
     required this.height,
     required this.width,
-    required this.cartId ,
+    required this.cartId,
     required this.productId,
     required this.screenCheck,
   }) : super(key: key);
@@ -109,11 +109,11 @@ class ScreenOrderSummery extends StatelessWidget {
                           height: height,
                           screenCheck: screenCheck,
                         ),
-                         PriceDetails(
+                        PriceDetails(
                           ordercontroller: orderSC,
                           cartcontroller: cartcontroller,
                           screenCheck: screenCheck,
-                         ),
+                        ),
                       ],
                     ),
             ),
@@ -123,6 +123,9 @@ class ScreenOrderSummery extends StatelessWidget {
       bottomNavigationBar: BottomWidget(
         width: width,
         height: height,
+        ordercontroller: orderSC,
+        cartcontroller: cartcontroller,
+        screencheck: screenCheck,
       ),
     );
   }
