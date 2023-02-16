@@ -29,33 +29,40 @@ class OrderProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomCard(
-      width: double.infinity,
-      height: 270,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const BestSellerWidget(),
-            kHeight10,
-            PaymentProductDetails(
-              cartcontroller: cartcontroller,
-              ordercontroller: ordercontroller,
-              screenCheck: screenCheck,
-              width: width,
-              height: height,
+    return ListView.builder(
+        itemBuilder: (BuildContext context, int index) {
+          return CustomCard(
+            width: double.infinity,
+            height: 270,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const BestSellerWidget(),
+                  kHeight10,
+                  PaymentProductDetails(
+                    index: index,
+                    cartcontroller: cartcontroller,
+                    ordercontroller: ordercontroller,
+                    screenCheck: screenCheck,
+                    width: width,
+                    height: height,
+                  ),
+                  kHeight20,
+                  PaymetProductRemoveAndAddButton(
+                    height: height,
+                    width: width,
+                  ),
+                  kHeight10,
+                  const DelivaryDetails(),
+                ],
+              ),
             ),
-            kHeight20,
-            PaymetProductRemoveAndAddButton(
-              height: height,
-              width: width,
-            ),
-            kHeight10,
-            const DelivaryDetails(),
-          ],
-        ),
-      ),
-    );
+          );
+        },
+        itemCount: screenCheck == OrderScreenEnum.normalOrderScreen
+            ? cartcontroller.getmodel!.products.length
+            : 1);
   }
 }

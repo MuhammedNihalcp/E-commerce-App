@@ -11,21 +11,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class PaymentProductDetails extends StatelessWidget {
-  PaymentProductDetails({
-    Key? key,
-    required this.width,
-    required this.height,
-    required this.screenCheck,
-    required this.cartcontroller,
-    required this.ordercontroller,
-  }) : super(key: key);
+  PaymentProductDetails(
+      {Key? key,
+      required this.width,
+      required this.height,
+      required this.screenCheck,
+      required this.cartcontroller,
+      required this.ordercontroller,
+      required this.index})
+      : super(key: key);
 
   final double width;
   final double height;
   final OrderScreenEnum screenCheck;
   ApiBaseUrl apibaseurl = ApiBaseUrl();
   final CartController cartcontroller;
-
+  final int index;
   final OrderSummeryController ordercontroller;
 
   @override
@@ -39,7 +40,7 @@ class PaymentProductDetails extends StatelessWidget {
             image: DecorationImage(
                 image: NetworkImage(screenCheck ==
                         OrderScreenEnum.normalOrderScreen
-                    ? '${apibaseurl.baseUrl}/products/${cartcontroller.getmodel!.products[2].product.image[4]}'
+                    ? '${apibaseurl.baseUrl}/products/${cartcontroller.getmodel!.products[index].product.image[4]}'
                     : '${apibaseurl.baseUrl}/products/${ordercontroller.cartModel[0].product.image[4]}')
 
                 // fit: BoxFit.cover,
@@ -51,15 +52,22 @@ class PaymentProductDetails extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                "Fossil Men's Grant Stainless Steel Quartz Chronograph Watch",
+              Text(
+                screenCheck == OrderScreenEnum.normalOrderScreen
+                    ? cartcontroller
+                        .getmodel!.products[index].product.description
+                    : ordercontroller.cartModel[0].product.name,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(),
+                style: const TextStyle(),
               ),
               kHeight10,
               RatingBar.builder(
-                initialRating: double.parse('4.5'),
+                initialRating: double.parse(
+                  screenCheck == OrderScreenEnum.normalOrderScreen
+                      ? cartcontroller.getmodel!.products[index].product.rating
+                      : ordercontroller.cartModel[0].product.rating,
+                ),
                 itemSize: 15,
                 minRating: 1,
                 direction: Axis.horizontal,
@@ -76,10 +84,12 @@ class PaymentProductDetails extends StatelessWidget {
               ),
               kHeight20,
               Row(
-                children: const [
+                children: [
                   Text(
-                    '₹ 2999',
-                    style: TextStyle(
+                    screenCheck == OrderScreenEnum.normalOrderScreen
+                        ? '₹${cartcontroller.getmodel!.products[index].product.price}'
+                        : '₹${ordercontroller.cartModel[0].product.price}',
+                    style: const TextStyle(
                       decoration: TextDecoration.lineThrough,
                       color: Colors.grey,
                       fontSize: 17,
@@ -87,8 +97,10 @@ class PaymentProductDetails extends StatelessWidget {
                   ),
                   kWidth10,
                   Text(
-                    '₹999',
-                    style: TextStyle(
+                    screenCheck == OrderScreenEnum.normalOrderScreen
+                        ? '₹${cartcontroller.getmodel!.products[index].product.price - cartcontroller.getmodel!.products[index].discountPrice}'
+                        : '₹${ordercontroller.cartModel[0].product.price - ordercontroller.cartModel[0].discountPrice}',
+                    style: const TextStyle(
                       color: colorBlack,
                       fontWeight: FontWeight.bold,
                       fontSize: 17,
@@ -96,8 +108,10 @@ class PaymentProductDetails extends StatelessWidget {
                   ),
                   kWidth10,
                   Text(
-                    '66% off',
-                    style: TextStyle(
+                    screenCheck == OrderScreenEnum.normalOrderScreen
+                        ? '${cartcontroller.getmodel!.products[index].product.offer}% off'
+                        : '${ordercontroller.cartModel[0].product.offer}% off',
+                    style: const TextStyle(
                       color: Colors.green,
                       fontWeight: FontWeight.bold,
                     ),

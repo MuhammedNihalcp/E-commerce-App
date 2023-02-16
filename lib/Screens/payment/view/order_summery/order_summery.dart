@@ -19,7 +19,7 @@ class ScreenOrderSummery extends StatelessWidget {
     Key? key,
     required this.height,
     required this.width,
-    this.cartId = '',
+    required this.cartId ,
     required this.productId,
     required this.screenCheck,
   }) : super(key: key);
