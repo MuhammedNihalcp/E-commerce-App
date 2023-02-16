@@ -132,12 +132,26 @@ class ScreenOrderSummery extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomWidget(
-        width: width,
-        height: height,
-        ordercontroller: orderSC,
-        cartcontroller: cartcontroller,
-        screencheck: screenCheck,
+      bottomNavigationBar: GetBuilder(
+        init: paymentController,
+        builder: (controller) => GetBuilder(
+          init: accountcontroller,
+          builder: (controller) => GetBuilder(
+            init: orderSC,
+            builder: (controller) => GetBuilder(
+              init: cartcontroller,
+              builder: (controller) => BottomWidget(
+                width: width,
+                height: height,
+                ordercontroller: orderSC,
+                cartcontroller: cartcontroller,
+                paymentcontroller: paymentController,
+                accountcontroller: accountcontroller,
+                screencheck: screenCheck,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
