@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-
 import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/wishlist/controller/wishlist_controller.dart';
 
@@ -75,8 +74,11 @@ class WishlistScreen extends StatelessWidget {
             : wishlistC.wmodel == null || wishlistC.wmodel!.products.isEmpty
                 ? SizedBox(
                     height: Get.size.height / 1,
-                    child: const Center(
-                      child: Text('Wishlist is Empty'),
+                    child: Center(
+                      child: Text(
+                        'Wishlist is Empty',
+                        style: gooleaborto,
+                      ),
                     ),
                   )
                 : ListView.separated(
@@ -130,16 +132,17 @@ class WishlistScreen extends StatelessWidget {
                                 ],
                               ),
                               trailing: IconButton(
-                                  onPressed: () {
-                                    wishlistC.addOrRemoveFromWishlist(
-                                      wishlistC
-                                          .wmodel!.products[index].product.id,
-                                    );
-                                  },
-                                  icon: const Icon(
-                                    Icons.favorite_sharp,
-                                    color: Colors.red,
-                                  )),
+                                onPressed: () {
+                                  wishlistC.addOrRemoveFromWishlist(
+                                    wishlistC
+                                        .wmodel!.products[index].product.id,
+                                  );
+                                },
+                                icon: const Icon(
+                                  Icons.favorite_sharp,
+                                  color: Colors.red,
+                                ),
+                              ),
                             ),
                           ),
                         )),
