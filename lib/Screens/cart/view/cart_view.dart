@@ -85,27 +85,8 @@ class ScreenOrder extends StatelessWidget {
                             AddAndRemoveButton(
                               height: height,
                               width: width,
-                              totalConut: cartC.getmodel!.products[index].qty
-                                  .toString(),
                               cartControllers: cartC,
                               index: index,
-                              minusPressed: () {
-                                cartC.incrementDecrementQty(
-                                  -1,
-                                  cartC.getmodel!.products[index].product.id,
-                                  cartC.getmodel!.products[index].qty,
-                                  cartC.getmodel!.products[index].size,
-                                );
-                              },
-                              plusPressed: () {
-                                cartC.incrementDecrementQty(
-                                  1,
-                                  cartC.getmodel!.products[index].product.id,
-                                  cartC.getmodel!.products[index].qty,
-                                  cartC.getmodel!.products[index].size,
-                                );
-                                log('plue');
-                              },
                             ),
                             kHeight10,
                             Row(
@@ -114,7 +95,8 @@ class ScreenOrder extends StatelessWidget {
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: buttonColor,
-                                      fixedSize: Size(width * 0.4, height *0.03),
+                                      fixedSize:
+                                          Size(width * 0.4, height * 0.03),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(10)),
@@ -132,7 +114,8 @@ class ScreenOrder extends StatelessWidget {
                                 ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: buttonColor,
-                                      fixedSize: Size( width*0.4 , height* 0.03),
+                                      fixedSize:
+                                          Size(width * 0.4, height * 0.03),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(10)),
