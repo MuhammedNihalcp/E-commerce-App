@@ -31,11 +31,11 @@ class ProductBottomNavigator extends StatelessWidget {
       width: double.infinity,
       color: const Color.fromARGB(255, 233, 227, 227),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
-              minimumSize: Size(width * 0.4, height * 0.08),
+              minimumSize: Size(width * 0.7, height * 0.08),
               maximumSize: Size.fromHeight(height * 0.1),
               backgroundColor: Colors.yellow,
               elevation: 0,
@@ -59,35 +59,35 @@ class ProductBottomNavigator extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
-            width: width * 0.1,
-          ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-                minimumSize: Size(width * 0.4, height * 0.08),
-                backgroundColor: Colors.yellow,
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20))),
-            onPressed: () {
-              Get.to(
-                () => ScreenOrderSummery(
-                  height: height,
-                  width: width,
-                  productId: contorlle.id,
-                  screenCheck: OrderScreenEnum.buyOneProductOrderScreen,
-                ),
-              );
-            },
-            child: const Text(
-              'Buy now',
-              style: TextStyle(
-                fontSize: 17,
-                color: colorBlack,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
+          // SizedBox(
+          //   width: width * 0.1,
+          // ),
+          // ElevatedButton(
+          //   style: ElevatedButton.styleFrom(
+          //       minimumSize: Size(width * 0.4, height * 0.08),
+          //       backgroundColor: Colors.yellow,
+          //       elevation: 0,
+          //       shape: RoundedRectangleBorder(
+          //           borderRadius: BorderRadius.circular(20))),
+          //   onPressed: () {
+          //     Get.to(
+          //       () => ScreenOrderSummery(
+          //         height: height,
+          //         width: width,
+          //         productId: contorlle.id,
+          //         screenCheck: OrderScreenEnum.buyOneProductOrderScreen,
+          //       ),
+          //     );
+          //   },
+          //   child: const Text(
+          //     'Buy now',
+          //     style: TextStyle(
+          //       fontSize: 17,
+          //       color: colorBlack,
+          //       fontWeight: FontWeight.bold,
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );
