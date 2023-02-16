@@ -4,6 +4,7 @@ import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/cart/view/widget/add_remove_button/add_remove_button.dart';
 import 'package:e_commerce/Screens/cart/view/widget/cart_bottom_button/cart_bottom_button.dart';
 import 'package:e_commerce/Screens/cart/view/widget/cart_image_detail/cart_image_details.dart';
+import 'package:e_commerce/Screens/wishlist/controller/wishlist_controller.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,8 @@ class ScreenOrder extends StatelessWidget {
   ScreenOrder({super.key});
 
   // final cartC = Get.put(CartController());
+
+  final wishlistcontroller = Get.put(WishListController());
 
   @override
   Widget build(BuildContext context) {
@@ -92,22 +95,50 @@ class ScreenOrder extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      backgroundColor: buttonColor,
-                                      fixedSize:
-                                          Size(width * 0.4, height * 0.03),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      side: const BorderSide(
-                                        width: 1,
-                                        color: colorLightGrey,
-                                      )),
-                                  onPressed: () {},
-                                  child: const Text(
-                                    'Add WishList',
-                                    style: TextStyle(color: colorBlack),
+                                GetBuilder<WishListController>(
+                                  builder: (controller) => ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                        backgroundColor: wishlistcontroller
+                                                .wishList
+                                                .contains(cartC.getmodel!
+                                                    .products[index].product.id)
+                                            ? Colors.red
+                                            : colorWhite,
+                                        fixedSize:
+                                            Size(width * 0.4, height * 0.03),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        side: const BorderSide(
+                                          width: 1,
+                                          color: colorLightGrey,
+                                        )),
+                                    onPressed: () {
+                                      wishlistcontroller
+                                          .addOrRemoveFromWishlist(cartC
+                                              .getmodel!
+                                              .products[index]
+                                              .product
+                                              .id);
+                                    },
+                                    child: Text(
+                                      wishlistcontroller.wishList.contains(cartC
+                                              .getmodel!
+                                              .products[index]
+                                              .product
+                                              .id)
+                                          ? 'Remove WishList'
+                                          : 'Add WishList',
+                                      style: TextStyle(
+                                          color: wishlistcontroller.wishList
+                                                  .contains(cartC
+                                                      .getmodel!
+                                                      .products[index]
+                                                      .product
+                                                      .id)
+                                              ? colorWhite
+                                              : colorBlack),
+                                    ),
                                   ),
                                 ),
                                 kWidth10,
