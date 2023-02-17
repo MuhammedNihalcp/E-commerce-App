@@ -63,16 +63,17 @@ class BottomWidget extends StatelessWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                   backgroundColor: buttonColor,
-                  minimumSize: Size(width * 0.5, height * 0.08)),
+                  minimumSize: Size(width * 0.3, height * 0.09)),
               onPressed: () {
-                accountcontroller.addressList.isEmpty
-                    ? Get.snackbar(
-                        "Address",
-                        "Please Add Address On the Frist",
-                        colorText: colorremoveSnack,
-                        snackPosition: SnackPosition.BOTTOM,
-                      )
-                    : paymentcontroller.setTotalAmount(
+                // accountcontroller.addressList.isEmpty
+                //     ? Get.snackbar(
+                //         "Address",
+                //         "Please Add Address On the Frist",
+                //         colorText: colorremoveSnack,
+                //         snackPosition: SnackPosition.BOTTOM,
+                //       )
+                //     : 
+                    paymentcontroller.setTotalAmount(
                         screencheck == OrderScreenEnum.normalOrderScreen
                             ? int.parse((cartcontroller.getmodel!.totalPrice -
                                     cartcontroller.getmodel!.totalDiscount)
