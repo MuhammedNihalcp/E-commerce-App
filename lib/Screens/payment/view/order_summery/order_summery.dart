@@ -9,6 +9,7 @@ import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_detai
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_productDetails/order_product_details.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_productDetails/widget/bestselletWidget/best_sellar.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/price_details/price_details.dart';
+import 'package:e_commerce/Screens/payment/view/order_summery/widget/see_all_product/see_all_product.dart';
 import 'package:e_commerce/core/size.dart';
 
 import 'package:e_commerce/core/text_style.dart';
@@ -126,7 +127,28 @@ class ScreenOrderSummery extends StatelessWidget {
                                   height: height,
                                   screenCheck: screenCheck,
                                 )
-                              : SizedBox(width: double.infinity,height: height * 0.2,),
+                              : SizedBox(
+                                  width: double.infinity,
+                                  height: height * 0.2,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Including all Products',
+                                        style: gooleaborto,
+                                      ),
+                                      TextButton(
+                                        onPressed: () {
+                                          Get.to(() => SeeAllProductScreen());
+                                        },
+                                        child: const Text(
+                                          'See All Products',
+                                          style: TextStyle(color: colorBlack),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                           PriceDetails(
                             ordercontroller: orderSC,
                             cartcontroller: cartcontroller,
