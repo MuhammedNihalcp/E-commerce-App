@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
+import 'package:e_commerce/Screens/search_screen/view/search_view.dart';
 import 'package:e_commerce/Screens/wishlist/controller/wishlist_controller.dart';
 
 import 'package:e_commerce/Screens/wishlist/view/shimmer/wishlist_shimmer.dart';
@@ -53,6 +54,12 @@ class WishlistScreen extends StatelessWidget {
               ),
             )
           ],
+        ),
+        leading: IconButton(
+          onPressed: () {
+            Get.to(() => SearchScreen());
+          },
+          icon: const Icon(Icons.search),
         ),
         actions: [
           IconButton(

@@ -9,6 +9,7 @@ import 'package:e_commerce/Screens/account/view/widget/your_account_detail_image
 import 'package:e_commerce/Screens/account/view/widget/your_account_details.dart';
 import 'package:e_commerce/Screens/account/view/widget/your_cart_list.dart';
 import 'package:e_commerce/Screens/account/view/widget/your_cart_list_images.dart';
+import 'package:e_commerce/Screens/search_screen/view/search_view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
@@ -55,6 +56,12 @@ class ScreenAccount extends StatelessWidget {
             )
           ],
         ),
+        leading: IconButton(
+          onPressed: () {
+            Get.to(() => SearchScreen());
+          },
+          icon: const Icon(Icons.search),
+        ),
         actions: [
           IconButton(
             onPressed: () {
@@ -77,7 +84,7 @@ class ScreenAccount extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   kHeight20,
-                   UserNameImage(),
+                  UserNameImage(),
                   kHeight10,
                   AccountButton(
                     width: width,

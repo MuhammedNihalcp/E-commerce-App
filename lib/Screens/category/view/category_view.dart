@@ -3,6 +3,7 @@ import 'package:e_commerce/Screens/category/model/enum_category_model.dart';
 import 'package:e_commerce/Screens/category/view/widget/category_product_view.dart';
 import 'package:e_commerce/Screens/category/view/widget/filteration_bar.dart';
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
+import 'package:e_commerce/Screens/search_screen/view/search_view.dart';
 
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
@@ -24,7 +25,7 @@ class ScreenCategory extends StatelessWidget {
 
   final cartC = Get.put(CartController());
   final homeC = Get.put(HomeContorller());
-  
+
   final String categoryId;
   final CategoryScreenEnum selectCategoryScreen;
 
@@ -64,6 +65,12 @@ class ScreenCategory extends StatelessWidget {
             ),
           ],
         ),
+        leading: IconButton(
+          onPressed: () {
+            Get.to(() => SearchScreen());
+          },
+          icon: const Icon(Icons.search),
+        ),
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(height * 0.04),
           child: const SizedBox(),
@@ -84,14 +91,6 @@ class ScreenCategory extends StatelessWidget {
                     SizedBox(
                       height: height * 0.12,
                     ),
-                    SearchBar(
-                      width: width,
-                      height: height,
-                    ),
-                    kHeight10,
-                    FilerationBar(
-                      width: width,
-                    ),
                     kHeight20,
                     Row(
                       children: [
@@ -99,7 +98,7 @@ class ScreenCategory extends StatelessWidget {
                           child: Text(
                             selectCategoryScreen ==
                                     CategoryScreenEnum.normalCategoryScreen
-                                ? '${homeC.categoryList.length+1} Items'
+                                ? '${homeC.categoryList.length + 1} Items'
                                 : '${controllefind.length} Items',
                             style: const TextStyle(
                               fontSize: 20,
