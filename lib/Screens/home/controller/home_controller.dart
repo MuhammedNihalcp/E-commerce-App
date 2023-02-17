@@ -7,6 +7,7 @@ import 'package:e_commerce/Screens/home/service/carousal_service.dart';
 import 'package:e_commerce/Screens/product_view_screen/model/product_model.dart';
 import 'package:e_commerce/Screens/product_view_screen/service/product_service.dart';
 import 'package:e_commerce/Screens/product_view_screen/view/product_view.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeContorller extends GetxController {
@@ -19,6 +20,7 @@ class HomeContorller extends GetxController {
   List<CategoryModel> categoryList = [];
   List<ProductModel> productList = [];
   List<CarousalModel> carousalList = [];
+  List<ProductModel> seachResult = [];
 
   bool isLoding = false;
 
@@ -101,5 +103,24 @@ class HomeContorller extends GetxController {
 
   void toProdutScreen(index) {
     Get.toNamed(ScreenProductView.routeName, arguments: productList[index].id);
+  }
+
+  TextEditingController searchController = TextEditingController();
+  void search(String keyboard) {
+    List<ProductModel> results = [];
+    if (keyboard.isEmpty) {
+      results = productList;
+    } else {
+      results = productList
+          .where(
+            (element) => element.name.toLowerCase().contains(
+                  keyboard.toLowerCase(),
+                ),
+          )
+          .toList();
+    }
+
+    seachResult = results;
+    update();
   }
 }
