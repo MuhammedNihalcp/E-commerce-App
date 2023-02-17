@@ -1,5 +1,3 @@
-
-
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 import 'package:e_commerce/Screens/home/view/shimmer/product_shimmer.dart';
 
@@ -15,21 +13,16 @@ class ProductGridView extends StatelessWidget {
     Key? key,
     required this.width,
     required this.height,
-    
   }) : super(key: key);
 
   final double width;
   final double height;
 
-  
-  
-
   final apibaseUrl = ApiBaseUrl();
-   final productC = Get.put(HomeContorller());
+  final productC = Get.put(HomeContorller());
 
   @override
   Widget build(BuildContext context) {
-   
     // final wishlistC = Get.put(WishListController(context));
     return GetBuilder<HomeContorller>(
       builder: (controller) => productC.isLoding == true
@@ -136,10 +129,12 @@ class ProductGridView extends StatelessWidget {
                         )
                       ],
                     ),
-                  ),  
+                  ),
                 );
               },
-              itemCount: productC.productList.length,
+              itemCount: productC.productList.length >= 6
+                  ? 6
+                  : productC.productList.length,
             ),
     );
   }
