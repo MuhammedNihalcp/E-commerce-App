@@ -15,6 +15,10 @@ import 'package:get/get.dart';
 class AcountController extends GetxController {
   final addressService = AddressService();
 
+  AcountController() {
+    getAllAddress();
+  }
+
   final TextEditingController fullNameC = TextEditingController();
   final TextEditingController phoneC = TextEditingController();
   final TextEditingController pinC = TextEditingController();

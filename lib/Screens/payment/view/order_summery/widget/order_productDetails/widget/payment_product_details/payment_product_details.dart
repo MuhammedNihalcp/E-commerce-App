@@ -38,10 +38,12 @@ class PaymentProductDetails extends StatelessWidget {
           height: height * 0.1,
           decoration: BoxDecoration(
             image: DecorationImage(
-                image: NetworkImage(screenCheck ==
+                image: NetworkImage(
+                  screenCheck ==
                         OrderScreenEnum.normalOrderScreen
                     ? '${apibaseurl.baseUrl}/products/${cartcontroller.getmodel!.products[index].product.image[4]}'
-                    : '${apibaseurl.baseUrl}/products/${ordercontroller.cartModel[0].product.image[4]}')
+                    : '${apibaseurl.baseUrl}/products/${ordercontroller.cartModel[0].product.image[4]}'
+                    )
 
                 // fit: BoxFit.cover,
                 ),

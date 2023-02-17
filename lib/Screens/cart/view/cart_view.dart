@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:e_commerce/Screens/account/controller/account_controller.dart';
+import 'package:e_commerce/Screens/account/view/all_accounts_view/all_account_view.dart';
 import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/cart/view/widget/add_remove_button/add_remove_button.dart';
 import 'package:e_commerce/Screens/cart/view/widget/cart_bottom_button/cart_bottom_button.dart';
@@ -216,17 +217,27 @@ class ScreenOrder extends StatelessWidget {
                                                     onPressed: () {
                                                       ordercontroller
                                                           .isLoading = true;
-                                                      ordercontroller
-                                                          .toOrderScreen(
-                                                        cartC
-                                                            .getmodel!
-                                                            .products[index]
-                                                            .product
-                                                            .id,
-                                                        cartC.getmodel!.id,
-                                                        height,
-                                                        width,
-                                                      );
+                                                      accountcontroller
+                                                              .addressList
+                                                              .isEmpty
+                                                          ? Get.to(
+                                                              AllAccountView(
+                                                                  width: width,
+                                                                  height:
+                                                                      height))
+                                                          : ordercontroller
+                                                              .toOrderScreen(
+                                                              cartC
+                                                                  .getmodel!
+                                                                  .products[
+                                                                      index]
+                                                                  .product
+                                                                  .id,
+                                                              cartC
+                                                                  .getmodel!.id,
+                                                              height,
+                                                              width,
+                                                            );
                                                     },
                                                     child: const Text(
                                                       'Buy Now',

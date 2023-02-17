@@ -60,9 +60,12 @@ class CartService {
       String productId, String cartId) async {
     Dio dios = await ApiInterceptor().getApiUser();
     try {
+      log('getsinglecart try keri');
       final Response response = await dios.get(
         "${apibaseUrl.baseUrl + apiendUrl.cart}/$cartId/product/$productId",
       );
+      log('get single cart responce vannu');
+      log(response.statusCode.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
         if (response.data == null) {
           return null;
