@@ -90,7 +90,7 @@ class SeeAllProductScreen extends StatelessWidget {
                                 image: DecorationImage(
                                     image: NetworkImage(
                                         '${apibaseUrl.baseUrl}/products/${cartcontroller.getmodel!.products[index].product.image[0]}')
-                  
+
                                     // fit: BoxFit.cover,
                                     ),
                               ),
@@ -133,7 +133,8 @@ class SeeAllProductScreen extends StatelessWidget {
                                       Text(
                                         '₹${cartcontroller.getmodel!.products[index].product.price}',
                                         style: const TextStyle(
-                                          decoration: TextDecoration.lineThrough,
+                                          decoration:
+                                              TextDecoration.lineThrough,
                                           color: Colors.grey,
                                           fontSize: 17,
                                         ),
@@ -177,7 +178,7 @@ class SeeAllProductScreen extends StatelessWidget {
               separatorBuilder: (context, index) {
                 return const SizedBox();
               },
-              itemCount: 1),
+              itemCount: cartcontroller.getmodel!.products.length),
         ),
       )),
     );
