@@ -78,7 +78,7 @@ class SearchScreen extends StatelessWidget {
                                               decoration: BoxDecoration(
                                                   image: DecorationImage(
                                                 image: NetworkImage(
-                                                  '${ApiBaseUrl().baseUrl}/products/${homeController.seachResult[index].image[4]}',
+                                                  '${ApiBaseUrl().baseUrl}/products/${homeController.seachResult[index].image[0]}',
                                                 ),
                                               )),
                                             ),

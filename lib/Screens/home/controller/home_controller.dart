@@ -110,6 +110,7 @@ class HomeContorller extends GetxController {
     List<ProductModel> results = [];
     if (keyboard.isEmpty) {
       results = productList;
+      update();
     } else {
       results = productList
           .where(
@@ -118,6 +119,7 @@ class HomeContorller extends GetxController {
                 ),
           )
           .toList();
+      update();
     }
 
     seachResult = results;
