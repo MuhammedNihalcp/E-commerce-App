@@ -16,7 +16,7 @@ class VerifyOtpController extends GetxController {
   Dio dio = Dio();
   bool isLoading = false;
   String code = '';
-  List< SignUpModel> userModel =[];
+  List< dynamic> userModel =[];
 
   void onSubmitCode(String submitCode) {
     log(submitCode, name: 'submitcode');
@@ -39,6 +39,8 @@ class VerifyOtpController extends GetxController {
               if (value != null) {
                 storage.write(key: 'token', value: value.accessToken);
                 storage.write(key: 'refreshToken', value: value.refreshToken);
+                userModel = (model as List).toList();
+                update();
                 Get.offAll(() => ScreenNavigator());
                 isLoading = false;
                 update();

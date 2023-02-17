@@ -1,4 +1,3 @@
-
 import 'package:e_commerce/Screens/auth/sign_up/model/model.dart';
 import 'package:e_commerce/Screens/auth/verification_code_screen/view/verification_screen_view.dart';
 import 'package:e_commerce/core/text_style.dart';
