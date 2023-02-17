@@ -34,7 +34,9 @@ class YourAccountDetailsImages extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: List.generate(
-                  ordercontroller.ordersList!.length,
+                  ordercontroller.ordersList!.length == 3
+                      ? 3
+                      : ordercontroller.ordersList!.length,
                   (index) => Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Container(
