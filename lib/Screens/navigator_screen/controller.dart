@@ -6,6 +6,10 @@ class LandingPageController extends GetxController {
   void changeTabIndex(int index) {
     tapIndex.value = index;
   }
+  void gotoHomescreen() {
+    tapIndex = 0.obs;
+    
+  }
 
   // @override
   // void onInit() {

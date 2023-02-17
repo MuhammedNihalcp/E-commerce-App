@@ -1,6 +1,8 @@
+import 'package:e_commerce/Screens/cart/view/cart_view.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
 class YourCartList extends StatelessWidget {
   const YourCartList({
@@ -17,7 +19,9 @@ class YourCartList extends StatelessWidget {
           style: accountTextStyle,
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.to(() => ScreenOrder());
+          },
           child: const Text(
             'See all',
             style: accountSeeall,

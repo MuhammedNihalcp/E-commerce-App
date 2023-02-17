@@ -55,3 +55,6 @@ const accountButtonStyle = TextStyle(color: colorBlack);
 
 //Google aborto style
 final gooleaborto = GoogleFonts.aboreto(textStyle: accountTextStyle);
+
+//Divider
+const divider = Divider(thickness: 2);
