@@ -7,29 +7,31 @@ import 'package:e_commerce/Screens/payment/model/order_enum.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/bottom_widget/bottom_widget.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_details/order_details.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_productDetails/order_product_details.dart';
+import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_productDetails/widget/bestselletWidget/best_sellar.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/price_details/price_details.dart';
+import 'package:e_commerce/core/size.dart';
 
 import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/util/cricularProgressWidget/circular_progress_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 
 import 'package:get/get.dart';
 
 class ScreenOrderSummery extends StatelessWidget {
   ScreenOrderSummery({
     Key? key,
-    required this.height,
-    required this.width,
     required this.cartId,
     required this.productId,
     required this.screenCheck,
   }) : super(key: key);
 
-  final double height;
-  final double width;
   final String cartId;
   final String productId;
   final OrderScreenEnum screenCheck;
+
+  double width = Get.size.width;
+  double height = Get.size.height;
 
   OrderSummeryController orderSC = Get.put(OrderSummeryController());
   AcountController accountcontroller = Get.put(AcountController());
@@ -85,48 +87,53 @@ class ScreenOrderSummery extends StatelessWidget {
             builder: (controller) => GetBuilder<CartController>(
               builder: (controller) => orderSC.isLoading == true
                   ? const CircularProgressWidget()
-                  : ListView(
-                      children: [
-                        accountcontroller.addressList.isEmpty
-                            ? InkWell(
-                                onTap: () {
-                                  Get.to(
-                                    AllAccountView(
-                                      width: width,
-                                      height: height,
-                                    ),
-                                  );
-                                },
-                                child: SizedBox(
-                                  width: double.infinity,
-                                  height: 100,
-                                  child: Center(
-                                    child: Text(
-                                      'Add Address',
-                                      style: gooleaborto,
+                  : SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          accountcontroller.addressList.isEmpty
+                              ? InkWell(
+                                  onTap: () {
+                                    Get.to(
+                                      AllAccountView(
+                                        width: width,
+                                        height: height,
+                                      ),
+                                    );
+                                  },
+                                  child: SizedBox(
+                                    width: double.infinity,
+                                    height: 100,
+                                    child: Center(
+                                      child: Text(
+                                        'Add Address',
+                                        style: gooleaborto,
+                                      ),
                                     ),
                                   ),
+                                )
+                              : OrderDetails(
+                                  value: accountcontroller,
+                                  index: accountcontroller.selectIndex,
+                                  height: height,
+                                  width: width,
                                 ),
-                              )
-                            : OrderDetails(
-                                value: accountcontroller,
-                                index: accountcontroller.selectIndex,
-                                height: height,
-                                width: width,
-                              ),
-                        OrderProductDetails(
-                          ordercontroller: orderSC,
-                          cartcontroller: cartcontroller,
-                          width: width,
-                          height: height,
-                          screenCheck: screenCheck,
-                        ),
-                        PriceDetails(
-                          ordercontroller: orderSC,
-                          cartcontroller: cartcontroller,
-                          screenCheck: screenCheck,
-                        ),
-                      ],
+                          screenCheck ==
+                                  OrderScreenEnum.buyOneProductOrderScreen
+                              ? OrderProductDetails(
+                                  ordercontroller: orderSC,
+                                  cartcontroller: cartcontroller,
+                                  width: width,
+                                  height: height,
+                                  screenCheck: screenCheck,
+                                )
+                              : SizedBox(width: double.infinity,height: height * 0.2,),
+                          PriceDetails(
+                            ordercontroller: orderSC,
+                            cartcontroller: cartcontroller,
+                            screenCheck: screenCheck,
+                          ),
+                        ],
+                      ),
                     ),
             ),
           ),
@@ -141,7 +148,6 @@ class ScreenOrderSummery extends StatelessWidget {
             builder: (controller) => GetBuilder(
               init: cartcontroller,
               builder: (controller) => BottomWidget(
-              
                 width: width,
                 height: height,
                 ordercontroller: orderSC,

@@ -235,8 +235,6 @@ class ScreenOrder extends StatelessWidget {
                                                                   .id,
                                                               cartC
                                                                   .getmodel!.id,
-                                                              height,
-                                                              width,
                                                             );
                                                     },
                                                     child: const Text(
@@ -315,13 +313,11 @@ class ScreenOrder extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          ScreenOrderSummery(
-                            width: width,
-                            height: height,
-                            cartId: "",
-                            productId: "",
-                            screenCheck: OrderScreenEnum.normalOrderScreen,
-                          );
+                          Get.to(() => ScreenOrderSummery(
+                                cartId: "",
+                                productId: "",
+                                screenCheck: OrderScreenEnum.normalOrderScreen,
+                              ));
 
                           ordercontroller.isLoading = false;
                         },

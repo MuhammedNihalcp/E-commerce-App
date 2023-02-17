@@ -44,8 +44,8 @@ class PriceDetails extends StatelessWidget {
               children: [
                 Text(
                   screenCheck == OrderScreenEnum.normalOrderScreen
-                      ? 'Price (${cartcontroller.getmodel!.products.length})'
-                      : 'Price  (1 item)',
+                      ? 'Price (${cartcontroller.getmodel!.products.length} Items)'
+                      : 'Price  (1 Item)',
                   style: const TextStyle(fontSize: 16),
                 ),
                 Text(

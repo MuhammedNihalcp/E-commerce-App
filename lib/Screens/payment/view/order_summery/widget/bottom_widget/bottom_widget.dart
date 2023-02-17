@@ -46,6 +46,7 @@ class BottomWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
+                  
                   screencheck == OrderScreenEnum.normalOrderScreen
                       ? '₹ ${cartcontroller.getmodel!.totalPrice - cartcontroller.getmodel!.totalDiscount}'
                       : '₹ ${ordercontroller.cartModel[0].product.price - ordercontroller.cartModel[0].product.discountPrice}',
@@ -64,7 +65,7 @@ class BottomWidget extends StatelessWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                   backgroundColor: buttonColor,
-                  minimumSize: Size(width * 0.3, height * 0.09)),
+                  minimumSize: Size(width * 0.5, height * 0.09)),
               onPressed: () {
                 // accountcontroller.addressList.isEmpty
                 //     ? Get.snackbar(
@@ -73,23 +74,23 @@ class BottomWidget extends StatelessWidget {
                 //         colorText: colorremoveSnack,
                 //         snackPosition: SnackPosition.BOTTOM,
                 //       )
-                //     :
-                paymentcontroller.setTotalAmount(
-                  screencheck == OrderScreenEnum.normalOrderScreen
-                      ? int.parse((cartcontroller.getmodel!.totalPrice -
-                              cartcontroller.getmodel!.totalDiscount)
-                          .round()
-                          .toString())
-                      : int.parse((ordercontroller.cartModel[0].price -
-                              ordercontroller.cartModel[0].discountPrice)
-                          .round()
-                          .toString()),
-                  screencheck == OrderScreenEnum.normalOrderScreen
-                      ? cartcontroller.cartitemsPayId
-                      : ordercontroller.productIds,
-                  accountcontroller
-                      .addressList[accountcontroller.selectIndex].id,
-                );
+                //     : 
+                    paymentcontroller.setTotalAmount(
+                        screencheck == OrderScreenEnum.normalOrderScreen
+                            ? int.parse((cartcontroller.getmodel!.totalPrice -
+                                    cartcontroller.getmodel!.totalDiscount)
+                                .round()
+                                .toString())
+                            : int.parse((ordercontroller.cartModel[0].price -
+                                    ordercontroller.cartModel[0].discountPrice)
+                                .round()
+                                .toString()),
+                        screencheck == OrderScreenEnum.normalOrderScreen
+                            ? cartcontroller.cartitemsPayId
+                            : ordercontroller.productIds,
+                        accountcontroller
+                            .addressList[accountcontroller.selectIndex].id,
+                      );
               },
               child: const Text(
                 'CONTINUE',

@@ -136,7 +136,7 @@ class OrderSummeryController extends GetxController {
     });
   }
 
-  void toOrderScreen(productId, cartId, double width, double height) {
+  void toOrderScreen(productId, cartId) {
     getSingleCart(
       productId,
       cartId,
@@ -144,8 +144,6 @@ class OrderSummeryController extends GetxController {
     update();
     Get.to(
       ScreenOrderSummery(
-        height: height,
-        width: width,
         cartId: cartId,
         productId: productId,
         screenCheck: OrderScreenEnum.buyOneProductOrderScreen,
