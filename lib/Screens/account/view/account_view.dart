@@ -9,6 +9,7 @@ import 'package:e_commerce/Screens/account/view/widget/your_account_detail_image
 import 'package:e_commerce/Screens/account/view/widget/your_account_details.dart';
 import 'package:e_commerce/Screens/account/view/widget/your_cart_list.dart';
 import 'package:e_commerce/Screens/account/view/widget/your_cart_list_images.dart';
+import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/search_screen/view/search_view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
@@ -20,6 +21,7 @@ class ScreenAccount extends StatelessWidget {
       : super(key: key);
 
   final accoutC = Get.put(AcountController());
+  final cartC = Get.put(CartController());
   final double width;
   final double height;
 
@@ -65,7 +67,7 @@ class ScreenAccount extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              // cartC.goToCartFromProduct();
+              cartC.goToCartFromProduct();
             },
             icon: const Icon(Icons.shopping_cart),
           ),
