@@ -5,6 +5,7 @@ import 'package:e_commerce/Screens/payment/controller/order_summery_controller/o
 import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
+import 'package:e_commerce/util/cricularProgressWidget/circular_progress_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -43,12 +44,7 @@ class OrderPlacedScreen extends StatelessWidget {
         ],
       ),
       body: ordersController.isLoading == true
-          ? SizedBox(
-              height: Get.size.height * 0.8,
-              child: const Center(
-                child: CircularProgressIndicator(),
-              ),
-            )
+          ? const CircularProgressWidget()
           : GetBuilder<OrderSummeryController>(
               builder: (controller) {
                 return ordersController.ordersList!.isEmpty
