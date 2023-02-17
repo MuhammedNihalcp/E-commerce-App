@@ -21,6 +21,7 @@ class OrderPlacedScreen extends StatelessWidget {
     });
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: colorVailet,
         leading: IconButton(
           onPressed: () {
             Get.back();
@@ -30,19 +31,15 @@ class OrderPlacedScreen extends StatelessWidget {
         title: const Text('My Orders'),
         centerTitle: true,
         actions: [
-          Obx(
-            () {
-              return IconButton(
-                onPressed: () {
-                  Get.offAll(ScreenNavigator());
-                  bottomNavController.tapIndex = 3.obs;
-                },
-                icon: const Icon(
-                  Icons.shopping_bag_outlined,
-                ),
-              );
+          IconButton(
+            onPressed: () {
+              Get.offAll(ScreenNavigator());
+              bottomNavController.tapIndex = 3.obs;
             },
-          ),
+            icon: const Icon(
+              Icons.shopping_bag_outlined,
+            ),
+          )
         ],
       ),
       body: ordersController.isLoading == true
@@ -69,13 +66,13 @@ class OrderPlacedScreen extends StatelessWidget {
                             ),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: colorVailet,
+                                backgroundColor: buttonColor,
                                 foregroundColor: colorWhite,
                                 elevation: 0,
                               ),
                               onPressed: () {
                                 Get.back();
-                                bottomNavController.gotoHomescreen();
+                                // bottomNavController.gotoHomescreen();
                               },
                               child: const Text('Order Now'),
                             ),
