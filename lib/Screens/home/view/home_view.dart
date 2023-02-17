@@ -6,6 +6,7 @@ import 'package:e_commerce/Screens/home/view/widget/carousel_view.dart';
 import 'package:e_commerce/Screens/home/view/widget/category_items.dart';
 import 'package:e_commerce/Screens/home/view/widget/grid_view.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/order_summery.dart';
+import 'package:e_commerce/Screens/search_screen/view/search_view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/util/cricularProgressWidget/circular_progress_widget.dart';
@@ -58,8 +59,10 @@ class ScreenHome extends StatelessWidget {
           ],
         ),
         leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.menu),
+          onPressed: () {
+            Get.to(() => SearchScreen());
+          },
+          icon: const Icon(Icons.search),
         ),
         actions: [
           IconButton(
@@ -85,8 +88,6 @@ class ScreenHome extends StatelessWidget {
                       SizedBox(
                         height: height * 0.12,
                       ),
-                      SearchBar(width: width, height: height),
-                      kHeight10,
                       CarouselWidget(
                         height: height,
                         width: width,
