@@ -22,6 +22,7 @@ class BottomWidget extends StatelessWidget {
 
   final double width;
   final double height;
+
   CartController cartcontroller = CartController();
   OrderSummeryController ordercontroller = OrderSummeryController();
   PaymentController paymentcontroller = PaymentController();
@@ -72,23 +73,23 @@ class BottomWidget extends StatelessWidget {
                 //         colorText: colorremoveSnack,
                 //         snackPosition: SnackPosition.BOTTOM,
                 //       )
-                //     : 
-                    paymentcontroller.setTotalAmount(
-                        screencheck == OrderScreenEnum.normalOrderScreen
-                            ? int.parse((cartcontroller.getmodel!.totalPrice -
-                                    cartcontroller.getmodel!.totalDiscount)
-                                .round()
-                                .toString())
-                            : int.parse((ordercontroller.cartModel[0].price -
-                                    ordercontroller.cartModel[0].discountPrice)
-                                .round()
-                                .toString()),
-                        screencheck == OrderScreenEnum.normalOrderScreen
-                            ? cartcontroller.cartitemsPayId
-                            : ordercontroller.productIds,
-                        accountcontroller
-                            .addressList[accountcontroller.selectIndex].id,
-                      );
+                //     :
+                paymentcontroller.setTotalAmount(
+                  screencheck == OrderScreenEnum.normalOrderScreen
+                      ? int.parse((cartcontroller.getmodel!.totalPrice -
+                              cartcontroller.getmodel!.totalDiscount)
+                          .round()
+                          .toString())
+                      : int.parse((ordercontroller.cartModel[0].price -
+                              ordercontroller.cartModel[0].discountPrice)
+                          .round()
+                          .toString()),
+                  screencheck == OrderScreenEnum.normalOrderScreen
+                      ? cartcontroller.cartitemsPayId
+                      : ordercontroller.productIds,
+                  accountcontroller
+                      .addressList[accountcontroller.selectIndex].id,
+                );
               },
               child: const Text(
                 'CONTINUE',

@@ -141,6 +141,7 @@ class ScreenOrderSummery extends StatelessWidget {
             builder: (controller) => GetBuilder(
               init: cartcontroller,
               builder: (controller) => BottomWidget(
+              
                 width: width,
                 height: height,
                 ordercontroller: orderSC,
