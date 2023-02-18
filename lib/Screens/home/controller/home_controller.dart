@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:e_commerce/Screens/category/model/category_model.dart';
@@ -7,16 +8,77 @@ import 'package:e_commerce/Screens/home/service/carousal_service.dart';
 import 'package:e_commerce/Screens/product_view_screen/model/product_model.dart';
 import 'package:e_commerce/Screens/product_view_screen/service/product_service.dart';
 import 'package:e_commerce/Screens/product_view_screen/view/product_view.dart';
+import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:get/get.dart';
 
 class HomeContorller extends GetxController {
   HomeContorller() {
+    getACarousal();
     getCategory();
     getProduct();
-    getACarousal();
+
     log('homecontorller');
   }
+
+  @override
+  void onInit() {
+    super.onInit();
+    getConnectivity();
+  }
+
+  late StreamSubscription subscription;
+  var isDeviceConnected = false;
+  bool isAlertSet = false;
+
+  getConnectivity() => subscription = Connectivity()
+          .onConnectivityChanged
+          .listen((ConnectivityResult result) async {
+        isDeviceConnected = await InternetConnectionChecker().hasConnection;
+        if (!isDeviceConnected && isAlertSet == false) {
+          showDialogBox();
+          isAlertSet = true;
+          update();
+        }
+      });
+
+  @override
+  void onClose() {
+    subscription.cancel();
+    super.onClose();
+  }
+
+  showDialogBox() => Get.defaultDialog(
+        barrierDismissible: false,
+        title: "No Connection",
+        content: const Text(
+          "Please check your internet connectivity",
+          style: TextStyle(color: colorWhite),
+        ),
+        backgroundColor: colorBlack,
+        titleStyle: const TextStyle(color: Colors.white),
+        radius: 30,
+        actions: [
+          TextButton(
+            onPressed: () async {
+              Get.back();
+              isAlertSet = false;
+              update();
+              isDeviceConnected =
+                  await InternetConnectionChecker().hasConnection;
+              if (!isDeviceConnected) {
+                showDialogBox();
+                isAlertSet = true;
+                update();
+              }
+            },
+            child: const Text('OK'),
+          ),
+        ],
+      );
+
   List<CategoryModel> categoryList = [];
   List<ProductModel> productList = [];
   List<CarousalModel> carousalList = [];
