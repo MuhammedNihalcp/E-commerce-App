@@ -16,12 +16,12 @@ class UserNameImage extends StatelessWidget {
       builder: (controller) => ListTile(
         title: RichText(
           maxLines: 1,
-          text:  TextSpan(
+          text: const TextSpan(
             text: 'Hello, ',
-            style:const TextStyle(color: colorBlack, fontSize: 20),
+            style: TextStyle(color: colorBlack, fontSize: 20),
             children: <TextSpan>[
               TextSpan(
-                  text: user.userModel,
+                  text: 'Muhammed Nihal CP',
                   style: const TextStyle(fontWeight: FontWeight.bold)),
             ],
           ),
