@@ -32,25 +32,35 @@ class AccountSettingWidget extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TextButton(
-                  onPressed: () {
-                    Get.to(
-                      () => AllAccountView(
-                        width: width,
-                        height: height,
-                      ),
-                    );
-                  },
-                  child: const Text(
-                    'Your Address',
-                    style: accountsettingTextstyle,
+            child: InkWell(
+              onTap: () {
+                Get.to(
+                  () => AllAccountView(
+                    width: width,
+                    height: height,
                   ),
-                ),
-                arrowIcon
-              ],
+                );
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      Get.to(
+                        () => AllAccountView(
+                          width: width,
+                          height: height,
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      'Your Address',
+                      style: accountsettingTextstyle,
+                    ),
+                  ),
+                  arrowIcon
+                ],
+              ),
             ),
           ),
           const Divider(
@@ -58,20 +68,25 @@ class AccountSettingWidget extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TextButton(
-                  onPressed: () {
-                    accountC.logout();
-                  },
-                  child: const Text(
-                    'Logout',
-                    style: accountsettingTextstyle,
+            child: InkWell(
+              onTap: () {
+                accountC.logout();
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      accountC.logout();
+                    },
+                    child: const Text(
+                      'Logout',
+                      style: accountsettingTextstyle,
+                    ),
                   ),
-                ),
-                arrowIcon
-              ],
+                  arrowIcon
+                ],
+              ),
             ),
           ),
           const Divider(
