@@ -1,4 +1,4 @@
-import 'package:e_commerce/Screens/auth/sign_up/controller/register_verification_otp/controller.dart';
+import 'package:e_commerce/Screens/auth/sign_up/controller/register_verification_otp/otp_verify_controller.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,13 +16,13 @@ class UserNameImage extends StatelessWidget {
       builder: (controller) => ListTile(
         title: RichText(
           maxLines: 1,
-          text: const TextSpan(
+          text:  TextSpan(
             text: 'Hello, ',
-            style: TextStyle(color: colorBlack, fontSize: 20),
+            style:const TextStyle(color: colorBlack, fontSize: 20),
             children: <TextSpan>[
               TextSpan(
-                  text: 'Muhammed Nihal CP',
-                  style: TextStyle(fontWeight: FontWeight.bold)),
+                  text: user.userModel,
+                  style: const TextStyle(fontWeight: FontWeight.bold)),
             ],
           ),
         ),
