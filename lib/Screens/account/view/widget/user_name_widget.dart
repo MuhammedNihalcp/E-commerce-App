@@ -22,7 +22,7 @@ class UserNameImage extends StatelessWidget {
             children: <TextSpan>[
               TextSpan(
                   text: 'Muhammed Nihal CP',
-                  style: const TextStyle(fontWeight: FontWeight.bold)),
+                  style: TextStyle(fontWeight: FontWeight.bold)),
             ],
           ),
         ),
