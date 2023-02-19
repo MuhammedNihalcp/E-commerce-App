@@ -56,5 +56,7 @@ const accountButtonStyle = TextStyle(color: colorBlack);
 //Google aborto style
 final gooleaborto = GoogleFonts.aboreto(textStyle: accountTextStyle);
 
+final googleblackops = GoogleFonts.blackOpsOne();
+
 //Divider
 const divider = Divider(thickness: 2);

@@ -2,10 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 import 'package:e_commerce/Screens/home/view/shimmer/carousel_shimmer.dart';
 import 'package:e_commerce/common/api/api_baseurl.dart';
-
+import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
-
 
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -23,7 +22,6 @@ class CarouselWidget extends StatelessWidget {
   final HomeContorller controller;
   // final List<String> itemsD;
   final apibaseUrl = ApiBaseUrl();
-  
 
   @override
   Widget build(BuildContext context) {
