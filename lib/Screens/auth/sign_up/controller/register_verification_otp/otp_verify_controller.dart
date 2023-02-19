@@ -16,7 +16,7 @@ class VerifyOtpController extends GetxController {
   Dio dio = Dio();
   bool isLoading = false;
   String code = '';
-  String userModel ='';
+  String userModel = '';
 
   void onSubmitCode(String submitCode) {
     log(submitCode, name: 'submitcode');
@@ -41,6 +41,7 @@ class VerifyOtpController extends GetxController {
                 storage.write(key: 'refreshToken', value: value.refreshToken);
                 userModel = model.fullname;
                 update();
+                log(userModel);
                 Get.offAll(() => ScreenNavigator());
                 isLoading = false;
                 update();
