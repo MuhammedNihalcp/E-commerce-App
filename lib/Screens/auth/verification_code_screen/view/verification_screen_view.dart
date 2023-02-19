@@ -1,4 +1,5 @@
-import 'package:e_commerce/Screens/auth/sign_up/controller/register_verification_otp/controller.dart';
+
+import 'package:e_commerce/Screens/auth/sign_up/controller/register_verification_otp/otp_verify_controller.dart';
 
 import 'package:e_commerce/Screens/auth/sign_up/model/model.dart';
 import 'package:e_commerce/Screens/auth/sign_up/view/signup_view.dart';
