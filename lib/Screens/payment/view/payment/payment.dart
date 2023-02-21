@@ -63,9 +63,7 @@ class ScreenPayment extends StatelessWidget {
                     ),
                     kHeight10,
                     Row(
-                      children: [
-                        
-                      ],
+                      children: const [],
                     )
                   ],
                 ),

@@ -6,7 +6,7 @@ import 'package:e_commerce/Screens/auth/sign_in/model/google_model/google_model.
 import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/common/api/api_endsurl.dart';
 import 'package:e_commerce/util/dio_exeption/exeptions.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+
 
 class GoogleSignInService {
   /*------------------- SignIn  with Google ----------------------*/

@@ -1,7 +1,6 @@
 import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/cart/view/cart_view.dart';
-import 'package:e_commerce/Screens/payment/model/order_enum.dart';
-import 'package:e_commerce/Screens/payment/view/order_summery/order_summery.dart';
+
 import 'package:e_commerce/Screens/product_view_screen/controller/product_controller.dart';
 import 'package:e_commerce/Screens/product_view_screen/model/product_model.dart';
 import 'package:e_commerce/core/text_style.dart';

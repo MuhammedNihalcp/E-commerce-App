@@ -1,5 +1,5 @@
 import 'package:e_commerce/Screens/category/view/category_view.dart';
-import 'package:e_commerce/Screens/category/view/widget/category_product_view.dart';
+
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 import 'package:e_commerce/Screens/home/view/shimmer/category_shimmer.dart';
 import 'package:e_commerce/common/api/api_baseurl.dart';
@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:e_commerce/Screens/category/model/enum_category_model.dart';
 
+// ignore: must_be_immutable
 class HomePageCategoryItems extends StatelessWidget {
   HomePageCategoryItems({
     Key? key,

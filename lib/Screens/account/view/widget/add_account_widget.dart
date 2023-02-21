@@ -1,13 +1,13 @@
 import 'package:e_commerce/Screens/account/controller/account_controller.dart';
 import 'package:e_commerce/Screens/account/model/enum_account.dart';
-import 'package:e_commerce/Screens/account/model/get_account_model.dart';
+
 import 'package:e_commerce/Screens/account/view/all_accounts_view/all_account_view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/util/textfield/textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
+
 
 class FormWidgets extends StatelessWidget {
   const FormWidgets({

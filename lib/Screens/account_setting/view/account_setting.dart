@@ -1,5 +1,5 @@
 import 'package:e_commerce/Screens/account/controller/account_controller.dart';
-import 'package:e_commerce/Screens/account/view/account_add.dart';
+
 import 'package:e_commerce/Screens/account_setting/view/widget/account_setting_widget.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';

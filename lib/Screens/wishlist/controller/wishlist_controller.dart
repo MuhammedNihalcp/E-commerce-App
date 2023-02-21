@@ -40,18 +40,19 @@ class WishListController extends GetxController {
     update();
     await wishlistService.addOrRemoveWishlist( productId).then((value) {
       if (value != null) {
-        wishlistService.getWishlist().then((value) {
-          if (value != null) {
-            wmodel = value;
-            update();
-            getWishlist();
-            isLoading = false;
-            update();
-          } else {
-            isLoading = false;
-            update();
-          }
-        });
+        getWishlist();
+        // wishlistService.getWishlist().then((value) {
+        //   if (value != null) {
+        //     wmodel = value;
+        //     update();
+        //     getWishlist();
+        //     isLoading = false;
+        //     update();
+        //   } else {
+        //     isLoading = false;
+        //     update();
+        //   }
+        // });
         if (value == 201) {
           Get.snackbar(
             "Added",
@@ -67,6 +68,8 @@ class WishListController extends GetxController {
             icon: const Icon(Icons.remove_circle_outline_rounded),
           );
         }
+        isLoading = false;
+        update();
       } else {
         isLoading = false;
         update();

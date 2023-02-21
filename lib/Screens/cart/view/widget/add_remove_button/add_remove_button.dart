@@ -1,7 +1,5 @@
-import 'dart:developer';
 
 import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
-import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 

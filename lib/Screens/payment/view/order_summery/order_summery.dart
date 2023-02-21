@@ -7,18 +7,19 @@ import 'package:e_commerce/Screens/payment/model/order_enum.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/bottom_widget/bottom_widget.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_details/order_details.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_productDetails/order_product_details.dart';
-import 'package:e_commerce/Screens/payment/view/order_summery/widget/order_productDetails/widget/bestselletWidget/best_sellar.dart';
+
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/price_details/price_details.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/widget/see_all_product/see_all_product.dart';
-import 'package:e_commerce/core/size.dart';
+
 
 import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/util/cricularProgressWidget/circular_progress_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_cards/flutter_custom_cards.dart';
+
 
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class ScreenOrderSummery extends StatelessWidget {
   ScreenOrderSummery({
     Key? key,

@@ -1,10 +1,11 @@
 import 'package:e_commerce/Screens/auth/new_password/controller/new_password_controller.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
-import 'package:e_commerce/util/textfield/textfield.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class ScreenNewPassword extends StatelessWidget {
   ScreenNewPassword({
     super.key,

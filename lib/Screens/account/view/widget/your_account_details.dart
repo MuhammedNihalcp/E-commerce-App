@@ -1,7 +1,7 @@
 import 'package:e_commerce/Screens/order_placed/view/order_placed_screen.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
 
 class YourAccountDetails extends StatelessWidget {

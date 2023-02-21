@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 
+// ignore: must_be_immutable
 class PriceDetails extends StatelessWidget {
   PriceDetails({
     Key? key,

@@ -127,7 +127,7 @@ class ProductDetail extends StatelessWidget {
                           controlle.size[index],
                           style: Theme.of(context)
                               .textTheme
-                              .headline6!
+                              .titleLarge!
                               .copyWith(
                                   color: controller.activeSize == index
                                       ? Colors.white

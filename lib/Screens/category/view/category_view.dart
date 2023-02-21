@@ -1,13 +1,12 @@
 import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/category/model/enum_category_model.dart';
 import 'package:e_commerce/Screens/category/view/widget/category_product_view.dart';
-import 'package:e_commerce/Screens/category/view/widget/filteration_bar.dart';
+
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 import 'package:e_commerce/Screens/search_screen/view/search_view.dart';
 
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
-import 'package:e_commerce/util/search_bar/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

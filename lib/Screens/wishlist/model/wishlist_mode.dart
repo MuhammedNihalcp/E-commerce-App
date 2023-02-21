@@ -12,8 +12,8 @@ class WishlistModel {
   });
 
   factory WishlistModel.fromJson(Map<String, dynamic> json) => WishlistModel(
-        id: json["_id"] ?? "",
-        userId: json["userId"] ?? "",
+        id: json["_id"],
+        userId: json["userId"],
         products: List<ProductElement>.from(
             json["products"].map((x) => ProductElement.fromJson(x))),
       );
@@ -29,7 +29,7 @@ class ProductElement {
   String id;
 
   factory ProductElement.fromJson(Map<String, dynamic> json) => ProductElement(
-        product: ProductModel.fromJson(json["product"] ?? ""),
-        id: json["_id"] ?? "",
+        product: ProductModel.fromJson(json["product"]),
+        id: json["_id"],
       );
 }

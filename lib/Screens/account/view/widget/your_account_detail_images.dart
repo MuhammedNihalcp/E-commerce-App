@@ -3,6 +3,7 @@ import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class YourAccountDetailsImages extends StatelessWidget {
   YourAccountDetailsImages({
     Key? key,

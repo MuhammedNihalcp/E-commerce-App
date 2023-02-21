@@ -1,7 +1,7 @@
 import 'package:e_commerce/Screens/account/view/widget/text_button_widget.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 
 class AccountButton extends StatelessWidget {
   const AccountButton({

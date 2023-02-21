@@ -5,12 +5,12 @@ import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 import 'package:e_commerce/Screens/home/view/widget/carousel_view.dart';
 import 'package:e_commerce/Screens/home/view/widget/category_items.dart';
 import 'package:e_commerce/Screens/home/view/widget/grid_view.dart';
-import 'package:e_commerce/Screens/payment/view/order_summery/order_summery.dart';
+
 import 'package:e_commerce/Screens/search_screen/view/search_view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/util/cricularProgressWidget/circular_progress_widget.dart';
-import 'package:e_commerce/util/search_bar/search_bar.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

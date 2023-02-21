@@ -4,7 +4,7 @@ import 'package:e_commerce/Screens/account/model/add_account_model.dart';
 import 'package:e_commerce/Screens/account/model/enum_account.dart';
 import 'package:e_commerce/Screens/account/model/get_account_model.dart';
 import 'package:e_commerce/Screens/account/service/add_account_service.dart';
-import 'package:e_commerce/Screens/account_setting/view/account_setting.dart';
+
 import 'package:e_commerce/Screens/auth/sign_in/view/signin_view.dart';
 import 'package:e_commerce/Screens/navigator_screen/controller.dart';
 import 'package:e_commerce/core/text_style.dart';

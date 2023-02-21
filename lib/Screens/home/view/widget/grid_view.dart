@@ -1,6 +1,7 @@
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 import 'package:e_commerce/Screens/home/view/shimmer/product_shimmer.dart';
 
+
 import 'package:e_commerce/common/api/api_baseurl.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
@@ -23,7 +24,7 @@ class ProductGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final wishlistC = Get.put(WishListController(context));
+    // final wishlistC = Get.put(WishListController());
     return GetBuilder<HomeContorller>(
       builder: (controller) => productC.isLoding == true
           ? const ProductShimmer()
@@ -64,30 +65,26 @@ class ProductGridView extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            // GetBuilder<WishListController>(
-                            //   builder: (controller) => Positioned(
-                            //     right: 0,
-                            //     bottom: 0,
-                            //     child: IconButton(
-                            //       onPressed: () {
-                            //         wishlistC.addOrRemoveFromWishlist(
-                            //             context,
-                            //             wishlistC.wmodel!.products[index]
-                            //                 .product.id);
-                            //       },
-                            //       icon: Icon(
-                            //         wishlistC.wishList.contains(wishlistC
-                            //                 .wmodel!.products[index].product.id)
-                            //             ? Icons.favorite_border_outlined
-                            //             : Icons.favorite,
-                            //         color: wishlistC.wishList.contains(wishlistC
-                            //                 .wmodel!.products[index].product.id)
-                            //             ? colorWhite
-                            //             : Colors.red,
-                            //       ),
+                            // Positioned(
+                            //   right: 0,
+                            //   bottom: 0,
+                            //   child: IconButton(
+                            //     onPressed: () {
+                            //       wishlistC.addOrRemoveFromWishlist(wishlistC
+                            //           .wmodel!.products[index].product.id);
+                            //     },
+                            //     icon: Icon(
+                            //       wishlistC.wishList.contains(wishlistC
+                            //               .wmodel!.products[index].product.id)
+                            //           ? Icons.favorite_border_outlined
+                            //           : Icons.favorite,
+                            //       color: wishlistC.wishList.contains(wishlistC
+                            //               .wmodel!.products[index].product.id)
+                            //           ? colorWhite
+                            //           : Colors.red,
                             //     ),
                             //   ),
-                            // )
+                            // ),
                           ],
                         ),
                         const SizedBox(

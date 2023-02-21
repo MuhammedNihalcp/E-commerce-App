@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:e_commerce/Screens/cart/model/get_single_cart_model.dart';
+
 import 'package:e_commerce/Screens/payment/model/order_model.dart';
 import 'package:e_commerce/Screens/payment/service/order_service.dart';
 import 'package:get/get.dart';

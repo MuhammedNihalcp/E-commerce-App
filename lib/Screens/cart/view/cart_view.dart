@@ -1,13 +1,13 @@
-import 'dart:developer';
+
 
 import 'package:e_commerce/Screens/account/controller/account_controller.dart';
 import 'package:e_commerce/Screens/account/view/all_accounts_view/all_account_view.dart';
 import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/cart/view/widget/add_remove_button/add_remove_button.dart';
-import 'package:e_commerce/Screens/cart/view/widget/cart_bottom_button/cart_bottom_button.dart';
+
 import 'package:e_commerce/Screens/cart/view/widget/cart_image_detail/cart_image_details.dart';
 import 'package:e_commerce/Screens/cart/view/widget/cart_shimmer/cart_shimmer.dart';
-import 'package:e_commerce/Screens/home/controller/home_controller.dart';
+
 import 'package:e_commerce/Screens/payment/controller/order_summery_controller/order_summery_controller.dart';
 import 'package:e_commerce/Screens/payment/model/order_enum.dart';
 import 'package:e_commerce/Screens/payment/view/order_summery/order_summery.dart';
@@ -18,6 +18,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class ScreenOrder extends StatelessWidget {
   ScreenOrder({super.key});
 

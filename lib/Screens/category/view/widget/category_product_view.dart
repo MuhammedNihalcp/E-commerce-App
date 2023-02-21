@@ -1,6 +1,5 @@
 import 'package:e_commerce/Screens/category/model/enum_category_model.dart';
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
-import 'package:e_commerce/Screens/home/view/shimmer/product_shimmer.dart';
 import 'package:e_commerce/Screens/product_view_screen/model/product_model.dart';
 
 import 'package:e_commerce/common/api/api_baseurl.dart';
@@ -8,8 +7,9 @@ import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 
-import 'package:get/get.dart';
 
+
+// ignore: must_be_immutable
 class CategoryProductView extends StatelessWidget {
   CategoryProductView({
     Key? key,
