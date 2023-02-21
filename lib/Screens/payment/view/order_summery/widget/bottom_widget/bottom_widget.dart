@@ -3,11 +3,12 @@ import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/payment/controller/order_summery_controller/order_summery_controller.dart';
 import 'package:e_commerce/Screens/payment/controller/payment_controller/payment_controller.dart';
 import 'package:e_commerce/Screens/payment/model/order_enum.dart';
-import 'package:e_commerce/Screens/payment/view/payment/payment.dart';
+
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
+
+// ignore: must_be_immutable
 class BottomWidget extends StatelessWidget {
   BottomWidget({
     Key? key,
