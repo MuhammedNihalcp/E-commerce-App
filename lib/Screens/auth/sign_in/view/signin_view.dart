@@ -206,9 +206,9 @@ class ScreenLogin extends StatelessWidget {
                               ),
                             ),
                           ),
-                          
                         ],
-                      )
+                      ),
+                      
                     ],
                   ),
                 )),
