@@ -7,6 +7,7 @@ import 'package:e_commerce/Screens/account/view/widget/your_account_detail_image
 import 'package:e_commerce/Screens/account/view/widget/your_account_details.dart';
 import 'package:e_commerce/Screens/account/view/widget/your_cart_list.dart';
 import 'package:e_commerce/Screens/account/view/widget/your_cart_list_images.dart';
+import 'package:e_commerce/Screens/account_setting/view/widget/account_setting_widget.dart';
 import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/search_screen/view/search_view.dart';
 import 'package:e_commerce/core/size.dart';
@@ -102,30 +103,35 @@ class ScreenAccount extends StatelessWidget {
                   kHeight20,
                   UserNameImage(),
                   kHeight10,
-                  AccountButton(
+                  AccountSettingWidget(
+                    accountC: accoutC,
                     width: width,
                     height: height,
                   ),
-                  kHeight10,
-                  AccountButtonWidget(
-                    width: width,
-                    height: height,
-                    controller: accoutC,
-                  ),
-                  const YourAccountDetails(),
-                  kHeight10,
-                  YourAccountDetailsImages(
-                    height: height,
-                    order: order,
-                    width: width,
-                  ),
-                  kHeight20,
-                  const YourCartList(),
-                  YourCartListImages(
-                    height: height,
-                    width: width,
-                    order: order,
-                  ),
+                  // AccountButton(
+                  //   width: width,
+                  //   height: height,
+                  // ),
+                  // kHeight10,
+                  // AccountButtonWidget(
+                  //   width: width,
+                  //   height: height,
+                  //   controller: accoutC,
+                  // ),
+                  // const YourAccountDetails(),
+                  // kHeight10,
+                  // YourAccountDetailsImages(
+                  //   height: height,
+                  //   order: order,
+                  //   width: width,
+                  // ),
+                  // kHeight20,
+                  // const YourCartList(),
+                  // YourCartListImages(
+                  //   height: height,
+                  //   width: width,
+                  //   order: order,
+                  // ),
                 ],
               ),
             ),

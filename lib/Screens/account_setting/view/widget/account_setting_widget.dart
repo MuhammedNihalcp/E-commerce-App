@@ -1,6 +1,7 @@
 import 'package:e_commerce/Screens/account/controller/account_controller.dart';
 
 import 'package:e_commerce/Screens/account/view/all_accounts_view/all_account_view.dart';
+import 'package:e_commerce/Screens/order_placed/view/order_placed_screen.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -98,9 +99,11 @@ class AccountSettingWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => const OrderPlacedScreen());
+                  },
                   child: const Text(
-                    'Manage Your Profile',
+                    'Your Order',
                     style: accountsettingTextstyle,
                   ),
                 ),
