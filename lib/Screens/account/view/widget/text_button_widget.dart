@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 
-
 class TextButtonWidget extends StatelessWidget {
   const TextButtonWidget({
     Key? key,
@@ -21,28 +20,29 @@ class TextButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      style: TextButton.styleFrom(
-        side: const BorderSide(
-          width: 1,
-          color: colorGrey,
-        ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(100),
-        ),
-        minimumSize: Size(
-          width * 0.4,
-          height * 0.08,
-        ),
-      ),
-      onPressed: () {
+    return InkWell(
+      onTap: () {
         onPressed;
-        log(onPressed.toString());
-        
       },
-      child: Text(
-        text,
-        style: const TextStyle(color: colorBlack),
+      child: TextButton(
+        style: TextButton.styleFrom(
+          side: const BorderSide(
+            width: 1,
+            color: colorGrey,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(100),
+          ),
+          minimumSize: Size(
+            width * 0.4,
+            height * 0.08,
+          ),
+        ),
+        onPressed: () {},
+        child: Text(
+          text,
+          style: const TextStyle(color: colorBlack),
+        ),
       ),
     );
   }

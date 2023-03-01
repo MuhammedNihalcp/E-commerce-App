@@ -1,3 +1,4 @@
+import 'package:e_commerce/Screens/cart/view/cart_view.dart';
 import 'package:e_commerce/Screens/navigator_screen/controller.dart';
 import 'package:e_commerce/Screens/navigator_screen/view/view.dart';
 import 'package:e_commerce/Screens/order_placed/widgets/order_details_view.dart';
@@ -67,8 +68,7 @@ class OrderPlacedScreen extends StatelessWidget {
                                 elevation: 0,
                               ),
                               onPressed: () {
-                                Get.back();
-                                // bottomNavController.gotoHomescreen();
+                                Get.off(() => ScreenOrder());
                               },
                               child: const Text('Order Now'),
                             ),

@@ -1,7 +1,8 @@
 import 'package:e_commerce/Screens/account/view/widget/text_button_widget.dart';
+import 'package:e_commerce/Screens/order_placed/view/order_placed_screen.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 
 class AccountButton extends StatelessWidget {
   const AccountButton({
@@ -42,7 +43,9 @@ class AccountButton extends StatelessWidget {
           width: width,
           height: height,
           text: 'Your Order',
-          onPressed: () {},
+          onPressed: () {
+            Get.to(() => const OrderPlacedScreen());
+          },
         ),
       ],
     );
