@@ -32,9 +32,9 @@ class PaymentController extends GetxController {
     options = {
       'key': 'rzp_test_K1qY31Ub3PKsMs',
       'amount': amountPayable,
-      'name': 'Scotch',
-      'description': 'Laptop',
-      'prefill': {'contact': '9895709034', 'email': 'Scotch@razorpay.com'},
+      'name': 'MY Shop',
+      'description': 'Watch',
+      'prefill': {'contact': '6238961357', 'email': 'Scotch@razorpay.com'},
       'external': {
         'wallets': ['paytm']
       }
