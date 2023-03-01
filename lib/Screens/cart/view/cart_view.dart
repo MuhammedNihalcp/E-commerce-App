@@ -71,7 +71,7 @@ class ScreenOrder extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: GetBuilder(
             init: accountcontroller,
-            builder: (controller) => GetBuilder<CartController>(
+            builder: (controller) => GetBuilder(
               init: cartC,
               builder: (controller) => GetBuilder(
                 init: ordercontroller,

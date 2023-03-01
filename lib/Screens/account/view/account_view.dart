@@ -102,7 +102,7 @@ class ScreenAccount extends StatelessWidget {
                 children: [
                   kHeight20,
                   UserNameImage(),
-                  kHeight10,
+                  kHeight20,
                   AccountSettingWidget(
                     accountC: accoutC,
                     width: width,
