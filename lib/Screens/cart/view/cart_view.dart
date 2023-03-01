@@ -1,5 +1,3 @@
-
-
 import 'package:e_commerce/Screens/account/controller/account_controller.dart';
 import 'package:e_commerce/Screens/account/view/all_accounts_view/all_account_view.dart';
 import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
@@ -74,6 +72,7 @@ class ScreenOrder extends StatelessWidget {
           child: GetBuilder(
             init: accountcontroller,
             builder: (controller) => GetBuilder<CartController>(
+              init: cartC,
               builder: (controller) => GetBuilder(
                 init: ordercontroller,
                 builder: (controller) => cartC.isLoading == true

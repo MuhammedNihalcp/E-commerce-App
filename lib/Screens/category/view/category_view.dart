@@ -40,6 +40,12 @@ class ScreenCategory extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         actions: [
+          IconButton(
+            onPressed: () {
+              Get.to(() => SearchScreen());
+            },
+            icon: const Icon(Icons.search),
+          ),
           GetBuilder<CartController>(
             builder: (controller) => badges.Badge(
               position: badges.BadgePosition.topEnd(top: 1, end: 2),
@@ -79,9 +85,9 @@ class ScreenCategory extends StatelessWidget {
         ),
         leading: IconButton(
           onPressed: () {
-            Get.to(() => SearchScreen());
+            Get.back();
           },
-          icon: const Icon(Icons.search),
+          icon: const Icon(Icons.arrow_back_rounded),
         ),
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(height * 0.04),

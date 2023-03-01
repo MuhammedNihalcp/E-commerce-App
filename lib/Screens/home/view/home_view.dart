@@ -120,19 +120,14 @@ class ScreenHome extends StatelessWidget {
                           ),
                           TextButton(
                             onPressed: () {
-                              Get.to(() => ScreenCategoryItem(
-                                        height: height,
-                                        width: width,
-                                        selectCategoryScreen: CategoryScreenEnum
-                                            .productSelectCategoryScreen,
-                                      )
-                                  // ScreenCategory(
-                                  //   width: width,
-                                  //   height: height,
-                                  //   selectCategoryScreen:
-                                  //       CategoryScreenEnum.normalCategoryScreen,
-                                  // ),
-                                  );
+                              Get.to(
+                                () => ScreenCategoryItem(
+                                  height: height,
+                                  width: width,
+                                  selectCategoryScreen: CategoryScreenEnum
+                                      .productSelectCategoryScreen,
+                                ),
+                              );
                             },
                             child: const Text(
                               'See All >',
