@@ -10,7 +10,7 @@ import 'package:e_commerce/Screens/search_screen/view/search_view.dart';
 import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:e_commerce/util/cricularProgressWidget/circular_progress_widget.dart';
-
+import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -65,11 +65,23 @@ class ScreenHome extends StatelessWidget {
           icon: const Icon(Icons.search),
         ),
         actions: [
-          IconButton(
-            onPressed: () {
-              cartC.goToCartFromProduct();
-            },
-            icon: const Icon(Icons.shopping_cart),
+          GetBuilder<CartController>(
+            builder: (controller) => badges.Badge(
+              position: badges.BadgePosition.topEnd(top: 1, end: 2),
+              badgeContent: Text(
+                cartC.totalproductCount.toString(),
+                style: const TextStyle(
+                  color: colorWhite,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              child: IconButton(
+                onPressed: () {
+                  cartC.goToCartFromProduct();
+                },
+                icon: const Icon(Icons.shopping_cart),
+              ),
+            ),
           ),
         ],
         bottom: PreferredSize(

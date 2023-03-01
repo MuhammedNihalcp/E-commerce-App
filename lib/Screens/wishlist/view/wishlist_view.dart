@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:badges/badges.dart' as badges;
 
 class WishlistScreen extends StatelessWidget {
   WishlistScreen({Key? key, required this.width, required this.height})
@@ -62,11 +63,26 @@ class WishlistScreen extends StatelessWidget {
           icon: const Icon(Icons.search),
         ),
         actions: [
-          IconButton(
-            onPressed: () {
-              cartC.goToCartFromProduct();
-            },
-            icon: const Icon(Icons.shopping_cart),
+          GetBuilder<CartController>(
+            builder: (controller) => badges.Badge(
+              position: badges.BadgePosition.topEnd(top: 1, end: 2),
+              badgeContent: Text(
+                cartC.totalproductCount.toString(),
+                style: const TextStyle(
+                  color: colorWhite,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              child: IconButton(
+                onPressed: () {
+                  cartC.goToCartFromProduct();
+                },
+                icon: const Icon(
+                  Icons.shopping_cart,
+                  color: colorWhite,
+                ),
+              ),
+            ),
           ),
         ],
         bottom: PreferredSize(

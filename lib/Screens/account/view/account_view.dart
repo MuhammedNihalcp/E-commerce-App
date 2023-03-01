@@ -1,4 +1,3 @@
-
 import 'package:e_commerce/Screens/account/controller/account_controller.dart';
 import 'package:e_commerce/Screens/account/view/widget/accout_button.dart';
 import 'package:e_commerce/Screens/account/view/widget/accout_button_widget.dart';
@@ -14,6 +13,7 @@ import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:badges/badges.dart' as badges;
 
 class ScreenAccount extends StatelessWidget {
   ScreenAccount({Key? key, required this.width, required this.height})
@@ -64,11 +64,26 @@ class ScreenAccount extends StatelessWidget {
           icon: const Icon(Icons.search),
         ),
         actions: [
-          IconButton(
-            onPressed: () {
-              cartC.goToCartFromProduct();
-            },
-            icon: const Icon(Icons.shopping_cart),
+          GetBuilder<CartController>(
+            builder: (controller) => badges.Badge(
+              position: badges.BadgePosition.topEnd(top: 1, end: 2),
+              badgeContent: Text(
+                cartC.totalproductCount.toString(),
+                style: const TextStyle(
+                  color: colorWhite,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              child: IconButton(
+                onPressed: () {
+                  cartC.goToCartFromProduct();
+                },
+                icon: const Icon(
+                  Icons.shopping_cart,
+                  color: colorWhite,
+                ),
+              ),
+            ),
           ),
         ],
         bottom: PreferredSize(

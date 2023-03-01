@@ -9,6 +9,7 @@ import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:badges/badges.dart' as badges;
 
 class ScreenCategory extends StatelessWidget {
   ScreenCategory({
@@ -39,13 +40,25 @@ class ScreenCategory extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         actions: [
-          IconButton(
-            onPressed: () {
-              cartC.goToCartFromProduct();
-            },
-            icon: const Icon(
-              Icons.shopping_cart,
-              color: colorWhite,
+          GetBuilder<CartController>(
+            builder: (controller) => badges.Badge(
+              position: badges.BadgePosition.topEnd(top: 1, end: 2),
+              badgeContent: Text(
+                cartC.totalproductCount.toString(),
+                style: const TextStyle(
+                  color: colorWhite,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              child: IconButton(
+                onPressed: () {
+                  cartC.goToCartFromProduct();
+                },
+                icon: const Icon(
+                  Icons.shopping_cart,
+                  color: colorWhite,
+                ),
+              ),
             ),
           ),
         ],
