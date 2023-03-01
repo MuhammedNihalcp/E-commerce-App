@@ -1,4 +1,5 @@
 import 'package:e_commerce/Screens/account/view/account_view.dart';
+import 'package:e_commerce/Screens/category/view/category_items_view.dart';
 import 'package:e_commerce/Screens/home/view/home_view.dart';
 import 'package:e_commerce/Screens/navigator_screen/controller.dart';
 import 'package:e_commerce/Screens/navigator_screen/view/widget.dart';
@@ -40,11 +41,16 @@ class ScreenNavigator extends StatelessWidget {
                 width: width,
                 height: height,
               ),
-              ScreenCategory(
-                width: width,
+              ScreenCategoryItem(
                 height: height,
+                width: width,
                 selectCategoryScreen: CategoryScreenEnum.normalCategoryScreen,
               ),
+              // ScreenCategory(
+              //   width: width,
+              //   height: height,
+              //   selectCategoryScreen: CategoryScreenEnum.normalCategoryScreen,
+              // ),
               WishlistScreen(
                 width: width,
                 height: height,

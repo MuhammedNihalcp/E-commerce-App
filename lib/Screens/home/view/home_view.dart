@@ -1,5 +1,6 @@
 import 'package:e_commerce/Screens/cart/controller/cart_controller.dart';
 import 'package:e_commerce/Screens/category/model/enum_category_model.dart';
+import 'package:e_commerce/Screens/category/view/category_items_view.dart';
 import 'package:e_commerce/Screens/category/view/category_view.dart';
 import 'package:e_commerce/Screens/home/controller/home_controller.dart';
 import 'package:e_commerce/Screens/home/view/widget/carousel_view.dart';
@@ -119,14 +120,19 @@ class ScreenHome extends StatelessWidget {
                           ),
                           TextButton(
                             onPressed: () {
-                              Get.to(
-                                () => ScreenCategory(
-                                  width: width,
-                                  height: height,
-                                  selectCategoryScreen:
-                                      CategoryScreenEnum.normalCategoryScreen,
-                                ),
-                              );
+                              Get.to(() => ScreenCategoryItem(
+                                        height: height,
+                                        width: width,
+                                        selectCategoryScreen: CategoryScreenEnum
+                                            .productSelectCategoryScreen,
+                                      )
+                                  // ScreenCategory(
+                                  //   width: width,
+                                  //   height: height,
+                                  //   selectCategoryScreen:
+                                  //       CategoryScreenEnum.normalCategoryScreen,
+                                  // ),
+                                  );
                             },
                             child: const Text(
                               'See All >',
