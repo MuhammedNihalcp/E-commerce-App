@@ -87,7 +87,7 @@ class OrderDetialsView extends StatelessWidget {
                                     height: 80,
                                     width: 100,
                                     image: NetworkImage(
-                                        '${ApiBaseUrl().baseUrl}/products/${ordersController.singleModel!.products[index1].product.image[4]}'),
+                                        '${ApiBaseUrl().baseUrl}/products/${ordersController.singleModel!.products[index1].product.image[0]}'),
                                   )
                                 ],
                               ),

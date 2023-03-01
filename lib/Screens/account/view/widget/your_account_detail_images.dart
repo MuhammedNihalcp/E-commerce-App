@@ -20,6 +20,7 @@ class YourAccountDetailsImages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<OrderSummeryController>(
+      init: ordercontroller,
       builder: (controller) => ordercontroller.ordersList!.isEmpty
           ? SizedBox(
               height: height * 0.1,
@@ -52,7 +53,7 @@ class YourAccountDetailsImages extends StatelessWidget {
                         color: colorWhite,
                         image: DecorationImage(
                           image: NetworkImage(ordercontroller.ordersList![index]
-                              .products[index].product.image[0]),
+                              .products[index].product.image[1]),
                         ),
                       ),
                     ),

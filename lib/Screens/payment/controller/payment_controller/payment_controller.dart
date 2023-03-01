@@ -1,11 +1,12 @@
 import 'dart:developer';
 
-
 import 'package:e_commerce/Screens/payment/model/order_model.dart';
 import 'package:e_commerce/Screens/payment/service/order_service.dart';
 import 'package:get/get.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
+import '../../../order_placed/view/order_placed_screen.dart';
 
 class PaymentController extends GetxController {
   Razorpay razorpay = Razorpay();
@@ -94,7 +95,7 @@ class PaymentController extends GetxController {
       if (value != null) {
         loading = false;
         update();
-        // Get.off(const OrderPlacedScreen());
+        Get.off(const OrderPlacedScreen());
       } else {
         loading = false;
         update();

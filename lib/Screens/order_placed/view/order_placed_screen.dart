@@ -76,7 +76,7 @@ class OrderPlacedScreen extends StatelessWidget {
                         ),
                       )
                     : ordersController.isLoading == true
-                        ? const CircularProgressIndicator()
+                        ? const CircularProgressWidget()
                         : SingleChildScrollView(
                             padding: const EdgeInsets.all(20),
                             child: ListView.separated(
@@ -111,7 +111,7 @@ class OrderPlacedScreen extends StatelessWidget {
                                             height: 70,
                                             width: 70,
                                             image: NetworkImage(
-                                              "${ApiBaseUrl().baseUrl}/products/${ordersController.ordersList![index].products[index1].product.image[4]}",
+                                              "${ApiBaseUrl().baseUrl}/products/${ordersController.ordersList![index].products[index1].product.image[0]}",
                                             ),
                                           ),
                                           kWidth10,
