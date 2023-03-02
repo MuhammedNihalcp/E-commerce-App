@@ -56,166 +56,158 @@ class ScreenLogin extends StatelessWidget {
         child: GetBuilder<SignInController>(
           builder: (controller) => SingleChildScrollView(
             child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Form(
-                  key: formGlobalKey,
-                  child: Column(
-                    children: [
-                      kHeight10,
-                      kHeight20,
-                      TextFormField(
-                        controller: signinController.emailController,
-                        keyboardType: TextInputType.emailAddress,
-                        validator: (value) =>
-                            signinController.emailValdation(value),
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          label: const Text(
-                            'Email id',
-                            style: TextStyle(color: colorBlack),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(20)),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(20)),
-                          disabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(20)),
-                          focusedErrorBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Colors.red),
-                              borderRadius: BorderRadius.circular(20)),
-                          errorBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Colors.red),
-                              borderRadius: BorderRadius.circular(20)),
+              padding: const EdgeInsets.all(10.0),
+              child: Form(
+                key: formGlobalKey,
+                child: Column(
+                  children: [
+                    kHeight10,
+                    kHeight20,
+                    TextFormField(
+                      controller: signinController.emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      validator: (value) =>
+                          signinController.emailValdation(value),
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        label: const Text(
+                          'Email id',
+                          style: TextStyle(color: colorBlack),
                         ),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(20)),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(20)),
+                        disabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(20)),
+                        focusedErrorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Colors.red),
+                            borderRadius: BorderRadius.circular(20)),
+                        errorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Colors.red),
+                            borderRadius: BorderRadius.circular(20)),
                       ),
-                      kHeight20,
-                      TextFormField(
-                        controller: signinController.passwordController,
-                        keyboardType: TextInputType.visiblePassword,
-                        validator: (value) =>
-                            signinController.passwordValdation(value),
-                        obscureText: signinController.obscureText,
-                        decoration: InputDecoration(
-                          suffixIcon: IconButton(
+                    ),
+                    kHeight20,
+                    TextFormField(
+                      controller: signinController.passwordController,
+                      keyboardType: TextInputType.visiblePassword,
+                      validator: (value) =>
+                          signinController.passwordValdation(value),
+                      obscureText: signinController.obscureText,
+                      decoration: InputDecoration(
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            signinController.visibility();
+                          },
+                          icon: signinController.icon,
+                          color: colorBlack,
+                        ),
+                        label: const Text(
+                          'Password',
+                          style: TextStyle(color: colorBlack),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(20)),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(20)),
+                        disabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Colors.grey),
+                            borderRadius: BorderRadius.circular(20)),
+                        focusedErrorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Colors.red),
+                            borderRadius: BorderRadius.circular(20)),
+                        errorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(color: Colors.red),
+                            borderRadius: BorderRadius.circular(20)),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
                             onPressed: () {
-                              signinController.visibility();
+                              Get.to(() => ScreenForgotPassword());
                             },
-                            icon: signinController.icon,
-                            color: colorBlack,
+                            child: const Text(
+                              'Forget Password?',
+                              style: TextStyle(
+                                color: colorBlack,
+                              ),
+                            )),
+                      ],
+                    ),
+                    kHeight10,
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(buttonColor),
+                        fixedSize: MaterialStateProperty.all(
+                          Size(width * 0.8, height * 0.08),
+                        ),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
                           ),
-                          label: const Text(
-                            'Password',
-                            style: TextStyle(color: colorBlack),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(20)),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(20)),
-                          disabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Colors.grey),
-                              borderRadius: BorderRadius.circular(20)),
-                          focusedErrorBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Colors.red),
-                              borderRadius: BorderRadius.circular(20)),
-                          errorBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(color: Colors.red),
-                              borderRadius: BorderRadius.circular(20)),
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          TextButton(
-                              onPressed: () {
-                                Get.to(() => ScreenForgotPassword());
-                              },
-                              child: const Text(
-                                'Forget Password?',
-                                style: TextStyle(
-                                  color: colorBlack,
-                                ),
-                              )),
-                        ],
+                      onPressed: () {
+                        if (formGlobalKey.currentState!.validate()) {
+                          formGlobalKey.currentState!.save();
+                          signinController.signIn();
+                        }
+                      },
+                      child: const Text(
+                        'SIGN IN',
+                        style: buttonStyle,
                       ),
-                      kHeight10,
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(buttonColor),
-                          fixedSize: MaterialStateProperty.all(
-                            Size(width * 0.8, height * 0.08),
-                          ),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                          ),
-                        ),
-                        onPressed: () {
-                          if (formGlobalKey.currentState!.validate()) {
-                            formGlobalKey.currentState!.save();
-                            signinController.signIn();
-                          }
-                        },
-                        child: const Text(
-                          'SIGN IN',
-                          style: buttonStyle,
-                        ),
-                      ),
-                      kHeight10,
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text(
-                              "Don't Have an Account?",
-                              style: TextStyle(color: colorBlack),
-                            ),
-                            TextButton(
-                                onPressed: () {
-                                  Get.to(() => ScreenSignUp());
-                                },
-                                child: const Text(
-                                  'Register',
-                                  style: textStyle,
-                                )),
-                          ]),
-                      const Text('or'),
-                      kHeight10,
+                    ),
+                    kHeight10,
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                       const Text(
-                        'Continue with',
+                        "Don't Have an Account?",
+                        style: TextStyle(color: colorBlack),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          GetBuilder<GoogleSignInContorller>(
-                            builder: (controller) => 
-                            SignInButton(Buttons.google, onPressed: (){})
-                            // GestureDetector(
-                            //   onTap: () {
-                            //     google.googleSignins();
-                            //   },
-                            //   child: 
-                            //   Image(
-                            //     width: width * 0.3,
-                            //     height: height * 0.1,
-                            //     image: const AssetImage(
-                            //         'assets/images/google_logo.png'),
-                            //   ),
-                            // ),
-                          ),
-                        ],
-                      ),
-                      
-                    ],
-                  ),
-                )),
+                      TextButton(
+                          onPressed: () {
+                            Get.to(() => ScreenSignUp());
+                          },
+                          child: const Text(
+                            'Register',
+                            style: textStyle,
+                          )),
+                    ]),
+                    const Text('or'),
+                    kHeight10,
+                    const Text(
+                      'Continue with',
+                    ),
+                    GetBuilder<GoogleSignInContorller>(
+                        builder: (controller) =>
+                            SignInButton(Buttons.google, onPressed: () {})
+                        // GestureDetector(
+                        //   onTap: () {
+                        //     google.googleSignins();
+                        //   },
+                        //   child:
+                        //   Image(
+                        //     width: width * 0.3,
+                        //     height: height * 0.1,
+                        //     image: const AssetImage(
+                        //         'assets/images/google_logo.png'),
+                        //   ),
+                        // ),
+                        ),
+                  ],
+                ),
+              ),
+            ),
           ),
         ),
       ),
