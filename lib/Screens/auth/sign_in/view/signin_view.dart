@@ -6,6 +6,7 @@ import 'package:e_commerce/core/size.dart';
 import 'package:e_commerce/core/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sign_in_button/sign_in_button.dart';
 
 // ignore: must_be_immutable
 class ScreenLogin extends StatelessWidget {
@@ -194,17 +195,20 @@ class ScreenLogin extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           GetBuilder<GoogleSignInContorller>(
-                            builder: (controller) => GestureDetector(
-                              onTap: () {
-                                google.googleSignins();
-                              },
-                              child: Image(
-                                width: width * 0.3,
-                                height: height * 0.1,
-                                image: const AssetImage(
-                                    'assets/images/google_logo.png'),
-                              ),
-                            ),
+                            builder: (controller) => 
+                            SignInButton(Buttons.google, onPressed: (){})
+                            // GestureDetector(
+                            //   onTap: () {
+                            //     google.googleSignins();
+                            //   },
+                            //   child: 
+                            //   Image(
+                            //     width: width * 0.3,
+                            //     height: height * 0.1,
+                            //     image: const AssetImage(
+                            //         'assets/images/google_logo.png'),
+                            //   ),
+                            // ),
                           ),
                         ],
                       ),
