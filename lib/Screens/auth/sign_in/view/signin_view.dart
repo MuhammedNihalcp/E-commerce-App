@@ -188,22 +188,20 @@ class ScreenLogin extends StatelessWidget {
                     const Text(
                       'Continue with',
                     ),
+                    kHeight10,
                     GetBuilder<GoogleSignInContorller>(
-                        builder: (controller) =>
-                            SignInButton(Buttons.google, onPressed: () {})
-                        // GestureDetector(
-                        //   onTap: () {
-                        //     google.googleSignins();
-                        //   },
-                        //   child:
-                        //   Image(
-                        //     width: width * 0.3,
-                        //     height: height * 0.1,
-                        //     image: const AssetImage(
-                        //         'assets/images/google_logo.png'),
-                        //   ),
-                        // ),
+                      builder: (controller) => GestureDetector(
+                        onTap: () {
+                          google.googleSignins();
+                        },
+                        child: Image(
+                          width: width * 0.3,
+                          height: height * 0.1,
+                          image:
+                              const AssetImage('assets/images/google_logo.png'),
                         ),
+                      ),
+                    ),
                   ],
                 ),
               ),
