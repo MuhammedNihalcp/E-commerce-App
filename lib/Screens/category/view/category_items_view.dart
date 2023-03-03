@@ -29,6 +29,14 @@ class ScreenCategoryItem extends StatelessWidget {
       backgroundColor: backgroundColor,
       appBar: AppBar(
         actions: [
+          selectCategoryScreen == CategoryScreenEnum.productSelectCategoryScreen
+              ? IconButton(
+                  onPressed: () {
+                    Get.to(() => SearchScreen());
+                  },
+                  icon: const Icon(Icons.search),
+                )
+              : const SizedBox(),
           GetBuilder<CartController>(
             builder: (controller) => badges.Badge(
               position: badges.BadgePosition.topEnd(top: 1, end: 2),

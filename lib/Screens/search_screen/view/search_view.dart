@@ -33,6 +33,7 @@ class SearchScreen extends StatelessWidget {
                   SizedBox(
                     height: 45,
                     child: CupertinoSearchTextField(
+                      autofocus: true,
                       prefixInsets:
                           const EdgeInsetsDirectional.fromSTEB(10, 4, 5, 3),
                       backgroundColor: const Color(0xFFF0EFFF),
@@ -46,10 +47,10 @@ class SearchScreen extends StatelessWidget {
                   homeController.seachResult.isEmpty
                       ? SizedBox(
                           height: Get.size.height * 0.7,
-                          child: const Center(
+                          child: Center(
                             child: Text(
                               'No Search Results Found',
-                              style: TextStyle(fontSize: 20),
+                              style: gooleaborto,
                             ),
                           ),
                         )
