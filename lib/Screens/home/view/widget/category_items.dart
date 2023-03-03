@@ -30,18 +30,22 @@ class HomePageCategoryItems extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: List.generate(
-                controllers.categoryList.length,
+                controllers.categoryList.length >= 8
+                    ? 8
+                    : controllers.categoryList.length,
                 (index) => Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(
                     onTap: () {
-                      Get.to(ScreenCategory(
-                        width: width,
-                        height: height,
-                        selectCategoryScreen:
-                            CategoryScreenEnum.productSelectCategoryScreen,
-                        categoryId: controllers.categoryList[index].id,
-                      ));
+                      Get.to(
+                        ScreenCategory(
+                          width: width,
+                          height: height,
+                          selectCategoryScreen:
+                              CategoryScreenEnum.productSelectCategoryScreen,
+                          categoryId: controllers.categoryList[index].id,
+                        ),
+                      );
                     },
                     child: Column(
                       // alignment: AlignmentDirectional.center,
