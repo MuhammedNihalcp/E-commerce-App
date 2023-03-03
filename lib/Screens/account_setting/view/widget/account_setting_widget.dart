@@ -78,7 +78,60 @@ class AccountSettingWidget extends StatelessWidget {
                 children: [
                   TextButton(
                     onPressed: () {
-                      accountC.logout();
+                      Get.defaultDialog(
+                        title: 'Tips',
+                        middleText: 'Conform to logout',
+                        backgroundColor: colorVailet,
+                        titleStyle: const TextStyle(color: colorWhite),
+                        middleTextStyle: const TextStyle(color: colorGrey),
+                        confirm: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(buttonColor),
+                            fixedSize: MaterialStateProperty.all(
+                              Size(width * 0.4, height * 0.05),
+                            ),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          ),
+                          onPressed: () {
+                            accountC.logout();
+                          },
+                          child: const Text(
+                            'Conform',
+                            style: buttonStyle,
+                          ),
+                        ),
+                        cancel: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.transparent),
+                            fixedSize: MaterialStateProperty.all(
+                              Size(width * 0.4, height * 0.05),
+                            ),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                side: const BorderSide(color: buttonColor,width: 2),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                          ),
+                          onPressed: () {
+                            Get.back();
+                          },
+                          child: const Text(
+                            'Cancel',
+                            style: buttonStyle,
+                          ),
+                        ),
+                      );
+
+                      // accountC.logout();
                     },
                     child: const Text(
                       'Logout',
